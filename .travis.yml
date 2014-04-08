@@ -1,10 +1,10 @@
 language: objective-c
 # rvm: 1.9.3
 before_install:
-	- brew update
-	- brew install xctool
-	- gem install cocoapods
+ - brew update
+ - brew install xctool
+ - gem install cocoapods
 	
 script:
-	- xctool -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiary -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-	- xctool test -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiaryTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+ - xctool -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiary -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+ - xctool test -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiaryTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
