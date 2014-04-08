@@ -21,6 +21,8 @@
 		24C38A0718F455AF00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
 		24C38A0F18F455AF00CC7105 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24C38A0D18F455AF00CC7105 /* InfoPlist.strings */; };
 		24C38A1118F455AF00CC7105 /* fieldworksdiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C38A1018F455AF00CC7105 /* fieldworksdiaryTests.m */; };
+		24C38A1B18F463DB00CC7105 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1A18F463DB00CC7105 /* MapKit.framework */; };
+		24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1C18F4642A00CC7105 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		24C38A0C18F455AF00CC7105 /* fieldworksdiaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fieldworksdiaryTests-Info.plist"; sourceTree = "<group>"; };
 		24C38A0E18F455AF00CC7105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24C38A1018F455AF00CC7105 /* fieldworksdiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fieldworksdiaryTests.m; sourceTree = "<group>"; };
+		24C38A1A18F463DB00CC7105 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		24C38A1C18F4642A00CC7105 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +64,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */,
 				24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */,
 				24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */,
+				24C38A1B18F463DB00CC7105 /* MapKit.framework in Frameworks */,
 				24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +107,8 @@
 		24C389E418F455AE00CC7105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24C38A1C18F4642A00CC7105 /* CoreData.framework */,
+				24C38A1A18F463DB00CC7105 /* MapKit.framework */,
 				24C389E518F455AE00CC7105 /* Foundation.framework */,
 				24C389E718F455AE00CC7105 /* CoreGraphics.framework */,
 				24C389E918F455AE00CC7105 /* UIKit.framework */,
@@ -199,6 +207,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jo Brunner";
 				TargetAttributes = {
+					24C389E118F455AE00CC7105 = {
+						DevelopmentTeam = L79BTFY6FV;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					24C38A0218F455AF00CC7105 = {
 						TestTargetID = 24C389E118F455AE00CC7105;
 					};
@@ -376,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
@@ -389,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
@@ -456,6 +474,7 @@
 				24C38A1618F455AF00CC7105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24C38A1718F455AF00CC7105 /* Build configuration list for PBXNativeTarget "fieldworksdiaryTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +483,7 @@
 				24C38A1918F455AF00CC7105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
