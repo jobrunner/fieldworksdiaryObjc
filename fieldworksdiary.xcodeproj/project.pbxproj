@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
+		24A7608918F488DF00DA9695 /* MockTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608818F488DF00DA9695 /* MockTextField.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
 		24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E718F455AE00CC7105 /* CoreGraphics.framework */; };
 		24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
@@ -14,13 +16,12 @@
 		24C389F218F455AE00CC7105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389F118F455AE00CC7105 /* main.m */; };
 		24C389F618F455AE00CC7105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389F518F455AE00CC7105 /* AppDelegate.m */; };
 		24C389F918F455AE00CC7105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C389F718F455AE00CC7105 /* Main.storyboard */; };
-		24C389FC18F455AE00CC7105 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389FB18F455AE00CC7105 /* ViewController.m */; };
+		24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389FB18F455AE00CC7105 /* TestDummyViewController.m */; };
 		24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C389FD18F455AE00CC7105 /* Images.xcassets */; };
 		24C38A0518F455AF00CC7105 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A0418F455AF00CC7105 /* XCTest.framework */; };
 		24C38A0618F455AF00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
 		24C38A0718F455AF00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
 		24C38A0F18F455AF00CC7105 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24C38A0D18F455AF00CC7105 /* InfoPlist.strings */; };
-		24C38A1118F455AF00CC7105 /* fieldworksdiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C38A1018F455AF00CC7105 /* fieldworksdiaryTests.m */; };
 		24C38A1B18F463DB00CC7105 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1A18F463DB00CC7105 /* MapKit.framework */; };
 		24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1C18F4642A00CC7105 /* CoreData.framework */; };
 		A8704A317FA64636ACC3A92C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161C9F8E15094E668177432D /* libPods.a */; };
@@ -39,6 +40,9 @@
 /* Begin PBXFileReference section */
 		161C9F8E15094E668177432D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDummyControllerViewTest.m; sourceTree = "<group>"; };
+		24A7608718F488DF00DA9695 /* MockTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockTextField.h; sourceTree = "<group>"; };
+		24A7608818F488DF00DA9695 /* MockTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTextField.m; sourceTree = "<group>"; };
 		24C389E218F455AE00CC7105 /* fieldworksdiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fieldworksdiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -50,14 +54,13 @@
 		24C389F418F455AE00CC7105 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24C389F518F455AE00CC7105 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		24C389F818F455AE00CC7105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		24C389FA18F455AE00CC7105 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		24C389FB18F455AE00CC7105 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		24C389FA18F455AE00CC7105 /* TestDummyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDummyViewController.h; sourceTree = "<group>"; };
+		24C389FB18F455AE00CC7105 /* TestDummyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDummyViewController.m; sourceTree = "<group>"; };
 		24C389FD18F455AE00CC7105 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24C38A0318F455AF00CC7105 /* fieldworksdiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fieldworksdiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C38A0418F455AF00CC7105 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		24C38A0C18F455AF00CC7105 /* fieldworksdiaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fieldworksdiaryTests-Info.plist"; sourceTree = "<group>"; };
 		24C38A0E18F455AF00CC7105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24C38A1018F455AF00CC7105 /* fieldworksdiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fieldworksdiaryTests.m; sourceTree = "<group>"; };
 		24C38A1A18F463DB00CC7105 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24C38A1C18F4642A00CC7105 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -89,11 +92,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24A7608618F488AF00DA9695 /* MockClasses */ = {
+			isa = PBXGroup;
+			children = (
+				24A7608718F488DF00DA9695 /* MockTextField.h */,
+				24A7608818F488DF00DA9695 /* MockTextField.m */,
+			);
+			name = MockClasses;
+			sourceTree = "<group>";
+		};
 		24C389D918F455AE00CC7105 = {
 			isa = PBXGroup;
 			children = (
 				24C389EB18F455AE00CC7105 /* fieldworksdiary */,
-				24C38A0A18F455AF00CC7105 /* fieldworksdiaryTests */,
+				24C38A0A18F455AF00CC7105 /* Tests */,
 				24C389E418F455AE00CC7105 /* Frameworks */,
 				24C389E318F455AE00CC7105 /* Products */,
 				243C53AB50E74777B0E1813B /* Pods.xcconfig */,
@@ -149,12 +161,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24C38A0A18F455AF00CC7105 /* fieldworksdiaryTests */ = {
+		24C38A0A18F455AF00CC7105 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				24C38A1018F455AF00CC7105 /* fieldworksdiaryTests.m */,
+				24A7608618F488AF00DA9695 /* MockClasses */,
+				24C38A2218F47A9800CC7105 /* ControllerTests */,
 				24C38A0B18F455AF00CC7105 /* Supporting Files */,
 			);
+			name = Tests;
 			path = fieldworksdiaryTests;
 			sourceTree = "<group>";
 		};
@@ -178,8 +192,8 @@
 		24C38A1F18F46AFD00CC7105 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				24C389FA18F455AE00CC7105 /* ViewController.h */,
-				24C389FB18F455AE00CC7105 /* ViewController.m */,
+				24C389FA18F455AE00CC7105 /* TestDummyViewController.h */,
+				24C389FB18F455AE00CC7105 /* TestDummyViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -196,6 +210,14 @@
 			children = (
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		24C38A2218F47A9800CC7105 /* ControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */,
+			);
+			name = ControllerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C389FC18F455AE00CC7105 /* ViewController.m in Sources */,
+				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,
 				24C389F618F455AE00CC7105 /* AppDelegate.m in Sources */,
 				24C389F218F455AE00CC7105 /* main.m in Sources */,
 			);
@@ -348,7 +370,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C38A1118F455AF00CC7105 /* fieldworksdiaryTests.m in Sources */,
+				24A7608918F488DF00DA9695 /* MockTextField.m in Sources */,
+				24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
