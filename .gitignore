@@ -1,7 +1,17 @@
+# Mac OSX
 [Tt]humbs.db
 .DS_Store
-Pods/
-Podfile.lock
+
+# Storm
+.idea
+
+# XCode
+build/
+DerivedData/
 *.xcodeproj/project.xcworkspace
 *.xcodeproj/xcuserdata
 *.xcworkspace/xcuserdata
+
+# Cocoapods
+Pods/
+Podfile.lock

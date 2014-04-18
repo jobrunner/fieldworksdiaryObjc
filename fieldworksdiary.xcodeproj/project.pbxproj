@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
 		24A7608918F488DF00DA9695 /* MockTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608818F488DF00DA9695 /* MockTextField.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		161C9F8E15094E668177432D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDummyControllerViewTest.m; sourceTree = "<group>"; };
 		24A7608718F488DF00DA9695 /* MockTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockTextField.h; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		24C389D918F455AE00CC7105 = {
 			isa = PBXGroup;
 			children = (
+				24290E06190138CA007BD8AF /* .gitignore */,
 				24C389EB18F455AE00CC7105 /* fieldworksdiary */,
 				24C38A0A18F455AF00CC7105 /* Tests */,
 				24C389E418F455AE00CC7105 /* Frameworks */,
@@ -306,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24290E07190138CA007BD8AF /* .gitignore in Resources */,
 				24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */,
 				24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */,
 				24C389F918F455AE00CC7105 /* Main.storyboard in Resources */,
