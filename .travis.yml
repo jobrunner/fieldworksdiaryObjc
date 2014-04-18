@@ -1,6 +1,5 @@
 language: objective-c
 rvm: 1.9.3
-export LC_ALL=en_US.UTF-8
 script:
 	- xctool -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiary -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 	- xctool test -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiaryTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
