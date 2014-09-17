@@ -1,8 +1,4 @@
 language: objective-c
-rvm: 1.9.3
-before_script:
-  - export LANG=en_US.UTF-8
-  - sudo gem install cocoapods
-script:
-    - xctool -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiary -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-    - xctool test -workspace fieldworksdiary.xcworkspace -scheme fieldworksdiaryTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+
+before_script: travis/before_script.sh
+script: travis/script.sh
