@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CollectingMethod" representedClassName="CollectingMethod" syncable="YES">
         <attribute name="methodName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -28,8 +28,10 @@
         <attribute name="ocean" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sectionIdentifier" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specimenIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="specimenMajorId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="specimenMinorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specimenNotes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subAdministrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="sunrise" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sunset" optional="YES" attributeType="Date" syncable="YES"/>
@@ -130,12 +132,12 @@
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="specimens" inverseEntity="Project" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CollectingMethod" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Fieldtrip" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Finding" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Person" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Project" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Specimen" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CollectingMethod" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="658"/>
+        <element name="Finding" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Person" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="Project" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Specimen" positionX="0" positionY="0" width="128" height="645"/>
     </elements>
 </model>

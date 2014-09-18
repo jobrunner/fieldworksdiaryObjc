@@ -37,8 +37,10 @@
 @dynamic ocean;
 @dynamic pressure;
 @dynamic sectionIdentifier;
+@dynamic specimenIdentifier;
 @dynamic specimenMajorId;
 @dynamic specimenMinorId;
+@dynamic specimenNotes;
 @dynamic sunrise;
 @dynamic sunset;
 @dynamic temperature;

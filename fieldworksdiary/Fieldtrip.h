@@ -36,6 +36,8 @@
 @property (nonatomic, retain) NSString * ocean;
 @property (nonatomic, retain) NSNumber * pressure;
 @property (nonatomic, retain) NSString * sectionIdentifier;
+@property (nonatomic, retain) NSString * specimenIdentifier;
+@property (nonatomic, retain) NSString * specimenNotes;
 @property (nonatomic, retain) NSString * specimenMajorId;
 @property (nonatomic, retain) NSString * specimenMinorId;
 @property (nonatomic, retain) NSDate * sunrise;
@@ -77,4 +79,5 @@
 - (CLLocation *)locationFromUndefined;
 - (void)setLocation:(CLLocation *)location;
 - (void)defaultsWithLocalityName:(NSString *)localityName;
+
 @end
