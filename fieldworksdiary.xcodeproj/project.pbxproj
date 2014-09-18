@@ -10,6 +10,50 @@
 		24249AA419CADD8500D2D01C /* before_script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 24249AA219CADD8500D2D01C /* before_script.sh */; };
 		24249AA519CADD8500D2D01C /* script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 24249AA319CADD8500D2D01C /* script.sh */; };
 		24249AA719CAF83B00D2D01C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 24249AA619CAF83B00D2D01C /* Podfile */; };
+		24249AA919CB266700D2D01C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24249AA819CB266700D2D01C /* Main.storyboard */; };
+		24249AAC19CB2F2900D2D01C /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AAB19CB2F2900D2D01C /* NavigationController.m */; };
+		24249ABF19CB2F8800D2D01C /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AAE19CB2F8700D2D01C /* HomeController.m */; };
+		24249AC019CB2F8800D2D01C /* FieldtripsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB019CB2F8700D2D01C /* FieldtripsController.m */; };
+		24249AC119CB2F8800D2D01C /* FieldtripController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB219CB2F8700D2D01C /* FieldtripController.m */; };
+		24249AC219CB2F8800D2D01C /* FieldtripDetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB419CB2F8700D2D01C /* FieldtripDetailsEditViewController.m */; };
+		24249AC319CB2F8800D2D01C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB619CB2F8700D2D01C /* AboutViewController.m */; };
+		24249AC419CB2F8800D2D01C /* ProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB819CB2F8800D2D01C /* ProjectTableViewController.m */; };
+		24249AC519CB2F8800D2D01C /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */; };
+		24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */; };
+		24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABE19CB2F8800D2D01C /* SpecimenDetailsTableViewController.m */; };
+		24249ACB19CB307000D2D01C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ACA19CB307000D2D01C /* AppDelegate.m */; };
+		24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ACD19CB30A000D2D01C /* GoogleGeocoder.m */; };
+		24249AD519CB30A000D2D01C /* Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ACF19CB30A000D2D01C /* Conversion.m */; };
+		24249AD619CB30A000D2D01C /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AD119CB30A000D2D01C /* LocationService.m */; };
+		24249AD719CB30A000D2D01C /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AD319CB30A000D2D01C /* Crypto.m */; };
+		24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 24249AD819CB30B800D2D01C /* fieldworksdiary.xcdatamodel */; };
+		24249AEC19CB30B800D2D01C /* Fieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ADA19CB30B800D2D01C /* Fieldtrip.m */; };
+		24249AED19CB30B800D2D01C /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ADC19CB30B800D2D01C /* Image.m */; };
+		24249AEE19CB30B800D2D01C /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ADE19CB30B800D2D01C /* Project.m */; };
+		24249AEF19CB30B800D2D01C /* Specimen.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AE019CB30B800D2D01C /* Specimen.m */; };
+		24249AF019CB30B800D2D01C /* CollectingMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AE219CB30B800D2D01C /* CollectingMethod.m */; };
+		24249AF119CB30B800D2D01C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AE419CB30B800D2D01C /* Person.m */; };
+		24249AF219CB30B800D2D01C /* Finding.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AE619CB30B800D2D01C /* Finding.m */; };
+		24249AF319CB30B800D2D01C /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AE819CB30B800D2D01C /* Collection.m */; };
+		24249AF419CB30B800D2D01C /* Placemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AEA19CB30B800D2D01C /* Placemark.m */; };
+		24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AF619CB30DF00D2D01C /* TimeZoneTransformer.m */; };
+		24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFA19CB311F00D2D01C /* ImageViewCell.m */; };
+		24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFC19CB311F00D2D01C /* TextFieldCell.m */; };
+		24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */; };
+		24249B0619CB312C00D2D01C /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0219CB312C00D2D01C /* ProjectTableViewCell.m */; };
+		24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0419CB312C00D2D01C /* HomeTableViewCell.m */; };
+		24249B1E19CB314C00D2D01C /* FieldtripDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */; };
+		24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */; };
+		24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */; };
+		24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */; };
+		24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */; };
+		24249B2319CB314C00D2D01C /* FieldtripDetailsSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1519CB314C00D2D01C /* FieldtripDetailsSummaryCell.m */; };
+		24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */; };
+		24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */; };
+		24249B2619CB314C00D2D01C /* FieldtripDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */; };
+		24249B2719CB314C00D2D01C /* FieldtripDetailsProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1D19CB314C00D2D01C /* FieldtripDetailsProjectCell.m */; };
+		24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2819CB32D900D2D01C /* FO-1.gpx */; };
+		24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2919CB32D900D2D01C /* FO-2.gpx */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
@@ -19,8 +63,6 @@
 		24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
 		24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24C389EE18F455AE00CC7105 /* InfoPlist.strings */; };
 		24C389F218F455AE00CC7105 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389F118F455AE00CC7105 /* main.m */; };
-		24C389F618F455AE00CC7105 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389F518F455AE00CC7105 /* AppDelegate.m */; };
-		24C389F918F455AE00CC7105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C389F718F455AE00CC7105 /* Main.storyboard */; };
 		24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C389FB18F455AE00CC7105 /* TestDummyViewController.m */; };
 		24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C389FD18F455AE00CC7105 /* Images.xcassets */; };
 		24C38A0518F455AF00CC7105 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A0418F455AF00CC7105 /* XCTest.framework */; };
@@ -47,13 +89,99 @@
 		24249AA219CADD8500D2D01C /* before_script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = before_script.sh; sourceTree = "<group>"; };
 		24249AA319CADD8500D2D01C /* script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = script.sh; sourceTree = "<group>"; };
 		24249AA619CAF83B00D2D01C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		24249AA819CB266700D2D01C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		24249AAA19CB2F2900D2D01C /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		24249AAB19CB2F2900D2D01C /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		24249AAD19CB2F8700D2D01C /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		24249AAE19CB2F8700D2D01C /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		24249AAF19CB2F8700D2D01C /* FieldtripsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripsController.h; sourceTree = "<group>"; };
+		24249AB019CB2F8700D2D01C /* FieldtripsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripsController.m; sourceTree = "<group>"; };
+		24249AB119CB2F8700D2D01C /* FieldtripController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripController.h; sourceTree = "<group>"; };
+		24249AB219CB2F8700D2D01C /* FieldtripController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripController.m; sourceTree = "<group>"; };
+		24249AB319CB2F8700D2D01C /* FieldtripDetailsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsEditViewController.h; sourceTree = "<group>"; };
+		24249AB419CB2F8700D2D01C /* FieldtripDetailsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsEditViewController.m; sourceTree = "<group>"; };
+		24249AB519CB2F8700D2D01C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		24249AB619CB2F8700D2D01C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		24249AB719CB2F8800D2D01C /* ProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewController.h; sourceTree = "<group>"; };
+		24249AB819CB2F8800D2D01C /* ProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewController.m; sourceTree = "<group>"; };
+		24249AB919CB2F8800D2D01C /* ProjectDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsViewController.h; sourceTree = "<group>"; };
+		24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailsViewController.m; sourceTree = "<group>"; };
+		24249ABB19CB2F8800D2D01C /* SpecimenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecimenTableViewController.h; sourceTree = "<group>"; };
+		24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecimenTableViewController.m; sourceTree = "<group>"; };
+		24249ABD19CB2F8800D2D01C /* SpecimenDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecimenDetailsTableViewController.h; sourceTree = "<group>"; };
+		24249ABE19CB2F8800D2D01C /* SpecimenDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecimenDetailsTableViewController.m; sourceTree = "<group>"; };
+		24249AC819CB303B00D2D01C /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		24249AC919CB307000D2D01C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		24249ACA19CB307000D2D01C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		24249ACC19CB30A000D2D01C /* GoogleGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleGeocoder.h; sourceTree = "<group>"; };
+		24249ACD19CB30A000D2D01C /* GoogleGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleGeocoder.m; sourceTree = "<group>"; };
+		24249ACE19CB30A000D2D01C /* Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversion.h; sourceTree = "<group>"; };
+		24249ACF19CB30A000D2D01C /* Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversion.m; sourceTree = "<group>"; };
+		24249AD019CB30A000D2D01C /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		24249AD119CB30A000D2D01C /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		24249AD219CB30A000D2D01C /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
+		24249AD319CB30A000D2D01C /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
+		24249AD819CB30B800D2D01C /* fieldworksdiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fieldworksdiary.xcdatamodel; sourceTree = "<group>"; };
+		24249AD919CB30B800D2D01C /* Fieldtrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fieldtrip.h; sourceTree = "<group>"; };
+		24249ADA19CB30B800D2D01C /* Fieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fieldtrip.m; sourceTree = "<group>"; };
+		24249ADB19CB30B800D2D01C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		24249ADC19CB30B800D2D01C /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		24249ADD19CB30B800D2D01C /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		24249ADE19CB30B800D2D01C /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		24249ADF19CB30B800D2D01C /* Specimen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specimen.h; sourceTree = "<group>"; };
+		24249AE019CB30B800D2D01C /* Specimen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specimen.m; sourceTree = "<group>"; };
+		24249AE119CB30B800D2D01C /* CollectingMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectingMethod.h; sourceTree = "<group>"; };
+		24249AE219CB30B800D2D01C /* CollectingMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectingMethod.m; sourceTree = "<group>"; };
+		24249AE319CB30B800D2D01C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		24249AE419CB30B800D2D01C /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		24249AE519CB30B800D2D01C /* Finding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Finding.h; sourceTree = "<group>"; };
+		24249AE619CB30B800D2D01C /* Finding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Finding.m; sourceTree = "<group>"; };
+		24249AE719CB30B800D2D01C /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
+		24249AE819CB30B800D2D01C /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
+		24249AE919CB30B800D2D01C /* Placemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Placemark.h; sourceTree = "<group>"; };
+		24249AEA19CB30B800D2D01C /* Placemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Placemark.m; sourceTree = "<group>"; };
+		24249AF519CB30DF00D2D01C /* TimeZoneTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZoneTransformer.h; sourceTree = "<group>"; };
+		24249AF619CB30DF00D2D01C /* TimeZoneTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZoneTransformer.m; sourceTree = "<group>"; };
+		24249AF919CB311F00D2D01C /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
+		24249AFA19CB311F00D2D01C /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
+		24249AFB19CB311F00D2D01C /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		24249AFC19CB311F00D2D01C /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		24249AFF19CB312C00D2D01C /* FieldtripTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripTableViewCell.h; sourceTree = "<group>"; };
+		24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripTableViewCell.m; sourceTree = "<group>"; };
+		24249B0119CB312C00D2D01C /* ProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewCell.h; sourceTree = "<group>"; };
+		24249B0219CB312C00D2D01C /* ProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewCell.m; sourceTree = "<group>"; };
+		24249B0319CB312C00D2D01C /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		24249B0419CB312C00D2D01C /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		24249B0919CB314C00D2D01C /* FieldtripDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsViewController.h; sourceTree = "<group>"; };
+		24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsViewController.m; sourceTree = "<group>"; };
+		24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsCellProtocol.h; sourceTree = "<group>"; };
+		24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationNameCell.h; sourceTree = "<group>"; };
+		24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationNameCell.m; sourceTree = "<group>"; };
+		24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSpecimenIdentifierCell.h; sourceTree = "<group>"; };
+		24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSpecimenIdentifierCell.m; sourceTree = "<group>"; };
+		24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationCell.h; sourceTree = "<group>"; };
+		24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationCell.m; sourceTree = "<group>"; };
+		24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsPlacemarkCell.h; sourceTree = "<group>"; };
+		24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsPlacemarkCell.m; sourceTree = "<group>"; };
+		24249B1419CB314C00D2D01C /* FieldtripDetailsSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSummaryCell.h; sourceTree = "<group>"; };
+		24249B1519CB314C00D2D01C /* FieldtripDetailsSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSummaryCell.m; sourceTree = "<group>"; };
+		24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsMapViewCell.h; sourceTree = "<group>"; };
+		24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsMapViewCell.m; sourceTree = "<group>"; };
+		24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSunriseSunsetCell.h; sourceTree = "<group>"; };
+		24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSunriseSunsetCell.m; sourceTree = "<group>"; };
+		24249B1A19CB314C00D2D01C /* FieldtripDetailsDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsDateCell.h; sourceTree = "<group>"; };
+		24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsDateCell.m; sourceTree = "<group>"; };
+		24249B1C19CB314C00D2D01C /* FieldtripDetailsProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsProjectCell.h; sourceTree = "<group>"; };
+		24249B1D19CB314C00D2D01C /* FieldtripDetailsProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsProjectCell.m; sourceTree = "<group>"; };
+		24249B2819CB32D900D2D01C /* FO-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-1.gpx"; sourceTree = "<group>"; };
+		24249B2919CB32D900D2D01C /* FO-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-2.gpx"; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDummyControllerViewTest.m; sourceTree = "<group>"; };
 		24A7608718F488DF00DA9695 /* MockTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockTextField.h; sourceTree = "<group>"; };
 		24A7608818F488DF00DA9695 /* MockTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTextField.m; sourceTree = "<group>"; };
-		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C389E218F455AE00CC7105 /* fieldworksdiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fieldworksdiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		24C389E918F455AE00CC7105 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -61,9 +189,6 @@
 		24C389EF18F455AE00CC7105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24C389F118F455AE00CC7105 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24C389F318F455AE00CC7105 /* fieldworksdiary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fieldworksdiary-Prefix.pch"; sourceTree = "<group>"; };
-		24C389F418F455AE00CC7105 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		24C389F518F455AE00CC7105 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		24C389F818F455AE00CC7105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C389FA18F455AE00CC7105 /* TestDummyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDummyViewController.h; sourceTree = "<group>"; };
 		24C389FB18F455AE00CC7105 /* TestDummyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDummyViewController.m; sourceTree = "<group>"; };
 		24C389FD18F455AE00CC7105 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -111,6 +236,43 @@
 			path = travis;
 			sourceTree = "<group>";
 		};
+		24249AF819CB30E400D2D01C /* Transformer */ = {
+			isa = PBXGroup;
+			children = (
+				24249AF519CB30DF00D2D01C /* TimeZoneTransformer.h */,
+				24249AF619CB30DF00D2D01C /* TimeZoneTransformer.m */,
+			);
+			name = Transformer;
+			sourceTree = "<group>";
+		};
+		24249B0819CB313700D2D01C /* FieldtripDetails */ = {
+			isa = PBXGroup;
+			children = (
+				24249B0919CB314C00D2D01C /* FieldtripDetailsViewController.h */,
+				24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */,
+				24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */,
+				24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */,
+				24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */,
+				24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */,
+				24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */,
+				24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */,
+				24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */,
+				24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */,
+				24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */,
+				24249B1419CB314C00D2D01C /* FieldtripDetailsSummaryCell.h */,
+				24249B1519CB314C00D2D01C /* FieldtripDetailsSummaryCell.m */,
+				24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */,
+				24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */,
+				24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */,
+				24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */,
+				24249B1A19CB314C00D2D01C /* FieldtripDetailsDateCell.h */,
+				24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */,
+				24249B1C19CB314C00D2D01C /* FieldtripDetailsProjectCell.h */,
+				24249B1D19CB314C00D2D01C /* FieldtripDetailsProjectCell.m */,
+			);
+			name = FieldtripDetails;
+			sourceTree = "<group>";
+		};
 		24290E0A19013BFF007BD8AF /* infra */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +308,7 @@
 		24C389E318F455AE00CC7105 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24C389E218F455AE00CC7105 /* Diary.app */,
+				24C389E218F455AE00CC7105 /* fieldworksdiary.app */,
 				24C38A0318F455AF00CC7105 /* fieldworksdiaryTests.xctest */,
 			);
 			name = Products;
@@ -169,8 +331,9 @@
 		24C389EB18F455AE00CC7105 /* fieldworksdiary */ = {
 			isa = PBXGroup;
 			children = (
-				24C389F418F455AE00CC7105 /* AppDelegate.h */,
-				24C389F518F455AE00CC7105 /* AppDelegate.m */,
+				24249AC919CB307000D2D01C /* AppDelegate.h */,
+				24249ACA19CB307000D2D01C /* AppDelegate.m */,
+				24249AC819CB303B00D2D01C /* Enums.h */,
 				24C38A2018F46B0400CC7105 /* Models */,
 				24C38A1E18F46AE900CC7105 /* View */,
 				24C38A1F18F46AFD00CC7105 /* Controller */,
@@ -188,6 +351,8 @@
 				24C389EE18F455AE00CC7105 /* InfoPlist.strings */,
 				24C389F118F455AE00CC7105 /* main.m */,
 				24C389F318F455AE00CC7105 /* fieldworksdiary-Prefix.pch */,
+				24249B2819CB32D900D2D01C /* FO-1.gpx */,
+				24249B2919CB32D900D2D01C /* FO-2.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,7 +380,18 @@
 		24C38A1E18F46AE900CC7105 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				24C389F718F455AE00CC7105 /* Main.storyboard */,
+				24249AA819CB266700D2D01C /* Main.storyboard */,
+				24249B0819CB313700D2D01C /* FieldtripDetails */,
+				24249AFF19CB312C00D2D01C /* FieldtripTableViewCell.h */,
+				24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */,
+				24249B0119CB312C00D2D01C /* ProjectTableViewCell.h */,
+				24249B0219CB312C00D2D01C /* ProjectTableViewCell.m */,
+				24249B0319CB312C00D2D01C /* HomeTableViewCell.h */,
+				24249B0419CB312C00D2D01C /* HomeTableViewCell.m */,
+				24249AF919CB311F00D2D01C /* ImageViewCell.h */,
+				24249AFA19CB311F00D2D01C /* ImageViewCell.m */,
+				24249AFB19CB311F00D2D01C /* TextFieldCell.h */,
+				24249AFC19CB311F00D2D01C /* TextFieldCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -223,6 +399,26 @@
 		24C38A1F18F46AFD00CC7105 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				24249AAD19CB2F8700D2D01C /* HomeController.h */,
+				24249AAE19CB2F8700D2D01C /* HomeController.m */,
+				24249AAF19CB2F8700D2D01C /* FieldtripsController.h */,
+				24249AB019CB2F8700D2D01C /* FieldtripsController.m */,
+				24249AB119CB2F8700D2D01C /* FieldtripController.h */,
+				24249AB219CB2F8700D2D01C /* FieldtripController.m */,
+				24249AB319CB2F8700D2D01C /* FieldtripDetailsEditViewController.h */,
+				24249AB419CB2F8700D2D01C /* FieldtripDetailsEditViewController.m */,
+				24249AB519CB2F8700D2D01C /* AboutViewController.h */,
+				24249AB619CB2F8700D2D01C /* AboutViewController.m */,
+				24249AB719CB2F8800D2D01C /* ProjectTableViewController.h */,
+				24249AB819CB2F8800D2D01C /* ProjectTableViewController.m */,
+				24249AB919CB2F8800D2D01C /* ProjectDetailsViewController.h */,
+				24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */,
+				24249ABB19CB2F8800D2D01C /* SpecimenTableViewController.h */,
+				24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */,
+				24249ABD19CB2F8800D2D01C /* SpecimenDetailsTableViewController.h */,
+				24249ABE19CB2F8800D2D01C /* SpecimenDetailsTableViewController.m */,
+				24249AAA19CB2F2900D2D01C /* NavigationController.h */,
+				24249AAB19CB2F2900D2D01C /* NavigationController.m */,
 				24C389FA18F455AE00CC7105 /* TestDummyViewController.h */,
 				24C389FB18F455AE00CC7105 /* TestDummyViewController.m */,
 			);
@@ -232,6 +428,26 @@
 		24C38A2018F46B0400CC7105 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				24249AD819CB30B800D2D01C /* fieldworksdiary.xcdatamodel */,
+				24249AF819CB30E400D2D01C /* Transformer */,
+				24249AD919CB30B800D2D01C /* Fieldtrip.h */,
+				24249ADA19CB30B800D2D01C /* Fieldtrip.m */,
+				24249ADB19CB30B800D2D01C /* Image.h */,
+				24249ADC19CB30B800D2D01C /* Image.m */,
+				24249ADD19CB30B800D2D01C /* Project.h */,
+				24249ADE19CB30B800D2D01C /* Project.m */,
+				24249ADF19CB30B800D2D01C /* Specimen.h */,
+				24249AE019CB30B800D2D01C /* Specimen.m */,
+				24249AE119CB30B800D2D01C /* CollectingMethod.h */,
+				24249AE219CB30B800D2D01C /* CollectingMethod.m */,
+				24249AE319CB30B800D2D01C /* Person.h */,
+				24249AE419CB30B800D2D01C /* Person.m */,
+				24249AE519CB30B800D2D01C /* Finding.h */,
+				24249AE619CB30B800D2D01C /* Finding.m */,
+				24249AE719CB30B800D2D01C /* Collection.h */,
+				24249AE819CB30B800D2D01C /* Collection.m */,
+				24249AE919CB30B800D2D01C /* Placemark.h */,
+				24249AEA19CB30B800D2D01C /* Placemark.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -239,6 +455,14 @@
 		24C38A2118F46C2700CC7105 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				24249ACC19CB30A000D2D01C /* GoogleGeocoder.h */,
+				24249ACD19CB30A000D2D01C /* GoogleGeocoder.m */,
+				24249ACE19CB30A000D2D01C /* Conversion.h */,
+				24249ACF19CB30A000D2D01C /* Conversion.m */,
+				24249AD019CB30A000D2D01C /* LocationService.h */,
+				24249AD119CB30A000D2D01C /* LocationService.m */,
+				24249AD219CB30A000D2D01C /* Crypto.h */,
+				24249AD319CB30A000D2D01C /* Crypto.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -270,7 +494,7 @@
 			);
 			name = fieldworksdiary;
 			productName = fieldworksdiary;
-			productReference = 24C389E218F455AE00CC7105 /* Diary.app */;
+			productReference = 24C389E218F455AE00CC7105 /* fieldworksdiary.app */;
 			productType = "com.apple.product-type.application";
 		};
 		24C38A0218F455AF00CC7105 /* fieldworksdiaryTests */ = {
@@ -337,13 +561,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */,
 				24290E0919013BD8007BD8AF /* .travis.yml in Resources */,
 				24290E07190138CA007BD8AF /* .gitignore in Resources */,
 				24249AA719CAF83B00D2D01C /* Podfile in Resources */,
+				24249AA919CB266700D2D01C /* Main.storyboard in Resources */,
 				24249AA419CADD8500D2D01C /* before_script.sh in Resources */,
 				24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */,
+				24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */,
 				24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */,
-				24C389F918F455AE00CC7105 /* Main.storyboard in Resources */,
 				24249AA519CADD8500D2D01C /* script.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,9 +622,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24249AC519CB2F8800D2D01C /* ProjectDetailsViewController.m in Sources */,
+				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
+				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
+				24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */,
+				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
+				24249B2319CB314C00D2D01C /* FieldtripDetailsSummaryCell.m in Sources */,
+				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
+				24249B2719CB314C00D2D01C /* FieldtripDetailsProjectCell.m in Sources */,
+				24249AC319CB2F8800D2D01C /* AboutViewController.m in Sources */,
+				24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */,
 				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,
-				24C389F618F455AE00CC7105 /* AppDelegate.m in Sources */,
+				24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */,
+				24249AD619CB30A000D2D01C /* LocationService.m in Sources */,
+				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
+				24249B0619CB312C00D2D01C /* ProjectTableViewCell.m in Sources */,
+				24249B1E19CB314C00D2D01C /* FieldtripDetailsViewController.m in Sources */,
+				24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */,
+				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,
+				24249AED19CB30B800D2D01C /* Image.m in Sources */,
+				24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */,
+				24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */,
+				24249AD519CB30A000D2D01C /* Conversion.m in Sources */,
+				24249AAC19CB2F2900D2D01C /* NavigationController.m in Sources */,
+				24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */,
+				24249AEE19CB30B800D2D01C /* Project.m in Sources */,
+				24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */,
+				24249AF019CB30B800D2D01C /* CollectingMethod.m in Sources */,
+				24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */,
+				24249ABF19CB2F8800D2D01C /* HomeController.m in Sources */,
+				24249AF219CB30B800D2D01C /* Finding.m in Sources */,
+				24249ACB19CB307000D2D01C /* AppDelegate.m in Sources */,
+				24249B2619CB314C00D2D01C /* FieldtripDetailsDateCell.m in Sources */,
+				24249AF319CB30B800D2D01C /* Collection.m in Sources */,
+				24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */,
+				24249AF419CB30B800D2D01C /* Placemark.m in Sources */,
 				24C389F218F455AE00CC7105 /* main.m in Sources */,
+				24249AC219CB2F8800D2D01C /* FieldtripDetailsEditViewController.m in Sources */,
+				24249AF119CB30B800D2D01C /* Person.m in Sources */,
+				24249AEF19CB30B800D2D01C /* Specimen.m in Sources */,
+				24249AC419CB2F8800D2D01C /* ProjectTableViewController.m in Sources */,
+				24249AEC19CB30B800D2D01C /* Fieldtrip.m in Sources */,
+				24249AC119CB2F8800D2D01C /* FieldtripController.m in Sources */,
+				24249AC019CB2F8800D2D01C /* FieldtripsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,14 +694,6 @@
 				24C389EF18F455AE00CC7105 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		24C389F718F455AE00CC7105 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24C389F818F455AE00CC7105 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		24C38A0D18F455AF00CC7105 /* InfoPlist.strings */ = {
@@ -529,7 +787,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
-				PRODUCT_NAME = Diary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -544,7 +802,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
-				PRODUCT_NAME = Diary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

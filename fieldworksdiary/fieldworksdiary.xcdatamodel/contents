@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CollectingMethod" representedClassName="CollectingMethod" syncable="YES">
+        <attribute name="methodName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Fieldtrip" representedClassName="Fieldtrip" syncable="YES">
+        <attribute name="administrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="administrativeLocality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="administrativeSubLocality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="beginDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="countryCodeISO" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="inlandWater" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFullTime" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isInDaylight" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="localityDescription" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="localityMajorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localityMinorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localityName" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="localityPrefixId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mapImageFilename" optional="YES" attributeType="String" valueTransformerName="" syncable="YES"/>
+        <attribute name="ocean" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sectionIdentifier" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specimenMajorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specimenMinorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subAdministrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="sunrise" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sunset" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timeZone" attributeType="Transformable" valueTransformerName="TimeZoneTransformer" syncable="YES"/>
+        <attribute name="twilightBegin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="twilightEnd" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="verticalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="collector" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="defaultCollected" inverseEntity="Person" syncable="YES"/>
+        <relationship name="findings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fieldtrip" inverseName="findings" inverseEntity="Fieldtrip" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="fieldtrip" inverseEntity="Image" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="fieldtrips" inverseEntity="Project" syncable="YES"/>
+        <relationship name="specimens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Specimen" inverseName="fieldtrip" inverseEntity="Specimen" syncable="YES"/>
+    </entity>
+    <entity name="Finding" representedClassName="Finding" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="countFemale" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="countMale" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="detDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="taxon" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <relationship name="determinator" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Person" inverseName="determinded" inverseEntity="Person" syncable="YES"/>
+        <relationship name="fieldtrip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Finding" inverseName="fieldtrip" inverseEntity="Finding" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="finding" inverseEntity="Image" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="findings" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="created" attributeType="Date" syncable="YES"/>
+        <attribute name="filename" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="fieldtrip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fieldtrip" inverseName="images" inverseEntity="Fieldtrip" syncable="YES"/>
+        <relationship name="finding" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Finding" inverseName="images" inverseEntity="Finding" syncable="YES"/>
+        <relationship name="representations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" syncable="YES"/>
+        <relationship name="specimen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specimen" inverseName="images" inverseEntity="Specimen" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="addressBookId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="collected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specimen" syncable="YES"/>
+        <relationship name="defaultCollected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fieldtrip" inverseName="collector" inverseEntity="Fieldtrip" syncable="YES"/>
+        <relationship name="determinded" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Finding" inverseName="determinator" inverseEntity="Finding" syncable="YES"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="beginDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isDefaultProject" optional="YES" attributeType="Boolean" indexed="YES" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectLongName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectPrefixId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectShortName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="fieldtrips" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Fieldtrip" inverseName="project" inverseEntity="Fieldtrip" syncable="YES"/>
+        <relationship name="findings" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Finding" inverseName="project" inverseEntity="Finding" syncable="YES"/>
+        <relationship name="specimens" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Specimen" inverseName="project" inverseEntity="Specimen" syncable="YES"/>
+    </entity>
+    <entity name="Specimen" representedClassName="Specimen" syncable="YES">
+        <attribute name="administrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="beginDate" attributeType="Date" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="countryCodeISO" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="inlandWater" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFullTime" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isInDaylight" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="localityDescription" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="localityMajorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localityMinorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localityName" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="localityPrefixId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mapImageFilename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ocean" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="politicalLocality" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="politicalSubLocality" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sectionIdentifier" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specimenIdentifier" optional="YES" attributeType="String" maxValueString="15" indexed="YES" syncable="YES"/>
+        <attribute name="specimenNotes" optional="YES" attributeType="String" maxValueString="400" syncable="YES"/>
+        <attribute name="subAdministrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="sunrise" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sunset" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timeZone" attributeType="Transformable" valueTransformerName="TimeZoneTransformer" syncable="YES"/>
+        <attribute name="twilightBegin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="twilightEnd" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="verticalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="collectingMethod" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CollectingMethod" syncable="YES"/>
+        <relationship name="collector" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Person" syncable="YES"/>
+        <relationship name="fieldtrip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fieldtrip" inverseName="specimens" inverseEntity="Fieldtrip" syncable="YES"/>
+        <relationship name="findings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Specimen" inverseName="findings" inverseEntity="Specimen" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="specimen" inverseEntity="Image" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="specimens" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CollectingMethod" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Finding" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Person" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Project" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Specimen" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
