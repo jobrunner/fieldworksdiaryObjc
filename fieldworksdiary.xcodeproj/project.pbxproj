@@ -47,7 +47,6 @@
 		24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */; };
 		24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */; };
 		24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */; };
-		24249B2319CB314C00D2D01C /* FieldtripDetailsSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1519CB314C00D2D01C /* FieldtripDetailsSummaryCell.m */; };
 		24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */; };
 		24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */; };
 		24249B2619CB314C00D2D01C /* FieldtripDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */; };
@@ -163,8 +162,6 @@
 		24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationCell.m; sourceTree = "<group>"; };
 		24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsPlacemarkCell.h; sourceTree = "<group>"; };
 		24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsPlacemarkCell.m; sourceTree = "<group>"; };
-		24249B1419CB314C00D2D01C /* FieldtripDetailsSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSummaryCell.h; sourceTree = "<group>"; };
-		24249B1519CB314C00D2D01C /* FieldtripDetailsSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSummaryCell.m; sourceTree = "<group>"; };
 		24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsMapViewCell.h; sourceTree = "<group>"; };
 		24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsMapViewCell.m; sourceTree = "<group>"; };
 		24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSunriseSunsetCell.h; sourceTree = "<group>"; };
@@ -259,8 +256,6 @@
 				24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */,
 				24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */,
 				24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */,
-				24249B1419CB314C00D2D01C /* FieldtripDetailsSummaryCell.h */,
-				24249B1519CB314C00D2D01C /* FieldtripDetailsSummaryCell.m */,
 				24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */,
 				24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */,
 				24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */,
@@ -627,7 +622,6 @@
 				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
 				24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */,
 				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
-				24249B2319CB314C00D2D01C /* FieldtripDetailsSummaryCell.m in Sources */,
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
 				24249B2719CB314C00D2D01C /* FieldtripDetailsProjectCell.m in Sources */,
 				24249AC319CB2F8800D2D01C /* AboutViewController.m in Sources */,

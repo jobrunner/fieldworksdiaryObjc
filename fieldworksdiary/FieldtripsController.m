@@ -83,10 +83,7 @@
     }
     
     if ([[segue identifier] isEqualToString:@"openFieldtripSegue"]) {
-//        FieldtripDetailsViewController * controller = segue.destinationViewController;
-//        controller.fieldtrip = [(FieldtripTableViewCell *)sender fieldtrip];
-
-        FieldtripController * controller = segue.destinationViewController;
+        FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = [(FieldtripTableViewCell *)sender fieldtrip];
     }
 }

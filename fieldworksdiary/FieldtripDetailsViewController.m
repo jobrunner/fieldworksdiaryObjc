@@ -36,7 +36,6 @@
 #import "FieldtripDetailsPlacemarkCell.h"
 #import "FieldtripDetailsDateCell.h"
 #import "FieldtripDetailsProjectCell.h"
-#import "FieldtripDetailsSummaryCell.h"
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 #import "FieldtripDetailsEditViewController.h"
@@ -476,9 +475,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //         forCellReuseIdentifier:[TextFieldCell reuseIdentifier]];
     
     //
-//    [self.tableView registerNib:[UINib nibWithNibName:[FieldtripDetailsSummaryCell reuseIdentifier]
-//                                               bundle:[NSBundle mainBundle]]
-//         forCellReuseIdentifier:[FieldtripDetailsSummaryCell reuseIdentifier]];
     
     
 //    [self.tableView registerNib:[UINib nibWithNibName:[ImageViewCell reuseIdentifier]
@@ -741,23 +737,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         // Images scroll view
         if (indexPath.row == 7) {
 //            FieldtripDetailsImagesScrollViewCell
-        }
-        
-        // Fieldtrip details
-        if (indexPath.row == 99) {
-            
-            FieldtripDetailsSummaryCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsSummaryCell"
-                                                   forIndexPath:indexPath];
-            
-            //            if (cell != nil) {
-            //                cell = [[FieldtripDetailsSummaryCell alloc] initWithStyle:UITableViewCellStyleDefault
-            //                                                          reuseIdentifier:@"FieldtripDetailsSummaryCell"];
-            //            }
-            
-            cell.fieldtrip = self.fieldtrip;
-            
-            return cell;
         }
     }
     
