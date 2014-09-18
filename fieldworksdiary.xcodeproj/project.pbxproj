@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24249AA419CADD8500D2D01C /* before_script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 24249AA219CADD8500D2D01C /* before_script.sh */; };
+		24249AA519CADD8500D2D01C /* script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 24249AA319CADD8500D2D01C /* script.sh */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		161C9F8E15094E668177432D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		24249AA219CADD8500D2D01C /* before_script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = before_script.sh; sourceTree = "<group>"; };
+		24249AA319CADD8500D2D01C /* script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = script.sh; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -96,9 +100,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24249AA119CADD8500D2D01C /* travis */ = {
+			isa = PBXGroup;
+			children = (
+				24249AA219CADD8500D2D01C /* before_script.sh */,
+				24249AA319CADD8500D2D01C /* script.sh */,
+			);
+			path = travis;
+			sourceTree = "<group>";
+		};
 		24290E0A19013BFF007BD8AF /* infra */ = {
 			isa = PBXGroup;
 			children = (
+				24249AA119CADD8500D2D01C /* travis */,
 				24290E0819013BD8007BD8AF /* .travis.yml */,
 				24290E06190138CA007BD8AF /* .gitignore */,
 			);
@@ -322,9 +336,11 @@
 			files = (
 				24290E0919013BD8007BD8AF /* .travis.yml in Resources */,
 				24290E07190138CA007BD8AF /* .gitignore in Resources */,
+				24249AA419CADD8500D2D01C /* before_script.sh in Resources */,
 				24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */,
 				24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */,
 				24C389F918F455AE00CC7105 /* Main.storyboard in Resources */,
+				24249AA519CADD8500D2D01C /* script.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
