@@ -53,7 +53,7 @@
 		24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDummyControllerViewTest.m; sourceTree = "<group>"; };
 		24A7608718F488DF00DA9695 /* MockTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockTextField.h; sourceTree = "<group>"; };
 		24A7608818F488DF00DA9695 /* MockTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTextField.m; sourceTree = "<group>"; };
-		24C389E218F455AE00CC7105 /* fieldworksdiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fieldworksdiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		24C389E918F455AE00CC7105 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -146,7 +146,7 @@
 		24C389E318F455AE00CC7105 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24C389E218F455AE00CC7105 /* fieldworksdiary.app */,
+				24C389E218F455AE00CC7105 /* Diary.app */,
 				24C38A0318F455AF00CC7105 /* fieldworksdiaryTests.xctest */,
 			);
 			name = Products;
@@ -270,7 +270,7 @@
 			);
 			name = fieldworksdiary;
 			productName = fieldworksdiary;
-			productReference = 24C389E218F455AE00CC7105 /* fieldworksdiary.app */;
+			productReference = 24C389E218F455AE00CC7105 /* Diary.app */;
 			productType = "com.apple.product-type.application";
 		};
 		24C38A0218F455AF00CC7105 /* fieldworksdiaryTests */ = {
@@ -529,7 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Diary;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -544,7 +544,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Diary;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
