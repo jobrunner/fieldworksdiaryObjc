@@ -2,13 +2,11 @@
 //  Created by Jo Brunner on 05.03.14.
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
-
+#import "AppDelegate.h"
 #import "FieldtripsController.h"
 #import "FieldtripDetailsViewController.h"
 #import "FieldtripTableViewCell.h"
 #import "Fieldtrip.h"
-
-#import "FieldtripController.h"
 
 @interface FieldtripsController ()
 
@@ -26,17 +24,8 @@
 {
     [super viewDidLoad];
 
-    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
+    self.managedObjectContext = ApplicationDelegate.managedObjectContext;
     
-    NSLog(@"Managed Object Context über AppDeligate zugewiesen: %@", self.managedObjectContext);
-    
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-  
-
     self.searchResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
     
     // hide the search bar until user scolls down
