@@ -55,24 +55,11 @@
     _projectsCell.textLabel.text = @"Projekte/Expeditionen";
     _aboutCell.textLabel.text = @"Über Fieldworksdiary";
     
-
-    // Nicht holen, sondern setzten.
-    // AppDelegate hat den Context ausserdem bereits gesetzt!
-    
-    // get managed object context from Application
-    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    
-    // get delegate methods from navigationController
-    [self navigationController].delegate = self;
+    // get managed object context
+    self.managedObjectContext = ApplicationDelegate.managedObjectContext;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -207,29 +194,6 @@
         // Thus, the "recent fildtrip" item should be disabled when no objecs
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = (Fieldtrip *)latestFieldtrip;
-    }
-}
-
-
-#pragma mark - NavigationControllerDelegates -
-
-
-// delegate method before navigation and view did load
-// This implementation is not well seperated by concern
-- (void)navigationController:(UINavigationController *)navigationController
-      willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
-{
-    if (viewController == self) {
-        if (![self navigationController].navigationBarHidden) {
-            [[self navigationController] setNavigationBarHidden:YES
-                                                       animated:NO];
-        }
-    } else {
-        if ([self navigationController].navigationBarHidden) {
-            [[self navigationController] setNavigationBarHidden:NO
-                                                       animated:NO];
-        }
     }
 }
 
