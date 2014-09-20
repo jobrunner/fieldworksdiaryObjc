@@ -41,6 +41,7 @@
 
 - (void)updateUserInterface
 {
+    [self drawMapFromModel];
 }
 
 

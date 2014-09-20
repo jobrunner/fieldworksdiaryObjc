@@ -617,7 +617,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         // #6 ImageMap (FieldtripDetailsStaticMapViewCell)
         // #7 Images scroll view (FieldtripDetailsImagesScrollViewCell)
 
-        return 6;
+        return 7;
     }
 
     // Specimens-Section
@@ -717,20 +717,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             FieldtripDetailsMapViewCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsMapViewCell reuseIdentifier]
                                                    forIndexPath:indexPath];
-            // das gehört weder in den Controller, noch in die Cell.
-            // das gehört als transientes Zeug ins Model.
-            // Und weil die MapView mit dem Thumbnail eh scheiße ist,
-            // wäre ein eigens Model für die MapView angebracht.
-            // Mit dem könnte man sowohl interaktive Karten darstellen als
-            // auch für einen speziellen Fall eine kleine statische Karte...
-            
-            NSString *imageMapPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/Maps/%@", self.fieldtrip.mapImageFilename]];
-            
-            NSData *imageMapData = [NSData dataWithContentsOfFile:imageMapPath];
-            
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.staticMapImage.image= [UIImage imageWithData:imageMapData];
-            
+            cell.fieldtrip = self.fieldtrip;
             return cell;
         }
 
@@ -794,7 +781,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     }
     // Project
     if (indexPath.section == 0 && indexPath.row == 5) {
-        return 22;
+        return 44;
     }
 
     // MapView

@@ -14,21 +14,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *addFieldtripButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFieldtripWithCameraButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *countOfFieldtripsCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfSpecimensCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfFindingsCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfPhotosCaptionLabel;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *countOfFieldtripsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfSpecimensLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfFindingsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfPhotosLabel;
-@property (weak, nonatomic) IBOutlet UILabel *countOfProjectsLabel;
 
 
-@property (weak, nonatomic) IBOutlet UITableViewCell *recentFieldtripCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *fieldtripsCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *recentSpecimenCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *specimensCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *projectsCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *peopleCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *aboutCell;
@@ -43,24 +40,21 @@
 {
     [super viewDidLoad];
 
-    
-    // Besser wäre eine Übersetzung im StoryBoard.
-    _countOfFieldtripsCaptionLabel.text = @"EXKURSIONEN";
+    // todo: Translation
     _countOfSpecimensCaptionLabel.text = @"PROBEN";
-    _countOfFindingsCaptionLabel.text = @"FUNDE";
     _countOfPhotosCaptionLabel.text = @"FOTOS";
+    _countOfFindingsCaptionLabel.text = @"FUNDE";
     
-    _recentFieldtripCell.textLabel.text = @"Letzte Exkursion";
-    _fieldtripsCell.textLabel.text = @"Exkursionen";
-    _projectsCell.textLabel.text = @"Projekte/Expeditionen";
-    _aboutCell.textLabel.text = @"Über Fieldworksdiary";
+    _recentSpecimenCell.textLabel.text = @"Letzte Probe";
+    _specimensCell.textLabel.text = @"Proben";
+    _projectsCell.textLabel.text = @"Projekte";
+    _aboutCell.textLabel.text = @"Über Fieldworks Diary";
+    
     
     // get managed object context
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
 }
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -79,37 +73,12 @@
     count = [self.managedObjectContext countForFetchRequest:request
                                                       error:&error];
     
-    self.recentFieldtripCell.userInteractionEnabled = (count > 0);
+    self.recentSpecimenCell.userInteractionEnabled = (count > 0);
     
-    self.countOfFieldtripsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)count];
-    // }}}
-
-    // {{{ Specimen count
-    entity = [NSEntityDescription entityForName:@"Specimen"
-                         inManagedObjectContext:self.managedObjectContext];
-
-    [request setEntity:entity];
-    
-    count = [self.managedObjectContext countForFetchRequest:request
-                                                      error:&error];
-    
+    // Temp hack: fieldtrip will come deprecated and replaced by specimen
     self.countOfSpecimensLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)count];
+    
     // }}}
-    
-    
-    // {{{ Project count
-    entity = [NSEntityDescription entityForName:@"Project"
-                         inManagedObjectContext:self.managedObjectContext];
-    
-    [request setEntity:entity];
-    
-    count = [self.managedObjectContext countForFetchRequest:request
-                                                      error:&error];
-    
-    self.countOfProjectsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)count];
-    // }}}
-    
-    
 }
 
 
