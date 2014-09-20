@@ -659,7 +659,6 @@ Neubergstraße 16
                         <outlet property="countOfPhotosLabel" destination="DpK-zZ-4DA" id="bNA-hp-pab"/>
                         <outlet property="countOfSpecimensCaptionLabel" destination="nqT-lN-xD3" id="dhH-2t-szI"/>
                         <outlet property="countOfSpecimensLabel" destination="ZNi-ld-C4E" id="lVH-9T-nPu"/>
-                        <outlet property="headerView" destination="eGs-Ef-wxg" id="Dki-4L-H5n"/>
                         <outlet property="peopleCell" destination="dwL-mb-gji" id="brH-ZW-TlF"/>
                         <outlet property="projectsCell" destination="odu-jb-MfH" id="Mtz-aY-j8Y"/>
                         <outlet property="recentSpecimenCell" destination="RbN-C2-C0h" id="mFW-yx-m23"/>
