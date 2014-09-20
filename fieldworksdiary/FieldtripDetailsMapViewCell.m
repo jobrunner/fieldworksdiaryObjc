@@ -22,6 +22,11 @@
 {
     // Initialization code
     [self initMapView];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUserInterface)
+                                                 name:kNotificationLocationUpdate
+                                               object:nil];
 }
 
 #pragma mark - FieldtripDetailsCellProtocol -
@@ -62,6 +67,7 @@
 {
     // create an hidden mapView object
     self.mapView = [[MKMapView alloc] initWithFrame:self.staticMapImage.frame];
+    self.mapView.delegate = self;
     self.mapView.hidden = YES;
     // Configure the small mapView object
     // There are three options for Apple Maps:
@@ -72,7 +78,6 @@
     self.mapView.zoomEnabled = NO;
     self.mapView.scrollEnabled = NO;
     self.mapView.contentScaleFactor = 2.0;
-    self.mapView.delegate = self;
     
     [self.contentView addSubview:self.mapView];
 }
@@ -86,16 +91,25 @@
 	NSData *imageMapData = [NSData dataWithContentsOfFile:imageMapPath];
     
 	if (imageMapData == nil) {
-        NSLog(@"Fild couldn't be loaded. Must be regenerate from model data...");
+        NSLog(@"Static MapView fild couldn't be loaded. Must be regenerate from model data...");
         [self makeMapSnaphotFromModel];
     } else {
         self.staticMapImage.image = [UIImage imageWithData:imageMapData];
     }
 }
 
+
 - (void)makeMapSnaphotFromModel
 {
-    NSLog(@"makeMapSnapshot...");
+    if (self.fieldtrip.location == nil) {
+        NSLog(@"MapView cannot be created yet because of no lat/lng is given");
+
+        // show placeholder instead?
+        return;
+    }
+    
+    
+    NSLog(@"makeMapSnapshot from %@", self.fieldtrip.location);
     
     MKCoordinateRegion region;
     
@@ -169,9 +183,9 @@
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView
                        fullyRendered:(BOOL)fullyRendered
 {
-    if (fullyRendered) {
-        NSLog(@"MapView ist fertig gerendert. Jetzt SnapShot erstellen!");
-    }
+//    if (fullyRendered) {
+        NSLog(@"MapView ist fertig gerendert? Jetzt SnapShot erstellen! %i", fullyRendered);
+//    }
 }
 
 - (UIImage *)imageByDrawingCircleOnImage:(UIImage *)image

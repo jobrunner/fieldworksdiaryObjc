@@ -276,8 +276,68 @@
     
     self.timeZone = [NSTimeZone systemTimeZone];
     
+    self.latitude = nil;
+    self.longitude = nil;
+    self.horizontalAccuracy = nil;
+    self.verticalAccuracy = nil;
+    self.altitude = nil;
+
+    NSDateFormatter *specifierPrefixFormatter = [[NSDateFormatter alloc] init];
+    specifierPrefixFormatter.dateFormat = @"yyMMdd";
+    
+    NSString *specifierPrefix = [specifierPrefixFormatter stringFromDate:self.beginDate];
+
+    // must be searched from a fieldtrip/specimens collection
+    // Important precaution here:
+    // Prefixes must complain to the real world, not to the beginning date. That means
+    // that in a night excursion from 2200 to 0500 o'clock the prefix should be equal.
+    // In Settings, the user should be abled to change and overwrite behaviour here
+    NSNumber * specifierNumber = [self specimenIdentifierByDate:self.beginDate];
+    
+    // specimenIdentifier template
+    self.specimenIdentifier = [NSString stringWithFormat:@"%@#%@", specifierPrefix, specifierNumber];
+    
+    
     // ...
 }
 
+- (NSNumber *)specimenIdentifierByDate:(NSDate *)date
+{
+    NSEntityDescription *entity;
+    NSError *error = nil;
+    NSUInteger count = 0;
+    
+    // fieldtrips
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // {{{ Amount of fieldtrips in the request...
+    entity = [NSEntityDescription entityForName:@"Fieldtrip"
+                         inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+
+    // todo: cache Components
+    // todo: make and read user configuration for timeslots within a speciefier prefix equals
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:date];
+    comps.hour   = 0;
+    comps.minute = 0;
+    comps.second = 0;
+
+    // assuming current specimens-number has the range 00:00 until 23:59
+    NSDate *rangeStart = [calendar dateFromComponents:comps];
+    NSDate *rangeEnd = [rangeStart dateByAddingTimeInterval:60*60*24];
+
+//    NSLog(@"rangeStart: %@", rangeStart);
+//    NSLog(@"rangeEnd: %@", rangeEnd);
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"beginDate >= %@ AND beginDate < %@", rangeStart, rangeEnd];
+    
+    count = [self.managedObjectContext countForFetchRequest:request
+                                                      error:&error];
+
+    return [NSNumber numberWithLong:count + 1];
+}
 
 @end

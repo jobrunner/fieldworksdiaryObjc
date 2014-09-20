@@ -54,6 +54,7 @@
 		24249B3419CB608D00D2D01C /* SpecimenMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3319CB608D00D2D01C /* SpecimenMapController.m */; };
 		24249B3619CC543700D2D01C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24249B3519CC543700D2D01C /* README.md */; };
 		24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3B19CC8BE400D2D01C /* Fieldtrip.m */; };
+		24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
@@ -174,6 +175,8 @@
 		24249B3519CC543700D2D01C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		24249B3A19CC8BE400D2D01C /* Fieldtrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fieldtrip.h; sourceTree = "<group>"; };
 		24249B3B19CC8BE400D2D01C /* Fieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fieldtrip.m; sourceTree = "<group>"; };
+		24249B3D19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSpecimenNotesCell.h; sourceTree = "<group>"; };
+		24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */,
 				24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */,
 				24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */,
+				24249B3D19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.h */,
+				24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */,
 				24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */,
 				24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */,
 				24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */,
@@ -707,6 +712,7 @@
 				24249AF419CB30B800D2D01C /* Placemark.m in Sources */,
 				24C389F218F455AE00CC7105 /* main.m in Sources */,
 				24249AC219CB2F8800D2D01C /* FieldtripDetailsEditViewController.m in Sources */,
+				24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */,
 				24249AF119CB30B800D2D01C /* Person.m in Sources */,
 				24249AEF19CB30B800D2D01C /* Specimen.m in Sources */,
 				24249AC419CB2F8800D2D01C /* ProjectTableViewController.m in Sources */,

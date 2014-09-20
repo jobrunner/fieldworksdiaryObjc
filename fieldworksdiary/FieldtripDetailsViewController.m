@@ -31,7 +31,8 @@
 
 // cell classes
 #import "FieldtripDetailsSpecimenIdentifierCell.h"
-#import "FieldtripDetailsLocationNameCell.h"
+#import "FieldtripDetailsSpecimenNotesCell.h"
+//#import "FieldtripDetailsLocationNameCell.h"
 #import "FieldtripDetailsLocationCell.h"
 #import "FieldtripDetailsPlacemarkCell.h"
 #import "FieldtripDetailsDateCell.h"
@@ -322,16 +323,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 #pragma mark - Location Helper
 
 // -> Fieldtrip locationFromUndefiened
-- (CLLocation *)locationFromUndefined
-{
-    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(0.0,
-                                                               0.0);
-    return [[CLLocation alloc] initWithCoordinate:coords
-                                         altitude:0.0
-                               horizontalAccuracy:0.9
-                                 verticalAccuracy:0.0
-                                        timestamp:nil];
-}
+//- (CLLocation *)locationFromUndefined
+//{
+//    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(0.0,
+//                                                               0.0);
+//    return [[CLLocation alloc] initWithCoordinate:coords
+//                                         altitude:0.0
+//                               horizontalAccuracy:0.9
+//                                 verticalAccuracy:0.0
+//                                        timestamp:nil];
+//}
 
 
 
@@ -378,6 +379,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     // Create a default model
     [self.fieldtrip defaultsWithLocalityName:NSLocalizedString(@"Mein Fundort", nil)];
+
 
 //    [self drawLocalityFromModel];
 //    [self drawBeginDateFromModel];
@@ -649,18 +651,28 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             
             return cell;
         }
-        
-        
-        // locationName text field
+
+        // spceimenNotes text view
         if (indexPath.row == 1) {
             
-            FieldtripDetailsLocationNameCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
+            FieldtripDetailsSpecimenNotesCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenNotesCell reuseIdentifier]
                                                    forIndexPath:indexPath];
             cell.fieldtrip = self.fieldtrip;
-
+            
             return cell;
         }
+        
+//        // locationName text field
+//        if (indexPath.row == 1) {
+//            
+//            FieldtripDetailsLocationNameCell *cell;
+//            cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
+//                                                   forIndexPath:indexPath];
+//            cell.fieldtrip = self.fieldtrip;
+//
+//            return cell;
+//        }
 
         // location view
         if (indexPath.row == 2) {
@@ -767,6 +779,12 @@ titleForHeaderInSection:(NSInteger)section
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    // SpecimenNotes
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        return 97;
+    }
+    
     // Location
     if (indexPath.section == 0 && indexPath.row == 2) {
         return 71;

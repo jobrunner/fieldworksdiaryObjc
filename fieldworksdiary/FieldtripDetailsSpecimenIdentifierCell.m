@@ -42,8 +42,9 @@
 
 - (void)updateUserInterface
 {
-    _specimenIdentifierTextField.text = @"140910#2"; // _fieldtrip.localityName;
+    _specimenIdentifierTextField.text = _fieldtrip.specimenIdentifier;
 }
+
 
 - (NSString *)reuseIdentifier
 {
@@ -64,8 +65,7 @@
 
 - (IBAction)specimenIdentifierTextFieldEditingDidEnd:(UITextField *)sender
 {
-    // noch nicht im Model verfügbar
-//    _fieldtrip.specimenIdentifier = _specimenIdentifierTextField.text;
+    _fieldtrip.specimenIdentifier = _specimenIdentifierTextField.text;
 }
 
 
