@@ -76,6 +76,8 @@
                                                       error:&error];
     
     self.recentSpecimenCell.userInteractionEnabled = (count > 0);
+    self.recentSpecimenCell.textLabel.enabled = (count > 0);
+    self.recentSpecimenCell.imageView.alpha = (count > 0) ? 1.0 : 0.5;
     
     // Temp hack: fieldtrip will come deprecated and replaced by specimen
     self.countOfSpecimensLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)count];
