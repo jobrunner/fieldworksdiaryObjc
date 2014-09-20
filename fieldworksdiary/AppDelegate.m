@@ -114,7 +114,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     }
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"fieldworksdiary"
-                                              withExtension:@"momd"];
+                                              withExtension:@"mom"];
     
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
