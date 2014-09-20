@@ -15,7 +15,7 @@
 		24249ABF19CB2F8800D2D01C /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AAE19CB2F8700D2D01C /* HomeController.m */; };
 		24249AC019CB2F8800D2D01C /* FieldtripsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB019CB2F8700D2D01C /* FieldtripsController.m */; };
 		24249AC219CB2F8800D2D01C /* FieldtripDetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB419CB2F8700D2D01C /* FieldtripDetailsEditViewController.m */; };
-		24249AC319CB2F8800D2D01C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB619CB2F8700D2D01C /* AboutViewController.m */; };
+		24249AC319CB2F8800D2D01C /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB619CB2F8700D2D01C /* AboutController.m */; };
 		24249AC419CB2F8800D2D01C /* ProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB819CB2F8800D2D01C /* ProjectTableViewController.m */; };
 		24249AC519CB2F8800D2D01C /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */; };
 		24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */; };
@@ -98,8 +98,8 @@
 		24249AB019CB2F8700D2D01C /* FieldtripsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripsController.m; sourceTree = "<group>"; };
 		24249AB319CB2F8700D2D01C /* FieldtripDetailsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsEditViewController.h; sourceTree = "<group>"; };
 		24249AB419CB2F8700D2D01C /* FieldtripDetailsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsEditViewController.m; sourceTree = "<group>"; };
-		24249AB519CB2F8700D2D01C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		24249AB619CB2F8700D2D01C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		24249AB519CB2F8700D2D01C /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		24249AB619CB2F8700D2D01C /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		24249AB719CB2F8800D2D01C /* ProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewController.h; sourceTree = "<group>"; };
 		24249AB819CB2F8800D2D01C /* ProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewController.m; sourceTree = "<group>"; };
 		24249AB919CB2F8800D2D01C /* ProjectDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsViewController.h; sourceTree = "<group>"; };
@@ -284,8 +284,8 @@
 		24249B2D19CB4F8500D2D01C /* About */ = {
 			isa = PBXGroup;
 			children = (
-				24249AB519CB2F8700D2D01C /* AboutViewController.h */,
-				24249AB619CB2F8700D2D01C /* AboutViewController.m */,
+				24249AB519CB2F8700D2D01C /* AboutController.h */,
+				24249AB619CB2F8700D2D01C /* AboutController.m */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -676,7 +676,7 @@
 				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
 				24249B2719CB314C00D2D01C /* FieldtripDetailsProjectCell.m in Sources */,
-				24249AC319CB2F8800D2D01C /* AboutViewController.m in Sources */,
+				24249AC319CB2F8800D2D01C /* AboutController.m in Sources */,
 				24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */,
 				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,
 				24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */,

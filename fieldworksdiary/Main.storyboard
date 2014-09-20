@@ -1758,10 +1758,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1610" y="942"/>
         </scene>
-        <!--About View Controller-->
+        <!--About Controller-->
         <scene sceneID="amy-3f-ai3">
             <objects>
-                <viewController id="Y8Z-43-tJO" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController id="Y8Z-43-tJO" customClass="AboutController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kZM-Gm-deG"/>
                         <viewControllerLayoutGuide type="bottom" id="xyL-kV-K98"/>
