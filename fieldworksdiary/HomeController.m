@@ -263,5 +263,10 @@
 }
 */
 
+- (IBAction)websiteButtonTouchUpInside:(UIButton *)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/jobrunner/fieldworksdiary"]];
+}
+
 
 @end
