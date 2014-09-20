@@ -14,15 +14,6 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    unsigned long urlCacheSize = 4 * 1024 * 1024; // 4MB
-//    unsigned long urlCacheDiscCapacity = 20 * 1024 * 1024; // 20MB
-//    
-//    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:urlCacheSize
-//                                                         diskCapacity:urlCacheDiscCapacity
-//                                                             diskPath:@"sharedCache"];
-//    [NSURLCache setSharedURLCache:URLCache];
-    
-    
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
