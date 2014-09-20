@@ -18,7 +18,9 @@
 
 @implementation FieldtripsController
 
+
 #pragma mark - UIViewController
+
 
 - (void)viewDidLoad
 {
@@ -80,10 +82,12 @@
 
 #pragma mark - UITableView Delegates
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return [[self.fetchedResultsController sections] count];
 }
+
 
 // Nicht klar, ob ich das brauche und wieso
 //-        (NSString *)controller:(NSFetchedResultsController *)controller
@@ -228,20 +232,20 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     // user deletes a row inline
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
-        NSLog(@"DELETING...");
+//        NSLog(@"DELETING...");
         
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
 
         if (tableView == self.searchDisplayController.searchResultsTableView) {
-            NSLog(@"Delete im SearchTableView");
+//            NSLog(@"Delete im SearchTableView");
 //            NSLog(@"im Context gelöscht - aber nicht in der Search Display");
 //
 //            [tableView deleteRowsAtIndexPaths:@[indexPath]
 //                             withRowAnimation:UITableViewRowAnimationFade];
 //
         } else {
-            NSLog(@"Delete im TableView");
+//            NSLog(@"Delete im TableView");
         }
 
         
@@ -252,7 +256,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
             abort();
         }
 
-        NSLog(@"DELETED");
+//        NSLog(@"DELETED");
     }
 }
 
@@ -271,110 +275,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 70;
 }
-
-
-// WIRD NICHT MEHR VERWENDET!
-//- (void)configureCell:(UITableViewCell *)cell
-//          atIndexPath:(NSIndexPath *)indexPath
-//{
-//    Fieldtrip *fieldtripItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    
-//    FieldtripTableViewCell * fieldtripTableViewCell = (FieldtripTableViewCell *)cell;
-//  
-//    fieldtripTableViewCell.localityNameLabel.text = fieldtripItem.localityName;
-//
-////    NSMutableString *placemarkFirstLine = [NSMutableString new];
-////    NSMutableString *placemarkSecondLine = [NSMutableString new];
-////
-////    if (fieldtripItem.country != nil) {
-////        [placemarkFirstLine appendFormat:@"%@", fieldtripItem.country];
-////    }
-////    
-////    if (fieldtripItem.administrativeArea != nil) {
-////        [placemarkFirstLine appendFormat:@", %@", fieldtripItem.administrativeArea];
-////    }
-////
-////    [placemarkFirstLine appendString:@"\n"];
-////
-////    NSString * resultFirstLine = [placemarkFirstLine stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
-////
-////    if (fieldtripItem.subAdministrativeArea != nil) {
-////        [placemarkSecondLine appendFormat:@"%@", fieldtripItem.subAdministrativeArea];
-////    }
-////
-////    if (fieldtripItem.administrativeLocality != nil) {
-////        [placemarkSecondLine appendFormat:@", %@", [fieldtripItem administrativeLocality]];
-////    }
-////        
-////
-////    if (fieldtripItem.administrativeSubLocality != nil) {
-////        [placemarkSecondLine appendFormat:@", %@", fieldtripItem.administrativeSubLocality];
-////    }
-////    
-////    NSString *resultSecondLine = [[placemarkSecondLine stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-////  
-////
-//    fieldtripTableViewCell.locationLabel.text = [fieldtripItem placemark];
-//
-//    
-//    // rename to placemarkLabel!!!
-//
-//    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:fieldtripItem.timeZoneName];
-//    NSLocale *locale     = [NSLocale currentLocale];
-//    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-//
-//    [dateFormatter setLocale:locale];
-//    [dateFormatter setTimeZone:timeZone];
-//
-//    [dateFormatter setDateFormat:@"dd"];
-////    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-////    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-//    
-//    [fieldtripTableViewCell.beginDateDayLabel setText:[dateFormatter stringFromDate:fieldtripItem.beginDate]];
-//
-//    [dateFormatter setDateFormat:@"EEEE"];
-//    [fieldtripTableViewCell.beginDateWeekdayLabel setText:[dateFormatter stringFromDate:fieldtripItem.beginDate]];
-//    
-//    [dateFormatter setDateStyle:NSDateFormatterNoStyle];
-//    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-//    [fieldtripTableViewCell.beginDateTimeLabel setText:[dateFormatter stringFromDate:fieldtripItem.beginDate]];
-//    
-//
-////    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    
-////    [calendar setTimeZone:timeZone];
-//
-////    NSDateComponents *weekdayComponents = [calendar components:(NSDayCalendarUnit | NSWeekdayCalendarUnit)
-////                                                      fromDate:fieldtripItem.beginDate];
-////    NSInteger day = [weekdayComponents day];
-////    NSInteger weekday = [weekdayComponents weekday];
-//    
-////    NSString * dayFormat = [NSDateFormatter dateFormatFromTemplate:@"d"
-////                                                           options:0
-////                                                            locale:locale];
-//
-////    NSDateFormatter *dayDateFormatter = [NSDateFormatter dateFormatFromTemplate:@"" options:0 locale:locale];
-//
-//    
-//    
-//    
-////    NSString * weekdayDateFormatter = [NSDateFormatter dateFormatFromTemplate:@"DD"
-////                                                                   options:0
-////                                                                    locale:locale];
-//    
-//
-////    fieldtripTableViewCell.beginDateDayLabel.text = [dayFormat stringFromDate:fieldtripItem.beginDate];
-////    fieldtripTableViewCell.beginDateWeekdayLabel.text = weekdayDateFormat;
-//
-//    // 20140000 <= 2014
-//    // 20140400 <= April 2014
-////    long identifier = [dateComponents weekday] * 10000 + [dateComponents month] * 100;
-//
-//
-//
-//
-//
-//}
 
 
 #pragma mark - UISearchDisplayDelegate
@@ -413,6 +313,7 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
 
 
 #pragma mark - Search
+
 
 - (void)filterContentForSearchText:(NSString*)searchText
                              scope:(NSString*)scope
@@ -509,7 +410,6 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    NSLog(@"beginUpdates");
     [self.tableView beginUpdates];
 }
 
@@ -542,12 +442,9 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
     UITableView *tableView = self.tableView;    
 
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        NSLog(@"tableView ist zufällig gerade die searchResultsTableView");
+        // NSLog(@"tableView ist zufällig gerade die searchResultsTableView");
     }
     
-    
-    NSLog(@"didChangeObject");
-
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:@[newIndexPath]
@@ -579,7 +476,6 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    NSLog(@"endUpdates");
     [self.tableView endUpdates];
 }
 

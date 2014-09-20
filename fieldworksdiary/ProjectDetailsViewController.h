@@ -15,4 +15,5 @@
 @interface ProjectDetailsViewController : StaticDataTableViewController <UIAlertViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) Project * project;
+
 @end
