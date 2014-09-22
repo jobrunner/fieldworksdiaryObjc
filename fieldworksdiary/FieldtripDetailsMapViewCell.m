@@ -120,7 +120,8 @@
     region.span.latitudeDelta = 0.01;  // ca. 111km / 0.001° => 100m
     
     [self initMapView];
-    [self.mapView setRegion:region animated:NO];
+    [self.mapView setRegion:region
+                   animated:NO];
     
     MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
     

@@ -40,6 +40,7 @@
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 #import "FieldtripDetailsEditViewController.h"
+#import "SpecimenMapController.h"
 #import "Conversion.h"
 #import "EDSunriseSet.h"
 #import "Fieldtrip.h"
@@ -559,6 +560,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         controller.specimen = nil;
     }
+    
+    if ([[segue identifier] isEqualToString:@"openSpecimenMap"]) {
+        SpecimenMapController * controller = segue.destinationViewController;
+        
+        controller.fieldtrip = self.fieldtrip;
+    }
+
 }
 
 

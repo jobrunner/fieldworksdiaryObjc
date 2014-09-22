@@ -1,6 +1,14 @@
-#import <MapKit/MapKit.h>
+@class Fieldtrip;
+@class MKMapView;
 
-@interface SpecimenMapController : UIViewController
+@interface SpecimenMapController : UIViewController <MKMapViewDelegate>
+
+/*!
+ *  Holds a reference to the fieldtrip model
+ *
+ *  @since 1.0
+ */
+@property (strong, nonatomic) Fieldtrip *fieldtrip;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
