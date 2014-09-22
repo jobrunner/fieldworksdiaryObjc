@@ -282,27 +282,27 @@
     self.verticalAccuracy = nil;
     self.altitude = nil;
 
-    NSDateFormatter *specifierPrefixFormatter = [[NSDateFormatter alloc] init];
-    specifierPrefixFormatter.dateFormat = @"yyMMdd";
-    
-    NSString *specifierPrefix = [specifierPrefixFormatter stringFromDate:self.beginDate];
 
     // must be searched from a fieldtrip/specimens collection
     // Important precaution here:
     // Prefixes must complain to the real world, not to the beginning date. That means
     // that in a night excursion from 2200 to 0500 o'clock the prefix should be equal.
     // In Settings, the user should be abled to change and overwrite behaviour here
-    NSNumber * specifierNumber = [self specimenIdentifierByDate:self.beginDate];
+//    NSNumber * specifierNumber = [self specimenIdentifierByDate:self.beginDate];
     
     // specimenIdentifier template
-    self.specimenIdentifier = [NSString stringWithFormat:@"%@#%@", specifierPrefix, specifierNumber];
+    self.specimenIdentifier = [self specimenIdentifierByDate:self.beginDate];
     
     
     // ...
 }
 
-- (NSNumber *)specimenIdentifierByDate:(NSDate *)date
+- (NSString *)specimenIdentifierByDate:(NSDate *)date
 {
+    // move start time from 0000 to 0630 "Fieldwork day begins at 06:30 o'clock local time (and ends 06:30 next day)"
+    // => For me: all between 06:00 - 05:59 is one identifier prefix. But this must be in the settings!
+    NSNumber *specimenPrefixLocalTime = [NSNumber numberWithInteger:630];
+    
     NSEntityDescription *entity;
     NSError *error = nil;
     NSUInteger count = 0;
@@ -311,23 +311,39 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     // {{{ Amount of fieldtrips in the request...
+    // ugly: cannot be tested!
     entity = [NSEntityDescription entityForName:@"Fieldtrip"
                          inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
 
-    // todo: cache Components
-    // todo: make and read user configuration for timeslots within a speciefier prefix equals
-    
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    long prefixHour = [specimenPrefixLocalTime longValue] / 100;
+    long prefixMinute = [specimenPrefixLocalTime longValue] - prefixHour * 100;
+
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [calendar components:unitFlags fromDate:date];
-    comps.hour   = 0;
-    comps.minute = 0;
+    
+//    NSLog(@"prefixHour:   %li", prefixHour);
+//    NSLog(@"prefixMinute: %li", prefixMinute);
+//
+//    NSLog(@"comps.hour %li", comps.hour);
+//    NSLog(@"comps.minute %li", comps.minute);
+    
+    if (comps.hour >= prefixHour && comps.minute >= prefixMinute) {
+//        NSLog(@"Current DateTime is still in the right day");
+        comps.hour = prefixHour;
+        
+    } else {
+        // current time is after mindnight but before end of fieldwork day that ends at prefixHour:prefixMinute
+//        NSLog(@"Current DateTime is in after midnight. Put yesterday in the startRange");
+        comps.hour = prefixHour - 24;
+    }
+    comps.minute = prefixMinute;
     comps.second = 0;
 
-    // assuming current specimens-number has the range 00:00 until 23:59
     NSDate *rangeStart = [calendar dateFromComponents:comps];
     NSDate *rangeEnd = [rangeStart dateByAddingTimeInterval:60*60*24];
+    
 
 //    NSLog(@"rangeStart: %@", rangeStart);
 //    NSLog(@"rangeEnd: %@", rangeEnd);
@@ -336,8 +352,16 @@
     
     count = [self.managedObjectContext countForFetchRequest:request
                                                       error:&error];
-
-    return [NSNumber numberWithLong:count + 1];
+    // A newly created object will be in the counting
+    NSNumber *indentifierNumber = [NSNumber numberWithLong:count];
+    
+    NSDateFormatter *indentifierPrefixFormatter = [[NSDateFormatter alloc] init];
+    indentifierPrefixFormatter.dateFormat = @"yyMMdd";
+    
+    NSString *indentifierPrefix = [indentifierPrefixFormatter stringFromDate:rangeStart];
+    
+    return [NSString stringWithFormat:@"%@#%@", indentifierPrefix, indentifierNumber];
 }
+
 
 @end
