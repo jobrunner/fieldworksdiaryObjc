@@ -183,7 +183,7 @@ viewForHeaderInSection:(NSInteger)section
     
     [sectionTitleLabel setText:sectionTitle];
     [sectionView addSubview:sectionTitleLabel];
-    UIColor * bgColor = [UIColor lightGrayColor];
+    UIColor * bgColor = [UIColor groupTableViewBackgroundColor];
 
     [sectionView setBackgroundColor:bgColor];
     
