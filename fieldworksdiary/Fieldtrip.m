@@ -272,7 +272,7 @@
     self.endDate = [self.beginDate dateByAddingTimeInterval:60.0 * 60.0];
     
     // Standard: Keine Zeitintervall (anzeigen).
-    self.isFullTime = NO;
+    self.isFullTime = @NO;
     
     self.timeZone = [NSTimeZone systemTimeZone];
     
