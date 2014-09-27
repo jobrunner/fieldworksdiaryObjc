@@ -83,16 +83,6 @@
 }
 
 
-// Nicht klar, ob ich das brauche und wieso
-//-        (NSString *)controller:(NSFetchedResultsController *)controller
-//sectionIndexTitleForSectionName:(NSString *)sectionName
-//{
-//    NSLog(@"controller:sectionIndexTitleForSectionName: returns %@", sectionName);
-//    
-//	return sectionName;
-//}
-
-
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section
 {
