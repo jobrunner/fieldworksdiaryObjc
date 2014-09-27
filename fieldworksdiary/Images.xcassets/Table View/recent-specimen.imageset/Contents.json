@@ -8,7 +8,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "recentspecimen@2x-1.png"
+      "filename" : "recentspecimen@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "recentspecimen@3x.png"
     }
   ],
   "info" : {
