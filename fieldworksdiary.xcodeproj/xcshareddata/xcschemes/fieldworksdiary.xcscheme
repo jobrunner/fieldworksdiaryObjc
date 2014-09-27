@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24C389E118F455AE00CC7105"
-               BuildableName = "fieldworksdiary.app"
+               BuildableName = "Diary.app"
                BlueprintName = "fieldworksdiary"
                ReferencedContainer = "container:fieldworksdiary.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C389E118F455AE00CC7105"
-            BuildableName = "fieldworksdiary.app"
+            BuildableName = "Diary.app"
             BlueprintName = "fieldworksdiary"
             ReferencedContainer = "container:fieldworksdiary.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C389E118F455AE00CC7105"
-            BuildableName = "fieldworksdiary.app"
+            BuildableName = "Diary.app"
             BlueprintName = "fieldworksdiary"
             ReferencedContainer = "container:fieldworksdiary.xcodeproj">
          </BuildableReference>
@@ -84,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C389E118F455AE00CC7105"
-            BuildableName = "fieldworksdiary.app"
+            BuildableName = "Diary.app"
             BlueprintName = "fieldworksdiary"
             ReferencedContainer = "container:fieldworksdiary.xcodeproj">
          </BuildableReference>
