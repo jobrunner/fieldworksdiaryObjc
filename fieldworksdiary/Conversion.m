@@ -20,7 +20,7 @@
         // convert as needed.
     }
     
-    NSString *altitude = [NSString stringWithFormat:@"%im", (int)(location.altitude + 0.5)];
+    NSString *altitude = [NSString stringWithFormat:@"%i m", (int)(location.altitude + 0.5)];
     
     return altitude;
 }
@@ -35,7 +35,7 @@
         // convert as needed.
     }
     
-    NSString *accuracy = [NSString stringWithFormat:@"±%im", (int)(location.horizontalAccuracy + 0.5)];
+    NSString *accuracy = [NSString stringWithFormat:@"±%i m", (int)(location.horizontalAccuracy + 0.5)];
     
     return accuracy;
 }
@@ -50,7 +50,7 @@
         // convert as needed.
     }
     
-    NSString *accuracy = [NSString stringWithFormat:@"±%im", (int)(location.verticalAccuracy + 0.5)];
+    NSString *accuracy = [NSString stringWithFormat:@"±%i m", (int)(location.verticalAccuracy + 0.5)];
     
     return accuracy;
 }
@@ -83,7 +83,7 @@
                      [self signumString:(float)location.coordinate.longitude],
                      fabs(location.coordinate.longitude)];
     
-    NSString *coords = [NSString stringWithFormat:@"%@;%@", lat, lng];
+    NSString *coords = [NSString stringWithFormat:@"%@; %@", lat, lng];
     
     return coords;
 }
