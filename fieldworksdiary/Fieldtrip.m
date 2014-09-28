@@ -65,6 +65,27 @@
 }
 
 
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+
+    NSDate *date = [NSDate date];
+    [self setPrimitiveValue:date forKey:@"creationTime"];
+    [self setPrimitiveValue:date forKey:@"updateTime"];
+}
+
+- (void)willSave
+{
+    [super willSave];
+    
+    if(!self.isDeleted) {
+        NSDate *date = [NSDate date];
+        [self setPrimitiveValue:date
+                         forKey:@"updateTime"];
+    }
+}
+
+
 #pragma mark - Transient properties
 
 
@@ -121,8 +142,6 @@
 }
 
 
-// Mir ist noch nicht ganz klar, ob ich das wirklich brauche!
-// Außerdem verstehe ich es noch nicht.
 - (void)setBeginDate:(NSDate *)beginDate
 {
     // If the beginDate changes,
@@ -288,15 +307,19 @@
     // Prefixes must complain to the real world, not to the beginning date. That means
     // that in a night excursion from 2200 to 0500 o'clock the prefix should be equal.
     // In Settings, the user should be abled to change and overwrite behaviour here
-//    NSNumber * specifierNumber = [self specimenIdentifierByDate:self.beginDate];
     
-    // specimenIdentifier template
+    // use hard coded here specimenIdentifier template <YYMMDD>#<Lf#>
     self.specimenIdentifier = [self specimenIdentifierByDate:self.beginDate];
     
     
     // ...
 }
 
+/*!
+ * Creates a hard coded but handy "unique" specimen identifier <YYMMDD>#<Number>, e.g. 140503#1 when the trip is on 3rd May 2014 and the first probe/specimen. Here specimenIdentifierMajor is <YYMMDD> the specimenIdentifierMinor is <Number> and the specimenIdentifierTemplate is '<specimenIdentifierMajor>#<specimenIdentifierMinor>
+   Supporting a simple location number on a fieldtrip of one month, use it without generation. E.g. "Fo 1".
+ *
+ */
 - (NSString *)specimenIdentifierByDate:(NSDate *)date
 {
     // move start time from 0000 to 0630 "Fieldwork day begins at 06:30 o'clock local time (and ends 06:30 next day)"

@@ -52,6 +52,9 @@
 @property (nonatomic, retain) NSSet *images;
 @property (nonatomic, retain) Project *project;
 @property (nonatomic, retain) NSSet *specimens;
+@property (nonatomic, retain) NSDate * creationTime;
+@property (nonatomic, retain) NSDate * updateTime;
+
 @end
 
 @interface Fieldtrip (CoreDataGeneratedAccessors)

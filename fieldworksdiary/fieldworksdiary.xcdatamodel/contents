@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CollectingMethod" representedClassName="CollectingMethod" syncable="YES">
         <attribute name="methodName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Fieldtrip" representedClassName="Fieldtrip" syncable="YES">
+    <entity name="Fieldtrip" representedClassName="Fieldtrip" isAbstract="YES" syncable="YES">
         <attribute name="administrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="administrativeLocality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="administrativeSubLocality" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,6 +11,7 @@
         <attribute name="beginDate" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="countryCodeISO" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horizontalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -39,6 +40,7 @@
         <attribute name="timeZone" attributeType="Transformable" valueTransformerName="TimeZoneTransformer" syncable="YES"/>
         <attribute name="twilightBegin" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="twilightEnd" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="verticalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="collector" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="defaultCollected" inverseEntity="Person" syncable="YES"/>
         <relationship name="findings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fieldtrip" inverseName="findings" inverseEntity="Fieldtrip" syncable="YES"/>
@@ -66,6 +68,7 @@
         <relationship name="representations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" syncable="YES"/>
         <relationship name="specimen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specimen" inverseName="images" inverseEntity="Specimen" syncable="YES"/>
     </entity>
+    <entity name="Media" syncable="YES"/>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="addressBookId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
@@ -133,11 +136,12 @@
     </entity>
     <elements>
         <element name="CollectingMethod" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="658"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="688"/>
         <element name="Finding" positionX="0" positionY="0" width="128" height="180"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Person" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Project" positionX="0" positionY="0" width="128" height="210"/>
         <element name="Specimen" positionX="0" positionY="0" width="128" height="645"/>
+        <element name="Media" positionX="9" positionY="153" width="128" height="45"/>
     </elements>
 </model>
