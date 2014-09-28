@@ -70,6 +70,7 @@
     // {{{ Amount of fieldtrips in the request...
     entity = [NSEntityDescription entityForName:@"Fieldtrip"
                          inManagedObjectContext:self.managedObjectContext];
+
     [request setEntity:entity];
     
     count = [self.managedObjectContext countForFetchRequest:request
@@ -81,7 +82,6 @@
     
     // Temp hack: fieldtrip will come deprecated and replaced by specimen
     self.countOfSpecimensLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)count];
-    
     // }}}
 }
 
