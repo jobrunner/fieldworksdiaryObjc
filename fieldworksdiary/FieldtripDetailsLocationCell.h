@@ -8,6 +8,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *coordinatesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *altitudeCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *altitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *accuracyCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *horizontalAccuracyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *verticalAccuracyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *locationUpdateButton;

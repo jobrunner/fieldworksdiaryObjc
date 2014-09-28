@@ -24,6 +24,12 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationUsageDescription</key>
+	<string>Location is required to find out where you are</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is required to find out where you are.</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

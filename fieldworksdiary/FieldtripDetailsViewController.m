@@ -386,15 +386,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    [self drawBeginDateFromModel];
 //    [self drawTimeZoneFromModel];
     
-    if ([LocationService isEnabled] && [LocationService isAuthorized]) {
-
-//        [self.locationUpdateButton setEnabled:YES];
-        [self startLocationTracking];
-        
-    } else {
-
-//        [self.locationUpdateButton setEnabled:NO];
-    }
+    [self startLocationTracking];
 }
 
 
@@ -892,6 +884,7 @@ willDisplayHeaderView:(UIView *)view
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         self.locationManager.delegate = self;
     }
+    
 }
 
 - (void)destroyLocationManager
@@ -901,7 +894,8 @@ willDisplayHeaderView:(UIView *)view
 
 
 // Tells us that the authorization status for the application changed.
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+- (void)locationManager:(CLLocationManager *)manager
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     // implement when concurrency has a good flow for authorized
     
@@ -914,23 +908,28 @@ willDisplayHeaderView:(UIView *)view
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
+    NSLog(@"LocationManger didFailWithError: %@", error);
+    
+    
     [self stopLocationTracking];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationFailure
                                                         object:self];
     
-//    self.errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                 message:@"Failed to get your Location"
-//                                                delegate:self
-//                                       cancelButtonTitle:@"OK"
-//                                       otherButtonTitles:nil];
-//    [self.errorAlert show]
+    UIAlertView *errorAlert;
+    errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                            message:NSLocalizedString(@"Failed to get your Location", nil)
+                                           delegate:self
+                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                  otherButtonTitles:nil];
+    [errorAlert show];
 }
 
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations
 {
+    NSLog(@"LocationManager: didUpdateLocations!");
     
     CLLocation * location = [locations lastObject];
 
@@ -942,24 +941,28 @@ willDisplayHeaderView:(UIView *)view
     
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    
     if (abs(howRecent) > 15.0) {
         // If the event is not recent, do nothing with it.
+        NSLog(@"howRecent (must be >= 15.0): %d", abs(howRecent));
         return ;
     }
 
-    // dosnt function in emulator, I think
-    if (location.horizontalAccuracy > 100) {
+    if (abs(location.horizontalAccuracy) > 100) {
 
+        NSLog(@"horizontalAccuracy (bust be <= 100): %d", abs(location.horizontalAccuracy));
         return;
     }
 
-//    if (location.verticalAccuracy > 100) {
-//        
-//        return;
-//    }
+    if (abs(location.verticalAccuracy) > 100) {
+        
+        NSLog(@"verticalAccuracy (bust be < 100): %d", abs(location.verticalAccuracy));
+        return;
+    }
     
     
     [self stopLocationTracking];
+    
     [self.fieldtrip setLocation:location];
     NSLog(@"Notification LocationUpdate");
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationUpdate
@@ -1409,10 +1412,33 @@ willDisplayHeaderView:(UIView *)view
 
 - (void)startLocationTracking
 {
-    [self initLocationManager];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+  
+    // for iOS 8+
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    [self.locationManager startUpdatingLocation];
+//    }
+    
+    
+    
+//    if ([LocationService isEnabled] && [LocationService isAuthorized]) {
+        //
+        //
+        ////        [self.locationUpdateButton setEnabled:YES];
+        //        [self startLocationTracking];
+        
+//    } else {
+    
+        //        [self.locationUpdateButton setEnabled:NO];
+//    }
+    
 //    self.locationUpdateButton.selected = YES;
 
-    [self.locationManager startUpdatingLocation];
+//    [self.locationManager startUpdatingLocation];
 }
 
 
@@ -1422,7 +1448,7 @@ willDisplayHeaderView:(UIView *)view
 
 //    self.locationUpdateButton.selected = NO;
     
-    [self.refreshControl endRefreshing];
+//    [self.refreshControl endRefreshing];
     [self destroyLocationManager];
 }
 

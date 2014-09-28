@@ -1,44 +1,39 @@
-//
-//  MettLocationServiceAuthorization.m
-//  sunrise
-//
-//  Created by Jo Brunner on 09.04.14.
-//  Copyright (c) 2014 Jo Brunner. All rights reserved.
-//
-
 @import CoreLocation;
 
 #import "LocationService.h"
 
+@interface LocationService() <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+@end
 
 @implementation LocationService
+
+- (id)init
+{
+    if (self = [super init]) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+    }
+    
+    return self;
+}
+
 
 
 + (BOOL)isEnabled
 {
-    BOOL isLocationService = [CLLocationManager locationServicesEnabled];
-    
-    if (isLocationService == YES) {
-        
-        // GPS exists and is enabled.
-        NSLog(@"Location Service enabled.");
-
-        return YES;
-    } else {
-
-        // No GPS service detected. Can be also an authorization restriction?!
-        NSLog(@"Location Service not enabled.");
-        
-        return NO;
-    }
+    return [CLLocationManager locationServicesEnabled];
 }
+
 
 + (BOOL)isAuthorized
 {
     CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
     
-    if (kCLAuthorizationStatusNotDetermined == authorizationStatus) {
-        // User hat keine Angaben gemacht
+    if (authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        // User hasn't yet been asked to authorize location updates
         NSLog(@"authorizationStatus: kCLAuthorizationStatusNotDetermined");
 
         return YES;
@@ -65,4 +60,42 @@
 }
 
 
+- (void)requestAlwaysAuthorization
+{
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    
+    // If the status is denied or only granted for when in use, display an alert
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied) {
+
+        NSString *title;
+        
+        if (status == kCLAuthorizationStatusDenied) {
+            title = NSLocalizedString(@"Location services are off", nil);
+        } else {
+            title = NSLocalizedString(@"Background location is not enabled", nil);
+        }
+        
+        NSString *message = NSLocalizedString(@"To use background location you must turn on 'Always' in the Location Services Settings", nil);
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                            message:message
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Settings", nil];
+        [alertView show];
+    }
+    // The user has not enabled any location services. Request background authorization.
+    else if (status == kCLAuthorizationStatusNotDetermined) {
+        [self.locationManager requestAlwaysAuthorization];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // Send the user to the Settings for this app
+        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        [[UIApplication sharedApplication] openURL:settingsURL];
+    }
+}
 @end
