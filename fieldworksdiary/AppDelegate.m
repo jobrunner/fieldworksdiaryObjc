@@ -21,6 +21,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     controller.managedObjectContext = self.managedObjectContext;
 
+    // Use green for the default appearance tint color
+    [[UIView appearance] setTintColor:[UIColor greenColor]];
+    
     return YES;
 }
 							
