@@ -455,11 +455,11 @@
     // Define tab stops that fits date and time parts
     NSTextTab *dateTab = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentRight
                                                          location:130
-                                                          options:nil];
+                                                          options:[NSDictionary dictionary]];
     
     NSTextTab *timeTab = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentRight
                                                          location:200
-                                                          options:nil];
+                                                          options:[NSDictionary dictionary]];
     if (isAllday == YES) {
         paragraphStyle.tabStops = @[timeTab];
     } else {
