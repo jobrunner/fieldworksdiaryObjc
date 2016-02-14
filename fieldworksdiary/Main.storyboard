@@ -349,7 +349,7 @@ Neubergstraße 16
                                         <constraint firstAttribute="width" constant="64" id="VRm-6U-gUY"/>
                                         <constraint firstAttribute="height" constant="64" id="z5T-Nf-z9V"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="AddIcon"/>
+                                    <state key="normal" backgroundImage="Add"/>
                                     <connections>
                                         <segue destination="36l-ca-1Z2" kind="push" identifier="createFieldtripSegue" id="xOM-Qw-fOW"/>
                                     </connections>
@@ -367,38 +367,38 @@ Neubergstraße 16
                                         <segue destination="36l-ca-1Z2" kind="push" identifier="createFieldtripWithPhotoSegue" id="7d6-Pr-TBX"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNi-ld-C4E">
-                                    <rect key="frame" x="20" y="140" width="8" height="17"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNi-ld-C4E">
+                                    <rect key="frame" x="20" y="140" width="9" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpK-zZ-4DA">
-                                    <rect key="frame" x="143" y="141" width="8" height="17"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpK-zZ-4DA">
+                                    <rect key="frame" x="137" y="140" width="9" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-sf-epa">
-                                    <rect key="frame" x="248" y="141" width="8" height="17"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-sf-epa">
+                                    <rect key="frame" x="237" y="141" width="9" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SPECIMENS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-lN-xD3">
-                                    <rect key="frame" x="20" y="157" width="66" height="14"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPECIMENS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-lN-xD3">
+                                    <rect key="frame" x="20" y="157" width="63.5" height="13.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FINDINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OR-M6-8eB">
-                                    <rect key="frame" x="248" y="158" width="52" height="13"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINDINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OR-M6-8eB">
+                                    <rect key="frame" x="237" y="158" width="63" height="13"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PHOTOS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-MQ-Ohr">
-                                    <rect key="frame" x="143" y="157" width="47" height="14"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTOS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-MQ-Ohr">
+                                    <rect key="frame" x="137" y="157" width="46" height="13.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -409,11 +409,11 @@ Neubergstraße 16
                                         <constraint firstAttribute="height" constant="1" id="NQf-BO-mO2"/>
                                     </constraints>
                                 </imageView>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xyt-At-LYZ">
-                                    <rect key="frame" x="86" y="157" width="57.5" height="14"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyt-At-LYZ">
+                                    <rect key="frame" x="83" y="157" width="54" height="14"/>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bP8-Zj-Hmh">
-                                    <rect key="frame" x="190" y="157" width="57.5" height="14"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bP8-Zj-Hmh">
+                                    <rect key="frame" x="191" y="157" width="46" height="14"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -535,7 +535,7 @@ Neubergstraße 16
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="specimens" id="pdC-D4-Ys2">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="pictures" id="pdC-D4-Ys2">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -556,9 +556,10 @@ Neubergstraße 16
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="specimens" id="d8h-dg-Vuf">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="about" id="d8h-dg-Vuf">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1861,7 +1862,7 @@ Bei Eußenheim</string>
         </scene>
     </scenes>
     <resources>
-        <image name="AddIcon" width="128" height="128"/>
+        <image name="Add" width="64" height="64"/>
         <image name="Camera" width="64" height="64"/>
         <image name="about" width="25" height="25"/>
         <image name="daylight-day" width="75" height="75"/>
@@ -1870,6 +1871,7 @@ Bei Eußenheim</string>
         <image name="gps-off" width="66" height="66"/>
         <image name="gps-on" width="66" height="66"/>
         <image name="hr" width="640" height="1"/>
+        <image name="pictures" width="25" height="25"/>
         <image name="projects" width="25" height="25"/>
         <image name="recent-specimen" width="25" height="25"/>
         <image name="specimens" width="25" height="25"/>
@@ -1881,5 +1883,5 @@ Bei Eußenheim</string>
         <segue reference="xOM-Qw-fOW"/>
         <segue reference="rDx-It-S2a"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

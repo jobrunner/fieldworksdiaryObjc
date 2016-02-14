@@ -90,7 +90,7 @@
 		24249AA219CADD8500D2D01C /* before_script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = before_script.sh; sourceTree = "<group>"; };
 		24249AA319CADD8500D2D01C /* script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = script.sh; sourceTree = "<group>"; };
 		24249AA619CAF83B00D2D01C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		24249AA819CB266700D2D01C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		24249AA819CB266700D2D01C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = fieldworksdiary/Main.storyboard; sourceTree = "<group>"; };
 		24249AAA19CB2F2900D2D01C /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		24249AAB19CB2F2900D2D01C /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		24249AAD19CB2F8700D2D01C /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
@@ -355,6 +355,7 @@
 		24C389D918F455AE00CC7105 = {
 			isa = PBXGroup;
 			children = (
+				24249AA819CB266700D2D01C /* Main.storyboard */,
 				24290E0A19013BFF007BD8AF /* infra */,
 				24C389EB18F455AE00CC7105 /* fieldworksdiary */,
 				24C38A0A18F455AF00CC7105 /* Tests */,
@@ -439,7 +440,6 @@
 		24C38A1E18F46AE900CC7105 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				24249AA819CB266700D2D01C /* Main.storyboard */,
 				24249AFF19CB312C00D2D01C /* FieldtripTableViewCell.h */,
 				24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */,
 				24249B0119CB312C00D2D01C /* ProjectTableViewCell.h */,
