@@ -35,6 +35,7 @@
 - (void)setFieldtrip:(Fieldtrip *)fieldtrip
 {
     _fieldtrip = fieldtrip;
+    
     [self updateUserInterface];
 }
 
@@ -77,9 +78,9 @@
 #pragma mark - UITextFieldDelegate -
 
 
-- (BOOL)textFieldShouldReturn:(UITextField*)aTextField
+- (BOOL)textFieldShouldReturn:(UITextField*)textField
 {
-    [aTextField resignFirstResponder];
+    [textField resignFirstResponder];
     
     return YES;
 }
