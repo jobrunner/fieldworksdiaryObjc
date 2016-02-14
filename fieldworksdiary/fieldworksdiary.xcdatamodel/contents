@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1605" minimumToolsVersion="Automatic">
     <entity name="CollectingMethod" representedClassName="CollectingMethod" syncable="YES">
         <attribute name="methodName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Fieldtrip" representedClassName="Fieldtrip" isAbstract="YES" syncable="YES">
+    <entity name="Fieldtrip" representedClassName="Fieldtrip" syncable="YES">
         <attribute name="administrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="administrativeLocality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="administrativeSubLocality" optional="YES" attributeType="String" syncable="YES"/>
@@ -136,12 +136,12 @@
     </entity>
     <elements>
         <element name="CollectingMethod" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="688"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="690"/>
         <element name="Finding" positionX="0" positionY="0" width="128" height="180"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Media" positionX="9" positionY="153" width="128" height="45"/>
         <element name="Person" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Project" positionX="0" positionY="0" width="128" height="210"/>
         <element name="Specimen" positionX="0" positionY="0" width="128" height="645"/>
-        <element name="Media" positionX="9" positionY="153" width="128" height="45"/>
     </elements>
 </model>

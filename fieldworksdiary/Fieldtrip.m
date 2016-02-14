@@ -53,6 +53,8 @@
 @dynamic images;
 @dynamic project;
 @dynamic specimens;
+@dynamic creationTime;
+@dynamic updateTime;
 
 
 + (void)initialize
