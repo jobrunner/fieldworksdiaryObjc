@@ -482,7 +482,6 @@
 				24249AD819CB30B800D2D01C /* fieldworksdiary.xcdatamodel */,
 				24249B3A19CC8BE400D2D01C /* Fieldtrip.h */,
 				24249B3B19CC8BE400D2D01C /* Fieldtrip.m */,
-				24249AF819CB30E400D2D01C /* Transformer */,
 				24249ADB19CB30B800D2D01C /* Image.h */,
 				24249ADC19CB30B800D2D01C /* Image.m */,
 				24249ADD19CB30B800D2D01C /* Project.h */,
@@ -499,6 +498,7 @@
 				24249AE819CB30B800D2D01C /* Collection.m */,
 				24249AE919CB30B800D2D01C /* Placemark.h */,
 				24249AEA19CB30B800D2D01C /* Placemark.m */,
+				24249AF819CB30E400D2D01C /* Transformer */,
 			);
 			name = Models;
 			sourceTree = "<group>";
