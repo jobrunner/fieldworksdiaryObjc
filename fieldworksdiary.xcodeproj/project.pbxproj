@@ -572,7 +572,7 @@
 		24C389DA18F455AE00CC7105 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jo Brunner";
 				TargetAttributes = {
 					24C389E118F455AE00CC7105 = {
@@ -777,6 +777,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -841,6 +842,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Diary;
 				WRAPPER_EXTENSION = app;
 			};
@@ -856,6 +858,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Diary;
 				WRAPPER_EXTENSION = app;
 			};
@@ -878,6 +881,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "fieldworksdiaryTests/fieldworksdiaryTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -896,6 +900,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiaryTests/fieldworksdiaryTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
