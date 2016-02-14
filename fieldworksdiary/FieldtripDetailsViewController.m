@@ -942,21 +942,21 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
-    if (abs(howRecent) > 15.0) {
+    if (fabs(howRecent) > 15.0) {
         // If the event is not recent, do nothing with it.
-        NSLog(@"howRecent (must be >= 15.0): %d", abs(howRecent));
+        NSLog(@"howRecent (must be >= 15.0): %f", fabs(howRecent));
         return ;
     }
 
-    if (abs(location.horizontalAccuracy) > 100) {
+    if (fabs(location.horizontalAccuracy) > 100) {
 
-        NSLog(@"horizontalAccuracy (bust be <= 100): %d", abs(location.horizontalAccuracy));
+        NSLog(@"horizontalAccuracy (bust be <= 100): %f", fabs(location.horizontalAccuracy));
         return;
     }
 
-    if (abs(location.verticalAccuracy) > 100) {
+    if (fabs(location.verticalAccuracy) > 100) {
         
-        NSLog(@"verticalAccuracy (bust be < 100): %d", abs(location.verticalAccuracy));
+        NSLog(@"verticalAccuracy (bust be < 100): %f", fabs(location.verticalAccuracy));
         return;
     }
     
