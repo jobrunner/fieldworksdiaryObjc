@@ -32,7 +32,7 @@
 // cell classes
 #import "FieldtripDetailsSpecimenIdentifierCell.h"
 #import "FieldtripDetailsSpecimenNotesCell.h"
-//#import "FieldtripDetailsLocationNameCell.h"
+#import "FieldtripDetailsLocationNameCell.h"
 #import "FieldtripDetailsLocationCell.h"
 #import "FieldtripDetailsPlacemarkCell.h"
 #import "FieldtripDetailsDateCell.h"
@@ -619,7 +619,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         // #6 ImageMap (FieldtripDetailsStaticMapViewCell)
         // #7 Images scroll view (FieldtripDetailsImagesScrollViewCell)
 
-        return 7;
+        return 8;
     }
 
     // Specimens-Section
@@ -640,10 +640,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // Fieldtrip section
     if (indexPath.section == 0) {
 
-
         // specimen identifier text field (exc. number)
         if (indexPath.row == 0) {
-            
             FieldtripDetailsSpecimenIdentifierCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenIdentifierCell reuseIdentifier]
                                                    forIndexPath:indexPath];
@@ -652,8 +650,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             return cell;
         }
 
-        // spceimenNotes text view
+        // locationName text field
         if (indexPath.row == 1) {
+            FieldtripDetailsLocationNameCell *cell;
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
+                                                   forIndexPath:indexPath];
+            cell.fieldtrip = self.fieldtrip;
+        
+            return cell;
+        }
+        
+        // spceimenNotes text view
+        if (indexPath.row == 2) {
             
             FieldtripDetailsSpecimenNotesCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenNotesCell reuseIdentifier]
@@ -662,20 +671,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             
             return cell;
         }
-        
-//        // locationName text field
-//        if (indexPath.row == 1) {
-//            
-//            FieldtripDetailsLocationNameCell *cell;
-//            cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
-//                                                   forIndexPath:indexPath];
-//            cell.fieldtrip = self.fieldtrip;
-//
-//            return cell;
-//        }
 
         // location view
-        if (indexPath.row == 2) {
+        if (indexPath.row == 3) {
             
             FieldtripDetailsLocationCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocationCell reuseIdentifier]
@@ -687,7 +685,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
         
         // placemark view
-        if (indexPath.row == 3) {
+        if (indexPath.row == 4) {
             
             FieldtripDetailsPlacemarkCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsPlacemarkCell reuseIdentifier]
@@ -699,7 +697,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // date view
-        if (indexPath.row == 4) {
+        if (indexPath.row == 5) {
             
             FieldtripDetailsDateCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsDateCell reuseIdentifier]
@@ -711,7 +709,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // project view
-        if (indexPath.row == 5) {
+        if (indexPath.row == 6) {
             
             FieldtripDetailsProjectCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsProjectCell reuseIdentifier]
@@ -724,7 +722,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         
         // Image Map
-        if (indexPath.row == 6) {
+        if (indexPath.row == 7) {
 
             FieldtripDetailsMapViewCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsMapViewCell reuseIdentifier]
@@ -734,7 +732,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // Images scroll view
-        if (indexPath.row == 7) {
+        if (indexPath.row == 8) {
 //            FieldtripDetailsImagesScrollViewCell
         }
     }
@@ -757,10 +755,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 
-
-
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     // Locality-Section
 //    if (section == 0) {
@@ -776,34 +771,34 @@ titleForHeaderInSection:(NSInteger)section
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     // SpecimenNotes
-    if (indexPath.section == 0 && indexPath.row == 1) {
+    if (indexPath.section == 0 && (indexPath.row == 2)) {
         return 97;
     }
     
     // Location
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 0 && indexPath.row == 3) {
         return 71;
     }
+    
     // Placemark
-    if (indexPath.section == 0 && indexPath.row == 3) {
+    if (indexPath.section == 0 && indexPath.row == 4) {
         return 72;
     }
+    
     // Date
-    if (indexPath.section == 0 && indexPath.row == 4) {
+    if (indexPath.section == 0 && indexPath.row == 5) {
         return 65;
     }
     // Project
-    if (indexPath.section == 0 && indexPath.row == 5) {
+    if (indexPath.section == 0 && indexPath.row == 6) {
         return 44;
     }
 
     // MapView
-    if (indexPath.section == 0 && indexPath.row == 6) {
+    if (indexPath.section == 0 && indexPath.row == 7) {
         return 140;
     }
     
@@ -811,9 +806,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 
-- (void)tableView:(UITableView *)tableView
-willDisplayHeaderView:(UIView *)view
-       forSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     if (section == 1) {
         CGRect frame = tableView.frame;
