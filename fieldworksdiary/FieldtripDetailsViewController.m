@@ -30,6 +30,7 @@
 #import "Crypto.h"
 
 // cell classes
+#import "FieldtripDetailsLocalityIdentifierCell.h"
 #import "FieldtripDetailsSpecimenIdentifierCell.h"
 #import "FieldtripDetailsSpecimenNotesCell.h"
 #import "FieldtripDetailsLocationNameCell.h"
@@ -611,16 +612,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // Fieldtrip-Section
     if (section == 0) {
-        // #0 specimenIdentifier (FieldtripDetailsSpecimenIdentifierCell)
-        // #1 localityName (FieldtripDetailsLocationNameCell) -> must be FieldtripDetailsLocalityNameCell?!
-        // #2 location details summary (FieldtripDetailsLocationCell)
-        // #3 placemark (FieldtripDetailsPlacemarkCell)
-        // #4 date details summary (FieldtripDetailsDateCell)
-        // #5 project (FieldtripDetailsProjectCell)
-        // #6 ImageMap (FieldtripDetailsStaticMapViewCell)
-        // #7 Images scroll view (FieldtripDetailsImagesScrollViewCell)
+        // #0 localityIdentifier (FieldtripDetailsLocalityIdentifierCell)
+        // #1 specimenIdentifier (FieldtripDetailsSpecimenIdentifierCell)
+        // #2 localityName (FieldtripDetailsLocationNameCell) -> must be FieldtripDetailsLocalityNameCell?!
+        // #3 location details summary (FieldtripDetailsLocationCell)
+        // #4 placemark (FieldtripDetailsPlacemarkCell)
+        // #5 date details summary (FieldtripDetailsDateCell)
+        // #6 project (FieldtripDetailsProjectCell)
+        // #7 ImageMap (FieldtripDetailsStaticMapViewCell)
+        // #8 Images scroll view (FieldtripDetailsImagesScrollViewCell)
 
-        return 8;
+        return 9;
     }
 
     // Specimens-Section
@@ -641,6 +643,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // Fieldtrip section
     if (indexPath.section == 0) {
 
+        
+        
         // specimen identifier text field (exc. number)
         if (indexPath.row == 0) {
             FieldtripDetailsSpecimenIdentifierCell *cell;
@@ -651,8 +655,21 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             return cell;
         }
 
-        // locationName text field
+        
+        // location identifier text field (location number)
         if (indexPath.row == 1) {
+            FieldtripDetailsLocalityIdentifierCell *cell;
+
+            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocalityIdentifierCell reuseIdentifier]
+                                                   forIndexPath:indexPath];
+            cell.fieldtrip = self.fieldtrip;
+            
+            return cell;
+        }
+        
+        
+        // locationName text field
+        if (indexPath.row == 2) {
             FieldtripDetailsLocationNameCell *cell;
             
             cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
@@ -664,7 +681,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         
         // spceimenNotes text view
-        if (indexPath.row == 2) {
+        if (indexPath.row == 3) {
             
             FieldtripDetailsSpecimenNotesCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenNotesCell reuseIdentifier]
@@ -675,7 +692,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // location view
-        if (indexPath.row == 3) {
+        if (indexPath.row == 4) {
             
             FieldtripDetailsLocationCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocationCell reuseIdentifier]
@@ -687,7 +704,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
         
         // placemark view
-        if (indexPath.row == 4) {
+        if (indexPath.row == 5) {
             
             FieldtripDetailsPlacemarkCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsPlacemarkCell reuseIdentifier]
@@ -699,7 +716,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // date view
-        if (indexPath.row == 5) {
+        if (indexPath.row == 6) {
             
             FieldtripDetailsDateCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsDateCell reuseIdentifier]
@@ -711,7 +728,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // project view
-        if (indexPath.row == 6) {
+        if (indexPath.row == 7) {
             
             FieldtripDetailsProjectCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsProjectCell reuseIdentifier]
@@ -724,7 +741,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         
         // Image Map
-        if (indexPath.row == 7) {
+        if (indexPath.row == 8) {
 
             FieldtripDetailsMapViewCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsMapViewCell reuseIdentifier]
@@ -734,7 +751,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         // Images scroll view
-        if (indexPath.row == 8) {
+        if (indexPath.row == 9) {
 //            FieldtripDetailsImagesScrollViewCell
         }
     }
@@ -775,32 +792,37 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // SpecimenIdentifier (0)
+    // LocalityName (2)
+    // LocalityIdentifier (1)
+    
     // SpecimenNotes
-    if (indexPath.section == 0 && (indexPath.row == 2)) {
+    if (indexPath.section == 0 && (indexPath.row == 3)) {
         return 97;
     }
     
     // Location
-    if (indexPath.section == 0 && indexPath.row == 3) {
+    if (indexPath.section == 0 && indexPath.row == 4) {
         return 71;
     }
     
     // Placemark
-    if (indexPath.section == 0 && indexPath.row == 4) {
-        return 72;
+    if (indexPath.section == 0 && indexPath.row == 5) {
+        return 54;
+//        return 72;
     }
     
     // Date
-    if (indexPath.section == 0 && indexPath.row == 5) {
+    if (indexPath.section == 0 && indexPath.row == 6) {
         return 65;
     }
     // Project
-    if (indexPath.section == 0 && indexPath.row == 6) {
+    if (indexPath.section == 0 && indexPath.row == 7) {
         return 44;
     }
 
     // MapView
-    if (indexPath.section == 0 && indexPath.row == 7) {
+    if (indexPath.section == 0 && indexPath.row == 8) {
         return 140;
     }
     

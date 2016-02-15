@@ -28,18 +28,14 @@
 @dynamic isInDaylight;
 @dynamic latitude;
 @dynamic localityDescription;
-@dynamic localityMajorId;
-@dynamic localityMinorId;
+@dynamic localityIdentifier;
 @dynamic localityName;
-@dynamic localityPrefixId;
 @dynamic longitude;
 @dynamic mapImageFilename;
 @dynamic ocean;
 @dynamic pressure;
 @dynamic sectionIdentifier;
 @dynamic specimenIdentifier;
-@dynamic specimenMajorId;
-@dynamic specimenMinorId;
 @dynamic specimenNotes;
 @dynamic sunrise;
 @dynamic sunset;
@@ -55,6 +51,7 @@
 @dynamic specimens;
 @dynamic creationTime;
 @dynamic updateTime;
+@dynamic version;
 
 
 + (void)initialize
@@ -76,14 +73,17 @@
     [self setPrimitiveValue:date forKey:@"updateTime"];
 }
 
+
 - (void)willSave
 {
     [super willSave];
     
-    if(!self.isDeleted) {
+    if (!self.isDeleted) {
         NSDate *date = [NSDate date];
         [self setPrimitiveValue:date
                          forKey:@"updateTime"];
+        
+        [self setPrimitiveValue:self.version forKey:@"version"];
     }
 }
 
@@ -93,54 +93,10 @@
 
 - (NSString *)sectionIdentifier
 {
-    NSString *sectionIdentifier = [Fieldtrip createSectionIdentifier:self.beginDate];
-    return sectionIdentifier;
+    return [Fieldtrip createSectionIdentifier:self.beginDate];
     
-    
-//    // Create and cache the section identifier on demand.
-//    [self willAccessValueForKey:@"sectionIdentifier"];
-//    
-//    // liefert vor dem ersten Aufruf bereits nicht nil, sondern den Inhalt von administrativeLebel! ?!
-//    NSString *sectionIdentifier = [self primitiveValueForKey:@"sectionIdentifier"];
-//    [self didAccessValueForKey:@"sectionIdentifier"];
-//    // End of
-//
-//    if (sectionIdentifier == nil) {
-    
-        
-        
-        
-        // Sections are organized by month and year.
-        // Create the section identifier as a string
-        // representing the number (year * 1000) + month;
-        // this way they will be correctly ordered chronologically
-        // regardless of the actual name of the month.
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
-        
-        [calendar setTimeZone:timeZone];
-        
-        NSDateComponents * dateComponents;
-        
-        // Sections on year/month basis:
-        dateComponents = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit
-                                     fromDate:self.beginDate];
-        
-        // 20140000 <= 2014
-        // 20140400 <= April 2014
-        long identifierValue = [dateComponents year] * 10000 + [dateComponents month] * 100;
-        
-        sectionIdentifier = [NSString stringWithFormat:@"%ld", identifierValue];
-        
-        [self setPrimitiveValue:sectionIdentifier forKey:@"sectionIdentifier"];
-
-        NSLog(@"Returning sectionIdentifier: %@", sectionIdentifier);
-//    } else {
-//        NSLog(@"Rückgabe eines gecacheter sectionIdentifier: %@", sectionIdentifier);
-//    }
-    
-
-    return sectionIdentifier;
+//    NSString *sectionIdentifier = [Fieldtrip createSectionIdentifier:self.beginDate];
+//    return sectionIdentifier;
 }
 
 
@@ -213,6 +169,7 @@
     return placemark;
 }
 
+
 - (void)setPlacemark:(Placemark *)placemark
 {
     if (placemark == nil) {
@@ -264,6 +221,7 @@
                                         timestamp:self.beginDate];
 }
 
+
 - (void)setLocation:(CLLocation *)location
 {
     self.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
@@ -280,6 +238,8 @@
 {
     //    self.fieldtrip.localityName = [NSString stringWithFormat:@"Fundort #%ul", (unsigned int)self.fieldtripCount];
     self.localityName = localityName;
+
+    self.localityIdentifier = nil;
     
     if (YES) {
         self.beginDate = [NSDate date];
@@ -302,6 +262,7 @@
     self.horizontalAccuracy = nil;
     self.verticalAccuracy = nil;
     self.altitude = nil;
+    self.version = @0;
 
 
     // must be searched from a fieldtrip/specimens collection
@@ -318,7 +279,7 @@
 }
 
 /*!
- * Creates a hard coded but handy "unique" specimen identifier <YYMMDD>#<Number>, e.g. 140503#1 when the trip is on 3rd May 2014 and the first probe/specimen. Here specimenIdentifierMajor is <YYMMDD> the specimenIdentifierMinor is <Number> and the specimenIdentifierTemplate is '<specimenIdentifierMajor>#<specimenIdentifierMinor>
+ * Creates a hard coded but handy "unique" specimen identifier <YYMMDD>/<Number>, e.g. 140503/1 when the trip is on 3rd May 2014 and the first probe/specimen. Here specimenIdentifierMajor is <YYMMDD> the specimenIdentifierMinor is <Number> and the specimenIdentifierTemplate is '<specimenIdentifierMajor>/<specimenIdentifierMinor>
    Supporting a simple location number on a fieldtrip of one month, use it without generation. E.g. "Fo 1".
  *
  */
@@ -385,7 +346,7 @@
     
     NSString *indentifierPrefix = [indentifierPrefixFormatter stringFromDate:rangeStart];
     
-    return [NSString stringWithFormat:@"%@#%@", indentifierPrefix, indentifierNumber];
+    return [NSString stringWithFormat:@"%@/%@", indentifierPrefix, indentifierNumber];
 }
 
 

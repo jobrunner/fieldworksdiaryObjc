@@ -27,10 +27,8 @@
 @property (nonatomic, retain) NSNumber * isInDaylight;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSString * localityDescription;
-@property (nonatomic, retain) NSString * localityMajorId;
-@property (nonatomic, retain) NSString * localityMinorId;
+@property (nonatomic, retain) NSString * localityIdentifier;
 @property (nonatomic, retain) NSString * localityName;
-@property (nonatomic, retain) NSString * localityPrefixId;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * mapImageFilename;
 @property (nonatomic, retain) NSString * ocean;
@@ -38,8 +36,6 @@
 @property (nonatomic, retain) NSString * sectionIdentifier;
 @property (nonatomic, retain) NSString * specimenIdentifier;
 @property (nonatomic, retain) NSString * specimenNotes;
-@property (nonatomic, retain) NSString * specimenMajorId;
-@property (nonatomic, retain) NSString * specimenMinorId;
 @property (nonatomic, retain) NSDate * sunrise;
 @property (nonatomic, retain) NSDate * sunset;
 @property (nonatomic, retain) NSNumber * temperature;
@@ -54,6 +50,7 @@
 @property (nonatomic, retain) NSSet *specimens;
 @property (nonatomic, retain) NSDate * creationTime;
 @property (nonatomic, retain) NSDate * updateTime;
+@property (nonatomic, retain) NSNumber * version;
 
 @end
 
