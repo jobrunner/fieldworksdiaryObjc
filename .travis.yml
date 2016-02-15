@@ -1,4 +1,3 @@
 language: objective-c
-
-before_script: travis/before_script.sh
-script: travis/script.sh
+xcode_workspace: fieldworksdiary.xcworkspace
+xcode_scheme: fieldworksdiaryTests
