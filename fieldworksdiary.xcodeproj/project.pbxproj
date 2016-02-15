@@ -57,6 +57,8 @@
 		24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
+		243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */; };
+		24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
 		24A7608918F488DF00DA9695 /* MockTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608818F488DF00DA9695 /* MockTextField.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
@@ -179,7 +181,10 @@
 		24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocalityIdentifierCell.h; sourceTree = "<group>"; };
+		243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocalityIdentifierCell.m; sourceTree = "<group>"; };
 		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitPlacemarkTests.m; sourceTree = "<group>"; };
 		24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDummyControllerViewTest.m; sourceTree = "<group>"; };
 		24A7608718F488DF00DA9695 /* MockTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockTextField.h; sourceTree = "<group>"; };
 		24A7608818F488DF00DA9695 /* MockTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTextField.m; sourceTree = "<group>"; };
@@ -253,12 +258,14 @@
 				24249B0919CB314C00D2D01C /* FieldtripDetailsViewController.h */,
 				24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */,
 				24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */,
+				243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */,
+				243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */,
+				24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */,
+				24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */,
 				24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */,
 				24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */,
 				24249B3D19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.h */,
 				24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */,
-				24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */,
-				24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */,
 				24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */,
 				24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */,
 				24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */,
@@ -423,6 +430,7 @@
 				24A7608618F488AF00DA9695 /* MockClasses */,
 				24C38A2218F47A9800CC7105 /* ControllerTests */,
 				24C38A0B18F455AF00CC7105 /* Supporting Files */,
+				24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */,
 			);
 			name = Tests;
 			path = fieldworksdiaryTests;
@@ -686,6 +694,7 @@
 				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,
 				24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */,
 				24249AD619CB30A000D2D01C /* LocationService.m in Sources */,
+				243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */,
 				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
 				24249B0619CB312C00D2D01C /* ProjectTableViewCell.m in Sources */,
 				24249B1E19CB314C00D2D01C /* FieldtripDetailsViewController.m in Sources */,
@@ -725,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A7608918F488DF00DA9695 /* MockTextField.m in Sources */,
+				24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */,
 				24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,7 +802,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
@@ -825,7 +835,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -868,7 +878,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 243C53AB50E74777B0E1813B /* Pods.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/fieldworksdiary.app/fieldworksdiary";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -883,7 +893,7 @@
 				INFOPLIST_FILE = "fieldworksdiaryTests/fieldworksdiaryTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diary.app/Diary";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -891,7 +901,7 @@
 		24C38A1918F455AF00CC7105 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/fieldworksdiary.app/fieldworksdiary";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -902,7 +912,7 @@
 				INFOPLIST_FILE = "fieldworksdiaryTests/fieldworksdiaryTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diary.app/Diary";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

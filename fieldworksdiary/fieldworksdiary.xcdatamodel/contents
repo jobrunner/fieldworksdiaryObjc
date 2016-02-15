@@ -20,18 +20,14 @@
         <attribute name="isInDaylight" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="localityDescription" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
-        <attribute name="localityMajorId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="localityMinorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localityIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localityName" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
-        <attribute name="localityPrefixId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="mapImageFilename" optional="YES" attributeType="String" valueTransformerName="" syncable="YES"/>
         <attribute name="ocean" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sectionIdentifier" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="specimenIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="specimenMajorId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="specimenMinorId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="specimenNotes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subAdministrativeArea" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="sunrise" optional="YES" attributeType="Date" syncable="YES"/>
@@ -41,6 +37,7 @@
         <attribute name="twilightBegin" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="twilightEnd" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="verticalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="collector" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="defaultCollected" inverseEntity="Person" syncable="YES"/>
         <relationship name="findings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fieldtrip" inverseName="findings" inverseEntity="Fieldtrip" syncable="YES"/>
@@ -136,7 +133,7 @@
     </entity>
     <elements>
         <element name="CollectingMethod" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="690"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="645"/>
         <element name="Finding" positionX="0" positionY="0" width="128" height="180"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Media" positionX="9" positionY="153" width="128" height="45"/>
