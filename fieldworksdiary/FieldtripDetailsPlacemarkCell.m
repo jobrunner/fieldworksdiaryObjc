@@ -40,6 +40,7 @@
 - (void)setFieldtrip:(Fieldtrip *)fieldtrip
 {
     _fieldtrip = fieldtrip;
+    
     [self updateUserInterface];
 }
 

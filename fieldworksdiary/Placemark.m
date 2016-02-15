@@ -1,6 +1,6 @@
 //
 //  Placemark.m
-//  sunrise
+//  fieldworksdiary
 //
 //  Created by Jo Brunner on 17.09.14.
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
@@ -10,6 +10,7 @@
 #import "Placemark.h"
 
 @implementation Placemark
+
 
 - (id)initWithPlacemark:(CLPlacemark *)placemark
 {
@@ -29,6 +30,7 @@
     return self;
 }
 
+
 - (id)initWithGoogleLocationDict:(NSDictionary *)location
 {
     self = [super init];
@@ -47,6 +49,7 @@
     
     return self;
 }
+
 
 + (NSString *)stringFromPlacemark:(Placemark *)placemark
 {

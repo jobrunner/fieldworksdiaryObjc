@@ -352,6 +352,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 #pragma mark - Form Data
 
+
 - (void)showExistingModelForEditing
 {
     self.navigationItem.title = self.fieldtrip.localityName;
@@ -660,6 +661,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
             return cell;
         }
+        
         
         // spceimenNotes text view
         if (indexPath.row == 2) {
