@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *beginDateDayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateWeekdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *identifierLabel;
 
 @property (strong, nonatomic) Fieldtrip *fieldtrip;
 

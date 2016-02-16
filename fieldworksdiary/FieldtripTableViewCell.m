@@ -70,6 +70,18 @@
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     _beginDateTimeLabel.text = [dateFormatter stringFromDate:self.fieldtrip.beginDate];
+    
+    NSMutableString *identifier = [NSMutableString new];
+    
+    if (self.fieldtrip.specimenIdentifier != nil) {
+        [identifier appendFormat:@"%@ ", self.fieldtrip.specimenIdentifier];
+    }
+
+    if (self.fieldtrip.localityIdentifier != nil) {
+        [identifier appendFormat:@"(%@)", self.fieldtrip.localityIdentifier];
+    }
+    
+    _identifierLabel.text = identifier;
 }
 
 
