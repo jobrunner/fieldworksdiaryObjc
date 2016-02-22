@@ -367,8 +367,8 @@ Breña Alta</string>
                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1p-BS-YRh">
-                                    <rect key="frame" x="216" y="58" width="64" height="64"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1p-BS-YRh">
+                                    <rect key="frame" x="168" y="20" width="144" height="140"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="64" id="VRm-6U-gUY"/>
                                         <constraint firstAttribute="height" constant="64" id="z5T-Nf-z9V"/>
@@ -378,51 +378,20 @@ Breña Alta</string>
                                         <segue destination="36l-ca-1Z2" kind="push" identifier="createFieldtripSegue" id="xOM-Qw-fOW"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzW-Ym-jCs">
-                                    <rect key="frame" x="40" y="58" width="64" height="64"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="64" id="5uI-FO-77s"/>
-                                        <constraint firstAttribute="height" constant="64" id="VJf-jc-fDp"/>
-                                    </constraints>
-                                    <state key="normal" backgroundImage="Camera">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <segue destination="36l-ca-1Z2" kind="push" identifier="createFieldtripWithPhotoSegue" id="7d6-Pr-TBX"/>
-                                    </connections>
-                                </button>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNi-ld-C4E">
-                                    <rect key="frame" x="20" y="140" width="9" height="17"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNi-ld-C4E">
+                                    <rect key="frame" x="8" y="25" width="9" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpK-zZ-4DA">
-                                    <rect key="frame" x="137" y="140" width="9" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-sf-epa">
-                                    <rect key="frame" x="237" y="141" width="9" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPECIMENS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-lN-xD3">
-                                    <rect key="frame" x="20" y="157" width="63.5" height="13.5"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SPECIMENS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-lN-xD3">
+                                    <rect key="frame" x="8" y="41.5" width="63.5" height="13.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINDINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OR-M6-8eB">
-                                    <rect key="frame" x="237" y="158" width="63" height="13"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTOS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-MQ-Ohr">
-                                    <rect key="frame" x="137" y="157" width="46" height="13.5"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="PHOTOS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-MQ-Ohr">
+                                    <rect key="frame" x="8" y="79.5" width="46" height="13.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -433,44 +402,43 @@ Breña Alta</string>
                                         <constraint firstAttribute="height" constant="1" id="NQf-BO-mO2"/>
                                     </constraints>
                                 </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyt-At-LYZ">
-                                    <rect key="frame" x="83" y="157" width="54" height="14"/>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bP8-Zj-Hmh">
-                                    <rect key="frame" x="191" y="157" width="46" height="14"/>
-                                </view>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-sf-epa">
+                                    <rect key="frame" x="8" y="101" width="9" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FINDINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OR-M6-8eB">
+                                    <rect key="frame" x="8" y="118" width="63" height="13"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpK-zZ-4DA">
+                                    <rect key="frame" x="8" y="63" width="9" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.058823529409999999" green="0.40000000000000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Tgs-MQ-Ohr" firstAttribute="top" secondItem="DpK-zZ-4DA" secondAttribute="bottom" id="0H0-KN-5Rh"/>
-                                <constraint firstItem="Xyt-At-LYZ" firstAttribute="width" relation="greaterThanOrEqual" secondItem="bP8-Zj-Hmh" secondAttribute="width" constant="8" id="2Gg-MI-jdG"/>
                                 <constraint firstAttribute="trailing" secondItem="c1p-BS-YRh" secondAttribute="trailing" constant="40" id="2mT-3k-A1q"/>
                                 <constraint firstItem="nqT-lN-xD3" firstAttribute="leading" secondItem="eGs-Ef-wxg" secondAttribute="leading" constant="20" id="3az-KU-848"/>
-                                <constraint firstItem="Tgs-MQ-Ohr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xyt-At-LYZ" secondAttribute="trailing" id="3jA-YR-CJw"/>
                                 <constraint firstItem="Nmh-h1-LZg" firstAttribute="leading" secondItem="eGs-Ef-wxg" secondAttribute="leading" id="5zG-26-dUY"/>
                                 <constraint firstItem="nqT-lN-xD3" firstAttribute="leading" secondItem="ZNi-ld-C4E" secondAttribute="leading" id="6G5-Us-l5S"/>
-                                <constraint firstItem="Xyt-At-LYZ" firstAttribute="leading" secondItem="nqT-lN-xD3" secondAttribute="trailing" id="D1G-Zb-Vct"/>
-                                <constraint firstItem="6OR-M6-8eB" firstAttribute="leading" secondItem="bP8-Zj-Hmh" secondAttribute="trailing" id="Deg-XV-pFy"/>
                                 <constraint firstItem="nqT-lN-xD3" firstAttribute="top" secondItem="ZNi-ld-C4E" secondAttribute="bottom" id="DtI-bL-g6G"/>
-                                <constraint firstItem="bP8-Zj-Hmh" firstAttribute="leading" secondItem="eGs-Ef-wxg" secondAttribute="leading" constant="191" id="EHz-Z1-vPK"/>
                                 <constraint firstItem="Nmh-h1-LZg" firstAttribute="top" secondItem="6OR-M6-8eB" secondAttribute="bottom" constant="8" id="FMV-aK-IMl"/>
                                 <constraint firstAttribute="trailing" secondItem="Nmh-h1-LZg" secondAttribute="trailing" id="GKT-NB-iV6"/>
-                                <constraint firstItem="bP8-Zj-Hmh" firstAttribute="top" secondItem="Xyt-At-LYZ" secondAttribute="top" id="GXA-Gz-z4E"/>
                                 <constraint firstAttribute="centerY" secondItem="c1p-BS-YRh" secondAttribute="centerY" id="JGG-Lf-bYf"/>
                                 <constraint firstItem="Tgs-MQ-Ohr" firstAttribute="leading" secondItem="DpK-zZ-4DA" secondAttribute="leading" id="L6D-hX-F8i"/>
                                 <constraint firstItem="GJk-sf-epa" firstAttribute="leading" secondItem="6OR-M6-8eB" secondAttribute="leading" id="NAK-J2-Bil"/>
                                 <constraint firstAttribute="trailing" secondItem="6OR-M6-8eB" secondAttribute="trailing" constant="20" id="PbS-SW-EwX"/>
                                 <constraint firstItem="6OR-M6-8eB" firstAttribute="top" secondItem="GJk-sf-epa" secondAttribute="bottom" id="RU4-6G-8ZQ"/>
                                 <constraint firstItem="Nmh-h1-LZg" firstAttribute="top" secondItem="nqT-lN-xD3" secondAttribute="bottom" constant="8" id="TXy-jJ-WlU"/>
-                                <constraint firstItem="bP8-Zj-Hmh" firstAttribute="leading" secondItem="Tgs-MQ-Ohr" secondAttribute="trailing" constant="8" symbolic="YES" id="Z2I-Wm-22w"/>
-                                <constraint firstAttribute="centerY" secondItem="tzW-Ym-jCs" secondAttribute="centerY" id="bx0-22-Fay"/>
                                 <constraint firstAttribute="bottom" secondItem="Nmh-h1-LZg" secondAttribute="bottom" id="m5k-lx-s5v"/>
                                 <constraint firstItem="Nmh-h1-LZg" firstAttribute="top" secondItem="Tgs-MQ-Ohr" secondAttribute="bottom" constant="8" id="oJY-pl-VmF"/>
-                                <constraint firstItem="bP8-Zj-Hmh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Tgs-MQ-Ohr" secondAttribute="trailing" id="pkW-x4-Z7r"/>
-                                <constraint firstItem="bP8-Zj-Hmh" firstAttribute="top" secondItem="Tgs-MQ-Ohr" secondAttribute="top" id="qPP-Zr-FSm"/>
-                                <constraint firstItem="bP8-Zj-Hmh" firstAttribute="bottom" secondItem="Xyt-At-LYZ" secondAttribute="bottom" id="rJJ-qS-GU6"/>
-                                <constraint firstItem="Nmh-h1-LZg" firstAttribute="top" secondItem="bP8-Zj-Hmh" secondAttribute="bottom" constant="8" symbolic="YES" id="rpi-hr-S1k"/>
-                                <constraint firstItem="tzW-Ym-jCs" firstAttribute="leading" secondItem="eGs-Ef-wxg" secondAttribute="leading" constant="40" id="udg-eH-hNK"/>
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="mCT-7v-diC">
@@ -497,21 +465,21 @@ Breña Alta</string>
                         <sections>
                             <tableViewSection id="xk4-YW-ThY">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="aYS-aO-K4u" imageView="uID-oe-AuM" style="IBUITableViewCellStyleDefault" id="RbN-C2-C0h" customClass="HomeTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="aYS-aO-K4u" imageView="uID-oe-AuM" style="IBUITableViewCellStyleDefault" id="RbN-C2-C0h">
                                         <rect key="frame" x="0.0" y="180" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RbN-C2-C0h" id="kzW-30-70Y">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Recent Specimen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aYS-aO-K4u">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Recent Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aYS-aO-K4u">
                                                     <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="recent-specimen" id="uID-oe-AuM">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="recent-sample" id="uID-oe-AuM">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -528,14 +496,14 @@ Breña Alta</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Specimens" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dy-Wb-1e4">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Samples" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dy-Wb-1e4">
                                                     <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="specimens" id="54f-xD-gcr">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="samples" id="54f-xD-gcr">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -545,8 +513,29 @@ Breña Alta</string>
                                             <segue destination="PaT-Yz-7OC" kind="push" identifier="openFieldtripsSegue" id="SFJ-4e-cRZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="jln-6g-XxS" imageView="pdC-D4-Ys2" style="IBUITableViewCellStyleDefault" id="hpa-06-4HV">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="aBF-5r-ov3" imageView="d8h-dg-Vuf" style="IBUITableViewCellStyleDefault" id="1vc-az-gaI">
                                         <rect key="frame" x="0.0" y="268" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1vc-az-gaI" id="Rjv-kp-cpf">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Locations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aBF-5r-ov3">
+                                                    <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="locations" id="d8h-dg-Vuf">
+                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="jln-6g-XxS" imageView="pdC-D4-Ys2" style="IBUITableViewCellStyleDefault" id="hpa-06-4HV">
+                                        <rect key="frame" x="0.0" y="312" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hpa-06-4HV" id="eA1-kg-Xbl">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -566,28 +555,6 @@ Breña Alta</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="aBF-5r-ov3" imageView="d8h-dg-Vuf" style="IBUITableViewCellStyleDefault" id="1vc-az-gaI">
-                                        <rect key="frame" x="0.0" y="312" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1vc-az-gaI" id="Rjv-kp-cpf">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Findings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aBF-5r-ov3">
-                                                    <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="about" id="d8h-dg-Vuf">
-                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="tintColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="7lY-6V-UXS" imageView="dRX-Xt-0di" style="IBUITableViewCellStyleDefault" id="odu-jb-MfH">
                                         <rect key="frame" x="0.0" y="356" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -595,14 +562,14 @@ Breña Alta</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Projects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7lY-6V-UXS">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7lY-6V-UXS">
                                                     <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="projects" id="dRX-Xt-0di">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tags" id="dRX-Xt-0di">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -612,7 +579,7 @@ Breña Alta</string>
                                             <segue destination="cDK-La-wXb" kind="push" identifier="openProjectsSegue" id="Unl-1G-sWB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="sVC-CS-Dto" imageView="pNK-bS-Bx7" style="IBUITableViewCellStyleDefault" id="dwL-mb-gji">
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="sVC-CS-Dto" imageView="pNK-bS-Bx7" style="IBUITableViewCellStyleDefault" id="dwL-mb-gji">
                                         <rect key="frame" x="0.0" y="400" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwL-mb-gji" id="iaj-5y-IIy">
@@ -633,21 +600,21 @@ Breña Alta</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="gLc-IH-485" imageView="EwC-h3-mme" style="IBUITableViewCellStyleDefault" id="mJE-d4-KEk">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="gLc-IH-485" imageView="EwC-h3-mme" style="IBUITableViewCellStyleDefault" id="mJE-d4-KEk">
                                         <rect key="frame" x="0.0" y="444" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mJE-d4-KEk" id="Ruw-6r-eS1">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gLc-IH-485">
-                                                    <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gLc-IH-485">
+                                                    <rect key="frame" x="55" y="0.0" width="250" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="about" id="EwC-h3-mme">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="settings" id="EwC-h3-mme">
                                                     <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -1894,21 +1861,21 @@ Bei Eußenheim</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="64" height="64"/>
-        <image name="Camera" width="64" height="64"/>
-        <image name="about" width="25" height="25"/>
+        <image name="Add" width="140" height="137"/>
         <image name="daylight-day" width="75" height="75"/>
         <image name="daylight-night" width="75" height="75"/>
         <image name="gps-disabled" width="66" height="66"/>
         <image name="gps-off" width="66" height="66"/>
         <image name="gps-on" width="66" height="66"/>
         <image name="hr" width="640" height="1"/>
+        <image name="locations" width="25" height="25"/>
         <image name="pictures" width="25" height="25"/>
-        <image name="projects" width="25" height="25"/>
-        <image name="recent-specimen" width="25" height="25"/>
-        <image name="specimens" width="25" height="25"/>
+        <image name="recent-sample" width="25" height="25"/>
+        <image name="samples" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
         <image name="sunrise" width="46" height="24"/>
         <image name="sunset" width="46" height="24"/>
+        <image name="tags" width="25" height="25"/>
         <image name="users" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
