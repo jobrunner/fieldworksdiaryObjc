@@ -1,6 +1,6 @@
 //
 //  HomeTableViewController.m
-//  sunrise
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 07.04.14.
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
@@ -34,8 +34,14 @@
 
 @implementation HomeController
 
+// Hight of table view header.
+CGFloat kTableViewHeaderHeight = 217.0;
 
-#pragma mark - ViewController -
+// Extra view will be the stretchy header
+UIView *headerView;
+
+
+#pragma mark - TableViewController -
 
 
 - (void)viewDidLoad
@@ -52,9 +58,41 @@
     _projectsCell.textLabel.text = @"Projekte";
     _aboutCell.textLabel.text = @"Über Fieldworks Diary";
     
+    [self initStretchyTableViewHeader];
     
     // get managed object context
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
+}
+
+- (void)initStretchyTableViewHeader {
+
+    headerView = self.tableView.tableHeaderView;
+    
+    self.tableView.tableHeaderView = nil;
+    
+    [self.tableView addSubview:headerView];
+    
+    self.tableView.contentInset  = UIEdgeInsetsMake(kTableViewHeaderHeight, 0.0, 0.0, 0.0);
+    self.tableView.contentOffset = CGPointMake(0, -kTableViewHeaderHeight);
+    
+    [self updateTableViewHeaderView];
+}
+
+- (void)updateTableViewHeaderView {
+
+    CGRect headerRect = CGRectMake(0, -kTableViewHeaderHeight, self.tableView.bounds.size.width, kTableViewHeaderHeight);
+    
+    if (self.tableView.contentOffset.y < -kTableViewHeaderHeight) {
+        headerRect.origin.y = self.tableView.contentOffset.y;
+        headerRect.size.height = -self.tableView.contentOffset.y;
+    }
+    
+    headerView.frame = headerRect;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+    [self updateTableViewHeaderView];
 }
 
 
