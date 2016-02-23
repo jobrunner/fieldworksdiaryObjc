@@ -492,23 +492,7 @@ Breña Alta</string>
                         <view key="tableFooterView" contentMode="scaleToFill" id="mCT-7v-diC">
                             <rect key="frame" x="0.0" y="498" width="320" height="88"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUY-SX-Wsb">
-                                    <rect key="frame" x="119" y="8" width="82" height="25"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                    <state key="normal" title="Fieldworks Diary">
-                                        <color key="titleColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="websiteButtonTouchUpInside:" destination="jYa-FX-H2v" eventType="touchUpInside" id="0xt-wD-3ko"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="centerX" secondItem="rUY-SX-Wsb" secondAttribute="centerX" id="KQY-0k-B7R"/>
-                                <constraint firstItem="rUY-SX-Wsb" firstAttribute="top" secondItem="mCT-7v-diC" secondAttribute="top" constant="8" id="zfn-us-MgD"/>
-                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="xk4-YW-ThY">
