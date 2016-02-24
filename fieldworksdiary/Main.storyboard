@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Fieldtrip-->
@@ -484,7 +485,7 @@ Breña Alta</string>
                         <sections>
                             <tableViewSection id="xk4-YW-ThY">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="HomeViewCell" focusStyle="custom" textLabel="aYS-aO-K4u" imageView="uID-oe-AuM" style="IBUITableViewCellStyleDefault" id="RbN-C2-C0h">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="HomeViewCell" focusStyle="custom" textLabel="aYS-aO-K4u" imageView="uID-oe-AuM" style="IBUITableViewCellStyleDefault" id="RbN-C2-C0h">
                                         <rect key="frame" x="0.0" y="217" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RbN-C2-C0h" id="kzW-30-70Y">
@@ -534,7 +535,7 @@ Breña Alta</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleCell" id="c6H-t3-O3Z">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleCell" id="c6H-t3-O3Z" customClass="HomeTableViewCell">
                                         <rect key="frame" x="0.0" y="305" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6H-t3-O3Z" id="Buz-QB-2bN">
@@ -547,7 +548,7 @@ Breña Alta</string>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="samples" translatesAutoresizingMaskIntoConstraints="NO" id="igk-pu-ksF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samples" translatesAutoresizingMaskIntoConstraints="NO" id="igk-pu-ksF">
                                                     <rect key="frame" x="15" y="8" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="hCq-Wx-3qr"/>
@@ -561,6 +562,10 @@ Breña Alta</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="igk-pu-ksF" firstAttribute="leading" secondItem="Buz-QB-2bN" secondAttribute="leadingMargin" constant="7" id="SRu-pc-Z8X"/>
+                                                <constraint firstItem="igk-pu-ksF" firstAttribute="top" secondItem="Buz-QB-2bN" secondAttribute="topMargin" id="oRK-rE-5bU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="PaT-Yz-7OC" kind="push" identifier="openFieldtripsSegue" id="SFJ-4e-cRZ"/>
@@ -739,7 +744,7 @@ Breña Alta</string>
             </objects>
             <point key="canvasLocation" x="535" y="181"/>
         </scene>
-        <!--Fieldtrips-->
+        <!--Samples-->
         <scene sceneID="0nk-IZ-ng5">
             <objects>
                 <tableViewController id="PaT-Yz-7OC" customClass="FieldtripsController" sceneMemberID="viewController">
@@ -827,7 +832,7 @@ Bei Eußenheim</string>
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Fieldtrips" id="m7Y-3g-PF6">
+                    <navigationItem key="navigationItem" title="Samples" id="m7Y-3g-PF6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3IK-9t-c28">
                             <connections>
                                 <segue destination="36l-ca-1Z2" kind="push" identifier="createFieldtripSegue" id="HZ6-xD-UCE"/>
@@ -1966,7 +1971,7 @@ Bei Eußenheim</string>
         <image name="tags" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xOM-Qw-fOW"/>
+        <segue reference="bza-gT-Pnh"/>
         <segue reference="rDx-It-S2a"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

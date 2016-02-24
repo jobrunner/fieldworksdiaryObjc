@@ -52,20 +52,11 @@ UIView *headerView;
 {
     [super viewDidLoad];
 
-    // AdHoc-Translation
-    _recentSampleCell.textLabel.text = @"Letzte Sammelprobe";
-    _samplesCell.textLabel.text = @"Sammelproben";
-    _projectsCell.textLabel.text = @"Projekte";
-    _settingsCell.textLabel.text = @"Einstellungen";
-    
     [self initStretchyTableViewHeader];
     
     // get managed object context
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
     
-    self.recentFieldtrip = [self recentSample];
-    
-    [self updateInfoboard];
 }
 
 - (void)updateInfoboard {
@@ -132,29 +123,7 @@ UIView *headerView;
 
 - (void)viewDidAppear:(BOOL)animated {
 
-    NSEntityDescription *entity;
-    NSError *error = nil;
-    
-    // fieldtrips
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // {{{ Amount of samples (aka fieldtrips) in the request...
-    entity = [NSEntityDescription entityForName:@"Fieldtrip"
-                         inManagedObjectContext:self.managedObjectContext];
-
-    [request setEntity:entity];
-    
-    NSUInteger sampleCount;
-    sampleCount = [self.managedObjectContext countForFetchRequest:request
-                                                            error:&error];
-    
-    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
-    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
-    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
-    
-    // Temp hack: fieldtrip will come deprecated and replaced by samples
-    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
-    // }}}
+    self.recentFieldtrip = [self recentSample];
 
     // still dummy
     // take that Project, that is marked as "Use for new samples" (in settings)
@@ -172,7 +141,14 @@ UIView *headerView;
     NSUInteger photosCount = 0;
     _countOfPhotosLabel.text = [NSString stringWithFormat:@"%lu", photosCount];
     
-
+    NSUInteger sampleCount = [self sampleCount];
+    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
+    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
+    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
+    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
+    
+    [self updateInfoboard];
+    
     [self scrollToTop];
 }
 
@@ -192,8 +168,6 @@ UIView *headerView;
     [super didReceiveMemoryWarning];
     
     // let MKNetworking kill its cache
-    // 
-    
     // Dispose of any resources that can be recreated.
 }
 
@@ -214,18 +188,6 @@ UIView *headerView;
         //        controller.managedObjectContext = self.managedObjectContext;
     }
     
-    //    if ([[segue identifier] isEqualToString:@"createLocalitySegue"]) {
-    //
-    //        FieldtripDetailsViewController * controller = segue.destinationViewController;
-    //
-    //        NSInteger section = 0;
-    //        id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    //
-    //        controller.fieldtripCount = [sectionInfo numberOfObjects];
-    //        controller.fieldtrip = nil;
-    //    }
-
-    
     if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
@@ -241,34 +203,6 @@ UIView *headerView;
     // Show the most recent fieldtrip
     if ([[segue identifier] isEqualToString:@"openRecentFieldtrip"]) {
 
-//        NSError *error = nil;
-//
-//        // fieldtrips
-//        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//        
-//        // count of all fieldtrips
-//        NSEntityDescription * entityDesc = [NSEntityDescription entityForName:@"Fieldtrip"
-//                                                       inManagedObjectContext:self.managedObjectContext];
-//        [request setEntity:entityDesc];
-//
-//        NSUInteger count = [self.managedObjectContext countForFetchRequest:request
-//                                                                     error:&error];
-//        // limit the fetch request to one object
-//        [request setFetchLimit:1];
-//
-//        // and set got through offset to the last object
-//        [request setFetchOffset:(count - 1)];
-//        
-//        NSArray *results = [self.managedObjectContext executeFetchRequest:request
-//                                                                    error:&error];
-//        NSManagedObject *latestFieldtrip = [results firstObject];
-
-        
-        // pass the most recent fieldtrip object (the last in the fetch request)
-        // to FieldtripDetailsViewController
-        // If there is still no object, nil will be passed and a new object will be created.
-        // Thus, the "recent fildtrip" item should be disabled when no objecs
-        
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         
         controller.fieldtrip = self.recentFieldtrip;
@@ -312,6 +246,27 @@ UIView *headerView;
     Fieldtrip *fieldtrip = [results firstObject];
     
     return fieldtrip;
+}
+
+- (NSUInteger)sampleCount {
+
+    NSEntityDescription *entity;
+    NSError *error = nil;
+    
+    // fieldtrips
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // Amount of samples (aka fieldtrips) in the request...
+    entity = [NSEntityDescription entityForName:@"Fieldtrip"
+                         inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:entity];
+    
+    NSUInteger sampleCount;
+    sampleCount = [self.managedObjectContext countForFetchRequest:request
+                                                            error:&error];
+
+    return sampleCount;
 }
 
 
