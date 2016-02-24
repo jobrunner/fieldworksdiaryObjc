@@ -1,6 +1,6 @@
 //
 //  MettLocalityEditViewController.m
-//  sunrise
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 05.04.14.
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
