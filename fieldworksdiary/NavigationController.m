@@ -11,19 +11,16 @@
 
 @implementation NavigationController
 
-
 #pragma mark - UIViewController -
 
+- (void)viewDidLoad {
 
-- (void)viewDidLoad
-{
     [super viewDidLoad];
 
     self.delegate = self;
 }
 
 #pragma mark - NavigationControllerDelegates -
-
 
 // Ensures that only the HomeController doesn't show a navigation bar
 - (void)navigationController:(UINavigationController *)navigationController
