@@ -12,19 +12,6 @@
 
 @class Fieldtrip;
 
-//#import "AppDelegate.h"
-//#import "FwdLocationService.h"
-//#import "Crypto.h"
-//#import "FieldtripDetailsSummaryCell.h"
-//#import "TextFieldCell.h"
-//#import "ImageViewCell.h"
-//#import "SpecimenDetailsTableViewController.h"
-//#import "FieldtripDetailsEditViewController.h"
-//#import "FwdConversion.h"
-//#import "EDSunriseSet.h"
-//// #import "Fieldtrip.h"
-//#import "Image.h"
-
 
 @interface FieldtripDetailsViewController : UITableViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
