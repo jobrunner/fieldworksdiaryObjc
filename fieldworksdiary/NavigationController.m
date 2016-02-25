@@ -25,18 +25,18 @@
 #pragma mark - NavigationControllerDelegates -
 
 
-// delegate method before navigation and view did load
-// This implementation is not well seperated by concern
+// Ensures that only the HomeController doesn't show a navigation bar
 - (void)navigationController:(UINavigationController *)navigationController
       willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
-{
+                    animated:(BOOL)animated {
+    
     if ([viewController isKindOfClass:[HomeController class]]) {
         if (!self.navigationBarHidden) {
             [self setNavigationBarHidden:YES
                                 animated:NO];
         }
-    } else {
+    }
+    else {
         if (self.navigationBarHidden) {
             [self setNavigationBarHidden:NO
                                 animated:NO];
