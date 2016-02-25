@@ -39,12 +39,12 @@
                             animated:YES];
     
     // add an additional search bar item to the right
-    UIBarButtonItem *btnCurrent = self.navigationItem.rightBarButtonItem;
-    UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                               target:self
-                                                                               action:@selector(searchNavigationItemTouched)];
-    
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnCurrent, btnSearch, nil]];
+//    UIBarButtonItem *btnCurrent = self.navigationItem.rightBarButtonItem;
+//    UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+//                                                                               target:self
+//                                                                               action:@selector(searchNavigationItemTouched)];
+//    
+//    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnCurrent, btnSearch, nil]];
 }
 
 - (void)searchNavigationItemTouched {
@@ -92,15 +92,10 @@ titleForHeaderInSection:(NSInteger)section {
     NSInteger numericSection = [sectionName integerValue];
     NSInteger year = numericSection / 10000;
   	NSInteger month = (numericSection - year * 10000) / 100;
-    //	NSInteger day = numericSection - year * 10000 - month * 100;
-    
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.year = year;
     dateComponents.month = month;
-    //    dateComponents.day = day;
-    
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
-    
 	NSString *sectionTitle = [[self sectionHeaderDateFormatter] stringFromDate:date];
     
     return sectionTitle;
@@ -140,29 +135,43 @@ titleForHeaderInSection:(NSInteger)section {
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section {
 
-    return 28;
+    return 23;
 }
 
 - (UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section {
-    
+
     UIView *sectionView;
-    sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
-
-    /* Create custom view to display section header... */
     UILabel *sectionTitleLabel;
-    sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 5, tableView.frame.size.width, 18)];
-
+    
+    NSString * sectionTitle;
     id <NSFetchedResultsSectionInfo> theSection;
-	theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
     
-    NSString * sectionTitle = [self sectionTitleFromSectionName:[theSection name]];
+    theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
+    sectionTitle = [self sectionTitleFromSectionName:[theSection name]];
     
-    [sectionTitleLabel setText:sectionTitle];
-    [sectionView addSubview:sectionTitleLabel];
-    
-    UIColor * bgColor = [UIColor groupTableViewBackgroundColor];
+    sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 23)];
 
+    sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, tableView.frame.size.width, 22)];
+  
+    UIFont *font = [UIFont systemFontOfSize:13.0
+                                     weight:1.0];
+    UIColor *tintColor = [UIColor colorWithRed:(4.0/255.0)
+                                         green:(102.0/255.0)
+                                          blue:(0.0/255.0)
+                                         alpha:1.0];
+    sectionTitleLabel.font = font;
+    sectionTitleLabel.text = sectionTitle;
+    sectionTitleLabel.textColor = tintColor;
+    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
+
+    UIView *sepView = [[UIView alloc] initWithFrame:CGRectMake(0, 22, tableView.frame.size.width, 1.0)];
+    sepView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    sepView.layer.borderWidth = 1.0f;
+    
+    [sectionView addSubview:sepView];
+    [sectionView addSubview:sectionTitleLabel];
+    UIColor * bgColor = [UIColor  whiteColor];
     [sectionView setBackgroundColor:bgColor];
     
     return sectionView;
