@@ -53,10 +53,6 @@ UIView *headerView;
     [super viewDidLoad];
 
     [self initStretchyTableViewHeader];
-    
-    // get managed object context
-    self.managedObjectContext = ApplicationDelegate.managedObjectContext;
-    
 }
 
 - (void)updateInfoboard {
@@ -215,16 +211,18 @@ UIView *headerView;
 
 - (Fieldtrip *)recentSample {
     
+    NSManagedObjectContext *managedObjectContext;
     NSError *error = nil;
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+
+    managedObjectContext = ApplicationDelegate.managedObjectContext;
     
     // count of all fieldtrips
     NSEntityDescription * entityDesc = [NSEntityDescription entityForName:@"Fieldtrip"
-                                                   inManagedObjectContext:self.managedObjectContext];
+                                                   inManagedObjectContext:managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
     
-    NSUInteger count = [self.managedObjectContext countForFetchRequest:request
+    NSUInteger count = [managedObjectContext countForFetchRequest:request
                                                                  error:&error];
 
     if (error) {
@@ -236,8 +234,8 @@ UIView *headerView;
     // and set got through offset to the last object
     [request setFetchOffset:(count - 1)];
     
-    NSArray *results = [self.managedObjectContext executeFetchRequest:request
-                                                                error:&error];
+    NSArray *results = [managedObjectContext executeFetchRequest:request
+                                                            error:&error];
 
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
@@ -250,20 +248,23 @@ UIView *headerView;
 
 - (NSUInteger)sampleCount {
 
+    NSManagedObjectContext *managedObjectContext;
     NSEntityDescription *entity;
     NSError *error = nil;
     
+    managedObjectContext = ApplicationDelegate.managedObjectContext;
+
     // fieldtrips
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     // Amount of samples (aka fieldtrips) in the request...
     entity = [NSEntityDescription entityForName:@"Fieldtrip"
-                         inManagedObjectContext:self.managedObjectContext];
+                         inManagedObjectContext:managedObjectContext];
     
     [request setEntity:entity];
     
     NSUInteger sampleCount;
-    sampleCount = [self.managedObjectContext countForFetchRequest:request
+    sampleCount = [managedObjectContext countForFetchRequest:request
                                                             error:&error];
 
     return sampleCount;

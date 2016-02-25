@@ -10,10 +10,10 @@
 
 @class Fieldtrip;
 
-@interface HomeController : UITableViewController <NSFetchedResultsControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate>
+@interface HomeController : UITableViewController <UIScrollViewDelegate>
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) Fieldtrip *recentFieldtrip;
 
 @end
