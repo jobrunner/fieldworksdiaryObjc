@@ -16,19 +16,16 @@
 @interface FieldtripsController ()
 
 @property (nonatomic, retain) NSMutableArray *searchResults;
-
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 @end
 
 @implementation FieldtripsController
 
-
 #pragma mark - UIViewController
 
+- (void)viewDidLoad {
 
-- (void)viewDidLoad
-{
     [super viewDidLoad];
 
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
@@ -50,24 +47,19 @@
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnCurrent, btnSearch, nil]];
 }
 
-
-- (void)searchNavigationItemTouched
-{
+- (void)searchNavigationItemTouched {
+    
     [self.searchDisplayController.searchBar becomeFirstResponder];
 }
 
+- (void)didReceiveMemoryWarning {
 
-- (void)didReceiveMemoryWarning
-{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
-        
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
@@ -78,27 +70,24 @@
     }
 }
 
-
 #pragma mark - UITableView Delegates
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	return [[self.fetchedResultsController sections] count];
+    return [[self.fetchedResultsController sections] count];
 }
 
-
 - (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-	id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
+titleForHeaderInSection:(NSInteger)section {
+    
+    id <NSFetchedResultsSectionInfo> theSection;
+	theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
 
     return [self sectionTitleFromSectionName:[theSection name]];
 }
 
+- (NSString *)sectionTitleFromSectionName:(NSString *)sectionName {
 
-- (NSString *)sectionTitleFromSectionName:(NSString *)sectionName
-{
     // 20140429
     NSInteger numericSection = [sectionName integerValue];
     NSInteger year = numericSection / 10000;
@@ -112,14 +101,13 @@ titleForHeaderInSection:(NSInteger)section
     
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
     
-	NSString *sectionTitle = [self.sectionHeaderDateFormater stringFromDate:date];
+	NSString *sectionTitle = [[self sectionHeaderDateFormatter] stringFromDate:date];
     
     return sectionTitle;
 }
 
+- (NSDateFormatter *)sectionHeaderDateFormatter {
 
-- (NSDateFormatter *)sectionHeaderDateFormater
-{
     static NSDateFormatter *formatter = nil;
     
     if (!formatter) {
@@ -135,10 +123,9 @@ titleForHeaderInSection:(NSInteger)section
     return formatter;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
+ numberOfRowsInSection:(NSInteger)section {
+    
     // switch between search table view managened by the search bar and search display view ...
     if (tableView == self.searchDisplayController.searchResultsTableView) {
 
@@ -150,28 +137,30 @@ titleForHeaderInSection:(NSInteger)section
     }
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView
-heightForHeaderInSection:(NSInteger)section
-{
+heightForHeaderInSection:(NSInteger)section {
+
     return 28;
 }
 
-
 - (UIView *)tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section
-{
-    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
+viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *sectionView;
+    sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
 
     /* Create custom view to display section header... */
-    UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 5, tableView.frame.size.width, 18)];
+    UILabel *sectionTitleLabel;
+    sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 5, tableView.frame.size.width, 18)];
 
-	id <NSFetchedResultsSectionInfo> theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> theSection;
+	theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
     
     NSString * sectionTitle = [self sectionTitleFromSectionName:[theSection name]];
     
     [sectionTitleLabel setText:sectionTitle];
     [sectionView addSubview:sectionTitleLabel];
+    
     UIColor * bgColor = [UIColor groupTableViewBackgroundColor];
 
     [sectionView setBackgroundColor:bgColor];
@@ -179,10 +168,9 @@ viewForHeaderInSection:(NSInteger)section
     return sectionView;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *cellId = @"FieldtripCell";
 
     FieldtripTableViewCell *cell;
@@ -203,21 +191,20 @@ viewForHeaderInSection:(NSInteger)section
     return cell;
 }
 
-
 // Support delete (editing) of the table view.
--     (BOOL)tableView:(UITableView *)tableView
-canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView
+canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
 
 // Override to support editing the table view.
--  (void)tableView:(UITableView *)tableView
+- (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
- forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+ forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     // user deletes a row inline
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
@@ -242,6 +229,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
         if (![context save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+
             abort();
         }
 
@@ -249,29 +237,23 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView
+canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
 
-// Override to support conditional rearranging of the table view.
--     (BOOL)tableView:(UITableView *)tableView
-canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
     return NO;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-// configure cell hight for search bar and search display controller
--    (CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
     return 70;
 }
 
-
 #pragma mark - UISearchDisplayDelegate
 
-
 -  (BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
+shouldReloadTableForSearchString:(NSString *)searchString {
+    
     [self filterContentForSearchText:searchString
                                scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
                                       objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
@@ -279,10 +261,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     return YES;
 }
 
-
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
+shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    
     [self filterContentForSearchText:[self.searchDisplayController.searchBar text]
                                scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
                                       objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
@@ -290,9 +271,8 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
     return YES;
 }
 
-
-- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-{
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
+    
     // hide the search bar until user did end search
     CGPoint searchBarOffset = CGPointMake(0.0, self.tableView.tableHeaderView.frame.size.height);
     
@@ -300,44 +280,24 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
                             animated:YES];
 }
 
-
 #pragma mark - Search
 
-
 - (void)filterContentForSearchText:(NSString*)searchText
-                             scope:(NSString*)scope
-{
+                             scope:(NSString*)scope {
+
     [self.searchResults removeAllObjects];
 
-    if ([scope isEqualToString:@"All"]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"localityName contains[cd] %@ || country contains[cd] %@ || countryCodeISO LIKE %@ || localityDescription contains[cd] %@ || administrativeArea contains[cd] %@ || administrativeLocality contains[cd] %@ || administrativeSubLocality contains[cd] %@ || subAdministrativeArea contains[cd] %@", searchText, searchText, searchText, searchText, searchText, searchText, searchText, searchText];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"localityName contains[cd] %@ || country contains[cd] %@ || countryCodeISO LIKE %@ || localityDescription contains[cd] %@ || administrativeArea contains[cd] %@ || administrativeLocality contains[cd] %@ || administrativeSubLocality contains[cd] %@ || subAdministrativeArea contains[cd] %@ || localityIdentifier contains[cd] %@ || specimenIdentifier contains[cd] %@", searchText, searchText, searchText, searchText, searchText, searchText, searchText, searchText, searchText, searchText];
 
-        NSArray * fieldtrips = [self.fetchedResultsController fetchedObjects];
+    NSArray * fieldtrips = [self.fetchedResultsController fetchedObjects];
         
-        [self.searchResults addObjectsFromArray:[fieldtrips filteredArrayUsingPredicate:predicate]];
-        
-        return;
-    }
-
-    
-    if ([scope isEqualToString:@"Title"]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"localityName beginswith[cd] %@", searchText];
-        
-        NSArray * fieldtrips = [self.fetchedResultsController fetchedObjects];
-        
-        [self.searchResults addObjectsFromArray:[fieldtrips filteredArrayUsingPredicate:predicate]];
-        
-        return;
-        
-    }
+    [self.searchResults addObjectsFromArray:[fieldtrips filteredArrayUsingPredicate:predicate]];
 }
-
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
+- (NSFetchedResultsController *)fetchedResultsController {
+    
     if (_fetchedResultsController != nil) {
         
         return _fetchedResultsController;
@@ -365,9 +325,7 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
     // nil for section name key path means "no sections".
     NSFetchedResultsController *resultsController;
     
-    
-    
-    
+    // ???
     // Achtung: Ich habe hier cacheName auf nil gesetzt. Nicht gut.
     // - Der cache wird gelöscht mit:
     // [NSFetchedResultsController deleteCacheWithName:@"FieldtripMasterTable"]
@@ -390,24 +348,23 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
+
+        abort();
 	}
     
     return _fetchedResultsController;
 }
 
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
     [self.tableView beginUpdates];
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller
   didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex
-     forChangeType:(NSFetchedResultsChangeType)type
-{
+     forChangeType:(NSFetchedResultsChangeType)type {
+    
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
@@ -426,13 +383,12 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
     }
 }
 
-
 - (void)controller:(NSFetchedResultsController *)controller
    didChangeObject:(id)object
        atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
     UITableView *tableView = self.tableView;    
 
     if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -467,11 +423,9 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
     }
 }
 
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
     [self.tableView endUpdates];
 }
-
 
 @end
