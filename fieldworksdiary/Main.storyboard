@@ -1370,6 +1370,34 @@ Bei Eußenheim</string>
             </objects>
             <point key="canvasLocation" x="2587" y="181"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="1nZ-7q-9qb">
+            <objects>
+                <tableViewController id="ViU-zL-n4c" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hjo-eH-WZZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eat-xg-ISo">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eat-xg-ISo" id="O9m-eM-aoN">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ViU-zL-n4c" id="Djm-hI-9bq"/>
+                            <outlet property="delegate" destination="ViU-zL-n4c" id="xW7-t2-Ggh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUY-LP-Jeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568" y="1064"/>
+        </scene>
         <!--Projekts-->
         <scene sceneID="xG4-g4-Xqj">
             <objects>
@@ -1948,7 +1976,7 @@ Bei Eußenheim</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLy-ve-yoN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="227" y="973"/>
+            <point key="canvasLocation" x="-11" y="999"/>
         </scene>
     </scenes>
     <resources>
@@ -1971,7 +1999,7 @@ Bei Eußenheim</string>
         <image name="tags" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bza-gT-Pnh"/>
+        <segue reference="xOM-Qw-fOW"/>
         <segue reference="rDx-It-S2a"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

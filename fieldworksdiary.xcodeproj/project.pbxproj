@@ -62,6 +62,7 @@
 		24A05E651C728CE000DD6458 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A05E641C728CE000DD6458 /* libPods.a */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
 		24A7608918F488DF00DA9695 /* MockTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608818F488DF00DA9695 /* MockTextField.m */; };
+		24AB3FC41C7EF08B0014AE95 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FC31C7EF08B0014AE95 /* SettingsController.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
 		24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E718F455AE00CC7105 /* CoreGraphics.framework */; };
 		24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
@@ -191,6 +192,8 @@
 		24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDummyControllerViewTest.m; sourceTree = "<group>"; };
 		24A7608718F488DF00DA9695 /* MockTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockTextField.h; sourceTree = "<group>"; };
 		24A7608818F488DF00DA9695 /* MockTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTextField.m; sourceTree = "<group>"; };
+		24AB3FC21C7EF08B0014AE95 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		24AB3FC31C7EF08B0014AE95 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -482,6 +485,8 @@
 				24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */,
 				24249ABD19CB2F8800D2D01C /* SpecimenDetailsTableViewController.h */,
 				24249ABE19CB2F8800D2D01C /* SpecimenDetailsTableViewController.m */,
+				24AB3FC21C7EF08B0014AE95 /* SettingsController.h */,
+				24AB3FC31C7EF08B0014AE95 /* SettingsController.m */,
 				24249AAA19CB2F2900D2D01C /* NavigationController.h */,
 				24249AAB19CB2F2900D2D01C /* NavigationController.m */,
 				24249B2D19CB4F8500D2D01C /* About */,
@@ -700,6 +705,7 @@
 				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,
 				24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */,
 				24249AD619CB30A000D2D01C /* LocationService.m in Sources */,
+				24AB3FC41C7EF08B0014AE95 /* SettingsController.m in Sources */,
 				243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */,
 				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
 				24249B0619CB312C00D2D01C /* ProjectTableViewCell.m in Sources */,
