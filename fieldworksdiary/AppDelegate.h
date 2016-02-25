@@ -1,7 +1,6 @@
-#import "GoogleGeocoder.h"
-
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
+@class GoogleGeocoder;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
