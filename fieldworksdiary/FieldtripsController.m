@@ -11,6 +11,8 @@
 #import "FieldtripTableViewCell.h"
 #import "Fieldtrip.h"
 
+@import UIKit;
+
 @interface FieldtripsController ()
 
 @property (nonatomic, retain) NSMutableArray *searchResults;

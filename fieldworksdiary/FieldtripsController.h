@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class UIKit;
 
 @interface FieldtripsController : UITableViewController <NSFetchedResultsControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UINavigationControllerDelegate>
 
