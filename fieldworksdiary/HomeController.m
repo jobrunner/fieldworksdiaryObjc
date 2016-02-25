@@ -1,5 +1,5 @@
 //
-//  HomeTableViewController.m
+//  HomeViewController.m
 //  Fieldworksdiary
 //
 //  Created by Jo Brunner on 07.04.14.
@@ -44,9 +44,7 @@ CGFloat kTableViewHeaderHeight = 217.0;
 // Extra view will be the stretchy header
 UIView *headerView;
 
-
 #pragma mark - TableViewController -
-
 
 - (void)viewDidLoad
 {
@@ -205,9 +203,7 @@ UIView *headerView;
     }
 }
 
-
 #pragma mark - Model operations
-
 
 - (Fieldtrip *)recentSample {
     
@@ -269,10 +265,5 @@ UIView *headerView;
 
     return sampleCount;
 }
-
-
-#pragma mark - IBAction -
-
-
 
 @end

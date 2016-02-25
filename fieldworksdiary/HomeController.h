@@ -1,5 +1,5 @@
 //
-//  MettHomeTableViewController.h
+//  HomeViewController.h
 //  Fieldworksdiary
 //
 //  Created by Jo Brunner on 07.04.14.
@@ -12,8 +12,6 @@
 
 @interface HomeController : UITableViewController <UIScrollViewDelegate>
 
-//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) Fieldtrip *recentFieldtrip;
 
 @end
