@@ -53,6 +53,47 @@ UIView *headerView;
     [self initStretchyTableViewHeader];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    self.recentFieldtrip = [self recentSample];
+    
+    // still dummy
+    // take that Project, that is marked as "Use for new samples" (in settings)
+    _activeProjectLabel.text = @"La Palma 2015";
+    
+    // still dummy
+    // take that user that is marked as "Use for new samples" (in settings)
+    _activeCollectorLabel.text = @"J. Brunner";
+    
+    // still dummy
+    NSUInteger locationCount = 0;
+    _countOfLocationsLabel.text = [NSString stringWithFormat:@"%lu", locationCount];
+    
+    // still dummy
+    NSUInteger photosCount = 0;
+    _countOfPhotosLabel.text = [NSString stringWithFormat:@"%lu", photosCount];
+    
+    NSUInteger sampleCount = [self sampleCount];
+    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
+    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
+    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
+    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
+    
+    [self updateInfoboard];
+    
+    [self scrollToTop];
+}
+
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+    
+    // let MKNetworking kill its cache
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView Header / UIScrollView -
+
 - (void)updateInfoboard {
     
     if (self.recentFieldtrip == nil) {
@@ -81,7 +122,6 @@ UIView *headerView;
         _recentlyIdentifiersLabel.text = [NSString stringWithFormat:@"%@",
                                           self.recentFieldtrip.localityIdentifier];
     }
-
 }
 
 - (void)initStretchyTableViewHeader {
@@ -115,37 +155,6 @@ UIView *headerView;
     [self updateTableViewHeaderView];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-
-    self.recentFieldtrip = [self recentSample];
-
-    // still dummy
-    // take that Project, that is marked as "Use for new samples" (in settings)
-    _activeProjectLabel.text = @"La Palma 2015";
-    
-    // still dummy
-    // take that user that is marked as "Use for new samples" (in settings)
-    _activeCollectorLabel.text = @"J. Brunner";
-
-    // still dummy
-    NSUInteger locationCount = 0;
-    _countOfLocationsLabel.text = [NSString stringWithFormat:@"%lu", locationCount];
-    
-    // still dummy
-    NSUInteger photosCount = 0;
-    _countOfPhotosLabel.text = [NSString stringWithFormat:@"%lu", photosCount];
-    
-    NSUInteger sampleCount = [self sampleCount];
-    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
-    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
-    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
-    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
-    
-    [self updateInfoboard];
-    
-    [self scrollToTop];
-}
-
 -(void) scrollToTop {
 
     if ([self numberOfSectionsInTableView:self.tableView] > 0) {
@@ -157,43 +166,15 @@ UIView *headerView;
     }
 }
 
-- (void)didReceiveMemoryWarning {
-
-    [super didReceiveMemoryWarning];
-    
-    // let MKNetworking kill its cache
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark - Segues -
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    // open fieldtrips
-    if ([[segue identifier] isEqualToString:@"openFieldtripsSegue"]) {
-        //        FieldtripTableViewController * controller = segue.destinationViewController;
-        //
-        //        controller.managedObjectContext = self.managedObjectContext;
-    }
-    
-    // open projects
-    if ([[segue identifier] isEqualToString:@"openProjectsSegue"]) {
-        //        ProjectTableViewController * controller = segue.destinationViewController;
-        //
-        //        controller.managedObjectContext = self.managedObjectContext;
-    }
-    
     if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
 
-    // komplett rausgeflogen!!!
-    if ([[segue identifier] isEqualToString:@"createFieldtripWithPhotoSegue"]) {
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
-        controller.fieldtrip = nil;
-        controller.startWithTakePicture = YES;
-    }
-    
     // Show the most recent fieldtrip
     if ([[segue identifier] isEqualToString:@"openRecentFieldtrip"]) {
 
