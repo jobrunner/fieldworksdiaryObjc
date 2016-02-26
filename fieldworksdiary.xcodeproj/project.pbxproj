@@ -194,6 +194,7 @@
 		24A7608818F488DF00DA9695 /* MockTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockTextField.m; sourceTree = "<group>"; };
 		24AB3FC21C7EF08B0014AE95 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		24AB3FC31C7EF08B0014AE95 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		24AB3FC51C7FC2C10014AE95 /* libPods-MGSwipeTableCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MGSwipeTableCell.a"; path = "Pods/build/Debug-iphoneos/libPods-MGSwipeTableCell.a"; sourceTree = "<group>"; };
 		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -391,6 +392,7 @@
 		24C389E418F455AE00CC7105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24AB3FC51C7FC2C10014AE95 /* libPods-MGSwipeTableCell.a */,
 				24A05E641C728CE000DD6458 /* libPods.a */,
 				24A05E621C728AB500DD6458 /* libPods-EDSunriseSet.a */,
 				24C38A1C18F4642A00CC7105 /* CoreData.framework */,

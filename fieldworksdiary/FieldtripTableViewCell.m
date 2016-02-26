@@ -84,6 +84,4 @@
     _identifierLabel.text = identifier;
 }
 
-
-
 @end

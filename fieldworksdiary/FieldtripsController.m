@@ -9,6 +9,7 @@
 #import "FieldtripsController.h"
 #import "FieldtripDetailsViewController.h"
 #import "FieldtripTableViewCell.h"
+#import "MGSwipeTableCell.h"
 #import "Fieldtrip.h"
 
 @import UIKit;
@@ -197,6 +198,22 @@ viewForHeaderInSection:(NSInteger)section {
         cell.fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
 
+    //configure right buttons
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" // Delete
+                                                    icon:[UIImage imageNamed:@"trash"]
+                                         backgroundColor:[UIColor redColor]
+                                                 padding:28],
+                          [MGSwipeButton buttonWithTitle:@""  // Mark
+                                                    icon:[UIImage imageNamed:@"star"]
+                                         backgroundColor:[UIColor orangeColor]
+                                                 padding:28],
+                          [MGSwipeButton buttonWithTitle:@""  // More
+                                                    icon:[UIImage imageNamed:@"mark"]
+                                         backgroundColor:[UIColor lightGrayColor]
+                                                 padding:28]];
+    cell.rightSwipeSettings.transition = MGSwipeTransitionBorder;
+    cell.delegate = self;
+    
     return cell;
 }
 

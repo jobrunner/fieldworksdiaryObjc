@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Fieldtrip.h"
+#import "MGSwipeTableCell.h"
+
 @class Fieldtrip;
 
-@interface FieldtripTableViewCell : UITableViewCell
+@interface FieldtripTableViewCell : MGSwipeTableCell
 
 @property (weak, nonatomic) IBOutlet UILabel *localityNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
