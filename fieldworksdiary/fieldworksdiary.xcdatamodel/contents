@@ -18,6 +18,7 @@
         <attribute name="inlandWater" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFullTime" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isInDaylight" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isMarked" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="localityDescription" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="localityIdentifier" optional="YES" attributeType="String" syncable="YES"/>
@@ -133,7 +134,7 @@
     </entity>
     <elements>
         <element name="CollectingMethod" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="645"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="660"/>
         <element name="Finding" positionX="0" positionY="0" width="128" height="180"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Media" positionX="9" positionY="153" width="128" height="45"/>

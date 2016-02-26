@@ -52,10 +52,10 @@
 @dynamic creationTime;
 @dynamic updateTime;
 @dynamic version;
+@dynamic isMarked;
 
-
-+ (void)initialize
-{
++ (void)initialize {
+    
 	if (self == [Fieldtrip class]) {
 		TimeZoneTransformer *transformer = [[TimeZoneTransformer alloc] init];
 		[NSValueTransformer setValueTransformer:transformer
@@ -63,9 +63,8 @@
 	}
 }
 
+- (void)awakeFromInsert {
 
-- (void)awakeFromInsert
-{
     [super awakeFromInsert];
 
     NSDate *date = [NSDate date];
@@ -73,35 +72,31 @@
     [self setPrimitiveValue:date forKey:@"updateTime"];
 }
 
-
-- (void)willSave
-{
-    [super willSave];
+- (void)willSave {
     
-    if (!self.isDeleted) {
-        NSDate *date = [NSDate date];
-        [self setPrimitiveValue:date
-                         forKey:@"updateTime"];
-        
-        [self setPrimitiveValue:self.version forKey:@"version"];
-    }
-}
+    [super willSave];
 
+    if (self.isDeleted) {
+
+        return;
+    }
+    
+    NSDate *date = [NSDate date];
+    [self setPrimitiveValue:date
+                     forKey:@"updateTime"];
+        
+    [self setPrimitiveValue:self.version forKey:@"version"];
+}
 
 #pragma mark - Transient properties
 
-
-- (NSString *)sectionIdentifier
-{
-    return [Fieldtrip createSectionIdentifier:self.beginDate];
+- (NSString *)sectionIdentifier {
     
-//    NSString *sectionIdentifier = [Fieldtrip createSectionIdentifier:self.beginDate];
-//    return sectionIdentifier;
+    return [Fieldtrip createSectionIdentifier:self.beginDate];
 }
 
+- (void)setBeginDate:(NSDate *)beginDate {
 
-- (void)setBeginDate:(NSDate *)beginDate
-{
     // If the beginDate changes,
     // the section identifier become invalid.
     [self willChangeValueForKey:@"beginDate"];
@@ -110,23 +105,21 @@
     [self setPrimitiveValue:nil forKey:@"sectionIdentifier"];
 }
 
-
 #pragma mark - Key path dependencies
 
-
-+ (NSSet *)keyPathsForValuesAffectingSectionIdentifier
-{
++ (NSSet *)keyPathsForValuesAffectingSectionIdentifier {
+    
     NSLog(@"keyPathsForValuesAffectingSectionIdentifier is called. %@", [NSSet setWithObject:@"beginDate"]);
+    
     // If the value of beginDate changes,
     // the section identifier may change as well.
     return [NSSet setWithObject:@"beginDate"];
 }
 
-
 #pragma mark - Shared Generators
 
-+ (NSString *)createSectionIdentifier:(NSDate *)date
-{
++ (NSString *)createSectionIdentifier:(NSDate *)date {
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
     
@@ -153,8 +146,8 @@
 // Daten vorhanden wären. Sehr experimentell!
 // Nachteil: Zusammenbau von Einzeldaten verhindert die Trennung von Daten und Layout.
 
-- (Placemark *)placemark
-{
+- (Placemark *)placemark {
+    
     Placemark *placemark = [[Placemark alloc] init];
 
     [placemark setValue:self.country forKey:@"country"];
@@ -169,9 +162,8 @@
     return placemark;
 }
 
-
-- (void)setPlacemark:(Placemark *)placemark
-{
+- (void)setPlacemark:(Placemark *)placemark {
+    
     if (placemark == nil) {
         self.country = nil;
         self.countryCodeISO = nil;
@@ -204,9 +196,8 @@
     //             NSString * regionIdentifier = [region identifier];
 }
 
-
-- (CLLocation *)location
-{
+- (CLLocation *)location {
+    
     if (self.latitude == nil || self.longitude == nil) {
         
         return nil;
@@ -221,9 +212,8 @@
                                         timestamp:self.beginDate];
 }
 
-
-- (void)setLocation:(CLLocation *)location
-{
+- (void)setLocation:(CLLocation *)location {
+    
     self.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
     self.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
     self.altitude = [NSNumber numberWithDouble:location.altitude];
@@ -232,19 +222,16 @@
 //    self.locationTimestamp = [NSNumber numberWithDouble:location.timestamp];
 }
 
-
 // Standard Data for Model
-- (void)defaultsWithLocalityName:(NSString *)localityName
-{
-    //    self.fieldtrip.localityName = [NSString stringWithFormat:@"Fundort #%ul", (unsigned int)self.fieldtripCount];
+- (void)defaultsWithLocalityName:(NSString *)localityName {
+    
     self.localityName = localityName;
-
     self.localityIdentifier = nil;
     
     if (YES) {
         self.beginDate = [NSDate date];
-        
-    } else {
+    }
+    else {
         int x = (arc4random() % (365 * 2)) - 365;
         self.beginDate = [[NSDate date] dateByAddingTimeInterval:60.0 * 60.0 * 24.0 * (double)x];
     }
@@ -254,16 +241,13 @@
     
     // Standard: Keine Zeitintervall (anzeigen).
     self.isFullTime = @NO;
-    
     self.timeZone = [NSTimeZone systemTimeZone];
-    
     self.latitude = nil;
     self.longitude = nil;
     self.horizontalAccuracy = nil;
     self.verticalAccuracy = nil;
     self.altitude = nil;
     self.version = @0;
-
 
     // must be searched from a fieldtrip/specimens collection
     // Important precaution here:
@@ -283,8 +267,8 @@
    Supporting a simple location number on a fieldtrip of one month, use it without generation. E.g. "Fo 1".
  *
  */
-- (NSString *)specimenIdentifierByDate:(NSDate *)date
-{
+- (NSString *)specimenIdentifierByDate:(NSDate *)date {
+    
     // move start time from 0000 to 0630 "Fieldwork day begins at 06:30 o'clock local time (and ends 06:30 next day)"
     // => For me: all between 06:00 - 05:59 is one identifier prefix. But this must be in the settings!
     NSNumber *specimenPrefixLocalTime = [NSNumber numberWithInteger:630];
@@ -309,31 +293,21 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [calendar components:unitFlags fromDate:date];
     
-//    NSLog(@"prefixHour:   %li", prefixHour);
-//    NSLog(@"prefixMinute: %li", prefixMinute);
-//
-//    NSLog(@"comps.hour %li", comps.hour);
-//    NSLog(@"comps.minute %li", comps.minute);
-    
     if (comps.hour >= prefixHour && comps.minute >= prefixMinute) {
-//        NSLog(@"Current DateTime is still in the right day");
         comps.hour = prefixHour;
-        
-    } else {
-        // current time is after mindnight but before end of fieldwork day that ends at prefixHour:prefixMinute
-//        NSLog(@"Current DateTime is in after midnight. Put yesterday in the startRange");
+    }
+    else {
+        // current time is after mindnight but before
+        // end of fieldwork day that ends at prefixHour:prefixMinute
         comps.hour = prefixHour - 24;
     }
+
     comps.minute = prefixMinute;
     comps.second = 0;
 
     NSDate *rangeStart = [calendar dateFromComponents:comps];
     NSDate *rangeEnd = [rangeStart dateByAddingTimeInterval:60*60*24];
-    
 
-//    NSLog(@"rangeStart: %@", rangeStart);
-//    NSLog(@"rangeEnd: %@", rangeEnd);
-    
     request.predicate = [NSPredicate predicateWithFormat:@"beginDate >= %@ AND beginDate < %@", rangeStart, rangeEnd];
     
     count = [self.managedObjectContext countForFetchRequest:request
@@ -348,6 +322,5 @@
     
     return [NSString stringWithFormat:@"%@/%@", indentifierPrefix, indentifierNumber];
 }
-
 
 @end
