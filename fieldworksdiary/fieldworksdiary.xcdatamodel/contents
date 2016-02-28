@@ -79,13 +79,15 @@
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="beginDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="creationTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="isDefaultProject" optional="YES" attributeType="Boolean" indexed="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" indexed="YES" syncable="YES"/>
+        <attribute name="locationPrefix" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectLongName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectPrefixId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectShortName" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="fieldtrips" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Fieldtrip" inverseName="project" inverseEntity="Fieldtrip" syncable="YES"/>
         <relationship name="findings" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Finding" inverseName="project" inverseEntity="Finding" syncable="YES"/>
         <relationship name="specimens" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Specimen" inverseName="project" inverseEntity="Specimen" syncable="YES"/>
@@ -139,7 +141,7 @@
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Media" positionX="9" positionY="153" width="128" height="45"/>
         <element name="Person" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="Project" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Project" positionX="0" positionY="0" width="128" height="240"/>
         <element name="Specimen" positionX="0" positionY="0" width="128" height="645"/>
     </elements>
 </model>

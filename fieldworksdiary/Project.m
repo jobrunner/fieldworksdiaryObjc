@@ -2,17 +2,18 @@
 
 #import "Project.h"
 
-
 @implementation Project
 
+@dynamic id;
+@dynamic name;
 @dynamic beginDate;
 @dynamic endDate;
-@dynamic isDefaultProject;
+@dynamic isActive;
 @dynamic notes;
-@dynamic projectId;
-@dynamic projectLongName;
-@dynamic projectPrefixId;
-@dynamic projectShortName;
+@dynamic locationPrefix;
+@dynamic creationTime;
+@dynamic updateTime;
+@dynamic version;
 @dynamic fieldtrips;
 @dynamic findings;
 @dynamic specimens;

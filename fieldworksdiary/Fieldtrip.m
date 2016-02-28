@@ -241,6 +241,7 @@
     
     // Standard: Keine Zeitintervall (anzeigen).
     self.isFullTime = @NO;
+    self.isMarked = @NO;
     self.timeZone = [NSTimeZone systemTimeZone];
     self.latitude = nil;
     self.longitude = nil;

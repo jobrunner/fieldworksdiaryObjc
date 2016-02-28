@@ -10,17 +10,20 @@
 
 @interface Project : NSManagedObject
 
-@property (nonatomic, retain) NSDate * beginDate;
-@property (nonatomic, retain) NSDate * endDate;
-@property (nonatomic, retain) NSNumber * isDefaultProject;
-@property (nonatomic, retain) NSString * notes;
-@property (nonatomic, retain) NSString * projectId;
-@property (nonatomic, retain) NSString * projectLongName;
-@property (nonatomic, retain) NSString * projectPrefixId;
-@property (nonatomic, retain) NSString * projectShortName;
+@property (nonatomic, retain) NSString *id;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSNumber *isActive;
+@property (nonatomic, retain) NSDate *beginDate;
+@property (nonatomic, retain) NSDate *endDate;
+@property (nonatomic, retain) NSString *notes;
+@property (nonatomic, retain) NSString *locationPrefix;
 @property (nonatomic, retain) NSOrderedSet *fieldtrips;
 @property (nonatomic, retain) NSOrderedSet *findings;
 @property (nonatomic, retain) NSOrderedSet *specimens;
+@property (nonatomic, retain) NSDate *creationTime;
+@property (nonatomic, retain) NSDate *updateTime;
+@property (nonatomic, retain) NSNumber *version;
+
 @end
 
 @interface Project (CoreDataGeneratedAccessors)
