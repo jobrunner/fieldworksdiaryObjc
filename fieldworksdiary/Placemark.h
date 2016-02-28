@@ -1,4 +1,10 @@
-
+//
+//  Placemark.h
+//  Fieldworksdiary
+//
+//  Created by Jo Brunner on 17.09.14.
+//  Copyright (c) 2014 Jo Brunner. All rights reserved.
+//
 @class CLPlacemark;
 
 @interface Placemark : NSObject
@@ -16,6 +22,5 @@
 
 - (id)initWithPlacemark:(CLPlacemark *)placemark;
 - (id)initWithGoogleLocationDict:(NSDictionary *)location;
-
 
 @end

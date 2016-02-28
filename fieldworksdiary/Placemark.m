@@ -1,6 +1,6 @@
 //
 //  Placemark.m
-//  fieldworksdiary
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 17.09.14.
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
@@ -11,9 +11,8 @@
 
 @implementation Placemark
 
+- (id)initWithPlacemark:(CLPlacemark *)placemark {
 
-- (id)initWithPlacemark:(CLPlacemark *)placemark
-{
     self = [super init];
 
     if (self) {
@@ -30,9 +29,8 @@
     return self;
 }
 
-
-- (id)initWithGoogleLocationDict:(NSDictionary *)location
-{
+- (id)initWithGoogleLocationDict:(NSDictionary *)location {
+    
     self = [super init];
     if (self) {
         self.country                = [location valueForKey:@"country"];
@@ -50,9 +48,8 @@
     return self;
 }
 
++ (NSString *)stringFromPlacemark:(Placemark *)placemark {
 
-+ (NSString *)stringFromPlacemark:(Placemark *)placemark
-{
     if (placemark == nil) {
         return nil;
     }
@@ -79,7 +76,6 @@
     if (placemark.locality != nil) {
         [placemarkSecondLine appendFormat:@", %@", placemark.locality];
     }
-    
     
     if (placemark.subLocality != nil) {
         [placemarkSecondLine appendFormat:@", %@", placemark.subLocality];
