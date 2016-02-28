@@ -1102,8 +1102,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 #pragma mark - Data to Model
 
 
-- (void)saveFormToModel
-{
+- (void)saveFormToModel {
     // set model data
     // die Zuweisung von Input zu Model findet in FieldtripDetailsLocationName statt...
 //    self.fieldtrip.localityName = self.localityNameTextField.text;

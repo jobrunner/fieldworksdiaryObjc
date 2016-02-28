@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
+    _fieldtripsCountLabel.text = @"123";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,6 +27,8 @@
 }
 
 #pragma mark - Table view data source
+
+
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
@@ -90,4 +94,6 @@
 }
 */
 
+- (IBAction)locationIdentifierPrefixTextFieldEditingDidEnd:(UITextField *)sender {
+}
 @end

@@ -8,18 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "ProjectTableViewCell.h"
 #import "ProjectDetailsViewController.h"
 #import "Project.h"
 
 
-@interface ProjectTableViewController : UITableViewController
-<NSFetchedResultsControllerDelegate,
-UISearchBarDelegate,
-UISearchDisplayDelegate>
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
+@interface ProjectTableViewController : UITableViewController <NSFetchedResultsControllerDelegate,
+    UISearchBarDelegate,
+    UISearchDisplayDelegate> {
+    
+        
+    NSFetchedResultsController *fetchedResultsController;
+    NSManagedObjectContext *managedObjectContext;
+}
 
 @end

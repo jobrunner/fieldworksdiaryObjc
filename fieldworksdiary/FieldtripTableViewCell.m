@@ -33,21 +33,35 @@
 //}
 //@synthesize fieldtrip;
 
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip
-{
+- (void)setFieldtrip:(Fieldtrip *)fieldtrip {
+    
     _fieldtrip = fieldtrip;
     
     // labels den Model-Wert zuweisen
     [self configureCell];
 }
 
-- (Fieldtrip *)getFieldtrip
-{
+- (Fieldtrip *)getFieldtrip {
+    
     return _fieldtrip;
 }
 
-- (void)configureCell
-{
+- (void)configureCell {
+    
+    static UIColor *markedColor;
+    static UIColor *tintColor;
+    
+    if (markedColor == nil) {
+        markedColor = [UIColor orangeColor];
+    }
+
+    if (tintColor == nil) {
+        tintColor = [UIColor colorWithRed:(4.0/255.0)
+                                    green:(102.0/255.0)
+                                     blue:(0.0/255.0)
+                                    alpha:1.0];
+    }
+    
     _localityNameLabel.text = self.fieldtrip.localityName;
     _locationLabel.text = [Placemark stringFromPlacemark:[self.fieldtrip placemark]];
     
@@ -63,6 +77,14 @@
     //    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
     _beginDateDayLabel.text = [dateFormatter stringFromDate:self.fieldtrip.beginDate];
+    
+    if ([self.fieldtrip.isMarked isEqual:@YES]) {
+        _beginDateDayLabel.textColor = markedColor;
+    }
+    else {
+        // tmp hack, because UIAppearance is still nil here.
+        _beginDateDayLabel.textColor = tintColor;
+    }
     
     [dateFormatter setDateFormat:@"EEEE"];
     _beginDateWeekdayLabel.text = [dateFormatter stringFromDate:self.fieldtrip.beginDate];

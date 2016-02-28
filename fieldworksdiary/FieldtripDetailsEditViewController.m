@@ -20,25 +20,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *administrativeLocalityTextField;
 @property (weak, nonatomic) IBOutlet UITextField *administrativeSubLocalityTextField;
 
-
-///////////
 @property (weak, nonatomic) IBOutlet UILabel *alldayDateLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *alldayDateSwitch;
-
 @property (weak, nonatomic) IBOutlet UITableViewCell *beginDateCell;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *beginDatePicker;
 @property (weak, nonatomic) IBOutlet UITableViewCell *beginDatePickerCell;
-
-
 @property (weak, nonatomic) IBOutlet UITableViewCell *endDateCell;
 @property (weak, nonatomic) IBOutlet UILabel *endDateCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 @property (weak, nonatomic) IBOutlet UITableViewCell *endDatePickerCell;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
-
-
 
 - (IBAction)alldayDateChanges:(UISwitch *)sender;
 - (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender;
@@ -584,5 +577,11 @@
     [self drawDateRangeSelector];
 }
 
+#pragma mark - UITextViewDelegate -
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+
+    [textView resignFirstResponder];
+}
 
 @end

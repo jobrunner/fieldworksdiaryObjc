@@ -6,22 +6,24 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 #import "AppDelegate.h"
-#import "FieldtripsController.h"
+#import "SamplesController.h"
 #import "FieldtripDetailsViewController.h"
 #import "FieldtripTableViewCell.h"
 #import "MGSwipeTableCell.h"
 #import "Fieldtrip.h"
+#import "Placemark.h"
 
 @import UIKit;
+@import MessageUI;
 
-@interface FieldtripsController ()
+@interface SamplesController ()
 
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 @end
 
-@implementation FieldtripsController
+@implementation SamplesController
 
 #pragma mark - UIViewController
 
@@ -140,39 +142,36 @@ heightForHeaderInSection:(NSInteger)section {
 }
 
 - (UIView *)tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section {
+viewForHeaderInSection:(NSInteger)sectionIndex {
 
-    UIView *sectionView;
-    UILabel *sectionTitleLabel;
-    
+    id <NSFetchedResultsSectionInfo> section;
+    section = [[self.fetchedResultsController sections] objectAtIndex:sectionIndex];
     NSString * sectionTitle;
-    id <NSFetchedResultsSectionInfo> theSection;
+    sectionTitle = [self sectionTitleFromSectionName:[section name]];
     
-    theSection = [[self.fetchedResultsController sections] objectAtIndex:section];
-    sectionTitle = [self sectionTitleFromSectionName:[theSection name]];
-    
-    sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 23)];
-
-    sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, tableView.frame.size.width, 22)];
-  
     UIFont *font = [UIFont systemFontOfSize:13.0
                                      weight:1.0];
     UIColor *tintColor = [UIColor colorWithRed:(4.0/255.0)
                                          green:(102.0/255.0)
                                           blue:(0.0/255.0)
                                          alpha:1.0];
-    sectionTitleLabel.font = font;
-    sectionTitleLabel.text = sectionTitle;
-    sectionTitleLabel.textColor = tintColor;
-    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
 
     UIView *sepView = [[UIView alloc] initWithFrame:CGRectMake(0, 22, tableView.frame.size.width, 1.0)];
     sepView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     sepView.layer.borderWidth = 1.0f;
     
+    UILabel *sectionTitleLabel;
+    sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, tableView.frame.size.width, 22)];
+    sectionTitleLabel.font = font;
+    sectionTitleLabel.text = sectionTitle;
+    sectionTitleLabel.textColor = tintColor;
+    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
+
+    UIColor * bgColor = [UIColor  whiteColor];
+    UIView *sectionView;
+    sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 23)];
     [sectionView addSubview:sepView];
     [sectionView addSubview:sectionTitleLabel];
-    UIColor * bgColor = [UIColor  whiteColor];
     [sectionView setBackgroundColor:bgColor];
     
     return sectionView;
@@ -199,16 +198,16 @@ viewForHeaderInSection:(NSInteger)section {
     }
 
     //configure right buttons
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" // Delete
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" // Delete, index = 1
                                                     icon:[UIImage imageNamed:@"trash"]
                                          backgroundColor:[UIColor redColor]
                                                  padding:28],
-                          [MGSwipeButton buttonWithTitle:@""  // Mark
+                          [MGSwipeButton buttonWithTitle:@""  // Mark, index = 2
                                                     icon:[UIImage imageNamed:@"star"]
                                          backgroundColor:[UIColor orangeColor]
                                                  padding:28],
-                          [MGSwipeButton buttonWithTitle:@""  // More
-                                                    icon:[UIImage imageNamed:@"mark"]
+                          [MGSwipeButton buttonWithTitle:@""  // More, index = 3
+                                                    icon:[UIImage imageNamed:@"mail"]
                                          backgroundColor:[UIColor lightGrayColor]
                                                  padding:28]];
     cell.rightSwipeSettings.transition = MGSwipeTransitionBorder;
@@ -216,6 +215,112 @@ viewForHeaderInSection:(NSInteger)section {
     
     return cell;
 }
+
+- (BOOL)swipeTableCell:(FieldtripTableViewCell*)cell
+   tappedButtonAtIndex:(NSInteger)index
+             direction:(MGSwipeDirection)direction
+         fromExpansion:(BOOL)fromExpansion {
+    
+//    NSLog(@"Delegate: button tapped, %@ position, index %d, from Expansion: %@",
+//          direction == MGSwipeDirectionLeftToRight ? @"left" : @"right", (int)index, fromExpansion ? @"YES" : @"NO");
+    
+    
+//    if (direction == MGSwipeDirectionRightToLeft && index == 0) {
+//        // Delete
+//        NSIndexPath * path = [self.tableView indexPathForCell:cell];
+////
+//////        [tests removeObjectAtIndex:path.row];
+//        [self.tableView deleteRowsAtIndexPaths:@[path]
+//                              withRowAnimation:UITableViewRowAnimationLeft];
+//
+//        return NO; //Don't autohide to improve delete expansion animation
+//    }
+
+    if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+        
+        [self toggleMarkSample:cell];
+
+        //
+        // Mark
+        //
+//        NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+//        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+//
+//        Fieldtrip *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//
+//        // toogle isMarked
+//        fieldtrip.isMarked = ([fieldtrip.isMarked isEqual:@YES]) ? @NO : @YES;
+//        
+//        NSError *error = nil;
+//        
+//        if (![context save:&error]) {
+//            NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+//            
+//            abort();
+//        }
+//        
+//        NSLog(@"isMarked: %@", fieldtrip.isMarked);
+    }
+
+    if (direction == MGSwipeDirectionRightToLeft && index == 2) {
+        // Send an email with sample data
+        [self sendMail:cell.fieldtrip];
+    }
+    
+    return YES;
+}
+
+- (void)toggleMarkSample:(UITableViewCell *)cell {
+    
+    // Mark sample
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    
+    Fieldtrip *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // toogle isMarked flag
+    fieldtrip.isMarked = ([fieldtrip.isMarked isEqual:@YES]) ? @NO : @YES;
+    
+    NSError *error = nil;
+    
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+        
+        abort();
+    }
+    
+    NSLog(@"isMarked: %@", fieldtrip.isMarked);
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (actionSheet.tag == kSampleActionSheetMore) {
+        NSLog(@"The Normal action sheet. %ld", (long)buttonIndex);
+        
+        // Mail
+//        if (buttonIndex == 0) {
+//            [self sendMail];
+//        }
+
+        // mark
+        if (buttonIndex == 1) {
+
+            NSLog(@"mark...");
+        }
+        
+    }
+    else if (actionSheet.tag == 200){
+        NSLog(@"The Delete confirmation action sheet.");
+    }
+    else{
+        NSLog(@"The Color selection action sheet.");
+    }
+    
+//    NSLog(@"Index = %d - Title = %@", buttonIndex, [actionSheet buttonTitleAtIndex:buttonIndex]);
+}
+
+
 
 // Support delete (editing) of the table view.
 - (BOOL)tableView:(UITableView *)tableView
@@ -234,7 +339,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     // user deletes a row inline
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
-//        NSLog(@"DELETING...");
+        NSLog(@"DELETING...");
         
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -258,8 +363,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
             abort();
         }
-
-//        NSLog(@"DELETED");
     }
 }
 
@@ -453,5 +556,68 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
 
     [self.tableView endUpdates];
 }
+
+#pragma mark - Mailer - 
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
+
+- (void)sendMail:(Fieldtrip *)fieldtrip {
+
+    NSMutableString *emailBody = [[NSMutableString alloc] init];
+    
+    [emailBody appendFormat:@"specimenIdentifier:%@\n", fieldtrip.specimenIdentifier];
+    [emailBody appendFormat:@"localityIdentifier:%@\n", fieldtrip.localityIdentifier];
+    [emailBody appendFormat:@"localityName:%@\n", fieldtrip.localityName];
+    [emailBody appendFormat:@"latitude:%@\n", fieldtrip.latitude];
+    [emailBody appendFormat:@"longitude:%@\n", fieldtrip.longitude];
+    [emailBody appendFormat:@"horizontalAccuracy:%@\n", fieldtrip.horizontalAccuracy];
+    [emailBody appendFormat:@"longitude:%@\n", fieldtrip.altitude];
+    [emailBody appendFormat:@"verticalAccuracy:%@\n", fieldtrip.verticalAccuracy];
+    [emailBody appendFormat:@"placemark:%@\n", fieldtrip.placemark];
+    [emailBody appendFormat:@"beginDate:%@\n", fieldtrip.beginDate];
+    [emailBody appendFormat:@"endDate:%@\n", fieldtrip.endDate];
+    [emailBody appendFormat:@"isFullTime:%@\n", fieldtrip.isFullTime];
+    [emailBody appendFormat:@"timeZone:%@\n", fieldtrip.timeZone];
+    [emailBody appendFormat:@"specimenNotes:%@\n", fieldtrip.specimenNotes];
+
+    NSMutableString *emailSubject = [[NSMutableString alloc] init];
+    [emailSubject appendFormat:@"%@", fieldtrip.specimenIdentifier];
+    
+    NSString *recipient = [NSString stringWithFormat:@"%@", @"jo@egolab.de"];
+    NSArray *emailRecipients = @[recipient];
+    
+    MFMailComposeViewController *mailComposerController = [[MFMailComposeViewController alloc]init];
+
+    if ([MFMailComposeViewController canSendMail]) {
+        mailComposerController.mailComposeDelegate = self;
+        
+        [mailComposerController setToRecipients:emailRecipients];
+        [mailComposerController setSubject:emailSubject];
+        [mailComposerController setMessageBody:emailBody
+                                        isHTML:NO];
+        [self presentViewController:mailComposerController
+                           animated:YES
+                         completion:nil];
+            
+//            [mailComposerController addAttachmentData:[sampleData dataUsingEncoding:NSUTF8StringEncoding]
+//                                             mimeType:@"application/json"
+//                                             fileName:exportfile];
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Mail error"
+                                                            message:@"Device has not been set up to send mail"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alertView show];
+    }
+}
+
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "FieldtripsController.h"
+#import "SamplesController.h"
 #import "FieldtripDetailsViewController.h"
 #import "ProjectTableViewController.h"
 #import "HomeController.h"
@@ -170,13 +170,13 @@ UIView *headerView;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
+    if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
 
-    // Show the most recent fieldtrip
-    if ([[segue identifier] isEqualToString:@"openRecentFieldtrip"]) {
+    // Show the most recent sample
+    if ([[segue identifier] isEqualToString:@"openRecentSample"]) {
 
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         
@@ -218,9 +218,9 @@ UIView *headerView;
         NSLog(@"%@", [error localizedDescription]);
     }
 
-    Fieldtrip *fieldtrip = [results firstObject];
+    Fieldtrip *sample = [results firstObject];
     
-    return fieldtrip;
+    return sample;
 }
 
 - (NSUInteger)sampleCount {

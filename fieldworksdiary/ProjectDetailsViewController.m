@@ -7,19 +7,23 @@
 
 @interface ProjectDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *projectShortNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *projectLongNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *projectIdTextField;
-@property (weak, nonatomic) IBOutlet UITextField *projectPrefixIdTextField;
-@property (weak, nonatomic) IBOutlet UITextView *projectNotesTextView;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *locationPrefixTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *isActiveSwitch;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *isDefaultProjectSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *isFavoritSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *collectorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beginDateCaptionLabel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *beginDatePicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
+@property (weak, nonatomic) IBOutlet UILabel *endDateCaptionLabel;
 
-- (IBAction)isDefaultProjectSwitchDidChanged:(UISwitch *)sender;
-- (IBAction)isFavoritSwitchDidChanged:(UISwitch *)sender;
+- (IBAction)nameEditingDidEnd:(UITextField *)sender;
+- (IBAction)nameEditingChanged:(UITextField *)sender;
+- (IBAction)locationPrefixEditingDidEnd:(UITextField *)sender;
+- (IBAction)locationPrefixEditingChanged:(UITextField *)sender;
+- (IBAction)isActiveSwitchDidChanged:(UISwitch *)sender;
+
 
 @property (strong, nonatomic) UIAlertView *errorAlert;
 @property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
@@ -30,16 +34,16 @@
 
 #pragma mark - UIViewControllerDelegate
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+
     [super viewDidLoad];
     
     AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
 
-    self.projectNotesTextView.delegate = self;
+    self.notesTextView.delegate = self;
     
-    if (self.project == nil) {
+    if (self.fieldtrip == nil) {
         // create a new locality model
         [self createNewModelForEditing];
     } else {
@@ -48,73 +52,64 @@
     }
 }
 
+- (void)didReceiveMemoryWarning {
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    
-}
-
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-}
-
-
-- (void)didReceiveMemoryWarning
-{
     [super didReceiveMemoryWarning];
 }
 
-
-- (void)didMoveToParentViewController:(UIViewController *)parent
-{
-    NSLog(@"didMoveToParentViewController");
-    
-    if (![parent isEqual:self.parentViewController]) {
-
-        NSLog(@"trigger saveFormToModel");
-        [self saveFormToModel];
-    }
-}
-
-
 #pragma mark - Form Data
 
+- (void)showExistingModelForEditing {
 
-- (void)showExistingModelForEditing
-{
-    self.navigationItem.title = self.project.projectShortName;
+    self.navigationItem.title = @"";
+    self.navigationItem.rightBarButtonItem.title = @"Save";
+    self.navigationItem.rightBarButtonItem.enabled = false;
+
+    // wenn ein Wert verändert wurde: enablen.
     
-    [self drawProjectFromModel];
+    [self loadFormData];
 }
 
-
-- (void)createNewModelForEditing
-{
-    self.project = [NSEntityDescription insertNewObjectForEntityForName:@"Project"
-                                                   inManagedObjectContext:self.managedObjectContext];
-    [self.navigationItem setTitle:@"New"];
+- (void)createNewModelForEditing {
     
+    self.fieldtrip = [NSEntityDescription insertNewObjectForEntityForName:@"Project"
+                                                   inManagedObjectContext:self.managedObjectContext];
+    self.navigationItem.title = @"";
+    self.navigationItem.rightBarButtonItem.title = @"Hinzufügen";
+    self.navigationItem.rightBarButtonItem.enabled = false;
+
+    // move to model logic:
     [self setModelWithDefaults];
     
-    [self drawProjectFromModel];
+    [self loadFormData];
 }
 
-#pragma mark - Form Data to Model
+#pragma mark - Form Data handling
 
-
-- (void)saveFormToModel
-{
-    // set model data
-    self.project.projectShortName = self.projectShortNameTextField.text;
-    self.project.projectLongName = self.projectLongNameTextField.text;
-
-
-    // beginDate, endDate, isFavorit, isDefaultProject, collector (muss defaultCollector heißen!) 
-    // werden direkt nach User-Aktion ins Model geschrieben
+- (void)loadFormData {
     
+    NSLog(@"model: %@", self.fieldtrip.isActive);
+    NSLog(@"control: %@", [NSNumber numberWithBool:self.isActiveSwitch.on]);
+    
+    
+    self.nameTextField.text = self.fieldtrip.name;
+    self.locationPrefixTextField.text = self.fieldtrip.locationPrefix;
+    self.isActiveSwitch.on = (BOOL)self.fieldtrip.isActive;
+    self.notesTextView.text = self.fieldtrip.notes;
+    
+    
+    
+}
 
-    //    self.project.beginDate = self.beginDate
+- (void)saveFormToModel {
+
+    // set model data
+    self.fieldtrip.name = self.nameTextField.text;
+    self.fieldtrip.locationPrefix = self.locationPrefixTextField.text;
+    self.fieldtrip.isActive = 0; // [NSNumber numberWithBool:self.isActiveSwitch.on];
+    self.fieldtrip.notes = self.notesTextView.text;
+
+
     NSError *error = nil;
     
     [self.managedObjectContext save:&error];
@@ -124,54 +119,64 @@
     }
 }
 
-
 // Standard Data for new Model
-- (void)setModelWithDefaults
-{
-    self.project.projectShortName = @"New project name";
+- (void)setModelWithDefaults {
+
+    self.fieldtrip.name = nil; // @"Name of new fieldtrip";
+    self.fieldtrip.beginDate = [NSDate date];
     
-    self.project.beginDate = [NSDate date];
-    
-    // Eine Stunde als Standard-Endzeit => konfigurieren!!!
-    self.project.endDate = [[NSDate date] dateByAddingTimeInterval:60.0 * 60.0];
-    
-    // Standard: Keine Zeitintervall (anzeigen).
-//    self.fieldtrip.isFullTime = NO;
-    
-//    self.fieldtrip.timeZoneName = [[NSTimeZone systemTimeZone] name];
-    
-    // ...
+    // Eine Stunde als Standard-Endzeit
+    self.fieldtrip.endDate = [[NSDate date] dateByAddingTimeInterval:60.0 * 60.0];
 }
-
-
-#pragma mark - Model to UI
-
-// am liebsten wäre es mir, wenn ein Feld immer dann (autom.) gezeichnet wird
-// wenn sich am Model etwas ändert. Diese Lösung ist jetzt erst mal good enough
-- (void)drawProjectFromModel
-{
-    self.projectShortNameTextField.text = self.project.projectShortName;
-    self.projectLongNameTextField.text = self.project.projectLongName;
-//    self.projectIdTextField.text = self.project.projectId;
-//    self.projectPrefixIdTextField.text = self.project.projectPrefixId;
-//    self.beginDateLabel.text = [self.project.beginDate description];
-//    self.endDateLabel.text = [self.project.endDate description];
-    
-    // ...
-}
-
-
-
 
 #pragma mark - UI Actions
 
-
-- (IBAction)isFavoritSwitchDidChanged:(UISwitch *)sender
-{
+- (void)formDidChanged:(id)sender {
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
-- (IBAction)isDefaultProjectSwitchDidChanged:(UISwitch *)sender
-{
+- (IBAction)nameEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)nameEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)locationPrefixEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)locationPrefixEditingChanged:(UITextField *)sender {
+
+    [self formDidChanged:sender];
+}
+
+- (IBAction)isActiveSwitchDidChanged:(UISwitch *)sender {
+
+    [self formDidChanged:sender];
+}
+
+- (IBAction)saveButton:(UIBarButtonItem *)sender {
+
+    [self saveFormToModel];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)cancelButton:(UIBarButtonItem *)sender {
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - UITextViewDelegate -
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    
+    [textView resignFirstResponder];
 }
 
 @end

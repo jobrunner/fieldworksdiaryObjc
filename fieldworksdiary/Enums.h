@@ -20,6 +20,13 @@ typedef enum CoordinateFormat : NSUInteger {
     kCoordinateFormatUTMLong
 } CoordinateFormat;
 
+/** Actions for action sheet */
+typedef enum SampleActionSheet : NSInteger {
+    kSampleActionSheetMore = 100,
+    kSampleActionSheetRemove = 200,
+    kSampleActionSheetMark = 300
+} SampleActionSheet;
+
 /*!
  *  UnitOfLength
  *

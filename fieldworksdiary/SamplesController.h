@@ -7,15 +7,19 @@
 //
 
 #import "MGSwipeTableCell.h"
+#import <MessageUI/MessageUI.h>
+
 
 @class UIKit;
+// @class MessageUI;
 
-@interface FieldtripsController : UITableViewController
+@interface SamplesController : UITableViewController
 <   NSFetchedResultsControllerDelegate,
     UISearchBarDelegate,
     UISearchDisplayDelegate,
     UINavigationControllerDelegate,
     UIActionSheetDelegate,
+    MFMailComposeViewControllerDelegate,
     MGSwipeTableCellDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

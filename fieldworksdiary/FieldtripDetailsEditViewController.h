@@ -13,7 +13,8 @@
 
 // for subclassing of StaticDataTableViewController see https://github.com/xelvenone/StaticDataTableViewController
 
-@interface FieldtripDetailsEditViewController : StaticDataTableViewController
+@interface FieldtripDetailsEditViewController : StaticDataTableViewController <
+    UITextViewDelegate>
 
 @property (strong, nonatomic) Fieldtrip * fieldtrip;
 

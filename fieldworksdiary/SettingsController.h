@@ -10,4 +10,12 @@
 
 @interface SettingsController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *activeCollectorCell;
+@property (weak, nonatomic) IBOutlet UITextField *locationIdentifierPrefixTextField;
+@property (weak, nonatomic) IBOutlet UITableViewCell *activeFieldtripCell;
+@property (weak, nonatomic) IBOutlet UILabel *fieldtripsCountLabel;
+
+
+- (IBAction)locationIdentifierPrefixTextFieldEditingDidEnd:(UITextField *)sender;
+
 @end
