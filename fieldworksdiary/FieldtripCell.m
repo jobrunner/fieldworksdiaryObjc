@@ -32,10 +32,9 @@
     self.indexPath = indexPath;
     self.nameLabel.text = [managedObject valueForKey:@"name"];
     
-    BOOL isActive = (BOOL)[managedObject valueForKey:@"isActive"];
-
+    BOOL isActive = [[managedObject valueForKey:@"isActive"] boolValue];
     
-    self.isActiveLabel.hidden = isActive;
+    self.isActiveLabel.hidden = !isActive;
     
     if (selectorOnly) {
         self.accessoryType = isActive ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;

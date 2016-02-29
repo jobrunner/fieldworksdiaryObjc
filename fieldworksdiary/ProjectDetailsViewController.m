@@ -94,7 +94,7 @@
     
     self.nameTextField.text = self.fieldtrip.name;
     self.locationPrefixTextField.text = self.fieldtrip.locationPrefix;
-    self.isActiveSwitch.on = (BOOL)self.fieldtrip.isActive;
+    self.isActiveSwitch.on = [self.fieldtrip.isActive boolValue];
     self.notesTextView.text = self.fieldtrip.notes;
     
     
@@ -106,9 +106,8 @@
     // set model data
     self.fieldtrip.name = self.nameTextField.text;
     self.fieldtrip.locationPrefix = self.locationPrefixTextField.text;
-    self.fieldtrip.isActive = 0; // [NSNumber numberWithBool:self.isActiveSwitch.on];
+    self.fieldtrip.isActive = (self.isActiveSwitch.on == NO) ? @NO : @YES;
     self.fieldtrip.notes = self.notesTextView.text;
-
 
     NSError *error = nil;
     
