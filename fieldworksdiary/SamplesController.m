@@ -149,8 +149,7 @@ viewForHeaderInSection:(NSInteger)sectionIndex {
     NSString * sectionTitle;
     sectionTitle = [self sectionTitleFromSectionName:[section name]];
     
-    UIFont *font = [UIFont systemFontOfSize:13.0
-                                     weight:1.0];
+    UIFont *font = [UIFont boldSystemFontOfSize:13.0];
     UIColor *tintColor = [UIColor colorWithRed:(4.0/255.0)
                                          green:(102.0/255.0)
                                           blue:(0.0/255.0)
