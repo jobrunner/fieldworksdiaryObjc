@@ -1,13 +1,12 @@
 //
 //  Person.m
-//  sunrise
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 04.05.14.
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
 #import "Person.h"
-
 
 @implementation Person
 
