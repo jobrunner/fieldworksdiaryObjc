@@ -12,14 +12,13 @@
 
 @class Fieldtrip;
 
-@interface FieldtripDetailsLocalityIdentifierCell : UITableViewCell <FieldtripDetailsCellProtocol, UITextFieldDelegate>
+@interface FieldtripDetailsLocalityIdentifierCell : UITableViewCell <FieldtripDetailsCellProtocol,
+    UITextFieldDelegate>
 
 @property (strong, nonatomic) Fieldtrip *fieldtrip;
-
 @property (weak, nonatomic) IBOutlet UITextField *localityIdentifierTextField;
 
 - (IBAction)localityIdentifierTextFieldEditingDidEnd:(UITextField *)sender;
-
 + (NSString *)reuseIdentifier;
 
 @end

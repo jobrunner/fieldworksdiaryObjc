@@ -13,6 +13,9 @@
 #import "ProjectTableViewController.h"
 #import "HomeController.h"
 #import "Fieldtrip.h"
+#import "ActiveFieldtrip.h"
+#import "ActiveCollector.h"
+#import "RecordStatistics.h"
 
 @interface HomeController ()
 
@@ -55,15 +58,15 @@ UIView *headerView;
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    self.recentFieldtrip = [self recentSample];
+    self.recentFieldtrip = [RecordStatistics recentSample];
     
     // still dummy
     // take that Project, that is marked as "Use for new samples" (in settings)
-    _activeProjectLabel.text = @"La Palma 2015";
+    _activeProjectLabel.text = [ActiveFieldtrip name];
     
     // still dummy
     // take that user that is marked as "Use for new samples" (in settings)
-    _activeCollectorLabel.text = @"J. Brunner";
+    _activeCollectorLabel.text = [ActiveCollector name];
     
     // still dummy
     NSUInteger locationCount = 0;
@@ -73,7 +76,7 @@ UIView *headerView;
     NSUInteger photosCount = 0;
     _countOfPhotosLabel.text = [NSString stringWithFormat:@"%lu", photosCount];
     
-    NSUInteger sampleCount = [self sampleCount];
+    NSUInteger sampleCount = [RecordStatistics sampleCount];
     _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
     _recentSampleCell.textLabel.enabled = (sampleCount > 0);
     _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
@@ -182,69 +185,6 @@ UIView *headerView;
         
         controller.fieldtrip = self.recentFieldtrip;
     }
-}
-
-#pragma mark - Model operations
-
-- (Fieldtrip *)recentSample {
-    
-    NSManagedObjectContext *managedObjectContext;
-    NSError *error = nil;
-
-    managedObjectContext = ApplicationDelegate.managedObjectContext;
-    
-    // count of all fieldtrips
-    NSEntityDescription * entityDesc = [NSEntityDescription entityForName:@"Fieldtrip"
-                                                   inManagedObjectContext:managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc];
-    
-    NSUInteger count = [managedObjectContext countForFetchRequest:request
-                                                                 error:&error];
-
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    // limit the fetch request to one object
-    [request setFetchLimit:1];
-    
-    // and set got through offset to the last object
-    [request setFetchOffset:(count - 1)];
-    
-    NSArray *results = [managedObjectContext executeFetchRequest:request
-                                                            error:&error];
-
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-
-    Fieldtrip *sample = [results firstObject];
-    
-    return sample;
-}
-
-- (NSUInteger)sampleCount {
-
-    NSManagedObjectContext *managedObjectContext;
-    NSEntityDescription *entity;
-    NSError *error = nil;
-    
-    managedObjectContext = ApplicationDelegate.managedObjectContext;
-
-    // fieldtrips
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // Amount of samples (aka fieldtrips) in the request...
-    entity = [NSEntityDescription entityForName:@"Fieldtrip"
-                         inManagedObjectContext:managedObjectContext];
-    
-    [request setEntity:entity];
-    
-    NSUInteger sampleCount;
-    sampleCount = [managedObjectContext countForFetchRequest:request
-                                                            error:&error];
-
-    return sampleCount;
 }
 
 @end

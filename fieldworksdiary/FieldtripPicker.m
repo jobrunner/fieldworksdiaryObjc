@@ -1,6 +1,6 @@
 //
 //  FieldtripPicker.m
-//  fieldworksdiary
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 28.02.16.
 //  Copyright © 2016 Jo Brunner. All rights reserved.
@@ -8,12 +8,13 @@
 
 #import "AppDelegate.h"
 #import "FieldtripPicker.h"
-
-// Project aka Fieldtrip
 #import "Project.h"
 #import "FieldtripCell.h"
 
 @interface FieldtripPicker ()
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -23,7 +24,7 @@
 
     [super viewDidLoad];
 
-    self.managedObjectContext = ApplicationDelegate.managedObjectContext;
+    _managedObjectContext = ApplicationDelegate.managedObjectContext;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,33 +46,6 @@
 
     return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView
-//         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    static NSString *cellId = @"fieldtripPickerCell";
-//
-//    UITableViewCell *cell;
-//    cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-////                                           forIndexPath:indexPath];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-//                                      reuseIdentifier:cellId];
-//    }
-//    
-//    
-//    Project *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    
-//    cell.textLabel.text = fieldtrip.name;
-//
-////    if ([fieldtrip.isActive isEqual:@1]) {
-////        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-////    }
-//    
-//    return cell;
-//}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,58 +79,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void) tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    FieldtripCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    Project *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-//    [self performSegueWithIdentifier:@"editFieldtripSegue"
-//                              sender:cell];
+    if ([self.delegate respondsToSelector:@selector(fieldtripPicker:didSelectFieldtrip:)]) {
+        [self.delegate fieldtripPicker:self didSelectFieldtrip:fieldtrip];
+    }
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
@@ -170,7 +100,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Project"
-                                              inManagedObjectContext:self.managedObjectContext];
+                                              inManagedObjectContext:_managedObjectContext];
     
     [request setEntity:entity];
     
@@ -197,7 +127,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //    [NSFetchedResultsController deleteCacheWithName:@"ProjectMasterTable"];
     
     resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                            managedObjectContext:self.managedObjectContext
+                                                            managedObjectContext:_managedObjectContext
                                                               sectionNameKeyPath:nil // @"sectionIdentifier"
                                                                        cacheName:nil]; // @"ProjectMasterTable"
     resultsController.delegate = self;

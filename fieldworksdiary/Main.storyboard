@@ -1507,8 +1507,8 @@ Bei Eußenheim</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="4zQ-tJ-KfZ"/>
                     <connections>
-                        <outlet property="activeCollectorCell" destination="MP3-lN-t3a" id="ww8-FN-H5X"/>
-                        <outlet property="activeFieldtripCell" destination="eat-xg-ISo" id="fTi-bI-gaQ"/>
+                        <outlet property="activeCollectorLabel" destination="8w2-rP-X87" id="nrV-GS-l4P"/>
+                        <outlet property="activeFieldtripLabel" destination="2DX-OE-kqN" id="pwo-YH-w6O"/>
                         <outlet property="fieldtripsCountLabel" destination="TPO-Wr-QFo" id="4kz-Nd-b0h"/>
                         <outlet property="locationIdentifierPrefixTextField" destination="W5S-Rf-R3d" id="SE1-AS-CCy"/>
                         <segue destination="cDK-La-wXb" kind="push" id="uYv-bD-zJM"/>
@@ -1610,12 +1610,12 @@ Bei Eußenheim</string>
         <scene sceneID="FlD-qz-7tB">
             <objects>
                 <tableViewController id="hoD-Oo-fsb" customClass="ProjectDetailsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iA3-TQ-VfE">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="8" sectionFooterHeight="18" id="iA3-TQ-VfE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle=" " id="OLu-CC-4w3">
+                            <tableViewSection headerTitle="FIELDTRIP" id="OLu-CC-4w3">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RJk-Oq-vQn">
                                         <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
@@ -1701,28 +1701,28 @@ Bei Eußenheim</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle=" " id="FQg-W0-ALC">
+                            <tableViewSection headerTitle=" DATE" id="FQg-W0-ALC">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="siO-um-UVj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="siO-um-UVj" userLabel="beginDateCell">
                                         <rect key="frame" x="0.0" y="395.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="siO-um-UVj" id="mjX-5b-JNQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Begin date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-TM-uSU">
-                                                    <rect key="frame" x="20" y="11" width="83" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Begin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-TM-uSU">
+                                                    <rect key="frame" x="20" y="11" width="92" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkW-Lu-gQB">
-                                                    <rect key="frame" x="148" y="11" width="152" height="21"/>
+                                                    <rect key="frame" x="113" y="11" width="187" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="31.September 2013">
                                                             <attributes>
                                                                 <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1730,37 +1730,43 @@ Bei Eußenheim</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="VPj-NM-TTK" appends="YES" id="YTX-2O-T1o"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="N8U-X3-Zeg">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="N8U-X3-Zeg" userLabel="beginDatePickerCell">
                                         <rect key="frame" x="0.0" y="439.5" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N8U-X3-Zeg" id="2Z2-RO-sQb">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xwx-Ad-hde">
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xwx-Ad-hde">
                                                     <rect key="frame" x="0.0" y="-2" width="320" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="413761134.96937603">
                                                         <!--2014-02-10 21:38:54 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="beginDatePickerValueChanged:" destination="hoD-Oo-fsb" eventType="valueChanged" id="NP9-mS-Zg1"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="fCC-Ad-cOd">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="fCC-Ad-cOd" userLabel="endDateCell">
                                         <rect key="frame" x="0.0" y="639.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCC-Ad-cOd" id="Sim-gs-2nM">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-py-Ul8">
-                                                    <rect key="frame" x="20" y="11" width="69" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-py-Ul8">
+                                                    <rect key="frame" x="20" y="11" width="92" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFa-eN-chR">
-                                                    <rect key="frame" x="148" y="11" width="152" height="21"/>
+                                                    <rect key="frame" x="112" y="11" width="188" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="10. Januar 2014">
                                                             <attributes>
@@ -1774,19 +1780,25 @@ Bei Eußenheim</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="c1Q-qZ-jYi" appends="YES" id="968-JB-Oli"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="mq2-IO-GET">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="mq2-IO-GET" userLabel="endDatePickerCell">
                                         <rect key="frame" x="0.0" y="683.5" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mq2-IO-GET" id="rcW-NW-A3L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ztz-rE-xWh">
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ztz-rE-xWh">
                                                     <rect key="frame" x="0.0" y="-2" width="320" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="413761134.96937603">
                                                         <!--2014-02-10 21:38:54 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="endDatePickerValueChanged:" destination="hoD-Oo-fsb" eventType="valueChanged" id="Iet-Fk-VW7"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1815,10 +1827,12 @@ Bei Eußenheim</string>
                         <outlet property="beginDateCaptionLabel" destination="fz6-TM-uSU" id="2xZ-pk-TKY"/>
                         <outlet property="beginDateLabel" destination="EkW-Lu-gQB" id="SxY-aB-6Fs"/>
                         <outlet property="beginDatePicker" destination="Xwx-Ad-hde" id="3aF-R4-lI9"/>
+                        <outlet property="beginDatePickerCell" destination="N8U-X3-Zeg" id="oZp-F6-gOd"/>
                         <outlet property="cancelButton" destination="nLJ-Hp-rOu" id="Wx2-fe-N6E"/>
                         <outlet property="endDateCaptionLabel" destination="eeZ-py-Ul8" id="MCM-qL-YwM"/>
                         <outlet property="endDateLabel" destination="GFa-eN-chR" id="wNa-X2-OkD"/>
                         <outlet property="endDatePicker" destination="Ztz-rE-xWh" id="Glp-fQ-3dA"/>
+                        <outlet property="endDatePickerCell" destination="mq2-IO-GET" id="sU0-MM-FRz"/>
                         <outlet property="isActiveSwitch" destination="Ynm-Fg-fuv" id="xAx-3n-fq4"/>
                         <outlet property="locationPrefixTextField" destination="tjg-9Y-pwn" id="90E-xu-tH7"/>
                         <outlet property="nameTextField" destination="xKU-eo-zrQ" id="mnL-fe-owX"/>
@@ -1827,6 +1841,16 @@ Bei Eußenheim</string>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TyW-mW-PJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VPj-NM-TTK" userLabel="Begin Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="beginDateGestureRecognize:" destination="hoD-Oo-fsb" id="SSj-YW-qX9"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="c1Q-qZ-jYi" userLabel="End Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="endDateGestureRecognize:" destination="hoD-Oo-fsb" id="8sy-wn-vxR"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <navigationBar contentMode="scaleToFill" id="y1x-Hi-oyZ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>

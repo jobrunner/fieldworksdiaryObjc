@@ -66,6 +66,11 @@
 		24AB3FCC1C8327AE0014AE95 /* FieldtripPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FCB1C8327AE0014AE95 /* FieldtripPicker.m */; };
 		24AB3FD01C8350350014AE95 /* FieldtripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FCE1C8350350014AE95 /* FieldtripCell.m */; };
 		24AB3FD11C8350350014AE95 /* FieldtripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */; };
+		24AB3FD41C8514880014AE95 /* ActiveFieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD31C8514880014AE95 /* ActiveFieldtrip.m */; };
+		24AB3FD71C8624920014AE95 /* ActiveCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD61C8624920014AE95 /* ActiveCollector.m */; };
+		24AB3FD91C8629100014AE95 /* ActiveCollectorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD81C8629100014AE95 /* ActiveCollectorsTests.m */; };
+		24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDB1C8655CB0014AE95 /* DateUtility.m */; };
+		24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
 		24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E718F455AE00CC7105 /* CoreGraphics.framework */; };
 		24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
@@ -202,6 +207,15 @@
 		24AB3FCD1C8350350014AE95 /* FieldtripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripCell.h; sourceTree = "<group>"; };
 		24AB3FCE1C8350350014AE95 /* FieldtripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripCell.m; sourceTree = "<group>"; };
 		24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldtripCell.xib; sourceTree = "<group>"; };
+		24AB3FD21C8514880014AE95 /* ActiveFieldtrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveFieldtrip.h; sourceTree = "<group>"; };
+		24AB3FD31C8514880014AE95 /* ActiveFieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveFieldtrip.m; sourceTree = "<group>"; };
+		24AB3FD51C8624920014AE95 /* ActiveCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveCollector.h; sourceTree = "<group>"; };
+		24AB3FD61C8624920014AE95 /* ActiveCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveCollector.m; sourceTree = "<group>"; };
+		24AB3FD81C8629100014AE95 /* ActiveCollectorsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveCollectorsTests.m; sourceTree = "<group>"; };
+		24AB3FDA1C8655CB0014AE95 /* DateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtility.h; sourceTree = "<group>"; };
+		24AB3FDB1C8655CB0014AE95 /* DateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtility.m; sourceTree = "<group>"; };
+		24AB3FDD1C8670E00014AE95 /* RecordStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordStatistics.h; sourceTree = "<group>"; };
+		24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordStatistics.m; sourceTree = "<group>"; };
 		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -467,6 +481,7 @@
 				24C38A2218F47A9800CC7105 /* ControllerTests */,
 				24C38A0B18F455AF00CC7105 /* Supporting Files */,
 				24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */,
+				24AB3FD81C8629100014AE95 /* ActiveCollectorsTests.m */,
 			);
 			name = Tests;
 			path = fieldworksdiaryTests;
@@ -555,6 +570,14 @@
 				24249AD119CB30A000D2D01C /* LocationService.m */,
 				24249AD219CB30A000D2D01C /* Crypto.h */,
 				24249AD319CB30A000D2D01C /* Crypto.m */,
+				24AB3FD21C8514880014AE95 /* ActiveFieldtrip.h */,
+				24AB3FD31C8514880014AE95 /* ActiveFieldtrip.m */,
+				24AB3FD51C8624920014AE95 /* ActiveCollector.h */,
+				24AB3FD61C8624920014AE95 /* ActiveCollector.m */,
+				24AB3FDA1C8655CB0014AE95 /* DateUtility.h */,
+				24AB3FDB1C8655CB0014AE95 /* DateUtility.m */,
+				24AB3FDD1C8670E00014AE95 /* RecordStatistics.h */,
+				24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -719,6 +742,7 @@
 				24249AC519CB2F8800D2D01C /* ProjectDetailsViewController.m in Sources */,
 				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
 				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
+				24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */,
 				24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */,
 				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
@@ -735,6 +759,8 @@
 				24249B1E19CB314C00D2D01C /* FieldtripDetailsViewController.m in Sources */,
 				24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */,
 				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,
+				24AB3FD71C8624920014AE95 /* ActiveCollector.m in Sources */,
+				24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */,
 				24249AED19CB30B800D2D01C /* Image.m in Sources */,
 				24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */,
 				24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */,
@@ -756,6 +782,7 @@
 				24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */,
 				24249AF419CB30B800D2D01C /* Placemark.m in Sources */,
 				24C389F218F455AE00CC7105 /* main.m in Sources */,
+				24AB3FD41C8514880014AE95 /* ActiveFieldtrip.m in Sources */,
 				24249AC219CB2F8800D2D01C /* FieldtripDetailsEditViewController.m in Sources */,
 				24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */,
 				24249AF119CB30B800D2D01C /* Person.m in Sources */,
@@ -772,6 +799,7 @@
 				24A7608918F488DF00DA9695 /* MockTextField.m in Sources */,
 				24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */,
 				24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */,
+				24AB3FD91C8629100014AE95 /* ActiveCollectorsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

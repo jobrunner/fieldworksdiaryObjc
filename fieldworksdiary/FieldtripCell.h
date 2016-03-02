@@ -1,6 +1,6 @@
 //
 //  FieldtripCell.h
-//  fieldworksdiary
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 28.02.16.
 //  Copyright © 2016 Jo Brunner. All rights reserved.
@@ -12,7 +12,6 @@
 
 @interface FieldtripCell : MGSwipeTableCell
 
-// @property (strong, nonatomic) Project *fieldtrip;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

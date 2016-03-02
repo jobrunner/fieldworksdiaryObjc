@@ -1,12 +1,13 @@
 //
 //  FieldtripCell.m
-//  fieldworksdiary
+//  Fieldworksdiary
 //
 //  Created by Jo Brunner on 28.02.16.
 //  Copyright © 2016 Jo Brunner. All rights reserved.
 //
 
 #import "FieldtripCell.h"
+#import "ActiveFieldtrip.h"
 
 @implementation FieldtripCell
 
@@ -28,12 +29,10 @@
                  indexPath:(NSIndexPath *)indexPath
               selectorOnly:(BOOL)selectorOnly {
     
-    //  cell.fieldtrip = fieldtrip;
     self.indexPath = indexPath;
     self.nameLabel.text = [managedObject valueForKey:@"name"];
-    
-    BOOL isActive = [[managedObject valueForKey:@"isActive"] boolValue];
-    
+
+    BOOL isActive = [ActiveFieldtrip isActive:(Project *)managedObject];
     self.isActiveLabel.hidden = !isActive;
     
     if (selectorOnly) {
@@ -42,7 +41,6 @@
     else {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-
     
     static NSDateFormatter *dateFormatter = nil;
     

@@ -16,10 +16,10 @@
 
 @property (strong, nonatomic) Project * fieldtrip;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-
-- (IBAction)saveButton:(UIBarButtonItem *)sender;
-- (IBAction)cancelButton:(UIBarButtonItem *)sender;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+//
+//- (IBAction)saveButton:(UIBarButtonItem *)sender;
+//- (IBAction)cancelButton:(UIBarButtonItem *)sender;
 
 @end
