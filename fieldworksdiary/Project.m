@@ -8,7 +8,6 @@
 @dynamic name;
 @dynamic beginDate;
 @dynamic endDate;
-@dynamic isActive;
 @dynamic notes;
 @dynamic locationPrefix;
 @dynamic creationTime;

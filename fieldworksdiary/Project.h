@@ -12,7 +12,6 @@
 
 @property (nonatomic, retain) NSString *id;
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSNumber *isActive;
 @property (nonatomic, retain) NSDate *beginDate;
 @property (nonatomic, retain) NSDate *endDate;
 @property (nonatomic, retain) NSString *notes;

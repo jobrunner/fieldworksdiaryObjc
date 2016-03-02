@@ -82,7 +82,6 @@
         <attribute name="creationTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isActive" optional="YES" attributeType="Boolean" indexed="YES" syncable="YES"/>
         <attribute name="locationPrefix" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
@@ -141,7 +140,7 @@
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Media" positionX="9" positionY="153" width="128" height="45"/>
         <element name="Person" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="Project" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="Project" positionX="0" positionY="0" width="128" height="225"/>
         <element name="Specimen" positionX="0" positionY="0" width="128" height="645"/>
     </elements>
 </model>
