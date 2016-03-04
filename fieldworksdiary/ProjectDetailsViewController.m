@@ -233,6 +233,11 @@
 
 #pragma mark - UITextViewDelegate -
 
+- (void)textViewDidChange:(UITextView *)textView {
+
+    [self formDidChanged:textView];
+}
+
 - (void)textViewDidEndEditing:(UITextView *)textView {
     
     [textView resignFirstResponder];
