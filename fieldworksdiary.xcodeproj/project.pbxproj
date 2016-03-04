@@ -68,7 +68,7 @@
 		24AB3FD11C8350350014AE95 /* FieldtripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */; };
 		24AB3FD41C8514880014AE95 /* ActiveFieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD31C8514880014AE95 /* ActiveFieldtrip.m */; };
 		24AB3FD71C8624920014AE95 /* ActiveCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD61C8624920014AE95 /* ActiveCollector.m */; };
-		24AB3FD91C8629100014AE95 /* ActiveCollectorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD81C8629100014AE95 /* ActiveCollectorsTests.m */; };
+		24AB3FD91C8629100014AE95 /* ActiveCollectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD81C8629100014AE95 /* ActiveCollectorTests.m */; };
 		24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDB1C8655CB0014AE95 /* DateUtility.m */; };
 		24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
@@ -211,7 +211,7 @@
 		24AB3FD31C8514880014AE95 /* ActiveFieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveFieldtrip.m; sourceTree = "<group>"; };
 		24AB3FD51C8624920014AE95 /* ActiveCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveCollector.h; sourceTree = "<group>"; };
 		24AB3FD61C8624920014AE95 /* ActiveCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveCollector.m; sourceTree = "<group>"; };
-		24AB3FD81C8629100014AE95 /* ActiveCollectorsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveCollectorsTests.m; sourceTree = "<group>"; };
+		24AB3FD81C8629100014AE95 /* ActiveCollectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveCollectorTests.m; sourceTree = "<group>"; };
 		24AB3FDA1C8655CB0014AE95 /* DateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtility.h; sourceTree = "<group>"; };
 		24AB3FDB1C8655CB0014AE95 /* DateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtility.m; sourceTree = "<group>"; };
 		24AB3FDD1C8670E00014AE95 /* RecordStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordStatistics.h; sourceTree = "<group>"; };
@@ -481,7 +481,7 @@
 				24C38A2218F47A9800CC7105 /* ControllerTests */,
 				24C38A0B18F455AF00CC7105 /* Supporting Files */,
 				24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */,
-				24AB3FD81C8629100014AE95 /* ActiveCollectorsTests.m */,
+				24AB3FD81C8629100014AE95 /* ActiveCollectorTests.m */,
 			);
 			name = Tests;
 			path = fieldworksdiaryTests;
@@ -799,7 +799,7 @@
 				24A7608918F488DF00DA9695 /* MockTextField.m in Sources */,
 				24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */,
 				24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */,
-				24AB3FD91C8629100014AE95 /* ActiveCollectorsTests.m in Sources */,
+				24AB3FD91C8629100014AE95 /* ActiveCollectorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 @implementation ActiveCollector
 
-NSString *userDefaultsKey = @"activeCollector";
+NSString *userDefaultsKey = kActiveCollectorUserDefaultsKey;
 
 + (NSString *)name {
 

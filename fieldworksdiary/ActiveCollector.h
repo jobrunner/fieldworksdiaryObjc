@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kActiveCollectorUserDefaultsKey     @"activeCollector"
+
 @interface ActiveCollector : NSObject
 
 + (NSString *)name;
