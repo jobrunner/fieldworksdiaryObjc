@@ -152,16 +152,15 @@
         NSLog(@"Error: %@", [error localizedDescription]);
     }
 
-    if (self.isActiveSwitch.on) {
-        [ActiveFieldtrip setActiveFieldtrip:self.fieldtrip];
+    if ([ActiveFieldtrip isActive:self.fieldtrip] &&
+        !self.isActiveSwitch.on) {
+
+        [ActiveFieldtrip setActiveFieldtrip:nil];
     }
-    else {
-        if ([ActiveFieldtrip isActive:self.fieldtrip]) {
-            [ActiveFieldtrip setActiveFieldtrip:nil];
-        }
-        else {
-            [ActiveFieldtrip setActiveFieldtrip:self.fieldtrip];
-        }
+    else if (![ActiveFieldtrip isActive:self.fieldtrip] &&
+        self.isActiveSwitch.on) {
+        
+        [ActiveFieldtrip setActiveFieldtrip:self.fieldtrip];
     }
 }
 
