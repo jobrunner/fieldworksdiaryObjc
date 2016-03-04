@@ -222,12 +222,22 @@
 - (IBAction)saveButton:(UIBarButtonItem *)sender {
 
     [self saveFormToModel];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self goToSettingsViewController];
 }
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender {
 
-    [self.navigationController popViewControllerAnimated:YES];
+    [self goToSettingsViewController];
+}
+
+#pragma mark Navigation
+
+- (void)goToSettingsViewController {
+    
+    UINavigationController *navigationController = self.navigationController;
+    
+    [navigationController popViewControllerAnimated:NO];
+    [navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITextViewDelegate -
