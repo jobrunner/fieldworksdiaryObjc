@@ -15,6 +15,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *activeCollectorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activeFieldtripLabel;
 
-- (IBAction)locationIdentifierPrefixTextFieldEditingDidEnd:(UITextField *)sender;
-
 @end

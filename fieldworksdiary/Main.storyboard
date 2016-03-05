@@ -1392,27 +1392,8 @@ Bei Eußenheim</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Base data" id="l9d-T1-ybI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eLf-pU-SNd">
-                                        <rect key="frame" x="0.0" y="251.5" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eLf-pU-SNd" id="Gri-PJ-Wac">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location prefix, e.g. &quot;FO &quot;" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="W5S-Rf-R3d">
-                                                    <rect key="frame" x="16" y="7" width="296" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                    <connections>
-                                                        <action selector="locationIdentifierPrefixTextFieldEditingDidEnd:" destination="ViU-zL-n4c" eventType="editingDidEnd" id="cx4-pw-wBQ"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ljo-TZ-e6T" detailTextLabel="TPO-Wr-QFo" imageView="2f2-3F-T8o" style="IBUITableViewCellStyleValue1" id="EVT-Ji-7cG">
-                                        <rect key="frame" x="0.0" y="295.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="251.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EVT-Ji-7cG" id="vsA-NR-zuO">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -1447,7 +1428,7 @@ Bei Eußenheim</string>
                             <tableViewSection headerTitle="About" id="9gE-vc-Fz7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ioY-5T-JvF" detailTextLabel="Ie9-su-Dg0" style="IBUITableViewCellStyleValue1" id="QGK-DZ-eVn">
-                                        <rect key="frame" x="0.0" y="389.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="345.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QGK-DZ-eVn" id="qed-SV-Mba">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -1474,7 +1455,7 @@ Bei Eußenheim</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="NPE-rp-Yk8" detailTextLabel="JhZ-6S-utx" style="IBUITableViewCellStyleValue1" id="Gd2-z2-h82">
-                                        <rect key="frame" x="0.0" y="433.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="389.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gd2-z2-h82" id="a9G-ns-VdW">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -1510,7 +1491,6 @@ Bei Eußenheim</string>
                         <outlet property="activeCollectorLabel" destination="8w2-rP-X87" id="nrV-GS-l4P"/>
                         <outlet property="activeFieldtripLabel" destination="2DX-OE-kqN" id="pwo-YH-w6O"/>
                         <outlet property="fieldtripsCountLabel" destination="TPO-Wr-QFo" id="4kz-Nd-b0h"/>
-                        <outlet property="locationIdentifierPrefixTextField" destination="W5S-Rf-R3d" id="SE1-AS-CCy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUY-LP-Jeq" userLabel="First Responder" sceneMemberID="firstResponder"/>

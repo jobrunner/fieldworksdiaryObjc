@@ -63,8 +63,4 @@
     }
 }
 
-- (IBAction)locationIdentifierPrefixTextFieldEditingDidEnd:(UITextField *)sender {
-        
-}
-
 @end
