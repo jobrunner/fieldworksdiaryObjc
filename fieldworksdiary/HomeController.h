@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
-@import UIKit;
-
 @class Fieldtrip;
 
 @interface HomeController : UITableViewController <UIScrollViewDelegate>
