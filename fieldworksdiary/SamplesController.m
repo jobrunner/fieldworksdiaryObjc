@@ -203,50 +203,56 @@ viewForHeaderInSection:(NSInteger)sectionIndex {
     return cell;
 }
 
-- (BOOL)swipeTableCell:(FieldtripTableViewCell*)cell
+- (void)deleteSample:(FieldtripTableViewCell *)cell {
+    
+    void (^action)() = ^{
+
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        NSError *error = nil;
+        
+        if (![context save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
+        }
+    };
+    
+    UIAlertController *actionSheet;
+    actionSheet = [UIAlertController alertControllerWithTitle:nil
+                                                      message:nil
+                                               preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *deleteAction;
+    deleteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Delete Entry", @"Delete Entry")
+                                            style:UIAlertActionStyleDestructive
+                                          handler:action];
+    UIAlertAction *cancelAction;
+    cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                                            style:UIAlertActionStyleDefault
+                                          handler:nil];
+    [actionSheet addAction:deleteAction];
+    [actionSheet addAction:cancelAction];
+
+    [self presentViewController:actionSheet
+                       animated:YES
+                     completion:nil];
+}
+
+- (BOOL)swipeTableCell:(FieldtripTableViewCell *)cell
    tappedButtonAtIndex:(NSInteger)index
              direction:(MGSwipeDirection)direction
          fromExpansion:(BOOL)fromExpansion {
     
-//    NSLog(@"Delegate: button tapped, %@ position, index %d, from Expansion: %@",
-//          direction == MGSwipeDirectionLeftToRight ? @"left" : @"right", (int)index, fromExpansion ? @"YES" : @"NO");
-    
-    
-//    if (direction == MGSwipeDirectionRightToLeft && index == 0) {
-//        // Delete
-//        NSIndexPath * path = [self.tableView indexPathForCell:cell];
-////
-//////        [tests removeObjectAtIndex:path.row];
-//        [self.tableView deleteRowsAtIndexPaths:@[path]
-//                              withRowAnimation:UITableViewRowAnimationLeft];
-//
-//        return NO; //Don't autohide to improve delete expansion animation
-//    }
+    if (direction == MGSwipeDirectionRightToLeft && index == 0) {
+
+        [self deleteSample:cell];
+        
+        return NO;
+    }
 
     if (direction == MGSwipeDirectionRightToLeft && index == 1) {
         
         [self toggleMarkSample:cell];
-
-        //
-        // Mark
-        //
-//        NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-//        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//
-//        Fieldtrip *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//
-//        // toogle isMarked
-//        fieldtrip.isMarked = ([fieldtrip.isMarked isEqual:@YES]) ? @NO : @YES;
-//        
-//        NSError *error = nil;
-//        
-//        if (![context save:&error]) {
-//            NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
-//            
-//            abort();
-//        }
-//        
-//        NSLog(@"isMarked: %@", fieldtrip.isMarked);
     }
 
     if (direction == MGSwipeDirectionRightToLeft && index == 2) {
@@ -266,90 +272,23 @@ viewForHeaderInSection:(NSInteger)sectionIndex {
     Fieldtrip *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // toogle isMarked flag
-    fieldtrip.isMarked = ([fieldtrip.isMarked isEqual:@YES]) ? @NO : @YES;
+    fieldtrip.isMarked = ([fieldtrip.isMarked boolValue]) ? @NO : @YES;
     
     NSError *error = nil;
     
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
-        
-        abort();
     }
-    
-    NSLog(@"isMarked: %@", fieldtrip.isMarked);
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet
-clickedButtonAtIndex:(NSInteger)buttonIndex {
-
-    if (actionSheet.tag == kSampleActionSheetMore) {
-        NSLog(@"The Normal action sheet. %ld", (long)buttonIndex);
-        
-        // Mail
-//        if (buttonIndex == 0) {
-//            [self sendMail];
-//        }
-
-        // mark
-        if (buttonIndex == 1) {
-
-            NSLog(@"mark...");
-        }
-        
-    }
-    else if (actionSheet.tag == 200){
-        NSLog(@"The Delete confirmation action sheet.");
-    }
-    else{
-        NSLog(@"The Color selection action sheet.");
-    }
-    
-//    NSLog(@"Index = %d - Title = %@", buttonIndex, [actionSheet buttonTitleAtIndex:buttonIndex]);
-}
-
-// Support delete (editing) of the table view.
+// Dosn't support default delete operation of table view cells.
 - (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
- forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // user deletes a row inline
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-
-        NSLog(@"DELETING...");
-        
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-
-        if (tableView == self.searchDisplayController.searchResultsTableView) {
-//            NSLog(@"Delete im SearchTableView");
-//            NSLog(@"im Context gelöscht - aber nicht in der Search Display");
-//
-//            [tableView deleteRowsAtIndexPaths:@[indexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//
-        } else {
-//            NSLog(@"Delete im TableView");
-        }
-
-        
-        NSError *error = nil;
-
-        if (![context save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
-
-            abort();
-        }
-    }
-}
-
+// Dosn't support sorting operation of table view cells.
 - (BOOL)tableView:(UITableView *)tableView
 canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
 

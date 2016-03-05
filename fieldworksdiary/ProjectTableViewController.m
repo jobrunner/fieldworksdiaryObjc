@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "FieldtripCell.h"
 #import "SamplesController.h"
+#import "ActiveFieldtrip.h"
 
 @interface ProjectTableViewController ()
 
@@ -66,27 +67,6 @@
 //    [self.searchDisplayController.searchBar becomeFirstResponder];
 //}
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue
-                 sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
-        ProjectDetailsViewController * controller = segue.destinationViewController;
-        controller.fieldtrip = nil;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"editFieldtripSegue"]) {
-        ProjectDetailsViewController * controller = segue.destinationViewController;
-        FieldtripCell *cell = (FieldtripCell *)sender;
-        controller.fieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
-    }
-    
-    if ([[segue identifier] isEqualToString:@"openFilteredSamplesSegue"]) {
-        SamplesController *controller = segue.destinationViewController;
-        FieldtripCell *cell = (FieldtripCell *)sender;
-        controller.filterByFieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
-    }
-}
-
 #pragma mark - UITableView Delegates
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -140,6 +120,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     [cell configureWithModel:fieldtrip
+                withDelegate:self
                    indexPath:indexPath
                 selectorOnly:(_fieldtripUsage == kFieldtripUsagePicker)];
 }
@@ -173,37 +154,87 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-// Support editing of the table view.
+// Dosn't support native editing of table view cells.
 - (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return YES;
+    return NO;
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
- forRowAtIndexPath:(NSIndexPath *)indexPath {
+// Dosn't support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView
+canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return NO;
+}
+
+- (void)deleteFieldtrip:(FieldtripCell *)cell {
     
-    // user deletes a row inline
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    void (^action)() = ^{
+        
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
         NSError *error = nil;
         
         if (![context save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
-            abort();
         }
-    }
+    };
+    
+    UIAlertController *actionSheet;
+    actionSheet = [UIAlertController alertControllerWithTitle:nil
+                                                      message:nil
+                                               preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *deleteAction;
+    deleteAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Delete Entry", @"Delete Entry")
+                                            style:UIAlertActionStyleDestructive
+                                          handler:action];
+    UIAlertAction *cancelAction;
+    cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                                            style:UIAlertActionStyleDefault
+                                          handler:nil];
+    [actionSheet addAction:deleteAction];
+    [actionSheet addAction:cancelAction];
+    
+    [self presentViewController:actionSheet
+                       animated:YES
+                     completion:nil];
 }
 
-// Override to support conditional rearranging of the table view.
--     (BOOL)tableView:(UITableView *)tableView
-canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)toggleActiveFieldtrip:(FieldtripCell *)cell {
 
-    return NO;
+    Project *fieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
+    
+    if ([ActiveFieldtrip isActive:fieldtrip]) {
+        [ActiveFieldtrip setActiveFieldtrip:nil];
+    }
+    else {
+        
+        [ActiveFieldtrip setActiveFieldtrip:fieldtrip];
+    }
+    [self.tableView reloadData];
+}
+
+- (BOOL)swipeTableCell:(FieldtripCell *)cell
+   tappedButtonAtIndex:(NSInteger)index
+             direction:(MGSwipeDirection)direction
+         fromExpansion:(BOOL)fromExpansion {
+    
+    if (direction == MGSwipeDirectionRightToLeft && index == 0) {
+        
+        [self deleteFieldtrip:cell];
+        
+        return NO;
+    }
+    
+    if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+        
+        [self toggleActiveFieldtrip:cell];
+    }
+    
+    return YES;
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -218,8 +249,6 @@ canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
 //
 //    return 70;
 //}
-
-
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
@@ -394,6 +423,29 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     NSLog(@"search results: %@", [fieldtrips filteredArrayUsingPredicate:predicate]);
     
     [self.searchResults addObjectsFromArray:[fieldtrips filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
+        ProjectDetailsViewController * controller = segue.destinationViewController;
+        controller.fieldtrip = nil;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"editFieldtripSegue"]) {
+        ProjectDetailsViewController * controller = segue.destinationViewController;
+        FieldtripCell *cell = (FieldtripCell *)sender;
+        controller.fieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"openFilteredSamplesSegue"]) {
+        SamplesController *controller = segue.destinationViewController;
+        FieldtripCell *cell = (FieldtripCell *)sender;
+        controller.filterByFieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
+    }
 }
 
 @end

@@ -26,12 +26,13 @@
 }
 
 - (void)configureWithModel:(NSManagedObject *)managedObject
+              withDelegate:(id)delegate
                  indexPath:(NSIndexPath *)indexPath
               selectorOnly:(BOOL)selectorOnly {
     
     self.indexPath = indexPath;
     self.nameLabel.text = [managedObject valueForKey:@"name"];
-
+    self.delegate = delegate;
     BOOL isActive = [ActiveFieldtrip isActive:(Project *)managedObject];
     self.isActiveImageView.hidden = !isActive;
     

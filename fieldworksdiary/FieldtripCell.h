@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *isActiveImageView;
 
 - (void)configureWithModel:(NSManagedObject *)managedObject
+              withDelegate:(id)delegate
                  indexPath:(NSIndexPath *)indexPath
               selectorOnly:(BOOL)selectorOnly;
 @end

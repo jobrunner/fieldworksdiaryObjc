@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
+#import "MGSwipeTableCell.h"
+
 @class Project;
 
 @protocol FieldtripPickerDelegate;
@@ -15,7 +17,8 @@
     UITableViewDataSource,
     NSFetchedResultsControllerDelegate,
     UISearchBarDelegate,
-    UISearchDisplayDelegate> {
+    UISearchDisplayDelegate,
+    MGSwipeTableCellDelegate> {
     
     NSFetchedResultsController *fetchedResultsController;
     NSManagedObjectContext *managedObjectContext;
