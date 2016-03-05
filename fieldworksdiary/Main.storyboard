@@ -1427,7 +1427,7 @@ Bei Eußenheim</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="9gE-vc-Fz7">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ioY-5T-JvF" detailTextLabel="Ie9-su-Dg0" style="IBUITableViewCellStyleValue1" id="QGK-DZ-eVn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ioY-5T-JvF" imageView="7ci-6P-ynu" style="IBUITableViewCellStyleDefault" id="QGK-DZ-eVn">
                                         <rect key="frame" x="0.0" y="345.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QGK-DZ-eVn" id="qed-SV-Mba">
@@ -1435,48 +1435,21 @@ Bei Eußenheim</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Copyright notices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ioY-5T-JvF">
-                                                    <rect key="frame" x="15" y="12" width="128.5" height="19.5"/>
+                                                    <rect key="frame" x="52" y="0.0" width="233" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ie9-su-Dg0">
-                                                    <rect key="frame" x="243.5" y="12" width="41.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="copyright" id="7ci-6P-ynu">
+                                                    <rect key="frame" x="15" y="10" width="22" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="Y8Z-43-tJO" kind="push" id="VJB-FB-6pM"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="NPE-rp-Yk8" detailTextLabel="JhZ-6S-utx" style="IBUITableViewCellStyleValue1" id="Gd2-z2-h82">
-                                        <rect key="frame" x="0.0" y="389.5" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gd2-z2-h82" id="a9G-ns-VdW">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Fieldworksdiary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NPE-rp-Yk8">
-                                                    <rect key="frame" x="15" y="12" width="113.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JhZ-6S-utx">
-                                                    <rect key="frame" x="243.5" y="12" width="41.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1496,44 +1469,6 @@ Bei Eußenheim</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUY-LP-Jeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="511" y="1591"/>
-        </scene>
-        <!--Fieldtrips-->
-        <scene sceneID="WbP-J2-U8d">
-            <objects>
-                <tableViewController title="Fieldtrips" id="7VK-n1-pbQ" customClass="FieldtripPicker" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DUe-4l-rPM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="fieldtripPickerCell" textLabel="qCu-Qp-RST" style="IBUITableViewCellStyleDefault" id="4uG-KF-YSI">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4uG-KF-YSI" id="gfG-ed-LQq">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qCu-Qp-RST">
-                                            <rect key="frame" x="15" y="0.0" width="266" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="7VK-n1-pbQ" id="spb-og-c33"/>
-                            <outlet property="delegate" destination="7VK-n1-pbQ" id="dyc-Ee-sFW"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Choose Fieldtrip" id="ZL9-7P-jBZ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ICz-BI-NZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="788" y="2339"/>
         </scene>
         <!--Fieldtrips-->
         <scene sceneID="xG4-g4-Xqj">
@@ -1886,6 +1821,22 @@ Bei Eußenheim</string>
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjv-V6-9PX">
+                                                <rect key="frame" x="8" y="172" width="304" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="Zi7-Ir-g7n"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="MGSwipeTableCell (c) by 2014 Imanol Fernandez @MortimerGoro">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1x-I3-lmu">
                                                 <rect key="frame" x="8" y="37" width="304" height="38"/>
                                                 <constraints>
@@ -1916,9 +1867,25 @@ Bei Eußenheim</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y73-Ws-miN">
-                                                <rect key="frame" x="8" y="175" width="304" height="16.5"/>
+                                                <rect key="frame" x="8" y="277" width="304" height="17"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Fieldworksdiary (c) 2014-2016 by Jo Brunner.">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5a-iZ-aF1">
+                                                <rect key="frame" x="8" y="218" width="304" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="vDR-0F-ZfP"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Most icons designed by Freepic">
                                                         <attributes>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
@@ -1933,17 +1900,22 @@ Bei Eußenheim</string>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="vnP-dK-cZu" secondAttribute="trailing" constant="8" id="2hS-0N-3yY"/>
                                             <constraint firstAttribute="trailing" secondItem="Zf8-Kh-bzX" secondAttribute="trailing" constant="8" id="6Sf-fU-L0k"/>
+                                            <constraint firstItem="d5a-iZ-aF1" firstAttribute="trailing" secondItem="Zf8-Kh-bzX" secondAttribute="trailing" id="6wg-AK-jpZ"/>
                                             <constraint firstItem="Q1x-I3-lmu" firstAttribute="top" secondItem="I3x-jP-jfP" secondAttribute="top" constant="37" id="7Wm-FB-wck"/>
                                             <constraint firstItem="EBK-J1-de4" firstAttribute="leading" secondItem="vnP-dK-cZu" secondAttribute="leading" id="BQK-Iu-xYt"/>
                                             <constraint firstItem="EBK-J1-de4" firstAttribute="leading" secondItem="I3x-jP-jfP" secondAttribute="leading" constant="8" id="DRq-cN-nfJ"/>
                                             <constraint firstItem="vnP-dK-cZu" firstAttribute="top" secondItem="I3x-jP-jfP" secondAttribute="top" constant="8" id="K4L-Iu-Uo0"/>
+                                            <constraint firstItem="d5a-iZ-aF1" firstAttribute="leading" secondItem="Zf8-Kh-bzX" secondAttribute="leading" id="KLS-GX-4iB"/>
                                             <constraint firstItem="Q1x-I3-lmu" firstAttribute="leading" secondItem="I3x-jP-jfP" secondAttribute="leading" constant="8" id="NAr-CX-vSD"/>
+                                            <constraint firstItem="vjv-V6-9PX" firstAttribute="trailing" secondItem="d5a-iZ-aF1" secondAttribute="trailing" id="Noo-Dt-yIG"/>
                                             <constraint firstItem="Q1x-I3-lmu" firstAttribute="top" secondItem="vnP-dK-cZu" secondAttribute="bottom" constant="8" symbolic="YES" id="PNt-te-iWP"/>
+                                            <constraint firstItem="d5a-iZ-aF1" firstAttribute="top" secondItem="Zf8-Kh-bzX" secondAttribute="bottom" constant="51" id="Q3Z-tp-QCK"/>
                                             <constraint firstItem="Zf8-Kh-bzX" firstAttribute="top" secondItem="EBK-J1-de4" secondAttribute="bottom" constant="8" symbolic="YES" id="TfQ-1n-Qml"/>
+                                            <constraint firstItem="vjv-V6-9PX" firstAttribute="leading" secondItem="d5a-iZ-aF1" secondAttribute="leading" id="UGY-a0-ADw"/>
                                             <constraint firstItem="Q1x-I3-lmu" firstAttribute="leading" secondItem="vnP-dK-cZu" secondAttribute="leading" id="YG5-wt-WWb"/>
                                             <constraint firstItem="EBK-J1-de4" firstAttribute="top" secondItem="Q1x-I3-lmu" secondAttribute="bottom" constant="8" symbolic="YES" id="YoL-ig-oIu"/>
                                             <constraint firstAttribute="trailing" secondItem="vnP-dK-cZu" secondAttribute="trailing" constant="8" id="Yzj-eR-iIT"/>
-                                            <constraint firstItem="Y73-Ws-miN" firstAttribute="top" secondItem="Zf8-Kh-bzX" secondAttribute="bottom" constant="8" symbolic="YES" id="Zv1-lV-htS"/>
+                                            <constraint firstItem="Y73-Ws-miN" firstAttribute="top" secondItem="Zf8-Kh-bzX" secondAttribute="bottom" constant="110" id="Zv1-lV-htS"/>
                                             <constraint firstItem="Y73-Ws-miN" firstAttribute="leading" secondItem="I3x-jP-jfP" secondAttribute="leading" constant="8" id="asb-h5-j3R"/>
                                             <constraint firstAttribute="height" constant="524" id="bUp-zg-v7h"/>
                                             <constraint firstItem="vnP-dK-cZu" firstAttribute="leading" secondItem="I3x-jP-jfP" secondAttribute="leading" constant="8" id="bfd-Ec-bEE"/>
@@ -1955,6 +1927,7 @@ Bei Eußenheim</string>
                                             <constraint firstAttribute="trailing" secondItem="Q1x-I3-lmu" secondAttribute="trailing" constant="8" id="r53-ND-3hd"/>
                                             <constraint firstItem="Y73-Ws-miN" firstAttribute="leading" secondItem="vnP-dK-cZu" secondAttribute="leading" id="ttv-5E-0HO"/>
                                             <constraint firstAttribute="trailing" secondItem="Y73-Ws-miN" secondAttribute="trailing" constant="8" id="uft-pS-VSZ"/>
+                                            <constraint firstItem="vjv-V6-9PX" firstAttribute="top" secondItem="Zf8-Kh-bzX" secondAttribute="bottom" constant="5" id="zkD-TN-lCO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1966,7 +1939,7 @@ Bei Eußenheim</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p9k-lt-GmW" firstAttribute="top" secondItem="kZM-Gm-deG" secondAttribute="bottom" id="78v-Wg-8KV"/>
                             <constraint firstAttribute="trailing" secondItem="p9k-lt-GmW" secondAttribute="trailing" id="7vM-No-eYd"/>
@@ -2060,6 +2033,7 @@ Bei Eußenheim</string>
     <resources>
         <image name="Add" width="140" height="137"/>
         <image name="calendar" width="25" height="25"/>
+        <image name="copyright" width="22" height="22"/>
         <image name="daylight-day" width="75" height="75"/>
         <image name="daylight-night" width="75" height="75"/>
         <image name="gps-disabled" width="66" height="66"/>
