@@ -5,15 +5,16 @@
 
 // Project ist eigentlich Fieldtrip... kann aber erst refactored werden, wenn fieldtrip zu sample refactored ist...
 
+#import "AppDelegate.h"
+#import "ProjectDetailsViewController.h"
 #import "ProjectTableViewController.h"
+#import "Project.h"
 #import "FieldtripCell.h"
 
 @interface ProjectTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITableViewCell *fieldtripCell;
-@property (weak, nonatomic) IBOutlet UILabel *projectNameLabel;
 
 @end
 
@@ -133,19 +134,29 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [cell configureWithModel:fieldtrip
                    indexPath:indexPath
-                selectorOnly:NO];
+                selectorOnly:_useAsPicker];
 }
 
 - (void) tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    FieldtripCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
+    if (_useAsPicker) {
+
+        Project *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        if ([self.delegate respondsToSelector:@selector(fieldtripPicker:didSelectFieldtrip:)]) {
+            [self.delegate fieldtripPicker:self didSelectFieldtrip:fieldtrip];
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else {
+        FieldtripCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    [self performSegueWithIdentifier:@"editFieldtripSegue"
-                              sender:cell];
+        [self performSegueWithIdentifier:@"editFieldtripSegue"
+                                  sender:cell];
+    }
 }
-
 
 // Support editing of the table view.
 -     (BOOL)tableView:(UITableView *)tableView

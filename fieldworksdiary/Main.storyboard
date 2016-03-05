@@ -1385,7 +1385,7 @@ Bei Eußenheim</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7VK-n1-pbQ" kind="push" identifier="FieldtripPickerSegue" id="KOZ-pg-nBT"/>
+                                            <segue destination="cDK-La-wXb" kind="push" identifier="FieldtripPickerSegue" id="Cip-DA-JkC"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1439,7 +1439,7 @@ Bei Eußenheim</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cDK-La-wXb" kind="push" identifier="" id="kaH-vR-6Jn"/>
+                                            <segue destination="cDK-La-wXb" kind="push" identifier="FieldtripTableViewSegue" id="kaH-vR-6Jn"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1511,7 +1511,6 @@ Bei Eußenheim</string>
                         <outlet property="activeFieldtripLabel" destination="2DX-OE-kqN" id="pwo-YH-w6O"/>
                         <outlet property="fieldtripsCountLabel" destination="TPO-Wr-QFo" id="4kz-Nd-b0h"/>
                         <outlet property="locationIdentifierPrefixTextField" destination="W5S-Rf-R3d" id="SE1-AS-CCy"/>
-                        <segue destination="cDK-La-wXb" kind="push" id="uYv-bD-zJM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUY-LP-Jeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1528,7 +1527,7 @@ Bei Eußenheim</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="fieldtripPickerCell" textLabel="qCu-Qp-RST" style="IBUITableViewCellStyleDefault" id="4uG-KF-YSI">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4uG-KF-YSI" id="gfG-ed-LQq">
                                     <rect key="frame" x="0.0" y="0.0" width="281" height="43.5"/>

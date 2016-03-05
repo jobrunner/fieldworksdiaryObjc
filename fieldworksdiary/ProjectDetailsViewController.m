@@ -43,6 +43,7 @@
 @property (strong, nonatomic) NSDate *endDate;
 @property (strong, nonatomic) UIAlertView *errorAlert;
 @property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
+@property BOOL isNewObject;
 
 @end
 
@@ -77,6 +78,7 @@
 
 - (void)showExistingModelForEditing {
 
+    self.isNewObject = NO;
     self.navigationItem.title = @"";
     self.navigationItem.rightBarButtonItem.title = @"Save";
     self.navigationItem.rightBarButtonItem.enabled = false;
@@ -88,6 +90,7 @@
 
 - (void)createNewModelForEditing {
     
+    self.isNewObject = YES;
     self.fieldtrip = [NSEntityDescription insertNewObjectForEntityForName:@"Project"
                                                    inManagedObjectContext:self.managedObjectContext];
     self.navigationItem.title = @"";
@@ -236,7 +239,13 @@
     
     UINavigationController *navigationController = self.navigationController;
     
+    if (!self.isNewObject) {
     [navigationController popViewControllerAnimated:NO];
+    }
+    else if (self.isActiveSwitch.on) {
+        [navigationController popViewControllerAnimated:NO];
+    }
+    
     [navigationController popViewControllerAnimated:YES];
 }
 

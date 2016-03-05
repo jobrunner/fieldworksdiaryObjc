@@ -63,7 +63,6 @@
 		24A7608918F488DF00DA9695 /* MockTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608818F488DF00DA9695 /* MockTextField.m */; };
 		24AB3FC41C7EF08B0014AE95 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FC31C7EF08B0014AE95 /* SettingsController.m */; };
 		24AB3FC81C80B11F0014AE95 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AB3FC71C80B11F0014AE95 /* MessageUI.framework */; };
-		24AB3FCC1C8327AE0014AE95 /* FieldtripPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FCB1C8327AE0014AE95 /* FieldtripPicker.m */; };
 		24AB3FD01C8350350014AE95 /* FieldtripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FCE1C8350350014AE95 /* FieldtripCell.m */; };
 		24AB3FD11C8350350014AE95 /* FieldtripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */; };
 		24AB3FD41C8514880014AE95 /* ActiveFieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD31C8514880014AE95 /* ActiveFieldtrip.m */; };
@@ -202,8 +201,6 @@
 		24AB3FC31C7EF08B0014AE95 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		24AB3FC51C7FC2C10014AE95 /* libPods-MGSwipeTableCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MGSwipeTableCell.a"; path = "Pods/build/Debug-iphoneos/libPods-MGSwipeTableCell.a"; sourceTree = "<group>"; };
 		24AB3FC71C80B11F0014AE95 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		24AB3FCA1C8327AE0014AE95 /* FieldtripPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripPicker.h; sourceTree = "<group>"; };
-		24AB3FCB1C8327AE0014AE95 /* FieldtripPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripPicker.m; sourceTree = "<group>"; };
 		24AB3FCD1C8350350014AE95 /* FieldtripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripCell.h; sourceTree = "<group>"; };
 		24AB3FCE1C8350350014AE95 /* FieldtripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripCell.m; sourceTree = "<group>"; };
 		24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldtripCell.xib; sourceTree = "<group>"; };
@@ -357,8 +354,6 @@
 			children = (
 				24249AB719CB2F8800D2D01C /* ProjectTableViewController.h */,
 				24249AB819CB2F8800D2D01C /* ProjectTableViewController.m */,
-				24AB3FCA1C8327AE0014AE95 /* FieldtripPicker.h */,
-				24AB3FCB1C8327AE0014AE95 /* FieldtripPicker.m */,
 				24AB3FCD1C8350350014AE95 /* FieldtripCell.h */,
 				24AB3FCE1C8350350014AE95 /* FieldtripCell.m */,
 				24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */,
@@ -767,7 +762,6 @@
 				24249AD519CB30A000D2D01C /* Conversion.m in Sources */,
 				24249B3419CB608D00D2D01C /* SpecimenMapController.m in Sources */,
 				24249AAC19CB2F2900D2D01C /* NavigationController.m in Sources */,
-				24AB3FCC1C8327AE0014AE95 /* FieldtripPicker.m in Sources */,
 				24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */,
 				24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */,
 				24249AEE19CB30B800D2D01C /* Project.m in Sources */,

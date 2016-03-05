@@ -33,10 +33,10 @@
     self.nameLabel.text = [managedObject valueForKey:@"name"];
 
     BOOL isActive = [ActiveFieldtrip isActive:(Project *)managedObject];
-    self.isActiveLabel.hidden = !isActive;
+    self.isActiveImageView.hidden = !isActive;
     
     if (selectorOnly) {
-        self.accessoryType = isActive ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        self.accessoryType = UITableViewCellAccessoryNone;
     }
     else {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
