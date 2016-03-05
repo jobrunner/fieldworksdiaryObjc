@@ -18,8 +18,8 @@
 
 @interface SamplesController ()
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
