@@ -20,6 +20,20 @@ typedef enum CoordinateFormat : NSUInteger {
     kCoordinateFormatUTMLong
 } CoordinateFormat;
 
+/** Usage of FieldtripsController */
+typedef enum FieldtripUsage : NSInteger {
+    kFieldtripUsageDetails,
+    kFieldtripUsagePicker,
+    kFieldtripUsageSampleFilter
+} FieldtripUsage;
+
+/** Usage of SamplesController */
+typedef enum SampleUsage : NSInteger {
+    kSampleUsageDetails,
+    kSampleUsageFilteredByMarked,
+    kSampleUsageFilteredByFieldtrip
+} SampleUsage;
+
 /** Actions for action sheet */
 typedef enum SampleActionSheet : NSInteger {
     kSampleActionSheetMore = 100,

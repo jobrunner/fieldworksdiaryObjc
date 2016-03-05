@@ -10,6 +10,7 @@
 #import "ProjectTableViewController.h"
 #import "Project.h"
 #import "FieldtripCell.h"
+#import "SamplesController.h"
 
 @interface ProjectTableViewController ()
 
@@ -78,6 +79,12 @@
         FieldtripCell *cell = (FieldtripCell *)sender;
         controller.fieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
     }
+    
+    if ([[segue identifier] isEqualToString:@"openFilteredSamplesSegue"]) {
+        SamplesController *controller = segue.destinationViewController;
+        FieldtripCell *cell = (FieldtripCell *)sender;
+        controller.filterByFieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
+    }
 }
 
 #pragma mark - UITableView Delegates
@@ -134,13 +141,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [cell configureWithModel:fieldtrip
                    indexPath:indexPath
-                selectorOnly:_useAsPicker];
+                selectorOnly:(_fieldtripUsage == kFieldtripUsagePicker)];
 }
 
-- (void) tableView:(UITableView *)tableView
+- (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (_useAsPicker) {
+    if (_fieldtripUsage == kFieldtripUsagePicker) {
 
         Project *fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
@@ -149,6 +156,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         
         [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if (_fieldtripUsage == kFieldtripUsageSampleFilter) {
+        // show samples within selected fieldtrip
+
+        FieldtripCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+        [self performSegueWithIdentifier:@"openFilteredSamplesSegue"
+                                  sender:cell];
     }
     else {
         FieldtripCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -159,14 +174,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 // Support editing of the table view.
--     (BOOL)tableView:(UITableView *)tableView
+- (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 
     return YES;
 }
 
 // Override to support editing the table view.
--  (void)tableView:(UITableView *)tableView
+- (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath *)indexPath {
     

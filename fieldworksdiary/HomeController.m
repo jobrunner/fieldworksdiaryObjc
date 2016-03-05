@@ -25,7 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *recentlyLocalityNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recentlyIdentifiersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfLocationsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countOfFieldtripsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfSamplesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countOfMarkedSamples;
 @property (weak, nonatomic) IBOutlet UILabel *countOfPhotosLabel;
 @property (weak, nonatomic) IBOutlet UITableViewCell *recentSampleCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationsCell;
@@ -63,23 +65,29 @@ UIView *headerView;
     // take that Project, that is marked as "Use for new samples" (in settings)
     _activeFieldtripLabel.text = [ActiveFieldtrip name];
     
-    // still dummy
     // take that user that is marked as "Use for new samples" (in settings)
     _activeCollectorLabel.text = [ActiveCollector name];
+
+    NSUInteger fieldtripsCount = [RecordStatistics fieldtripCount];
+    _countOfFieldtripsLabel.text = [NSString stringWithFormat:@"%lu", fieldtripsCount];
     
     // still dummy
-    NSUInteger locationCount = 0;
-    _countOfLocationsLabel.text = [NSString stringWithFormat:@"%lu", locationCount];
+    NSUInteger locationsCount = 0;
+    _countOfLocationsLabel.text = [NSString stringWithFormat:@"%lu", locationsCount];
     
     // still dummy
     NSUInteger photosCount = 0;
     _countOfPhotosLabel.text = [NSString stringWithFormat:@"%lu", photosCount];
     
     NSUInteger sampleCount = [RecordStatistics sampleCount];
+    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
+
     _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
     _recentSampleCell.textLabel.enabled = (sampleCount > 0);
     _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
-    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
+    
+    NSUInteger markedSampleCount = [RecordStatistics markedSampleCount];
+    _countOfMarkedSamples.text = [NSString stringWithFormat:@"%lu", markedSampleCount];
     
     [self updateInfoboard];
     
@@ -94,7 +102,7 @@ UIView *headerView;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - TableView Header / UIScrollView -
+#pragma mark - TableView Header / UIScrollView
 
 - (void)updateInfoboard {
     
@@ -157,7 +165,7 @@ UIView *headerView;
     [self updateTableViewHeaderView];
 }
 
--(void) scrollToTop {
+-(void)scrollToTop {
 
     if ([self numberOfSectionsInTableView:self.tableView] > 0) {
         NSIndexPath* top = [NSIndexPath indexPathForRow:NSNotFound
@@ -168,28 +176,35 @@ UIView *headerView;
     }
 }
 
-#pragma mark - Segues -
+#pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+    // Prepare link to new sample
     if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
 
-    // Show the most recent sample
+    // Prepare link to recent sample
     if ([[segue identifier] isEqualToString:@"openRecentSampleSegue"]) {
 
         FieldtripDetailsViewController * controller = segue.destinationViewController;
-        
         controller.fieldtrip = self.recentFieldtrip;
     }
 
+    // Prepare link to marked samples
     if ([[segue identifier] isEqualToString:@"openFavoritSamplesSegue"]) {
         
         SamplesController *controller = segue.destinationViewController;
+        controller.sampleUsage = kSampleUsageFilteredByMarked;
+    }
+    
+    // Prepare fieltrips > samples in fieldtrip
+    if ([[segue identifier] isEqualToString:@"openFieldtripsSamplesSegue"]) {
         
-        controller.showOnlyMarkedAsFavorits = YES;
+        ProjectTableViewController *controller = segue.destinationViewController;
+        controller.fieldtripUsage = kFieldtripUsageSampleFilter;
     }
 }
 

@@ -478,7 +478,7 @@ Breña Alta</string>
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="mCT-7v-diC">
-                            <rect key="frame" x="0.0" y="525" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="569" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
@@ -535,8 +535,44 @@ Breña Alta</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleCell" id="c6H-t3-O3Z" customClass="HomeTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleCell" id="oAQ-dy-J7t" userLabel="Fieldtrips Cell" customClass="HomeTableViewCell">
                                         <rect key="frame" x="0.0" y="305" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oAQ-dy-J7t" id="4qh-Lf-MGA">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fieldtrips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmi-kU-Qau">
+                                                    <rect key="frame" x="55" y="0.0" width="192" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projects" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-VL-9MM">
+                                                    <rect key="frame" x="15" y="8" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="NgB-8J-rWa"/>
+                                                        <constraint firstAttribute="height" constant="25" id="UJb-jY-WOg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10.200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVY-HK-SLf">
+                                                    <rect key="frame" x="246" y="0.0" width="41" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VCX-VL-9MM" firstAttribute="leading" secondItem="4qh-Lf-MGA" secondAttribute="leadingMargin" constant="7" id="hhd-mx-wuT"/>
+                                                <constraint firstItem="VCX-VL-9MM" firstAttribute="top" secondItem="4qh-Lf-MGA" secondAttribute="topMargin" id="vca-iW-voH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cDK-La-wXb" kind="push" identifier="openFieldtripsSamplesSegue" id="4vc-GB-w8o"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleCell" id="c6H-t3-O3Z" customClass="HomeTableViewCell">
+                                        <rect key="frame" x="0.0" y="349" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6H-t3-O3Z" id="Buz-QB-2bN">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -558,7 +594,7 @@ Breña Alta</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10.200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRU-dC-Pjd">
                                                     <rect key="frame" x="246" y="0.0" width="41" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -571,24 +607,28 @@ Breña Alta</string>
                                             <segue destination="PaT-Yz-7OC" kind="push" identifier="openSamplesSegue" id="SFJ-4e-cRZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="sVC-CS-Dto" imageView="pNK-bS-Bx7" style="IBUITableViewCellStyleDefault" id="dwL-mb-gji" userLabel="Favorits Cell">
-                                        <rect key="frame" x="0.0" y="349" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" id="dwL-mb-gji" userLabel="Favorits Cell">
+                                        <rect key="frame" x="0.0" y="393" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwL-mb-gji" id="iaj-5y-IIy">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Favorits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sVC-CS-Dto">
-                                                    <rect key="frame" x="52" y="0.0" width="233" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favorits-green" translatesAutoresizingMaskIntoConstraints="NO" id="sXJ-VQ-27H">
+                                                    <rect key="frame" x="15" y="8" width="25" height="25"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marked samples" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLH-kA-bGA">
+                                                    <rect key="frame" x="54" y="0.0" width="194" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="favorits-green" id="pNK-bS-Bx7">
-                                                    <rect key="frame" x="15" y="10" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10.200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trW-lF-Wf0">
+                                                    <rect key="frame" x="246" y="0.0" width="41" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -596,7 +636,7 @@ Breña Alta</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" id="hpa-06-4HV">
-                                        <rect key="frame" x="0.0" y="393" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="437" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hpa-06-4HV" id="eA1-kg-Xbl">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -621,7 +661,7 @@ Breña Alta</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="3jJ-d2-a0q" imageView="Avy-pa-dux" style="IBUITableViewCellStyleDefault" id="CMK-jd-uaT">
-                                        <rect key="frame" x="0.0" y="437" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="481" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMK-jd-uaT" id="fvz-ba-HuB">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -642,7 +682,7 @@ Breña Alta</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="HomeViewCell" textLabel="gLc-IH-485" imageView="EwC-h3-mme" style="IBUITableViewCellStyleDefault" id="mJE-d4-KEk">
-                                        <rect key="frame" x="0.0" y="481" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="525" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mJE-d4-KEk" id="Ruw-6r-eS1">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -679,10 +719,12 @@ Breña Alta</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="activeCollectorLabel" destination="qCf-51-tdi" id="Hzy-es-4OP"/>
-                        <outlet property="activeProjectLabel" destination="GJk-sf-epa" id="EBU-pq-jzc"/>
+                        <outlet property="activeFieldtripLabel" destination="GJk-sf-epa" id="huE-ET-AuM"/>
                         <outlet property="addFieldtripButton" destination="c1p-BS-YRh" id="u6Z-bE-f2n"/>
                         <outlet property="calendarCell" destination="CMK-jd-uaT" id="wFF-zx-jyO"/>
+                        <outlet property="countOfFieldtripsLabel" destination="UVY-HK-SLf" id="U4G-2N-FF0"/>
                         <outlet property="countOfLocationsLabel" destination="FCz-Pc-Cpm" id="hm3-T9-N4k"/>
+                        <outlet property="countOfMarkedSamples" destination="trW-lF-Wf0" id="Flm-Lb-M8L"/>
                         <outlet property="countOfPhotosLabel" destination="qQu-W2-6k6" id="cc0-Id-RZm"/>
                         <outlet property="countOfSamplesLabel" destination="zRU-dC-Pjd" id="54J-vi-VVd"/>
                         <outlet property="locationsCell" destination="1vc-az-gaI" id="03k-hh-5aB"/>
@@ -1507,6 +1549,7 @@ Bei Eußenheim</string>
                         <outlet property="searchBar" destination="Elv-OX-qdR" id="bTY-9T-yBP"/>
                         <outlet property="searchDisplayController" destination="4zD-eL-q6y" id="sVA-bg-WrN"/>
                         <segue destination="hoD-Oo-fsb" kind="push" identifier="editFieldtripSegue" id="R7Q-5z-IAZ"/>
+                        <segue destination="PaT-Yz-7OC" kind="push" identifier="openFilteredSamplesSegue" id="VrU-Hp-GNr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKc-a4-Oun" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2047,9 +2090,9 @@ Bei Eußenheim</string>
         <image name="sunset" width="46" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sBX-gV-Stx"/>
-        <segue reference="3Zq-o7-KKi"/>
-        <segue reference="kaH-vR-6Jn"/>
+        <segue reference="SFJ-4e-cRZ"/>
+        <segue reference="4vc-GB-w8o"/>
+        <segue reference="HZ6-xD-UCE"/>
         <segue reference="R7Q-5z-IAZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.015686274509803921" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

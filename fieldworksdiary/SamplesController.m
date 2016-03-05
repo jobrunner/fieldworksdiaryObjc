@@ -13,7 +13,6 @@
 #import "Fieldtrip.h"
 #import "Placemark.h"
 
-@import UIKit;
 @import MessageUI;
 
 @interface SamplesController ()
@@ -60,19 +59,6 @@
 - (void)didReceiveMemoryWarning {
 
     [super didReceiveMemoryWarning];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
-        controller.fieldtrip = nil;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"openFieldtripSegue"]) {
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
-        controller.fieldtrip = [(FieldtripTableViewCell *)sender fieldtrip];
-    }
 }
 
 #pragma mark - UITableView Delegates
@@ -321,8 +307,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 //    NSLog(@"Index = %d - Title = %@", buttonIndex, [actionSheet buttonTitleAtIndex:buttonIndex]);
 }
 
-
-
 // Support delete (editing) of the table view.
 - (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -330,7 +314,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView
@@ -442,9 +425,14 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     // Set the batch size to a suitable number.
     [request setFetchBatchSize:20];
 
-    if (self.showOnlyMarkedAsFavorits) {
+    if (_sampleUsage == kSampleUsageFilteredByMarked) {
         NSPredicate *predicate;
-        predicate = [NSPredicate predicateWithFormat:@"isMarked=YES"];
+        predicate = [NSPredicate predicateWithFormat:@"isMarked = YES"];
+        [request setPredicate:predicate];
+    }
+    else if (_sampleUsage == kSampleUsageFilteredByFieldtrip) {
+        NSPredicate *predicate;
+        predicate = [NSPredicate predicateWithFormat:@"project == %@", _filterByFieldtrip];
         [request setPredicate:predicate];
     }
     
@@ -453,10 +441,6 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
                                                                    ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     [request setSortDescriptors:sortDescriptors];
-
-
-    
-    
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -565,7 +549,7 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     [self.tableView endUpdates];
 }
 
-#pragma mark - Mailer - 
+#pragma mark - Mailer
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
@@ -627,5 +611,22 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     }
 }
 
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
+        
+        // will be SampleDetailsController
+        FieldtripDetailsViewController * controller = segue.destinationViewController;
+        controller.fieldtrip = nil;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"openSampleSegue"]) {
+        // will be SampleDetailsController
+        FieldtripDetailsViewController * controller = segue.destinationViewController;
+        controller.fieldtrip = [(FieldtripTableViewCell *)sender fieldtrip];
+    }
+}
 
 @end

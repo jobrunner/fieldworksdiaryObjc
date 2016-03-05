@@ -9,6 +9,8 @@
 #import "MGSwipeTableCell.h"
 #import <MessageUI/MessageUI.h>
 
+@class Project;
+
 @interface SamplesController : UITableViewController <
     NSFetchedResultsControllerDelegate,
     UISearchBarDelegate,
@@ -18,6 +20,16 @@
     MFMailComposeViewControllerDelegate,
     MGSwipeTableCellDelegate>
 
-@property BOOL showOnlyMarkedAsFavorits;
+// @property BOOL showOnlyMarkedAsFavorits;
+
+
+//kSampleUsageDetails,
+//kSampleUsageFilteredByMarked,
+//kSampleUsageFilteredByFieldtrip
+@property NSInteger sampleUsage;
+
+// if sampleUsage == kSampleUsageFilteredByFieldtrip
+// fielterByFieldtrip should contain fieldtrip instance
+@property (nonatomic, strong) Project *filterByFieldtrip;
 
 @end

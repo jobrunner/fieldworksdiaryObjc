@@ -25,6 +25,8 @@
 
 @implementation SettingsController
 
+#pragma mark - UITableViewController Delegates
+
 - (void)viewDidAppear:(BOOL)animated {
     
     _fieldtripsCountLabel.text = [NSString stringWithFormat:@"%ld", [RecordStatistics fieldtripCount]];
@@ -42,7 +44,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - ProjectTableViewController FieldtripPickerDelegate
+#pragma mark - FieldtripPickerDelegate
 
 - (void)fieldtripPicker:(ProjectTableViewController *)picker
      didSelectFieldtrip:(Project *)fieldtrip {
@@ -52,28 +54,30 @@
     _activeFieldtripLabel.text = fieldtrip.name;
 }
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
-    if ([[segue identifier] isEqualToString:@"FieldtripPickerSegue"]) {
-
-        ProjectTableViewController *controller = segue.destinationViewController;
-        controller.delegate = self;
-        controller.useAsPicker = YES;
-    }
-
-    if ([[segue identifier] isEqualToString:@"FieldtripTableViewSegue"]) {
-        
-        ProjectTableViewController *controller = segue.destinationViewController;
-        controller.delegate = nil;
-        controller.useAsPicker = NO;
-    }
-}
+#pragma mark - IBActions
 
 - (IBAction)activeCollectorTextFieldEditingDidEnd:(UITextField *)sender {
     
     [ActiveCollector setActiveCollector:sender.text];
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"FieldtripPickerSegue"]) {
+        
+        ProjectTableViewController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.fieldtripUsage = kFieldtripUsagePicker;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"FieldtripTableViewSegue"]) {
+        
+        ProjectTableViewController *controller = segue.destinationViewController;
+        controller.delegate = nil;
+        controller.fieldtripUsage = kFieldtripUsageDetails;
+    }
 }
 
 @end
