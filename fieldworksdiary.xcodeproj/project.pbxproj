@@ -70,6 +70,7 @@
 		24AB3FD91C8629100014AE95 /* ActiveCollectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FD81C8629100014AE95 /* ActiveCollectorTests.m */; };
 		24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDB1C8655CB0014AE95 /* DateUtility.m */; };
 		24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */; };
+		24AB3FE21C8B82C80014AE95 /* Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FE11C8B82C80014AE95 /* Formatter.m */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
 		24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E718F455AE00CC7105 /* CoreGraphics.framework */; };
 		24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
@@ -213,6 +214,8 @@
 		24AB3FDB1C8655CB0014AE95 /* DateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtility.m; sourceTree = "<group>"; };
 		24AB3FDD1C8670E00014AE95 /* RecordStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordStatistics.h; sourceTree = "<group>"; };
 		24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordStatistics.m; sourceTree = "<group>"; };
+		24AB3FE01C8B82C80014AE95 /* Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatter.h; sourceTree = "<group>"; };
+		24AB3FE11C8B82C80014AE95 /* Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formatter.m; sourceTree = "<group>"; };
 		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -573,6 +576,8 @@
 				24AB3FDB1C8655CB0014AE95 /* DateUtility.m */,
 				24AB3FDD1C8670E00014AE95 /* RecordStatistics.h */,
 				24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */,
+				24AB3FE01C8B82C80014AE95 /* Formatter.h */,
+				24AB3FE11C8B82C80014AE95 /* Formatter.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -768,6 +773,7 @@
 				24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */,
 				24249AF019CB30B800D2D01C /* CollectingMethod.m in Sources */,
 				24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */,
+				24AB3FE21C8B82C80014AE95 /* Formatter.m in Sources */,
 				24249ABF19CB2F8800D2D01C /* HomeController.m in Sources */,
 				24249AF219CB30B800D2D01C /* Finding.m in Sources */,
 				24249ACB19CB307000D2D01C /* AppDelegate.m in Sources */,
