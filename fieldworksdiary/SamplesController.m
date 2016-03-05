@@ -18,6 +18,8 @@
 
 @interface SamplesController ()
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
@@ -430,24 +432,31 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
         
         return _fetchedResultsController;
     }
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
 
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fieldtrip"
                                               inManagedObjectContext:self.managedObjectContext];
-    
-    [request setEntity:entity];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
 
+    [request setEntity:entity];
     
     // Set the batch size to a suitable number.
     [request setFetchBatchSize:20];
+
+    if (self.showOnlyMarkedAsFavorits) {
+        NSPredicate *predicate;
+        predicate = [NSPredicate predicateWithFormat:@"isMarked=YES"];
+        [request setPredicate:predicate];
+    }
     
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"beginDate"
                                                                    ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
-    
     [request setSortDescriptors:sortDescriptors];
+
+
+    
+    
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".

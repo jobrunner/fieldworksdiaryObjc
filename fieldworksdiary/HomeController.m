@@ -179,11 +179,18 @@ UIView *headerView;
     }
 
     // Show the most recent sample
-    if ([[segue identifier] isEqualToString:@"openRecentSample"]) {
+    if ([[segue identifier] isEqualToString:@"openRecentSampleSegue"]) {
 
         FieldtripDetailsViewController * controller = segue.destinationViewController;
         
         controller.fieldtrip = self.recentFieldtrip;
+    }
+
+    if ([[segue identifier] isEqualToString:@"openFavoritSamplesSegue"]) {
+        
+        SamplesController *controller = segue.destinationViewController;
+        
+        controller.showOnlyMarkedAsFavorits = YES;
     }
 }
 

@@ -10,11 +10,6 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-
-- (IBAction)saveButton:(UIBarButtonItem *)sender;
-- (IBAction)cancelButton:(UIBarButtonItem *)sender;
-
-
 @property (weak, nonatomic) IBOutlet UITableViewCell *beginDatePickerCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *endDatePickerCell;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -27,23 +22,22 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *beginDatePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
 @property (weak, nonatomic) IBOutlet UILabel *endDateCaptionLabel;
+@property (strong, nonatomic) NSDate *beginDate;
+@property (strong, nonatomic) NSDate *endDate;
+@property (strong, nonatomic) UIAlertView *errorAlert;
+@property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
+@property BOOL isNewObject;
 
 - (IBAction)nameEditingDidEnd:(UITextField *)sender;
 - (IBAction)nameEditingChanged:(UITextField *)sender;
 - (IBAction)locationPrefixEditingDidEnd:(UITextField *)sender;
 - (IBAction)locationPrefixEditingChanged:(UITextField *)sender;
 - (IBAction)isActiveSwitchDidChanged:(UISwitch *)sender;
-
 - (IBAction)beginDatePickerValueChanged:(UIDatePicker *)sender;
 - (IBAction)endDatePickerValueChanged:(UIDatePicker *)sender;
-
 - (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender;
-
-@property (strong, nonatomic) NSDate *beginDate;
-@property (strong, nonatomic) NSDate *endDate;
-@property (strong, nonatomic) UIAlertView *errorAlert;
-@property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
-@property BOOL isNewObject;
+- (IBAction)saveButton:(UIBarButtonItem *)sender;
+- (IBAction)cancelButton:(UIBarButtonItem *)sender;
 
 @end
 
@@ -80,10 +74,8 @@
 
     self.isNewObject = NO;
     self.navigationItem.title = @"";
-    self.navigationItem.rightBarButtonItem.title = @"Save";
+    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Save", @"Save");
     self.navigationItem.rightBarButtonItem.enabled = false;
-
-    // wenn ein Wert verändert wurde: enablen.
     
     [self loadFormData];
 }
@@ -94,12 +86,11 @@
     self.fieldtrip = [NSEntityDescription insertNewObjectForEntityForName:@"Project"
                                                    inManagedObjectContext:self.managedObjectContext];
     self.navigationItem.title = @"";
-    self.navigationItem.rightBarButtonItem.title = @"Hinzufügen";
+    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Create", @"Create");
     self.navigationItem.rightBarButtonItem.enabled = false;
 
     // move to model logic:
     [self setModelWithDefaults];
-    
     [self loadFormData];
 }
 

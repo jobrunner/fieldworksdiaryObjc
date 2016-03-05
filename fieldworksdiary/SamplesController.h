@@ -9,12 +9,8 @@
 #import "MGSwipeTableCell.h"
 #import <MessageUI/MessageUI.h>
 
-
-@class UIKit;
-// @class MessageUI;
-
-@interface SamplesController : UITableViewController
-<   NSFetchedResultsControllerDelegate,
+@interface SamplesController : UITableViewController <
+    NSFetchedResultsControllerDelegate,
     UISearchBarDelegate,
     UISearchDisplayDelegate,
     UINavigationControllerDelegate,
@@ -22,7 +18,6 @@
     MFMailComposeViewControllerDelegate,
     MGSwipeTableCellDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property BOOL showOnlyMarkedAsFavorits;
 
 @end

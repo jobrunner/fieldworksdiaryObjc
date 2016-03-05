@@ -361,9 +361,10 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
 - (void)filterContentForSearchText:(NSString*)searchText
                              scope:(NSString*)scope {
     
-    NSPredicate *predicate;
     [self.searchResults removeAllObjects];
     
+    NSPredicate *predicate;
+
     if ([scope isEqualToString:@"Title"]) {
         predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[c] %@", searchText];
     }
