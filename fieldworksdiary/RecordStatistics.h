@@ -11,6 +11,7 @@
 
 + (Fieldtrip *)recentSample;
 + (NSUInteger)sampleCount;
++ (NSUInteger)markedSampleCount;
 + (NSUInteger)fieldtripCount;
 
 @end

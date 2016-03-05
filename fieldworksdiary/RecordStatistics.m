@@ -57,6 +57,15 @@
     return [RecordStatistics recordCount:@"Fieldtrip"];
 }
 
++ (NSUInteger)markedSampleCount {
+    
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"isMarked=YES"];
+    
+    return [RecordStatistics recordCount:@"Fieldtrip"
+                           withPredicate:predicate];
+}
+
 + (NSUInteger)fieldtripCount {
     
     return [RecordStatistics recordCount:@"Project"];
@@ -64,6 +73,13 @@
 
 + (NSUInteger)recordCount:(NSString *)entityForName {
     
+    return [RecordStatistics recordCount:entityForName
+                           withPredicate:nil];
+}
+
++ (NSUInteger)recordCount:(NSString *)entityForName
+            withPredicate:(NSPredicate *)predicate {
+
     NSManagedObjectContext *managedObjectContext;
     NSEntityDescription *entity;
     NSError *error = nil;
@@ -78,12 +94,15 @@
                          inManagedObjectContext:managedObjectContext];
     
     [request setEntity:entity];
+
+    if (predicate) {
+        [request setPredicate:predicate];
+    }
     
-    NSUInteger sampleCount;
-    sampleCount = [managedObjectContext countForFetchRequest:request
+    NSUInteger recordCount;
+    recordCount = [managedObjectContext countForFetchRequest:request
                                                        error:&error];
-    
-    return sampleCount;
+    return recordCount;
 }
 
 @end
