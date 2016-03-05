@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *addFieldtripButton;
 @property (weak, nonatomic) IBOutlet UILabel *activeCollectorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *activeProjectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activeFieldtripLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recentlyLocalityNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recentlyIdentifiersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countOfLocationsLabel;
@@ -60,9 +60,8 @@ UIView *headerView;
     
     self.recentFieldtrip = [RecordStatistics recentSample];
     
-    // still dummy
     // take that Project, that is marked as "Use for new samples" (in settings)
-    _activeProjectLabel.text = [ActiveFieldtrip name];
+    _activeFieldtripLabel.text = [ActiveFieldtrip name];
     
     // still dummy
     // take that user that is marked as "Use for new samples" (in settings)
