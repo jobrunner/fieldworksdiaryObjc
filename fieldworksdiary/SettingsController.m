@@ -9,10 +9,17 @@
 #import "AppDelegate.h"
 #import "SettingsController.h"
 #import "Project.h"
+#import "ActiveCollector.h"
 #import "ActiveFieldtrip.h"
 #import "RecordStatistics.h"
 
 @interface SettingsController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *activeCollectorTextField;
+@property (weak, nonatomic) IBOutlet UILabel *fieldtripsCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activeFieldtripLabel;
+
+- (IBAction)activeCollectorTextFieldEditingDidEnd:(UITextField *)sender;
 
 @end
 
@@ -22,6 +29,7 @@
     
     _fieldtripsCountLabel.text = [NSString stringWithFormat:@"%ld", [RecordStatistics fieldtripCount]];
     _activeFieldtripLabel.text = [ActiveFieldtrip name];
+    _activeCollectorTextField.text = [ActiveCollector name];
 }
 
 - (void)viewDidLoad {
@@ -61,6 +69,11 @@
         controller.delegate = nil;
         controller.useAsPicker = NO;
     }
+}
+
+- (IBAction)activeCollectorTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [ActiveCollector setActiveCollector:sender.text];
 }
 
 @end
