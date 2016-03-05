@@ -5,13 +5,13 @@
 
 @implementation GoogleGeocoder
 
--(id)init
-{
+-(id)init {
+    
     return [self initWidthLanguage:@"en"];
 }
 
-- (id)initWidthLanguage:(NSString *)language
-{
+- (id)initWidthLanguage:(NSString *)language {
+    
     if (self = [super initWithHostName:@"maps.googleapis.com"
                                apiPath:@"maps/api/geocode"
                     customHeaderFields:nil]) {
@@ -26,8 +26,8 @@
                                   longitude:(double)longitude
                                    language:(NSString*)language
                                  completion:(JsonResponseBlock)completionBlock
-                                      error:(ErrorBlock)errorBlock
-{
+                                      error:(ErrorBlock)errorBlock {
+    
     NSString *latLngParam = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
  
     NSLog(@"Now, adding Google-Geolocation Service Call to MKNetworks global operation queue");
@@ -56,6 +56,5 @@
     
     return op;
 }
-
 
 @end
