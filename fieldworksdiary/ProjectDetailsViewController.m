@@ -37,7 +37,7 @@
 - (IBAction)beginDatePickerValueChanged:(UIDatePicker *)sender;
 - (IBAction)endDatePickerValueChanged:(UIDatePicker *)sender;
 
-- (IBAction)beginDateGestureRecognizer:(UITapGestureRecognizer *)sender;
+- (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender;
 
 @property (strong, nonatomic) NSDate *beginDate;
 @property (strong, nonatomic) NSDate *endDate;
@@ -240,7 +240,7 @@
     UINavigationController *navigationController = self.navigationController;
     
     if (!self.isNewObject) {
-    [navigationController popViewControllerAnimated:NO];
+        [navigationController popViewControllerAnimated:NO];
     }
     else if (self.isActiveSwitch.on) {
         [navigationController popViewControllerAnimated:NO];
