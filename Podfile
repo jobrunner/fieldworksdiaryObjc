@@ -1,6 +1,6 @@
 
-pod 'EDSunriseSet', '~> 0.1'
-pod 'StaticDataTableViewController', '~> 0.0'
+pod 'EDSunriseSet'
+pod 'StaticDataTableViewController'
 pod 'MKNetworkKit'
 pod 'MGSwipeTableCell'
 
