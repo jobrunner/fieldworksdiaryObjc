@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 - (void)configureWithModel:(NSManagedObject *)managedObject
+                 atIndexPath:(NSIndexPath *)indexPath
               withDelegate:(id)delegate
-                 indexPath:(NSIndexPath *)indexPath
               selectorOnly:(BOOL)selectorOnly;
 @end

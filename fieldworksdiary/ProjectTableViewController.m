@@ -120,8 +120,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     [cell configureWithModel:fieldtrip
+                 atIndexPath:indexPath
                 withDelegate:self
-                   indexPath:indexPath
                 selectorOnly:(_fieldtripUsage == kFieldtripUsagePicker)];
 }
 

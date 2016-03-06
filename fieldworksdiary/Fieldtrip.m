@@ -8,6 +8,7 @@
 #import "Specimen.h"
 #import "TimeZoneTransformer.h"
 #import "Placemark.h"
+#import "ActiveFieldtrip.h"
 
 
 @implementation Fieldtrip
@@ -82,10 +83,12 @@
     }
     
     NSDate *date = [NSDate date];
+    
     [self setPrimitiveValue:date
                      forKey:@"updateTime"];
         
-    [self setPrimitiveValue:self.version forKey:@"version"];
+    [self setPrimitiveValue:self.version
+                     forKey:@"version"];
 }
 
 #pragma mark - Transient properties
@@ -219,11 +222,19 @@
     self.altitude = [NSNumber numberWithDouble:location.altitude];
     self.verticalAccuracy = [NSNumber numberWithDouble:location.verticalAccuracy];
     self.horizontalAccuracy = [NSNumber numberWithDouble:location.horizontalAccuracy];
-//    self.locationTimestamp = [NSNumber numberWithDouble:location.timestamp];
+}
+
+- (void)defaultsWithLocalityName:(NSString *)localityName {
+    
+    Project *fieldtrip = [ActiveFieldtrip activeFieldtrip];
+    
+    return [self defaultsWithLocalityName:localityName
+                                fieldtrip:fieldtrip];
 }
 
 // Standard Data for Model
-- (void)defaultsWithLocalityName:(NSString *)localityName {
+- (void)defaultsWithLocalityName:(NSString *)localityName
+                       fieldtrip:(Project *)fieldtrip {
     
     self.localityName = localityName;
     self.localityIdentifier = nil;
@@ -258,9 +269,9 @@
     
     // use hard coded here specimenIdentifier template <YYMMDD>#<Lf#>
     self.specimenIdentifier = [self specimenIdentifierByDate:self.beginDate];
-    
-    
-    // ...
+
+    // verwirrend: project ist eigentlich fieldtrip und fieldtrip eigentlich sample...
+    self.project = fieldtrip;
 }
 
 /*!

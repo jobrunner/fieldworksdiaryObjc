@@ -47,7 +47,7 @@
 		24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */; };
 		24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */; };
 		24249B2619CB314C00D2D01C /* FieldtripDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */; };
-		24249B2719CB314C00D2D01C /* FieldtripDetailsProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1D19CB314C00D2D01C /* FieldtripDetailsProjectCell.m */; };
+		24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */; };
 		24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2819CB32D900D2D01C /* FO-1.gpx */; };
 		24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2919CB32D900D2D01C /* FO-2.gpx */; };
 		24249B3419CB608D00D2D01C /* SpecimenMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3319CB608D00D2D01C /* SpecimenMapController.m */; };
@@ -176,8 +176,8 @@
 		24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSunriseSunsetCell.m; sourceTree = "<group>"; };
 		24249B1A19CB314C00D2D01C /* FieldtripDetailsDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsDateCell.h; sourceTree = "<group>"; };
 		24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsDateCell.m; sourceTree = "<group>"; };
-		24249B1C19CB314C00D2D01C /* FieldtripDetailsProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsProjectCell.h; sourceTree = "<group>"; };
-		24249B1D19CB314C00D2D01C /* FieldtripDetailsProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsProjectCell.m; sourceTree = "<group>"; };
+		24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsFieldtripCell.h; sourceTree = "<group>"; };
+		24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsFieldtripCell.m; sourceTree = "<group>"; };
 		24249B2819CB32D900D2D01C /* FO-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-1.gpx"; sourceTree = "<group>"; };
 		24249B2919CB32D900D2D01C /* FO-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-2.gpx"; sourceTree = "<group>"; };
 		24249B3219CB608D00D2D01C /* SpecimenMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecimenMapController.h; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 				24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */,
 				24249B1A19CB314C00D2D01C /* FieldtripDetailsDateCell.h */,
 				24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */,
-				24249B1C19CB314C00D2D01C /* FieldtripDetailsProjectCell.h */,
-				24249B1D19CB314C00D2D01C /* FieldtripDetailsProjectCell.m */,
+				24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */,
+				24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */,
 				24249B3219CB608D00D2D01C /* SpecimenMapController.h */,
 				24249B3319CB608D00D2D01C /* SpecimenMapController.m */,
 			);
@@ -746,7 +746,7 @@
 				24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */,
 				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
-				24249B2719CB314C00D2D01C /* FieldtripDetailsProjectCell.m in Sources */,
+				24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */,
 				24249AC319CB2F8800D2D01C /* AboutController.m in Sources */,
 				24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */,
 				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,

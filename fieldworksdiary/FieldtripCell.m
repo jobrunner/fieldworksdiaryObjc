@@ -34,8 +34,8 @@
 }
 
 - (void)configureWithModel:(NSManagedObject *)managedObject
+               atIndexPath:(NSIndexPath *)indexPath
               withDelegate:(id)delegate
-                 indexPath:(NSIndexPath *)indexPath
               selectorOnly:(BOOL)selectorOnly {
     
     self.indexPath = indexPath;

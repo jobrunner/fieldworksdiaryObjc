@@ -37,11 +37,12 @@
 #import "FieldtripDetailsLocationCell.h"
 #import "FieldtripDetailsPlacemarkCell.h"
 #import "FieldtripDetailsDateCell.h"
-#import "FieldtripDetailsProjectCell.h"
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 #import "FieldtripDetailsEditViewController.h"
 #import "SpecimenMapController.h"
+
+#import "SampleDetailsFieldtripCell.h"
 #import "Conversion.h"
 #import "EDSunriseSet.h"
 #import "Fieldtrip.h"
@@ -666,11 +667,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // project view
         if (indexPath.row == 7) {
             
-            FieldtripDetailsProjectCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsProjectCell reuseIdentifier]
+            SampleDetailsFieldtripCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsFieldtripCell"
                                                    forIndexPath:indexPath];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = self.fieldtrip;
+
+//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+            [cell configureWithModel:self.fieldtrip atIndexPath:indexPath];
             
             return cell;
         }

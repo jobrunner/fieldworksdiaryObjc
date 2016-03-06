@@ -248,7 +248,7 @@ Breña Alta</string>
                                     <outlet property="timeZoneLabel" destination="EqC-Ee-Pwc" id="ksf-O7-F2f"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FieldtripDetailsProjectCell" rowHeight="44" id="yny-iC-xFg" customClass="FieldtripDetailsProjectCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleDetailsFieldtripCell" rowHeight="44" id="yny-iC-xFg" customClass="SampleDetailsFieldtripCell">
                                 <rect key="frame" x="0.0" y="468.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yny-iC-xFg" id="eEu-nT-5Uu">
