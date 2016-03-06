@@ -7,18 +7,17 @@
 //
 @import MapKit;
 
-#import "SpecimenMapController.h"
+#import "MapController.h"
 #import "Fieldtrip.h"
 
-@interface SpecimenMapController ()
+@interface MapController ()
 
 @end
 
-@implementation SpecimenMapController
+@implementation MapController
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -26,11 +25,9 @@
     return self;
 }
 
+- (void)viewDidLoad {
 
-- (void)viewDidLoad
-{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     MKCoordinateRegion region;
     
@@ -59,25 +56,13 @@
     [self addAnnotations];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (void)addAnnotations
-{
+- (void)addAnnotations {
+    
     CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([self.fieldtrip.latitude doubleValue], [self.fieldtrip.longitude doubleValue]);
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
@@ -87,10 +72,9 @@
     [self.mapView addAnnotation:annotation];
 }
 
-
 -(MKAnnotationView *) mapView:(MKMapView *)mapView
-            viewForAnnotation:(id<MKAnnotation>)annotation
-{
+            viewForAnnotation:(id<MKAnnotation>)annotation {
+    
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                                reuseIdentifier:@"current"];
     pin.image = [UIImage imageNamed:@"annotation-pin"];

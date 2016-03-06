@@ -281,7 +281,7 @@ Breña Alta</string>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="staticMapImage" destination="OmV-D5-PI0" id="z2g-pN-b3e"/>
-                                    <segue destination="cHz-om-fJX" kind="push" identifier="openSpecimenMap" id="fRA-Ah-AeX"/>
+                                    <segue destination="cHz-om-fJX" kind="push" identifier="openMapSegue" id="fRA-Ah-AeX"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FieldtripDetailsImageScrollViewCell" id="9Yo-tz-dTH" customClass="FieldtripDetailViewTableCell">
@@ -323,10 +323,10 @@ Breña Alta</string>
             </objects>
             <point key="canvasLocation" x="1655" y="233"/>
         </scene>
-        <!--Specimen Map Controller-->
+        <!--Map Controller-->
         <scene sceneID="Hbp-8z-A0V">
             <objects>
-                <viewController id="cHz-om-fJX" customClass="SpecimenMapController" sceneMemberID="viewController">
+                <viewController id="cHz-om-fJX" customClass="MapController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NDU-RE-dPB"/>
                         <viewControllerLayoutGuide type="bottom" id="Sdh-CR-Zbn"/>

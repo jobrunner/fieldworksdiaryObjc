@@ -1,7 +1,7 @@
 @class Fieldtrip;
 @class MKMapView;
 
-@interface SpecimenMapController : UIViewController <MKMapViewDelegate>
+@interface MapController : UIViewController <MKMapViewDelegate>
 
 /*!
  *  Holds a reference to the fieldtrip model

@@ -40,7 +40,7 @@
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 #import "SampleEditController.h"
-#import "SpecimenMapController.h"
+#import "MapController.h"
 
 #import "SampleDetailsFieldtripCell.h"
 #import "Conversion.h"
@@ -1487,9 +1487,9 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
         controller.specimen = nil;
     }
     
-    if ([[segue identifier] isEqualToString:@"openSpecimenMap"]) {
+    if ([[segue identifier] isEqualToString:@"openMapSegue"]) {
         
-        SpecimenMapController * controller = segue.destinationViewController;
+        MapController * controller = segue.destinationViewController;
         controller.fieldtrip = self.fieldtrip;
     }
 }

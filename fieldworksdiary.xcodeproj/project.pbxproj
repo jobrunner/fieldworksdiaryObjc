@@ -50,7 +50,7 @@
 		24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */; };
 		24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2819CB32D900D2D01C /* FO-1.gpx */; };
 		24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2919CB32D900D2D01C /* FO-2.gpx */; };
-		24249B3419CB608D00D2D01C /* SpecimenMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3319CB608D00D2D01C /* SpecimenMapController.m */; };
+		24249B3419CB608D00D2D01C /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3319CB608D00D2D01C /* MapController.m */; };
 		24249B3619CC543700D2D01C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24249B3519CC543700D2D01C /* README.md */; };
 		24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3B19CC8BE400D2D01C /* Fieldtrip.m */; };
 		24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */; };
@@ -180,8 +180,8 @@
 		24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsFieldtripCell.m; sourceTree = "<group>"; };
 		24249B2819CB32D900D2D01C /* FO-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-1.gpx"; sourceTree = "<group>"; };
 		24249B2919CB32D900D2D01C /* FO-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-2.gpx"; sourceTree = "<group>"; };
-		24249B3219CB608D00D2D01C /* SpecimenMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecimenMapController.h; sourceTree = "<group>"; };
-		24249B3319CB608D00D2D01C /* SpecimenMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecimenMapController.m; sourceTree = "<group>"; };
+		24249B3219CB608D00D2D01C /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
+		24249B3319CB608D00D2D01C /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		24249B3519CC543700D2D01C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		24249B3A19CC8BE400D2D01C /* Fieldtrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fieldtrip.h; sourceTree = "<group>"; };
 		24249B3B19CC8BE400D2D01C /* Fieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fieldtrip.m; sourceTree = "<group>"; };
@@ -310,8 +310,8 @@
 				24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */,
 				24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */,
 				24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */,
-				24249B3219CB608D00D2D01C /* SpecimenMapController.h */,
-				24249B3319CB608D00D2D01C /* SpecimenMapController.m */,
+				24249B3219CB608D00D2D01C /* MapController.h */,
+				24249B3319CB608D00D2D01C /* MapController.m */,
 			);
 			name = SampleDetails;
 			sourceTree = "<group>";
@@ -765,7 +765,7 @@
 				24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */,
 				24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */,
 				24249AD519CB30A000D2D01C /* Conversion.m in Sources */,
-				24249B3419CB608D00D2D01C /* SpecimenMapController.m in Sources */,
+				24249B3419CB608D00D2D01C /* MapController.m in Sources */,
 				24249AAC19CB2F2900D2D01C /* NavigationController.m in Sources */,
 				24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */,
 				24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */,
