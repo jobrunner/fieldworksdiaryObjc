@@ -81,7 +81,7 @@
 @property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (strong, nonatomic) CLLocation * location;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
+// @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) UIToolbar *toolbar;
 
 
@@ -416,14 +416,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    self.localityNameTextField.delegate = self;
 
     // Configure refresh controll
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.tintColor = [UIColor grayColor];
-    
-    [refresh addTarget:self
-                action:@selector(refreshTableView)
-      forControlEvents:UIControlEventValueChanged];
-    
-    self.refreshControl = refresh;
+//    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+//    refresh.tintColor = [UIColor grayColor];
+//    
+//    [refresh addTarget:self
+//                action:@selector(refreshTableView)
+//      forControlEvents:UIControlEventValueChanged];
+//    
+//    self.refreshControl = refresh;
     
     
 	// We will observe "Placemark found" and "Placemark not found" notifications in
