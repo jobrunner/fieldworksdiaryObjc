@@ -9,8 +9,8 @@
 @synthesize fieldtrip = _fieldtrip;
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
@@ -18,8 +18,8 @@
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
     // Initialization code
     [self initMapView];
 
@@ -31,40 +31,36 @@
 
 #pragma mark - FieldtripDetailsCellProtocol -
 
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip
-{
+- (void)setFieldtrip:(Fieldtrip *)fieldtrip {
+    
     _fieldtrip = fieldtrip;
     [self updateUserInterface];
 }
 
-
-- (Fieldtrip *)fieldtrip
-{
+- (Fieldtrip *)fieldtrip {
+    
     return _fieldtrip;
 }
 
-
-- (void)updateUserInterface
-{
+- (void)updateUserInterface {
+    
     [self drawMapFromModel];
 }
 
-
-- (NSString *)reuseIdentifier
-{
+- (NSString *)reuseIdentifier {
+    
     return [FieldtripDetailsMapViewCell reuseIdentifier];
 }
 
-
-+ (NSString *)reuseIdentifier
-{
++ (NSString *)reuseIdentifier {
+    
     static NSString *identifier = @"FieldtripDetailsMapViewCell";
     
     return identifier;
 }
 
-- (void)initMapView
-{
+- (void)initMapView {
+    
     // create an hidden mapView object
     self.mapView = [[MKMapView alloc] initWithFrame:self.staticMapImage.frame];
     self.mapView.delegate = self;
@@ -82,8 +78,8 @@
     [self.contentView addSubview:self.mapView];
 }
 
-- (void)drawMapFromModel
-{
+- (void)drawMapFromModel {
+    
 	NSString *imageMapPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/Maps/%@", self.fieldtrip.mapImageFilename]];
     
     NSLog(@"String to load: %@", imageMapPath);
@@ -98,16 +94,14 @@
     }
 }
 
-
-- (void)makeMapSnaphotFromModel
-{
+- (void)makeMapSnaphotFromModel {
+    
     if (self.fieldtrip.location == nil) {
         NSLog(@"MapView cannot be created yet because of no lat/lng is given");
 
         // show placeholder instead?
         return;
     }
-    
     
     NSLog(@"makeMapSnapshot from %@", self.fieldtrip.location);
     
@@ -182,15 +176,15 @@
 }
 
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView
-                       fullyRendered:(BOOL)fullyRendered
-{
+                       fullyRendered:(BOOL)fullyRendered {
+    
 //    if (fullyRendered) {
         NSLog(@"MapView ist fertig gerendert? Jetzt SnapShot erstellen! %i", fullyRendered);
 //    }
 }
 
-- (UIImage *)imageByDrawingCircleOnImage:(UIImage *)image
-{
+- (UIImage *)imageByDrawingCircleOnImage:(UIImage *)image {
+    
 	// begin a graphics context of sufficient size
 	UIGraphicsBeginImageContext(image.size);
     
@@ -225,6 +219,5 @@
     
 	return retImage;
 }
-
 
 @end
