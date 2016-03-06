@@ -12,6 +12,7 @@
 #import "ActiveCollector.h"
 #import "ActiveFieldtrip.h"
 #import "RecordStatistics.h"
+#import "Formatter.h"
 
 @interface SettingsController ()
 
@@ -29,7 +30,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    _fieldtripsCountLabel.text = [NSString stringWithFormat:@"%ld", [RecordStatistics fieldtripCount]];
+    Formatter *formatter = [Formatter new];
+    
+    NSUInteger fieldtripsCount = [RecordStatistics fieldtripCount];
+    _fieldtripsCountLabel.text = [formatter counter:fieldtripsCount];
     _activeFieldtripLabel.text = [ActiveFieldtrip name];
     _activeCollectorTextField.text = [ActiveCollector name];
 }
