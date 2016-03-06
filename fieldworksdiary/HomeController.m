@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "SamplesController.h"
 #import "FieldtripDetailsViewController.h"
@@ -16,6 +15,7 @@
 #import "ActiveFieldtrip.h"
 #import "ActiveCollector.h"
 #import "RecordStatistics.h"
+#import "Formatter.h"
 
 @interface HomeController ()
 
@@ -32,11 +32,10 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *recentSampleCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationsCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *samplesCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *markedSamplesCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *photosCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *calendarCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *projectsCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *tagsCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *peopleCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *fieldtripsCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *settingsCell;
 
 @end
@@ -59,37 +58,44 @@ UIView *headerView;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
-    self.recentFieldtrip = [RecordStatistics recentSample];
-    
-    // take that Project, that is marked as "Use for new samples" (in settings)
-    _activeFieldtripLabel.text = [ActiveFieldtrip name];
-    
-    // take that user that is marked as "Use for new samples" (in settings)
-    _activeCollectorLabel.text = [ActiveCollector name];
 
-    NSUInteger fieldtripsCount = [RecordStatistics fieldtripCount];
-    _countOfFieldtripsLabel.text = [NSString stringWithFormat:@"%lu", fieldtripsCount];
-    
-    // still dummy
-    NSUInteger locationsCount = 0;
-    _countOfLocationsLabel.text = [NSString stringWithFormat:@"%lu", locationsCount];
-    
-    // still dummy
-    NSUInteger photosCount = 0;
-    _countOfPhotosLabel.text = [NSString stringWithFormat:@"%lu", photosCount];
-    
-    NSUInteger sampleCount = [RecordStatistics sampleCount];
-    _countOfSamplesLabel.text = [NSString stringWithFormat:@"%lu", sampleCount];
+//    self.recentFieldtrip = [RecordStatistics recentSample];
+//    
+//    // take that Project, that is marked as "Use for new samples" (in settings)
+//    _activeFieldtripLabel.text = [ActiveFieldtrip name];
+//    
+//    // take that user that is marked as "Use for new samples" (in settings)
+//    _activeCollectorLabel.text = [ActiveCollector name];
 
-    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
-    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
-    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
-    
-    NSUInteger markedSampleCount = [RecordStatistics markedSampleCount];
-    _countOfMarkedSamples.text = [NSString stringWithFormat:@"%lu", markedSampleCount];
-    
     [self updateInfoboard];
+
+    [self initTableViewValues];
+    
+    
+//    NSUInteger fieldtripCount = [RecordStatistics fieldtripCount];
+//    _countOfFieldtripsLabel.text = [formatter counter:fieldtripCount];
+//    
+//    // still dummy
+//    NSUInteger locationsCount = 0;
+//    _countOfLocationsLabel.text = [formatter counter:locationsCount];
+//    
+//    
+//    
+//    
+//    // still dummy
+//    NSUInteger photosCount = 0;
+//    _countOfPhotosLabel.text = [formatter counter:photosCount];
+//    
+//    NSUInteger sampleCount = [RecordStatistics sampleCount];
+//    _countOfSamplesLabel.text = [formatter counter:sampleCount];
+//
+//    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
+//    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
+//    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
+//    
+//    NSUInteger markedSampleCount = [RecordStatistics sampleCount];
+//    _countOfMarkedSamples.text = [formatter counter:markedSampleCount];
+    
     
     [self scrollToTop];
 }
@@ -105,6 +111,14 @@ UIView *headerView;
 #pragma mark - TableView Header / UIScrollView
 
 - (void)updateInfoboard {
+    
+    self.recentFieldtrip = [RecordStatistics recentSample];
+    
+    // take that Project, that is marked as "Use for new samples" (in settings)
+    _activeFieldtripLabel.text = [ActiveFieldtrip name];
+    
+    // take that user that is marked as "Use for new samples" (in settings)
+    _activeCollectorLabel.text = [ActiveCollector name];
     
     if (self.recentFieldtrip == nil) {
         _recentlyLocalityNameLabel.text = @"-";
@@ -174,6 +188,75 @@ UIView *headerView;
                               atScrollPosition:UITableViewScrollPositionTop
                                       animated:YES];
     }
+}
+
+#pragma mark - UI Initialization
+
+- (void)initTableViewValues {
+    
+    Formatter *formatter = [Formatter new];
+    
+    [self initCellSamples:formatter];
+    [self initCellMarkedSamples:formatter];
+    [self initCellFieldtrips:formatter];
+    [self initCellPhotos:formatter];
+    [self initCellLocation:formatter];
+}
+
+- (void)initStaticCell:(UITableViewCell *)cell
+         withCounter:(NSUInteger)count {
+
+    cell.userInteractionEnabled = (count > 0);
+    cell.textLabel.enabled = (count > 0);
+    cell.imageView.alpha = (count > 0) ? 1.0 : 0.5;
+}
+
+- (void)initCellSamples:(Formatter *)formatter {
+    
+    NSUInteger sampleCount = [RecordStatistics sampleCount];
+    _countOfSamplesLabel.text = [formatter counter:sampleCount];
+
+    [self initStaticCell:_recentSampleCell
+             withCounter:sampleCount];
+    
+//    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
+//    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
+//    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
+}
+
+- (void)initCellMarkedSamples:(Formatter *)formatter {
+    
+    NSUInteger markedSampleCount = [RecordStatistics markedSampleCount];
+    _countOfMarkedSamples.text = [formatter counter:markedSampleCount];
+
+    [self initStaticCell:_markedSamplesCell
+             withCounter:markedSampleCount];
+}
+
+- (void)initCellFieldtrips:(Formatter *)formatter {
+    
+    NSUInteger fieldtripsCount = [RecordStatistics fieldtripCount];
+    _countOfFieldtripsLabel.text = [formatter counter:fieldtripsCount];
+    [self initStaticCell:_fieldtripsCell
+             withCounter:fieldtripsCount];
+}
+
+- (void)initCellLocation:(Formatter *)formatter {
+    
+    // still dummy
+    NSUInteger locationsCount = 0;
+    _countOfLocationsLabel.text = [formatter counter:locationsCount];
+    [self initStaticCell:_locationsCell
+             withCounter:locationsCount];
+}
+
+- (void)initCellPhotos:(Formatter *)formatter {
+    
+    // still dummy
+    NSUInteger photosCount = 0;
+    _countOfPhotosLabel.text = [formatter counter:photosCount];
+    [self initStaticCell:_photosCell
+             withCounter:photosCount];
 }
 
 #pragma mark - Segues
