@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "Fieldtrip.h"
 #import "MGSwipeTableCell.h"
 
 @class Fieldtrip;

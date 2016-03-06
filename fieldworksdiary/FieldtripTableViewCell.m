@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
+#import "Fieldtrip.h"
 #import "Placemark.h"
 #import "FieldtripTableViewCell.h"
 
 @implementation FieldtripTableViewCell
-
 
 //- (id)initWithStyle:(UITableViewCellStyle)style
 //    reuseIdentifier:(NSString *)reuseIdentifier
