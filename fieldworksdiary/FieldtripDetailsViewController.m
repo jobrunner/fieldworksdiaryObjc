@@ -104,9 +104,7 @@
 
 @implementation FieldtripDetailsViewController
 
-
-#pragma mark - IBOutlet Actions
-
+#pragma mark - IBActions
 
 /*!
  *  Action triggered when user presses the Done button on keyboard
@@ -115,11 +113,9 @@
  *
  *  @since 1.0
  */
-- (IBAction)editButtonTouched:(UIBarButtonItem *)sender
-{
+- (IBAction)editButtonTouched:(UIBarButtonItem *)sender {
+
     [self saveFormToModel];
-    
-    // open fieldtrip detail edit
 }
 
 //- (IBAction)localityNameTextFieldDidEndOnExit:(UITextField *)sender
@@ -129,9 +125,8 @@
 //    [sender resignFirstResponder];
 //}
 
-
-- (IBAction)saveButtonTouched:(UIBarButtonItem *)sender
-{
+- (IBAction)saveButtonTouched:(UIBarButtonItem *)sender {
+    
     // set model data
 //    self.fieldtrip.localityName = self.localityNameTextField.text;
     
@@ -147,16 +142,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-- (IBAction)cancelButtonTouched:(UIBarButtonItem *)sender
-{
+- (IBAction)cancelButtonTouched:(UIBarButtonItem *)sender {
+    
     // go back to previous view in the navigation stack
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-- (void)takePhoto
-{
+- (void)takePhoto {
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     
     picker.delegate = self;
@@ -173,21 +166,16 @@
                      completion:NULL];
 }
 
-- (IBAction)addSpecimen:(UIButton *)sender
-{
+- (IBAction)addSpecimen:(UIButton *)sender {
+    
     [self performSegueWithIdentifier:@"addSpecimenSegue" sender:self];
 }
 
-
-
-
-
 #pragma mark - UIImagePickerController Delegates -
 
-
 - (void)imagePickerController:(UIImagePickerController *)picker
-didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
   
 //    self.staticMapImage.image = chosenImage;
@@ -288,20 +276,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                                completion:NULL];
 }
 
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
     [picker dismissViewControllerAnimated:YES
                                completion:NULL];
-    
 }
-
-
 
 #pragma mark - Refreshing
 
-- (void)refreshTableView
-{
+- (void)refreshTableView {
+    
 //    NSLog(@"Start to refresh location!");
 //
 //    if ([self.locationUpdateButton isEnabled] == NO) {
@@ -319,8 +303,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     // [self.refreshControl endRefreshing];
 }
-
-
 
 #pragma mark - Location Helper
 
@@ -353,9 +335,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 #pragma mark - Form Data
 
-
-- (void)showExistingModelForEditing
-{
+- (void)showExistingModelForEditing {
+    
     self.navigationItem.title = self.fieldtrip.localityName;
 
     // Prevent activating automatic location updates
@@ -372,10 +353,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // ...
 }
 
-
-
-- (void)createNewModelForEditing
-{
+- (void)createNewModelForEditing {
+    
     self.fieldtrip = [NSEntityDescription insertNewObjectForEntityForName:@"Fieldtrip"
                                                    inManagedObjectContext:self.managedObjectContext];
     [self.navigationItem setTitle:@"New"];
@@ -391,9 +370,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self startLocationTracking];
 }
 
-
 #pragma mark - ViewController Delegates
-
 
 //- (id)initWithStyle:(UITableViewStyle)style
 //{
@@ -404,9 +381,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    return self;
 //}
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
 
     // get core data stack
@@ -480,9 +456,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
+    
     return;
+
     _toolbar = [[UIToolbar alloc] init];
     _toolbar.barStyle = UIBarStyleDefault;
     
@@ -511,59 +488,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self.navigationController.view addSubview:_toolbar];
 }
 
-
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
+    
     [super viewWillDisappear:animated];
     
     [_toolbar removeFromSuperview];
     [self stopLocationTracking];
 }
 
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
 }
 
-
-- (void)didMoveToParentViewController:(UIViewController *)parent
-{
+- (void)didMoveToParentViewController:(UIViewController *)parent {
+    
     if (![parent isEqual:self.parentViewController]) {
         
         [self saveFormToModel];
     }
 }
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"editFieldtripDetailsSegue"]) {
-        
-        FieldtripDetailsEditViewController * controller = segue.destinationViewController;
-        
-        controller.fieldtrip = self.fieldtrip;
-    }
-    
-    
-    if ([[segue identifier] isEqualToString:@"addSpecimenSegue"]) {
-        
-        NSLog(@"create a new specimen from fieldtrip!");
-        
-        SpecimenDetailsTableViewController * controller = segue.destinationViewController;
-        
-        controller.specimen = nil;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"openSpecimenMap"]) {
-        SpecimenMapController * controller = segue.destinationViewController;
-        
-        controller.fieldtrip = self.fieldtrip;
-    }
-
-}
-
-
 
 // DAS brauche ich auch nicht, weil ich bereits an anderen STellen darauf reagiere. Right?!
 // receiver for notifications from NotificationCenter we are listen to
@@ -587,9 +531,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    }
 //}
 
-
-
-
 #pragma mark - UITableView Delegates
 
 // fieldtrip details table view should have tow sections.
@@ -599,17 +540,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 // of the trip in one single view. It should give the abality to
 // add specimens - currently implemented with a add-system button
 // in the section header which triggers an segue to specimen controller
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     // #0 Fundort ("Static")
     // #1 Specimens (dynamic)
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
+ numberOfRowsInSection:(NSInteger)section {
+    
     // Fieldtrip-Section
     if (section == 0) {
         // #0 localityIdentifier (FieldtripDetailsLocalityIdentifierCell)
@@ -638,15 +578,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 // The great rock'n'roll swindle: code hard what dynamicaly is.
 // Creating tableView cells with xib and/or dynamic storyboard cell prototypes
 - (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     // Fieldtrip section
     if (indexPath.section == 0) {
 
-        
-        
         // specimen identifier text field (exc. number)
         if (indexPath.row == 0) {
+        
             FieldtripDetailsSpecimenIdentifierCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenIdentifierCell reuseIdentifier]
                                                    forIndexPath:indexPath];
@@ -655,11 +594,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             return cell;
         }
 
-        
         // location identifier text field (location number)
         if (indexPath.row == 1) {
-            FieldtripDetailsLocalityIdentifierCell *cell;
 
+            FieldtripDetailsLocalityIdentifierCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocalityIdentifierCell reuseIdentifier]
                                                    forIndexPath:indexPath];
             cell.fieldtrip = self.fieldtrip;
@@ -667,18 +605,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             return cell;
         }
         
-        
         // locationName text field
         if (indexPath.row == 2) {
+
             FieldtripDetailsLocationNameCell *cell;
-            
             cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
                                                    forIndexPath:indexPath];
             cell.fieldtrip = self.fieldtrip;
         
             return cell;
         }
-        
         
         // spceimenNotes text view
         if (indexPath.row == 3) {
@@ -739,7 +675,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             return cell;
         }
         
-        
         // Image Map
         if (indexPath.row == 8) {
 
@@ -761,21 +696,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         // Use here a predefined cell with cellStyle "label"
     }
     
-    
     UITableViewCell * dummyCell;
     dummyCell = [tableView dequeueReusableCellWithIdentifier:@"DummyCell"
                                                 forIndexPath:indexPath];
-    
-    NSLog(@"class of used cell: %@", [dummyCell class]);
-    
     dummyCell.textLabel.text = @"Dummy Cell";
     
     return dummyCell;
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section {
+    
     // Locality-Section
 //    if (section == 0) {
 //        return @"Locality";
@@ -789,9 +720,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return @"";
 }
 
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     // SpecimenIdentifier (0)
     // LocalityName (2)
     // LocalityIdentifier (1)
@@ -829,9 +760,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return 44;
 }
 
-
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
+- (void)tableView:(UITableView *)tableView
+willDisplayHeaderView:(UIView *)view
+       forSection:(NSInteger)section {
+    
     if (section == 1) {
         CGRect frame = tableView.frame;
         
@@ -847,9 +779,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
 }
 
-- (void)addSpecimenToucheUpInside
-{
-    [self performSegueWithIdentifier:@"addSpecimenSegue" sender:self];
+- (void)addSpecimenToucheUpInside {
+
+    [self performSegueWithIdentifier:@"addSpecimenSegue"
+                              sender:self];
 }
 
 //-  (UIView *)tableView:(UITableView *)tableView
@@ -879,60 +812,50 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    return nil;
 //}
 
-
-
 //#pragma mark - UIAlertViewDelegate
+//
 //??? kommt noch von der Switch-Implementierung, die jetzt über den Toggle-Button wieder verwendet werden müsste...
 //- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 //{
 //    [self resetGpsStatusControl];
 //}
 
-
 #pragma mark - CLLocationManager
 
-
 // initializes and configures the location manager
-- (void)initLocationManager
-{
+- (void)initLocationManager {
+    
     if (self.locationManager == nil) {
         self.locationUpdateTries = 5;
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         self.locationManager.delegate = self;
     }
-    
 }
 
-- (void)destroyLocationManager
-{
+- (void)destroyLocationManager {
+    
     self.locationManager = nil;
 }
 
-
 // Tells us that the authorization status for the application changed.
 - (void)locationManager:(CLLocationManager *)manager
-didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+
     // implement when concurrency has a good flow for authorized
-    
-    NSLog(@"locationMager:didChangeAuthorizationStatus: status: %u", status);
-    
-    
+    // NSLog(@"locationMager:didChangeAuthorizationStatus: status: %u", status);
 }
 
 
 - (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
-{
-    NSLog(@"LocationManger didFailWithError: %@", error);
+       didFailWithError:(NSError *)error {
     
+//    NSLog(@"LocationManger didFailWithError: %@", error);
     
     [self stopLocationTracking];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationFailure
                                                         object:self];
-    
     UIAlertView *errorAlert;
     errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                             message:NSLocalizedString(@"Failed to get your Location", nil)
@@ -942,16 +865,15 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     [errorAlert show];
 }
 
-
 - (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations
-{
-    NSLog(@"LocationManager: didUpdateLocations!");
+     didUpdateLocations:(NSArray *)locations {
+    
+//    NSLog(@"LocationManager: didUpdateLocations!");
     
     CLLocation * location = [locations lastObject];
 
     if (location == nil) {
-        NSLog(@"Ignoring GPS failure (nil object).");
+//        NSLog(@"Ignoring GPS failure (nil object).");
         
         return;
     }
@@ -961,7 +883,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     
     if (fabs(howRecent) > 15.0) {
         // If the event is not recent, do nothing with it.
-        NSLog(@"howRecent (must be >= 15.0): %f", fabs(howRecent));
+//        NSLog(@"howRecent (must be >= 15.0): %f", fabs(howRecent));
         return ;
     }
 
@@ -977,11 +899,9 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
         return;
     }
     
-    
     [self stopLocationTracking];
-    
     [self.fieldtrip setLocation:location];
-    NSLog(@"Notification LocationUpdate");
+//    NSLog(@"Notification LocationUpdate");
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationUpdate
                                                         object:self];
 
@@ -1059,8 +979,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 
 }
 
-
-
 #pragma mark - Common Methods
 
 // -> FieldtripDetailsSummaryCell
@@ -1098,11 +1016,10 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 //     }];
 //}
 
-
 #pragma mark - Data to Model
 
-
 - (void)saveFormToModel {
+
     // set model data
     // die Zuweisung von Input zu Model findet in FieldtripDetailsLocationName statt...
 //    self.fieldtrip.localityName = self.localityNameTextField.text;
@@ -1294,8 +1211,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 //    }];
 //}
 
-
-
 #pragma mark - Model to UI
 
 // -> FieldtripDetailsSummaryCell
@@ -1426,8 +1341,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 //}
 
 
-- (void)startLocationTracking
-{
+- (void)startLocationTracking {
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
   
@@ -1457,9 +1372,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 //    [self.locationManager startUpdatingLocation];
 }
 
-
-- (void)stopLocationTracking
-{
+- (void)stopLocationTracking {
+    
     [self.locationManager stopUpdatingLocation];
 
 //    self.locationUpdateButton.selected = NO;
@@ -1468,16 +1382,14 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     [self destroyLocationManager];
 }
 
-
 #pragma mark - Calculation - 
 
-
-/**
+/*!
  * Calculates Sunrise, Sunset and Twilight for a given time zone and coordinates
  * and stores it in the model.
  */
-- (void)calculateSunriseSunsetTwilight
-{
+- (void)calculateSunriseSunsetTwilight {
+    
     // Daten aus dem Model holen:
     NSDate * date = self.fieldtrip.beginDate;
     NSTimeZone * timeZone = self.fieldtrip.timeZone;
@@ -1500,9 +1412,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
     self.fieldtrip.twilightEnd = sunriseset.civilTwilightEnd;
 }
 
-
 #pragma mark - Helper -
-
 
 //- (BOOL)isDayLightWidthDate:(NSDate *)date
 //                sunriseDate:(NSDate *)sunrise
@@ -1558,4 +1468,28 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 //        [self startLocationTracking];
 //    }
 //}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"editFieldtripDetailsSegue"]) {
+        
+        FieldtripDetailsEditViewController * controller = segue.destinationViewController;
+        controller.fieldtrip = self.fieldtrip;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"addSpecimenSegue"]) {
+        
+        SpecimenDetailsTableViewController * controller = segue.destinationViewController;
+        controller.specimen = nil;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"openSpecimenMap"]) {
+        
+        SpecimenMapController * controller = segue.destinationViewController;
+        controller.fieldtrip = self.fieldtrip;
+    }
+}
+
 @end
