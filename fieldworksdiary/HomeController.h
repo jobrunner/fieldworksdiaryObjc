@@ -10,6 +10,6 @@
 
 @interface HomeController : UITableViewController <UIScrollViewDelegate>
 
-@property (strong, nonatomic) Fieldtrip *recentFieldtrip;
+@property (strong, nonatomic) Fieldtrip *recentSample;
 
 @end

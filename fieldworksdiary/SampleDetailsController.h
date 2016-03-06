@@ -20,7 +20,7 @@
  *
  *  @since 1.0
  */
-@property (strong, nonatomic) Fieldtrip *fieldtrip;
+@property (strong, nonatomic) Fieldtrip *sample;
 
 @property BOOL startWithTakePicture;
 

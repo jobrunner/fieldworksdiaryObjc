@@ -53,38 +53,11 @@
 @interface SampleDetailsController ()
 
 
-// die IBOutlets hängen noch alle an der Statischen View
-//@property (weak, nonatomic) IBOutlet UITextField *localityNameTextField;
-//@property (weak, nonatomic) IBOutlet UILabel *coordinatesTypeLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *coordinatesLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *altitudeLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *horizontalAccuracyLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *verticalAccuracyLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *timeZoneLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *sunriseLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *sunsetLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
-//@property (weak, nonatomic) IBOutlet UIImageView *dayNightStatusImageView;
-//@property (weak, nonatomic) IBOutlet UIImageView *staticMapImage;
-//@property (weak, nonatomic) IBOutlet UILabel *beginDateLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *countryAndAdministrativeAreaLabel;
-//@property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
-
-//@property (weak, nonatomic) IBOutlet UILabel *subAdministrativeAreaLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *administrativeLocalityLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *administrativeSubLocalityLabel;
-
-
-//@property (strong, nonatomic) NSTimer * timer;
-
-//@property (strong, nonatomic) UIAlertView *errorAlert;
-//@property (retain, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (strong, nonatomic) CLLocation * location;
 // @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) UIToolbar *toolbar;
-
 
 // testing:
 //@property (weak, nonatomic) IBOutlet UIButton *locationUpdateButton;
@@ -93,13 +66,11 @@
 @property BOOL locationTracking;
 @property int locationUpdateTries;
 
-
 - (IBAction)editButtonTouched:(UIBarButtonItem *)sender;
 
 //- (IBAction)localityNameTextFieldDidEndOnExit:(UITextField *)sender;
 //- (IBAction)saveButtonTouched:(UIBarButtonItem *)sender;
 //- (IBAction)cancelButtonTouched:(UIBarButtonItem *)sender;
-
 
 @end
 
@@ -128,9 +99,6 @@
 
 - (IBAction)saveButtonTouched:(UIBarButtonItem *)sender {
     
-    // set model data
-//    self.fieldtrip.localityName = self.localityNameTextField.text;
-    
     NSError *error = nil;
     
     [self.managedObjectContext save:&error];
@@ -149,6 +117,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)addSpecimen:(UIButton *)sender {
+    
+    [self performSegueWithIdentifier:@"addSpecimenSegue" sender:self];
+}
+
+#pragma mark - Take Pictures
+
 - (void)takePhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -165,11 +140,6 @@
     [self presentViewController:picker
                        animated:YES
                      completion:NULL];
-}
-
-- (IBAction)addSpecimen:(UIButton *)sender {
-    
-    [self performSegueWithIdentifier:@"addSpecimenSegue" sender:self];
 }
 
 #pragma mark - UIImagePickerController Delegates -
@@ -214,7 +184,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 //    [photo setPictureData:pngImageData];
   
   
-    [self.fieldtrip addImagesObject:image];
+    [_sample addImagesObject:image];
     
     NSError *error = nil;
     
@@ -252,26 +222,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if (YES == [fileManager createFileAtPath:filePath
                                     contents:pngImageData
                                   attributes:nil]) {
-    
-    
-    
         // store the png
         NSLog(@"Picture stored.");
     } else {
         NSLog(@"Failed to write map file to disc.");
 
-        [self.fieldtrip removeImagesObject:image];
+        [_sample removeImagesObject:image];
         [self.managedObjectContext save:&error];
         if (error) {
             NSLog(@"Error: %@", [error localizedDescription]);
         }
     }
     
-    
-    
 //    UIImageView * imageView = [[UIImageView alloc] initWithImage:thumbImage];
 //    [self.imageScrollView addSubview:imageView];
-    
     
     [picker dismissViewControllerAnimated:YES
                                completion:NULL];
@@ -338,7 +302,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 - (void)showExistingModelForEditing {
     
-    self.navigationItem.title = self.fieldtrip.localityName;
+    self.navigationItem.title = _sample.localityName;
 
     // Prevent activating automatic location updates
 //    [self.locationUpdateButton setEnabled:NO];
@@ -356,12 +320,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 - (void)createNewModelForEditing {
     
-    self.fieldtrip = [NSEntityDescription insertNewObjectForEntityForName:@"Fieldtrip"
-                                                   inManagedObjectContext:self.managedObjectContext];
+    _sample = [NSEntityDescription insertNewObjectForEntityForName:@"Fieldtrip"
+                                            inManagedObjectContext:self.managedObjectContext];
     [self.navigationItem setTitle:@"New"];
     
     // Create a default model
-    [self.fieldtrip defaultsWithLocalityName:NSLocalizedString(@"Mein Fundort", nil)];
+    [_sample defaultsWithLocalityName:NSLocalizedString(@"Mein Fundort", nil)];
 
 
 //    [self drawLocalityFromModel];
@@ -424,7 +388,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnCurrent, btnCamera, nil]];
     
-    if (self.fieldtrip == nil) {
+    if (_sample == nil) {
         
         NSLog(@"create a new locality model");
         // create a new locality model
@@ -590,7 +554,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             FieldtripDetailsSpecimenIdentifierCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenIdentifierCell reuseIdentifier]
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
             
             return cell;
         }
@@ -601,7 +565,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             FieldtripDetailsLocalityIdentifierCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocalityIdentifierCell reuseIdentifier]
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
             
             return cell;
         }
@@ -612,7 +576,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             FieldtripDetailsLocationNameCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
         
             return cell;
         }
@@ -623,7 +587,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             FieldtripDetailsSpecimenNotesCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenNotesCell reuseIdentifier]
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
             
             return cell;
         }
@@ -635,7 +599,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocationCell reuseIdentifier]
                                                    forIndexPath:indexPath];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
             
             return cell;
         }
@@ -647,7 +611,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsPlacemarkCell reuseIdentifier]
                                                    forIndexPath:indexPath];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
             
             return cell;
         }
@@ -659,7 +623,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsDateCell reuseIdentifier]
                                                    forIndexPath:indexPath];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
             
             return cell;
         }
@@ -670,10 +634,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             SampleDetailsFieldtripCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsFieldtripCell"
                                                    forIndexPath:indexPath];
-
-//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            [cell configureWithModel:self.fieldtrip atIndexPath:indexPath];
-            
+            [cell configureWithModel:_sample
+                         atIndexPath:indexPath];
             return cell;
         }
         
@@ -683,7 +645,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             FieldtripDetailsMapViewCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsMapViewCell reuseIdentifier]
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = self.fieldtrip;
+            cell.fieldtrip = _sample;
+
             return cell;
         }
 
@@ -902,7 +865,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     }
     
     [self stopLocationTracking];
-    [self.fieldtrip setLocation:location];
+    [_sample setLocation:location];
 //    NSLog(@"Notification LocationUpdate");
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationUpdate
                                                         object:self];
@@ -921,7 +884,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
         return ;
     }
     
-    [self.fieldtrip setLocation:location];
+    [_sample setLocation:location];
     
 //    [self drawLocationFromModel];
 
@@ -1022,10 +985,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 
 - (void)saveFormToModel {
 
-    // set model data
-    // die Zuweisung von Input zu Model findet in FieldtripDetailsLocationName statt...
-//    self.fieldtrip.localityName = self.localityNameTextField.text;
-    
     NSError *error = nil;
     
     [self.managedObjectContext save:&error];
@@ -1393,10 +1352,10 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 - (void)calculateSunriseSunsetTwilight {
     
     // Daten aus dem Model holen:
-    NSDate * date = self.fieldtrip.beginDate;
-    NSTimeZone * timeZone = self.fieldtrip.timeZone;
-    float lat = [self.fieldtrip.latitude doubleValue];
-    float lon = [self.fieldtrip.longitude doubleValue];
+    NSDate * date = _sample.beginDate;
+    NSTimeZone * timeZone = _sample.timeZone;
+    float lat = [_sample.latitude doubleValue];
+    float lon = [_sample.longitude doubleValue];
     
     // initializes the SunriseSet object with mett:
     EDSunriseSet *sunriseset  = [EDSunriseSet sunrisesetWithTimezone:timeZone
@@ -1408,10 +1367,10 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 //    [self setModelWithSunriseSetTwilight:sunriseset];
     
     // Write calculated data of sunrise, sunset and twilight back to model
-    self.fieldtrip.sunrise = sunriseset.sunrise;
-    self.fieldtrip.sunset = sunriseset.sunset;
-    self.fieldtrip.twilightBegin = sunriseset.civilTwilightStart;
-    self.fieldtrip.twilightEnd = sunriseset.civilTwilightEnd;
+    _sample.sunrise = sunriseset.sunrise;
+    _sample.sunset = sunriseset.sunset;
+    _sample.twilightBegin = sunriseset.civilTwilightStart;
+    _sample.twilightEnd = sunriseset.civilTwilightEnd;
 }
 
 #pragma mark - Helper -
@@ -1478,7 +1437,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if ([[segue identifier] isEqualToString:@"editSampleSegue"]) {
         
         SampleEditController * controller = segue.destinationViewController;
-        controller.sample = self.fieldtrip;
+        controller.sample = _sample;
     }
     
     if ([[segue identifier] isEqualToString:@"addSpecimenSegue"]) {
@@ -1490,7 +1449,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if ([[segue identifier] isEqualToString:@"openMapSegue"]) {
         
         MapController * controller = segue.destinationViewController;
-        controller.sample = self.fieldtrip;
+        controller.sample = _sample;
     }
 }
 

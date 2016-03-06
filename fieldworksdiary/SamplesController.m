@@ -557,13 +557,13 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
         
         SampleDetailsController * controller = segue.destinationViewController;
-        controller.fieldtrip = nil;
+        controller.sample = nil;
     }
     
     if ([[segue identifier] isEqualToString:@"openSampleSegue"]) {
 
         SampleDetailsController * controller = segue.destinationViewController;
-        controller.fieldtrip = [(FieldtripTableViewCell *)sender fieldtrip];
+        controller.sample = [(FieldtripTableViewCell *)sender fieldtrip];
     }
 }
 

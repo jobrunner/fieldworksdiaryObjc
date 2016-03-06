@@ -59,44 +59,8 @@ UIView *headerView;
 
 - (void)viewDidAppear:(BOOL)animated {
 
-//    self.recentFieldtrip = [RecordStatistics recentSample];
-//    
-//    // take that Project, that is marked as "Use for new samples" (in settings)
-//    _activeFieldtripLabel.text = [ActiveFieldtrip name];
-//    
-//    // take that user that is marked as "Use for new samples" (in settings)
-//    _activeCollectorLabel.text = [ActiveCollector name];
-
     [self updateInfoboard];
-
     [self initTableViewValues];
-    
-    
-//    NSUInteger fieldtripCount = [RecordStatistics fieldtripCount];
-//    _countOfFieldtripsLabel.text = [formatter counter:fieldtripCount];
-//    
-//    // still dummy
-//    NSUInteger locationsCount = 0;
-//    _countOfLocationsLabel.text = [formatter counter:locationsCount];
-//    
-//    
-//    
-//    
-//    // still dummy
-//    NSUInteger photosCount = 0;
-//    _countOfPhotosLabel.text = [formatter counter:photosCount];
-//    
-//    NSUInteger sampleCount = [RecordStatistics sampleCount];
-//    _countOfSamplesLabel.text = [formatter counter:sampleCount];
-//
-//    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
-//    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
-//    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
-//    
-//    NSUInteger markedSampleCount = [RecordStatistics sampleCount];
-//    _countOfMarkedSamples.text = [formatter counter:markedSampleCount];
-    
-    
     [self scrollToTop];
 }
 
@@ -112,7 +76,7 @@ UIView *headerView;
 
 - (void)updateInfoboard {
     
-    self.recentFieldtrip = [RecordStatistics recentSample];
+    _recentSample = [RecordStatistics recentSample];
     
     // take that Project, that is marked as "Use for new samples" (in settings)
     _activeFieldtripLabel.text = [ActiveFieldtrip name];
@@ -120,31 +84,33 @@ UIView *headerView;
     // take that user that is marked as "Use for new samples" (in settings)
     _activeCollectorLabel.text = [ActiveCollector name];
     
-    if (self.recentFieldtrip == nil) {
+    if (_recentSample == nil) {
         _recentlyLocalityNameLabel.text = @"-";
         _recentlyIdentifiersLabel.text = @"-";
 
         return ;
     }
 
-    _recentlyLocalityNameLabel.text = self.recentFieldtrip.localityName;
+    _recentlyLocalityNameLabel.text = _recentSample.localityName;
 
-    if (self.recentFieldtrip.specimenIdentifier && self.recentFieldtrip.localityIdentifier) {
+    if (_recentSample.specimenIdentifier &&
+        _recentSample.localityIdentifier) {
+        
         _recentlyIdentifiersLabel.text = [NSString stringWithFormat:@"%@ (%@)",
-                                          self.recentFieldtrip.specimenIdentifier,
-                                          self.recentFieldtrip.localityIdentifier];
+                                          _recentSample.specimenIdentifier,
+                                          _recentSample.localityIdentifier];
         return;
     }
     _recentlyIdentifiersLabel.text = [NSString stringWithFormat:@"%@ (%@)",
                                       @"---",
                                       @"---"];
-    if (self.recentFieldtrip.specimenIdentifier) {
+    if (_recentSample.specimenIdentifier) {
         _recentlyIdentifiersLabel.text = [NSString stringWithFormat:@"%@",
-                                          self.recentFieldtrip.specimenIdentifier];
+                                          _recentSample.specimenIdentifier];
     }
-    if (self.recentFieldtrip.localityIdentifier) {
+    if (_recentSample.localityIdentifier) {
         _recentlyIdentifiersLabel.text = [NSString stringWithFormat:@"%@",
-                                          self.recentFieldtrip.localityIdentifier];
+                                          _recentSample.localityIdentifier];
     }
 }
 
@@ -218,10 +184,6 @@ UIView *headerView;
 
     [self initStaticCell:_recentSampleCell
              withCounter:sampleCount];
-    
-//    _recentSampleCell.userInteractionEnabled = (sampleCount > 0);
-//    _recentSampleCell.textLabel.enabled = (sampleCount > 0);
-//    _recentSampleCell.imageView.alpha = (sampleCount > 0) ? 1.0 : 0.5;
 }
 
 - (void)initCellMarkedSamples:(Formatter *)formatter {
@@ -266,14 +228,14 @@ UIView *headerView;
     // Prepare link to new sample
     if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
         SampleDetailsController * controller = segue.destinationViewController;
-        controller.fieldtrip = nil;
+        controller.sample = nil;
     }
 
     // Prepare link to recent sample
     if ([[segue identifier] isEqualToString:@"openRecentSampleSegue"]) {
 
         SampleDetailsController * controller = segue.destinationViewController;
-        controller.fieldtrip = self.recentFieldtrip;
+        controller.sample = _recentSample;
     }
 
     // Prepare link to marked samples
