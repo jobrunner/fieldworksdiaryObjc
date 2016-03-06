@@ -1478,7 +1478,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if ([[segue identifier] isEqualToString:@"editSampleSegue"]) {
         
         SampleEditController * controller = segue.destinationViewController;
-        controller.fieldtrip = self.fieldtrip;
+        controller.sample = self.fieldtrip;
     }
     
     if ([[segue identifier] isEqualToString:@"addSpecimenSegue"]) {
@@ -1490,7 +1490,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if ([[segue identifier] isEqualToString:@"openMapSegue"]) {
         
         MapController * controller = segue.destinationViewController;
-        controller.fieldtrip = self.fieldtrip;
+        controller.sample = self.fieldtrip;
     }
 }
 

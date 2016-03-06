@@ -16,6 +16,6 @@
 @interface SampleEditController : StaticDataTableViewController <
     UITextViewDelegate>
 
-@property (strong, nonatomic) Fieldtrip * fieldtrip;
+@property (strong, nonatomic) Fieldtrip * sample;
 
 @end

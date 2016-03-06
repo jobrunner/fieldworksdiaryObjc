@@ -73,24 +73,31 @@
     [self cell:self.endDatePickerCell setHidden:YES];
     [self reloadDataAnimated:NO];
     
-    
     // setup fulltime switch
     self.alldayDateSwitch.on = isFulltime;
     
 //    [self drawDateRangeSelector];
     
-    [self drawBeginDateCaption:self.fieldtrip.beginDate isAllday:isFulltime isInEditMode:NO];
+    [self drawBeginDateCaption:_sample.beginDate
+                      isAllday:isFulltime
+                  isInEditMode:NO];
     
-    [self drawEndDateCaption:self.fieldtrip.endDate isAllday:isFulltime isInEditMode:NO beginDate:self.fieldtrip.beginDate];
+    [self drawEndDateCaption:_sample.endDate
+                    isAllday:isFulltime
+                isInEditMode:NO
+                   beginDate:_sample.beginDate];
     
-    [self drawBeginDatePicker:self.fieldtrip.beginDate isAllday:isFulltime isInEditMode:NO];
+    [self drawBeginDatePicker:_sample.beginDate
+                     isAllday:isFulltime
+                 isInEditMode:NO];
     
-    [self drawEndDatePicker:self.fieldtrip.endDate isAllday:isFulltime isInEditMode:NO];
-    
+    [self drawEndDatePicker:_sample.endDate
+                   isAllday:isFulltime
+               isInEditMode:NO];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -175,31 +182,29 @@
 #pragma mark - Date Range Stuff -
 
 
-- (void)drawDateRangeSelector
-{
-// Direkte Ansprache vom Model gefällt mir hier nicht!!!
+- (void)drawDateRangeSelector {
     
-    [self drawBeginDateCaption:self.fieldtrip.beginDate
+    [self drawBeginDateCaption:_sample.beginDate
                       isAllday:[self isAlldayMode]
                   isInEditMode:[self isBeginDateInEditMode]];
     
-    [self drawEndDateCaption:self.fieldtrip.endDate
+    [self drawEndDateCaption:_sample.endDate
                     isAllday:[self isAlldayMode]
                 isInEditMode:[self isEndDateInEditMode]
-                   beginDate:self.fieldtrip.beginDate];
+                   beginDate:_sample.beginDate];
     
     
-    [self drawBeginDatePicker:self.fieldtrip.beginDate
+    [self drawBeginDatePicker:_sample.beginDate
                      isAllday:[self isAlldayMode]
                  isInEditMode:[self isBeginDateInEditMode]];
     
-    [self drawEndDatePicker:self.fieldtrip.endDate
+    [self drawEndDatePicker:_sample.endDate
                    isAllday:[self isAlldayMode]
                isInEditMode:[self isEndDateInEditMode]];
 }
 
-- (void)toogleEditingBeginDate
-{
+- (void)toogleEditingBeginDate {
+    
     if ([self isBeginDateInEditMode] == YES) {
         [self stopEditingBeginDate];
     } else {
@@ -208,67 +213,60 @@
     [self stopEditingEndDate];
 }
 
-
-- (void)toogleEditingEndDate
-{
+- (void)toogleEditingEndDate {
+    
     if ([self isEndDateInEditMode] == YES) {
         [self stopEditingEndDate];
     } else {
         [self startEditingEndDate];
     }
+    
     [self stopEditingBeginDate];
 }
 
-
-- (void)showCellWithPicker:(UITableViewCell *)pickerCell
-{
+- (void)showCellWithPicker:(UITableViewCell *)pickerCell {
+    
     [self cell:pickerCell setHidden:NO];
     [self reloadDataAnimated:YES];
 }
 
-
-- (void)hideCellWithPicker:(UITableViewCell *)pickerCell
-{
+- (void)hideCellWithPicker:(UITableViewCell *)pickerCell {
+    
     [self cell:pickerCell setHidden:YES];
     [self reloadDataAnimated:YES];
 }
 
-
-- (void)startEditingBeginDate
-{
+- (void)startEditingBeginDate {
+    
     [self showCellWithPicker:self.beginDatePickerCell];
     
     [self drawDateRangeSelector];
 }
 
-
-- (void)stopEditingBeginDate
-{
+- (void)stopEditingBeginDate {
+    
     [self hideCellWithPicker:self.beginDatePickerCell];
     
     [self drawDateRangeSelector];
 }
 
-
-- (void)startEditingEndDate
-{
+- (void)startEditingEndDate {
+    
     [self showCellWithPicker:self.endDatePickerCell];
     
     [self drawDateRangeSelector];
 }
 
-
-- (void)stopEditingEndDate
-{
+- (void)stopEditingEndDate {
+    
     [self hideCellWithPicker:self.endDatePickerCell];
     
     [self drawDateRangeSelector];
 }
 
-
 // assumeed the preference is set in settings bundle
-- (BOOL)isAlldayDefaultForDateRange
-{
+- (BOOL)isAlldayDefaultForDateRange {
+    
     // Read and use the default behaviour for presenting date ranges
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     
@@ -279,23 +277,20 @@
     return [preferences boolForKey:@"locationDateFulltime"];
 }
 
-
-- (BOOL)isBeginDateInEditMode
-{
+- (BOOL)isBeginDateInEditMode {
+    
     return ([self cellIsHidden:self.beginDatePickerCell] == NO);
 }
 
-
-- (BOOL)isEndDateInEditMode
-{
+- (BOOL)isEndDateInEditMode {
+    
     return ([self cellIsHidden:self.endDatePickerCell] == NO);
 }
 
-
 - (void)drawBeginDatePicker:(NSDate *)beginDate
                    isAllday:(BOOL)isAllday
-               isInEditMode:(BOOL)isInEditMode
-{
+               isInEditMode:(BOOL)isInEditMode {
+
     if (isAllday == YES) {
         self.beginDatePicker.datePickerMode = UIDatePickerModeDate;
     } else {
@@ -305,11 +300,10 @@
     [self.beginDatePicker setDate:beginDate];
 }
 
-
 - (void)drawEndDatePicker:(NSDate *)endDate
                  isAllday:(BOOL)isAllday
-             isInEditMode:(BOOL)isInEditMode
-{
+             isInEditMode:(BOOL)isInEditMode {
+    
     if (isAllday == YES) {
         self.endDatePicker.datePickerMode = UIDatePickerModeDate;
     } else {
@@ -319,13 +313,10 @@
     [self.endDatePicker setDate:endDate];
 }
 
-
-
-
 - (void)drawBeginDateCaption:(NSDate *)beginDate
                     isAllday:(BOOL)isAllday
-                isInEditMode:(BOOL)isInEditMode
-{
+                isInEditMode:(BOOL)isInEditMode {
+
     // striketrought whether endDate is before beginDate
     BOOL strikethrough = [beginDate compare:beginDate] == NSOrderedDescending;
     
@@ -356,12 +347,11 @@
     self.beginDateLabel.attributedText = attributetString;
 }
 
-
 - (void)drawEndDateCaption:(NSDate *)endDate
                   isAllday:(BOOL)isAllday
               isInEditMode:(BOOL)isInEditMode
-                 beginDate:(NSDate *)beginDate
-{
+                 beginDate:(NSDate *)beginDate {
+    
     // striketrought whether date and time is shown and endDate is before beginDate
     BOOL strikethrough = (isAllday == NO) && ([beginDate compare:endDate] == NSOrderedDescending);
     
@@ -393,23 +383,20 @@
     self.endDateLabel.attributedText = attributetString;
 }
 
-
 #pragma mark - generic DateRangePicker
 
+- (BOOL)isAlldayMode {
 
-- (BOOL)isAlldayMode
-{
-    if ([self.fieldtrip.isFullTime isEqual:@YES]) {
+    if ([_sample.isFullTime isEqual:@YES]) {
         return YES;
     } else {
         return NO;
     }
 }
 
-
 - (NSDateFormatter *)dateFormatterWithAllday:(BOOL)isAllday
-                          isEqualDayOmitting:(BOOL)isEqualDayOmitting
-{
+                          isEqualDayOmitting:(BOOL)isEqualDayOmitting {
+
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     
     if (isAllday == YES) {
@@ -426,9 +413,8 @@
     return dateFormatter;
 }
 
-
-- (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday
-{
+- (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday {
+    
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
     
     if (isAllday == YES) {
@@ -440,9 +426,8 @@
     return timeFormatter;
 }
 
-
-- (NSParagraphStyle *)paragraphStyleWithAllday:(BOOL)isAllday
-{
+- (NSParagraphStyle *)paragraphStyleWithAllday:(BOOL)isAllday {
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
     
     // Define tab stops that fits date and time parts
@@ -462,13 +447,12 @@
     return (NSParagraphStyle *)paragraphStyle;
 }
 
-
 - (NSDictionary *)attributesWithParagraphStyle:(NSParagraphStyle *)paragraphStyle
                                      tintColor:(UIColor *)color
                                  strikethrough:(BOOL)strikethrough
                                       isAllday:(BOOL)isAllday
-                                  isInEditMode:(BOOL)isInEditMode
-{
+                                  isInEditMode:(BOOL)isInEditMode {
+
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     
     attributes[NSParagraphStyleAttributeName] = paragraphStyle;
@@ -489,13 +473,11 @@
     return (NSDictionary *)attributes;
 }
 
-
-
 #pragma mark - Date Utils -
 
+- (BOOL)isDateSameDay:(NSDate *)firstDate
+               asDate:(NSDate *)secondDate {
 
-- (BOOL)isDateSameDay:(NSDate *)firstDate asDate:(NSDate *)secondDate
-{
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     NSDateComponents *firstDateComponent = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
@@ -507,31 +489,28 @@
     return ([firstDateComponent isEqual:secondDateComponent]);
 }
 
-
-- (NSDate *)dateWithZeroSeconds:(NSDate *)date
-{
+- (NSDate *)dateWithZeroSeconds:(NSDate *)date {
+    
     NSTimeInterval time = floor([date timeIntervalSinceReferenceDate] / 60.0) * 60.0;
     
     return  [NSDate dateWithTimeIntervalSinceReferenceDate:time];
 }
 
-
-
-
 #pragma mark - Date Picker IBActions
 
-- (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender
-{
+- (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender {
+
     [self toogleEditingBeginDate];
 }
 
-- (IBAction)endDateGestureRecognize:(UITapGestureRecognizer *)sender
-{
+- (IBAction)endDateGestureRecognize:(UITapGestureRecognizer *)sender {
+
     [self toogleEditingEndDate];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
     NSIndexPath * beginIndexPath = [self.tableView indexPathForCell:self.beginDateCell];
 
     NSIndexPath * endIndexPath = [self.tableView indexPathForCell:self.endDateCell];
@@ -544,15 +523,14 @@
     }
 }
 
-
-- (IBAction)alldayDateChanges:(UISwitch *)sender
-{
+- (IBAction)alldayDateChanges:(UISwitch *)sender {
+    
 //    self.fieldtrip.isFullTime = sender.on;
     
     if (sender.on == YES) {
-        self.fieldtrip.isFullTime = @YES;
+        _sample.isFullTime = @YES;
     } else {
-        self.fieldtrip.isFullTime = @NO;
+        _sample.isFullTime = @NO;
     }
     
 //    _isAllday = sender.on;
@@ -560,19 +538,17 @@
     [self drawDateRangeSelector];
 }
 
-
-- (IBAction)beginDatePickerDidChange:(UIDatePicker *)picker
-{
-    self.fieldtrip.beginDate = picker.date;
-    self.fieldtrip.endDate = [self.fieldtrip.beginDate dateByAddingTimeInterval:60.0 * 60.0]; // adding 1 hour to beginDate
+- (IBAction)beginDatePickerDidChange:(UIDatePicker *)picker {
+    
+    _sample.beginDate = picker.date;
+    _sample.endDate = [_sample.beginDate dateByAddingTimeInterval:60.0 * 60.0]; // adding 1 hour to beginDate
     
     [self drawDateRangeSelector];
 }
 
-
-- (IBAction)endDatePickerDidChange:(UIDatePicker *)picker
-{
-    self.fieldtrip.endDate = picker.date;
+- (IBAction)endDatePickerDidChange:(UIDatePicker *)picker {
+    
+    _sample.endDate = picker.date;
     
     [self drawDateRangeSelector];
 }

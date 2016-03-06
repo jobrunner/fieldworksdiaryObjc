@@ -31,8 +31,8 @@
     
     MKCoordinateRegion region;
     
-    region.center.latitude = [self.fieldtrip.latitude doubleValue]; // location.coordinate.latitude;
-    region.center.longitude = [self.fieldtrip.longitude doubleValue]; //  location.coordinate.longitude;
+    region.center.latitude = [self.sample.latitude doubleValue]; // location.coordinate.latitude;
+    region.center.longitude = [self.sample.longitude doubleValue]; //  location.coordinate.longitude;
     
     region.span.longitudeDelta = 0.01; // ca. 111km / 0.001° => 100m
     region.span.latitudeDelta = 0.01;  // ca. 111km / 0.001° => 100m
@@ -63,7 +63,7 @@
 
 - (void)addAnnotations {
     
-    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([self.fieldtrip.latitude doubleValue], [self.fieldtrip.longitude doubleValue]);
+    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([_sample.latitude doubleValue], [_sample.longitude doubleValue]);
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 
