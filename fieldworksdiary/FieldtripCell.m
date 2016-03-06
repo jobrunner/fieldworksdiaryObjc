@@ -13,7 +13,7 @@
 
 - (void)awakeFromNib {
 
-    //configure right buttons
+    //configure right swipe buttons
     self.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" // Delete, index = 1
                                                     icon:[UIImage imageNamed:@"trash"]
                                          backgroundColor:[UIColor redColor]
