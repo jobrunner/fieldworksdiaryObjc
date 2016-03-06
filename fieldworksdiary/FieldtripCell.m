@@ -9,6 +9,14 @@
 #import "FieldtripCell.h"
 #import "ActiveFieldtrip.h"
 
+@interface FieldtripCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beginEndLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *isActiveImageView;
+
+@end
+
 @implementation FieldtripCell
 
 - (void)awakeFromNib {
@@ -17,11 +25,11 @@
     self.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" // Delete, index = 1
                                                     icon:[UIImage imageNamed:@"trash"]
                                          backgroundColor:[UIColor redColor]
-                                                 padding:28],
+                                                 padding:kSwipeIconPadding],
                           [MGSwipeButton buttonWithTitle:@""  // Flag, index = 2
                                                     icon:[UIImage imageNamed:@"flag"]
                                          backgroundColor:[UIColor greenColor]
-                                                 padding:28]];
+                                                 padding:kSwipeIconPadding]];
     self.rightSwipeSettings.transition = MGSwipeTransitionBorder;
 }
 

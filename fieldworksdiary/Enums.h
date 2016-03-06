@@ -41,6 +41,10 @@ typedef enum SampleActionSheet : NSInteger {
     kSampleActionSheetMark = 300
 } SampleActionSheet;
 
+typedef enum SwipeIconPadding : NSInteger {
+    kSwipeIconPadding = 28
+} SwipeIconPadding;
+
 /*!
  *  UnitOfLength
  *
