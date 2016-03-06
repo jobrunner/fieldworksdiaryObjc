@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Fieldtrip-->
+        <!--Sample Details Controller-->
         <scene sceneID="e8v-Vz-qw1">
             <objects>
-                <tableViewController title="Fieldtrip" id="36l-ca-1Z2" customClass="SampleDetailsController" sceneMemberID="viewController">
+                <tableViewController id="36l-ca-1Z2" customClass="SampleDetailsController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="T3N-i7-k2j">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +309,7 @@ Breña Alta</string>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fkC-E7-6WT">
                             <connections>
                                 <action selector="editButtonTouched:" destination="36l-ca-1Z2" id="yzQ-Lm-J8E"/>
-                                <segue destination="5su-0c-hvt" kind="push" identifier="editFieldtripDetailsSegue" id="c73-GJ-X7Z"/>
+                                <segue destination="5su-0c-hvt" kind="push" identifier="editSampleSegue" id="c73-GJ-X7Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -861,7 +861,7 @@ Bei Eußenheim</string>
         <!--Fieldtrip-->
         <scene sceneID="58e-8M-Lcq">
             <objects>
-                <tableViewController id="5su-0c-hvt" customClass="FieldtripDetailsEditViewController" sceneMemberID="viewController">
+                <tableViewController id="5su-0c-hvt" customClass="SampleEditController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="y8D-Zd-UkE">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1281,7 +1281,7 @@ Bei Eußenheim</string>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giW-K5-o5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationItem title="Fieldtrip" id="E4N-uZ-T44">
+                <navigationItem id="E4N-uZ-T44">
                     <barButtonItem key="rightBarButtonItem" systemItem="save" id="eWe-Kf-zol"/>
                 </navigationItem>
             </objects>

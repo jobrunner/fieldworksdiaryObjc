@@ -39,7 +39,7 @@
 #import "FieldtripDetailsDateCell.h"
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
-#import "FieldtripDetailsEditViewController.h"
+#import "SampleEditController.h"
 #import "SpecimenMapController.h"
 
 #import "SampleDetailsFieldtripCell.h"
@@ -1475,9 +1475,9 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier] isEqualToString:@"editFieldtripDetailsSegue"]) {
+    if ([[segue identifier] isEqualToString:@"editSampleSegue"]) {
         
-        FieldtripDetailsEditViewController * controller = segue.destinationViewController;
+        SampleEditController * controller = segue.destinationViewController;
         controller.fieldtrip = self.fieldtrip;
     }
     

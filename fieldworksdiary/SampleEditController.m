@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
-#import "FieldtripDetailsEditViewController.h"
+#import "SampleEditController.h"
 
-@interface FieldtripDetailsEditViewController ()
+@interface SampleEditController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *localityNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *latituteTextField;
@@ -42,7 +42,7 @@
 
 @end
 
-@implementation FieldtripDetailsEditViewController
+@implementation SampleEditController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
