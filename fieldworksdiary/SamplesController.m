@@ -7,7 +7,7 @@
 //
 #import "AppDelegate.h"
 #import "SamplesController.h"
-#import "FieldtripDetailsViewController.h"
+#import "SampleDetailsController.h"
 #import "FieldtripTableViewCell.h"
 #import "MGSwipeTableCell.h"
 #import "Fieldtrip.h"
@@ -556,14 +556,13 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     
     if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
         
-        // will be SampleDetailsController
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
+        SampleDetailsController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
     
     if ([[segue identifier] isEqualToString:@"openSampleSegue"]) {
-        // will be SampleDetailsController
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
+
+        SampleDetailsController * controller = segue.destinationViewController;
         controller.fieldtrip = [(FieldtripTableViewCell *)sender fieldtrip];
     }
 }

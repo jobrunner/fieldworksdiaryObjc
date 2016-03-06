@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SamplesController.h"
-#import "FieldtripDetailsViewController.h"
+#import "SampleDetailsController.h"
 #import "ProjectTableViewController.h"
 #import "HomeController.h"
 #import "Fieldtrip.h"
@@ -265,14 +265,14 @@ UIView *headerView;
 
     // Prepare link to new sample
     if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
+        SampleDetailsController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
 
     // Prepare link to recent sample
     if ([[segue identifier] isEqualToString:@"openRecentSampleSegue"]) {
 
-        FieldtripDetailsViewController * controller = segue.destinationViewController;
+        SampleDetailsController * controller = segue.destinationViewController;
         controller.fieldtrip = self.recentFieldtrip;
     }
 

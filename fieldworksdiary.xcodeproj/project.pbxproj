@@ -39,7 +39,7 @@
 		24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFC19CB311F00D2D01C /* TextFieldCell.m */; };
 		24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */; };
 		24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0419CB312C00D2D01C /* HomeTableViewCell.m */; };
-		24249B1E19CB314C00D2D01C /* FieldtripDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */; };
+		24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* SampleDetailsController.m */; };
 		24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */; };
 		24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */; };
 		24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */; };
@@ -159,8 +159,8 @@
 		24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripTableViewCell.m; sourceTree = "<group>"; };
 		24249B0319CB312C00D2D01C /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		24249B0419CB312C00D2D01C /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
-		24249B0919CB314C00D2D01C /* FieldtripDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsViewController.h; sourceTree = "<group>"; };
-		24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsViewController.m; sourceTree = "<group>"; };
+		24249B0919CB314C00D2D01C /* SampleDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsController.h; sourceTree = "<group>"; };
+		24249B0A19CB314C00D2D01C /* SampleDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsController.m; sourceTree = "<group>"; };
 		24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsCellProtocol.h; sourceTree = "<group>"; };
 		24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationNameCell.h; sourceTree = "<group>"; };
 		24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationNameCell.m; sourceTree = "<group>"; };
@@ -285,8 +285,8 @@
 		24249B0819CB313700D2D01C /* Fieldtrip (Sample) */ = {
 			isa = PBXGroup;
 			children = (
-				24249B0919CB314C00D2D01C /* FieldtripDetailsViewController.h */,
-				24249B0A19CB314C00D2D01C /* FieldtripDetailsViewController.m */,
+				24249B0919CB314C00D2D01C /* SampleDetailsController.h */,
+				24249B0A19CB314C00D2D01C /* SampleDetailsController.m */,
 				24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */,
 				243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */,
 				243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */,
@@ -756,7 +756,7 @@
 				24AB3FC41C7EF08B0014AE95 /* SettingsController.m in Sources */,
 				243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */,
 				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
-				24249B1E19CB314C00D2D01C /* FieldtripDetailsViewController.m in Sources */,
+				24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */,
 				24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */,
 				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,
 				24AB3FD71C8624920014AE95 /* ActiveCollector.m in Sources */,

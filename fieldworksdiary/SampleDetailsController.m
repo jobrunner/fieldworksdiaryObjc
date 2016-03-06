@@ -23,7 +23,7 @@
 //    - notices about the locality (about location, excursion etc.)
 //
 
-#import "FieldtripDetailsViewController.h"
+#import "SampleDetailsController.h"
 #import "AppDelegate.h"
 #import "Enums.h"
 #import "LocationService.h"
@@ -50,7 +50,7 @@
 
 
 
-@interface FieldtripDetailsViewController ()
+@interface SampleDetailsController ()
 
 
 // die IBOutlets hängen noch alle an der Statischen View
@@ -103,7 +103,7 @@
 
 @end
 
-@implementation FieldtripDetailsViewController
+@implementation SampleDetailsController
 
 #pragma mark - IBActions
 
