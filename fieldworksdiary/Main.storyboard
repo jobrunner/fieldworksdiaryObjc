@@ -727,15 +727,15 @@ Breña Alta</string>
                         <outlet property="countOfMarkedSamples" destination="trW-lF-Wf0" id="Flm-Lb-M8L"/>
                         <outlet property="countOfPhotosLabel" destination="qQu-W2-6k6" id="cc0-Id-RZm"/>
                         <outlet property="countOfSamplesLabel" destination="zRU-dC-Pjd" id="54J-vi-VVd"/>
+                        <outlet property="fieldtripsCell" destination="oAQ-dy-J7t" id="bmc-n6-awb"/>
                         <outlet property="locationsCell" destination="1vc-az-gaI" id="03k-hh-5aB"/>
-                        <outlet property="peopleCell" destination="dwL-mb-gji" id="brH-ZW-TlF"/>
+                        <outlet property="markedSamplesCell" destination="dwL-mb-gji" id="0UA-Ms-oak"/>
                         <outlet property="photosCell" destination="hpa-06-4HV" id="ldB-PC-KoV"/>
                         <outlet property="recentSampleCell" destination="RbN-C2-C0h" id="OJA-85-mCd"/>
                         <outlet property="recentlyIdentifiersLabel" destination="qA3-1g-pEO" id="NPW-Le-G0j"/>
                         <outlet property="recentlyLocalityNameLabel" destination="fLd-Sm-Lpj" id="fHM-Pq-AtP"/>
                         <outlet property="samplesCell" destination="c6H-t3-O3Z" id="oqq-Gl-bAu"/>
                         <outlet property="settingsCell" destination="mJE-d4-KEk" id="4UM-xk-xkl"/>
-                        <outlet property="tagsCell" destination="dwL-mb-gji" id="Cmj-cu-M0u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcu-WB-3PG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1473,14 +1473,14 @@ Bei Eußenheim</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Copyright notices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ioY-5T-JvF">
-                                                    <rect key="frame" x="52" y="0.0" width="233" height="43.5"/>
+                                                    <rect key="frame" x="55" y="0.0" width="230" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="copyright" id="7ci-6P-ynu">
-                                                    <rect key="frame" x="15" y="10" width="22" height="22"/>
+                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -2072,10 +2072,10 @@ Bei Eußenheim</string>
     <resources>
         <image name="Add" width="140" height="137"/>
         <image name="calendar" width="25" height="25"/>
-        <image name="copyright" width="22" height="22"/>
+        <image name="copyright" width="25" height="25"/>
         <image name="daylight-day" width="75" height="75"/>
         <image name="daylight-night" width="75" height="75"/>
-        <image name="favorits-green" width="22" height="22"/>
+        <image name="favorits-green" width="25" height="25"/>
         <image name="gps-disabled" width="66" height="66"/>
         <image name="gps-off" width="66" height="66"/>
         <image name="gps-on" width="66" height="66"/>
