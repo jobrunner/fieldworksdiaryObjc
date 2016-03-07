@@ -1511,7 +1511,7 @@ Bei Eußenheim</string>
         <!--Fieldtrips-->
         <scene sceneID="xG4-g4-Xqj">
             <objects>
-                <tableViewController title="Fieldtrips" id="cDK-La-wXb" customClass="ProjectTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Fieldtrips" id="cDK-La-wXb" customClass="FieldtripsController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="redraw" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="thi-8C-7lI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2090,10 +2090,10 @@ Bei Eußenheim</string>
         <image name="sunset" width="46" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SFJ-4e-cRZ"/>
         <segue reference="4vc-GB-w8o"/>
-        <segue reference="bza-gT-Pnh"/>
+        <segue reference="VrU-Hp-GNr"/>
         <segue reference="R7Q-5z-IAZ"/>
+        <segue reference="bza-gT-Pnh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.015686274509803921" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jo Brunner. All rights reserved.
 //
 
-#import "ProjectTableViewController.h"
+#import "FieldtripsController.h"
 
 @interface SettingsController : UITableViewController <FieldtripPickerDelegate>
 

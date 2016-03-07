@@ -12,7 +12,7 @@
 
 @protocol FieldtripPickerDelegate;
 
-@interface ProjectTableViewController : UITableViewController <
+@interface FieldtripsController : UITableViewController <
     UITableViewDelegate,
     UITableViewDataSource,
     NSFetchedResultsControllerDelegate,
@@ -44,7 +44,7 @@
 
 @optional
 
-- (void)fieldtripPicker:(ProjectTableViewController *)picker
+- (void)fieldtripPicker:(FieldtripsController *)picker
      didSelectFieldtrip:(Project *)fieldtrip;
 
 @end

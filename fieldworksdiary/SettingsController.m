@@ -50,7 +50,7 @@
 
 #pragma mark - FieldtripPickerDelegate
 
-- (void)fieldtripPicker:(ProjectTableViewController *)picker
+- (void)fieldtripPicker:(FieldtripsController *)picker
      didSelectFieldtrip:(Project *)fieldtrip {
     
     [ActiveFieldtrip setActiveFieldtrip:fieldtrip];
@@ -71,14 +71,14 @@
     
     if ([[segue identifier] isEqualToString:@"FieldtripPickerSegue"]) {
         
-        ProjectTableViewController *controller = segue.destinationViewController;
+        FieldtripsController *controller = segue.destinationViewController;
         controller.delegate = self;
         controller.fieldtripUsage = kFieldtripUsagePicker;
     }
     
     if ([[segue identifier] isEqualToString:@"FieldtripTableViewSegue"]) {
         
-        ProjectTableViewController *controller = segue.destinationViewController;
+        FieldtripsController *controller = segue.destinationViewController;
         controller.delegate = nil;
         controller.fieldtripUsage = kFieldtripUsageDetails;
     }

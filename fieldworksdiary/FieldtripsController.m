@@ -3,24 +3,22 @@
 //  Fieldworksdiary
 //
 
-// Project ist eigentlich Fieldtrip... kann aber erst refactored werden, wenn fieldtrip zu sample refactored ist...
-
 #import "AppDelegate.h"
-#import "ProjectDetailsViewController.h"
-#import "ProjectTableViewController.h"
-#import "Project.h"
+#import "FieldtripsController.h"
 #import "FieldtripCell.h"
+#import "ProjectDetailsViewController.h"
 #import "SamplesController.h"
 #import "ActiveFieldtrip.h"
+#import "Project.h"
 
-@interface ProjectTableViewController ()
+@interface FieldtripsController ()
 
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
-@implementation ProjectTableViewController
+@implementation FieldtripsController
 
 #pragma mark - UIViewControllerDelegate
 

@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "SamplesController.h"
 #import "SampleDetailsController.h"
-#import "ProjectTableViewController.h"
+#import "FieldtripsController.h"
 #import "HomeController.h"
 #import "Fieldtrip.h"
 #import "ActiveFieldtrip.h"
@@ -248,7 +248,7 @@ UIView *headerView;
     // Prepare fieltrips > samples in fieldtrip
     if ([[segue identifier] isEqualToString:@"openFieldtripsSamplesSegue"]) {
         
-        ProjectTableViewController *controller = segue.destinationViewController;
+        FieldtripsController *controller = segue.destinationViewController;
         controller.fieldtripUsage = kFieldtripUsageSampleFilter;
     }
 }
