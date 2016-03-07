@@ -8,8 +8,7 @@
 #import "AppDelegate.h"
 #import "SamplesController.h"
 #import "SampleDetailsController.h"
-#import "FieldtripTableViewCell.h"
-#import "MGSwipeTableCell.h"
+#import "SampleCell.h"
 #import "Fieldtrip.h"
 #import "Placemark.h"
 
@@ -167,43 +166,42 @@ viewForHeaderInSection:(NSInteger)sectionIndex {
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellId = @"FieldtripCell";
-
-    FieldtripTableViewCell *cell;
+    static NSString *cellId = @"SampleCell";
     
-    cell = (FieldtripTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellId];
+    SampleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
-    if (cell == nil) {
-        cell = [[FieldtripTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                             reuseIdentifier:cellId];
+    if (!cell) {
+        [tableView registerNib:[UINib nibWithNibName:cellId
+                                              bundle:nil]
+        forCellReuseIdentifier:cellId];
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     }
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cell.fieldtrip = [self.searchResults objectAtIndex:indexPath.row];
-    } else {
-        cell.fieldtrip = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    }
-
-    //configure right buttons
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" // Delete, index = 1
-                                                    icon:[UIImage imageNamed:@"trash"]
-                                         backgroundColor:[UIColor redColor]
-                                                 padding:28],
-                          [MGSwipeButton buttonWithTitle:@""  // Mark, index = 2
-                                                    icon:[UIImage imageNamed:@"star"]
-                                         backgroundColor:[UIColor orangeColor]
-                                                 padding:28],
-                          [MGSwipeButton buttonWithTitle:@""  // More, index = 3
-                                                    icon:[UIImage imageNamed:@"mail"]
-                                         backgroundColor:[UIColor lightGrayColor]
-                                                 padding:28]];
-    cell.rightSwipeSettings.transition = MGSwipeTransitionBorder;
-    cell.delegate = self;
     
     return cell;
 }
 
-- (void)deleteSample:(FieldtripTableViewCell *)cell {
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(SampleCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Fieldtrip *sample;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        sample = [self.searchResults objectAtIndex:indexPath.row];
+    }
+    else {
+        sample = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    
+    [cell configureWithModel:sample
+                 atIndexPath:indexPath
+                withDelegate:self];
+}
+
+
+- (void)deleteSample:(SampleCell *)cell {
     
     void (^action)() = ^{
 
@@ -238,7 +236,7 @@ viewForHeaderInSection:(NSInteger)sectionIndex {
                      completion:nil];
 }
 
-- (BOOL)swipeTableCell:(FieldtripTableViewCell *)cell
+- (BOOL)swipeTableCell:(SampleCell *)cell
    tappedButtonAtIndex:(NSInteger)index
              direction:(MGSwipeDirection)direction
          fromExpansion:(BOOL)fromExpansion {
@@ -257,7 +255,7 @@ viewForHeaderInSection:(NSInteger)sectionIndex {
 
     if (direction == MGSwipeDirectionRightToLeft && index == 2) {
         // Send an email with sample data
-        [self sendMail:cell.fieldtrip];
+        [self sendMail:[self.fetchedResultsController objectAtIndexPath:cell.indexPath]];
     }
     
     return YES;
@@ -299,6 +297,15 @@ canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     return 70;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SampleCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    [self performSegueWithIdentifier:@"openSampleSegue"
+                              sender:cell];
 }
 
 #pragma mark - UISearchDisplayDelegate
@@ -552,7 +559,8 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
 
 #pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"createSampleSegue"]) {
         
@@ -563,7 +571,11 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     if ([[segue identifier] isEqualToString:@"openSampleSegue"]) {
 
         SampleDetailsController * controller = segue.destinationViewController;
-        controller.sample = [(FieldtripTableViewCell *)sender fieldtrip];
+
+        SampleCell *cell = sender;
+        Fieldtrip *sample = [self.fetchedResultsController objectAtIndexPath:cell.indexPath];
+        
+        controller.sample = sample;
     }
 }
 

@@ -37,7 +37,6 @@
 		24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AF619CB30DF00D2D01C /* TimeZoneTransformer.m */; };
 		24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFA19CB311F00D2D01C /* ImageViewCell.m */; };
 		24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFC19CB311F00D2D01C /* TextFieldCell.m */; };
-		24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */; };
 		24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0419CB312C00D2D01C /* HomeTableViewCell.m */; };
 		24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* SampleDetailsController.m */; };
 		24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */; };
@@ -71,6 +70,8 @@
 		24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDB1C8655CB0014AE95 /* DateUtility.m */; };
 		24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */; };
 		24AB3FE21C8B82C80014AE95 /* Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB3FE11C8B82C80014AE95 /* Formatter.m */; };
+		24AB401A1C8CF9250014AE95 /* SampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AB40181C8CF9250014AE95 /* SampleCell.m */; };
+		24AB401B1C8CF9250014AE95 /* SampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AB40191C8CF9250014AE95 /* SampleCell.xib */; };
 		24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E518F455AE00CC7105 /* Foundation.framework */; };
 		24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E718F455AE00CC7105 /* CoreGraphics.framework */; };
 		24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C389E918F455AE00CC7105 /* UIKit.framework */; };
@@ -155,8 +156,6 @@
 		24249AFA19CB311F00D2D01C /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
 		24249AFB19CB311F00D2D01C /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		24249AFC19CB311F00D2D01C /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
-		24249AFF19CB312C00D2D01C /* FieldtripTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripTableViewCell.h; sourceTree = "<group>"; };
-		24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripTableViewCell.m; sourceTree = "<group>"; };
 		24249B0319CB312C00D2D01C /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		24249B0419CB312C00D2D01C /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		24249B0919CB314C00D2D01C /* SampleDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsController.h; sourceTree = "<group>"; };
@@ -216,6 +215,9 @@
 		24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordStatistics.m; sourceTree = "<group>"; };
 		24AB3FE01C8B82C80014AE95 /* Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatter.h; sourceTree = "<group>"; };
 		24AB3FE11C8B82C80014AE95 /* Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formatter.m; sourceTree = "<group>"; };
+		24AB40171C8CF9250014AE95 /* SampleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleCell.h; sourceTree = "<group>"; };
+		24AB40181C8CF9250014AE95 /* SampleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleCell.m; sourceTree = "<group>"; };
+		24AB40191C8CF9250014AE95 /* SampleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleCell.xib; sourceTree = "<group>"; };
 		24C389E218F455AE00CC7105 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C389E518F455AE00CC7105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24C389E718F455AE00CC7105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -321,8 +323,9 @@
 			children = (
 				24249AAF19CB2F8700D2D01C /* SamplesController.h */,
 				24249AB019CB2F8700D2D01C /* SamplesController.m */,
-				24249AFF19CB312C00D2D01C /* FieldtripTableViewCell.h */,
-				24249B0019CB312C00D2D01C /* FieldtripTableViewCell.m */,
+				24AB40171C8CF9250014AE95 /* SampleCell.h */,
+				24AB40181C8CF9250014AE95 /* SampleCell.m */,
+				24AB40191C8CF9250014AE95 /* SampleCell.xib */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				24249AA719CAF83B00D2D01C /* Podfile in Resources */,
 				24249AA919CB266700D2D01C /* Main.storyboard in Resources */,
 				24249AA419CADD8500D2D01C /* before_script.sh in Resources */,
+				24AB401B1C8CF9250014AE95 /* SampleCell.xib in Resources */,
 				24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */,
 				24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */,
 				24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */,
@@ -743,7 +747,7 @@
 				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
 				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
 				24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */,
-				24249B0519CB312C00D2D01C /* FieldtripTableViewCell.m in Sources */,
+				24AB401A1C8CF9250014AE95 /* SampleCell.m in Sources */,
 				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
 				24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */,

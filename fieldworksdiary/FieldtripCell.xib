@@ -38,6 +38,7 @@
                 <outlet property="isActiveImageView" destination="y8f-i4-8sS" id="efw-3t-SOn"/>
                 <outlet property="nameLabel" destination="gHf-9h-KWQ" id="YsP-gs-3KM"/>
             </connections>
+            <point key="canvasLocation" x="250" y="185"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -2090,9 +2090,9 @@ Bei Eußenheim</string>
         <image name="sunset" width="46" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xOM-Qw-fOW"/>
         <segue reference="SFJ-4e-cRZ"/>
         <segue reference="4vc-GB-w8o"/>
+        <segue reference="bza-gT-Pnh"/>
         <segue reference="R7Q-5z-IAZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.015686274509803921" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
