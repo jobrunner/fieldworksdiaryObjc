@@ -1565,10 +1565,10 @@ Bei Eußenheim</string>
             </objects>
             <point key="canvasLocation" x="947" y="1585"/>
         </scene>
-        <!--Project Details View Controller-->
+        <!--Fieldtrip Details Controller-->
         <scene sceneID="FlD-qz-7tB">
             <objects>
-                <tableViewController id="hoD-Oo-fsb" customClass="ProjectDetailsViewController" sceneMemberID="viewController">
+                <tableViewController id="hoD-Oo-fsb" customClass="FieldtripDetailsController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="8" sectionFooterHeight="18" id="iA3-TQ-VfE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -2,11 +2,11 @@
 //  ProjectDetailsViewController.m
 //
 
-#import "ProjectDetailsViewController.h"
+#import "FieldtripDetailsController.h"
 #import "ActiveFieldtrip.h"
 #import "DateUtility.h"
 
-@interface ProjectDetailsViewController ()
+@interface FieldtripDetailsController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation ProjectDetailsViewController
+@implementation FieldtripDetailsController
 
 #pragma mark - UIViewControllerDelegate
 

@@ -6,7 +6,7 @@
 #import "AppDelegate.h"
 #import "FieldtripsController.h"
 #import "FieldtripCell.h"
-#import "ProjectDetailsViewController.h"
+#import "FieldtripDetailsController.h"
 #import "SamplesController.h"
 #import "ActiveFieldtrip.h"
 #import "Project.h"
@@ -429,12 +429,12 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
                  sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"createFieldtripSegue"]) {
-        ProjectDetailsViewController * controller = segue.destinationViewController;
+        FieldtripDetailsController * controller = segue.destinationViewController;
         controller.fieldtrip = nil;
     }
     
     if ([[segue identifier] isEqualToString:@"editFieldtripSegue"]) {
-        ProjectDetailsViewController * controller = segue.destinationViewController;
+        FieldtripDetailsController * controller = segue.destinationViewController;
         FieldtripCell *cell = (FieldtripCell *)sender;
         controller.fieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
     }

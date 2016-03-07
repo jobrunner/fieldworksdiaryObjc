@@ -11,7 +11,7 @@
 #import "StaticDataTableViewController.h"
 #import "Project.h"
 
-@interface ProjectDetailsViewController : StaticDataTableViewController <
+@interface FieldtripDetailsController : StaticDataTableViewController <
     UIAlertViewDelegate,
     UITextFieldDelegate,
     UITextViewDelegate>

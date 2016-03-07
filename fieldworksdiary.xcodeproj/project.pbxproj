@@ -17,7 +17,7 @@
 		24249AC219CB2F8800D2D01C /* SampleEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB419CB2F8700D2D01C /* SampleEditController.m */; };
 		24249AC319CB2F8800D2D01C /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB619CB2F8700D2D01C /* AboutController.m */; };
 		24249AC419CB2F8800D2D01C /* FieldtripsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AB819CB2F8800D2D01C /* FieldtripsController.m */; };
-		24249AC519CB2F8800D2D01C /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */; };
+		24249AC519CB2F8800D2D01C /* FieldtripDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABA19CB2F8800D2D01C /* FieldtripDetailsController.m */; };
 		24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */; };
 		24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ABE19CB2F8800D2D01C /* SpecimenDetailsTableViewController.m */; };
 		24249ACB19CB307000D2D01C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249ACA19CB307000D2D01C /* AppDelegate.m */; };
@@ -116,8 +116,8 @@
 		24249AB619CB2F8700D2D01C /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		24249AB719CB2F8800D2D01C /* FieldtripsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripsController.h; sourceTree = "<group>"; };
 		24249AB819CB2F8800D2D01C /* FieldtripsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripsController.m; sourceTree = "<group>"; };
-		24249AB919CB2F8800D2D01C /* ProjectDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsViewController.h; sourceTree = "<group>"; };
-		24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailsViewController.m; sourceTree = "<group>"; };
+		24249AB919CB2F8800D2D01C /* FieldtripDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsController.h; sourceTree = "<group>"; };
+		24249ABA19CB2F8800D2D01C /* FieldtripDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsController.m; sourceTree = "<group>"; };
 		24249ABB19CB2F8800D2D01C /* SpecimenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecimenTableViewController.h; sourceTree = "<group>"; };
 		24249ABC19CB2F8800D2D01C /* SpecimenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecimenTableViewController.m; sourceTree = "<group>"; };
 		24249ABD19CB2F8800D2D01C /* SpecimenDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecimenDetailsTableViewController.h; sourceTree = "<group>"; };
@@ -355,7 +355,7 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		24249B3019CB4FE800D2D01C /* Projects (Fieldtrip) */ = {
+		24249B3019CB4FE800D2D01C /* Fieldtrips */ = {
 			isa = PBXGroup;
 			children = (
 				24249AB719CB2F8800D2D01C /* FieldtripsController.h */,
@@ -364,16 +364,16 @@
 				24AB3FCE1C8350350014AE95 /* FieldtripCell.m */,
 				24AB3FCF1C8350350014AE95 /* FieldtripCell.xib */,
 			);
-			name = "Projects (Fieldtrip)";
+			name = Fieldtrips;
 			sourceTree = "<group>";
 		};
-		24249B3119CB500000D2D01C /* Project */ = {
+		24249B3119CB500000D2D01C /* Fieldtrip */ = {
 			isa = PBXGroup;
 			children = (
-				24249AB919CB2F8800D2D01C /* ProjectDetailsViewController.h */,
-				24249ABA19CB2F8800D2D01C /* ProjectDetailsViewController.m */,
+				24249AB919CB2F8800D2D01C /* FieldtripDetailsController.h */,
+				24249ABA19CB2F8800D2D01C /* FieldtripDetailsController.m */,
 			);
-			name = Project;
+			name = Fieldtrip;
 			sourceTree = "<group>";
 		};
 		24290E0A19013BFF007BD8AF /* infra */ = {
@@ -546,8 +546,8 @@
 				24249B2C19CB4F3B00D2D01C /* Samples */,
 				24249B0819CB313700D2D01C /* SampleDetails */,
 				24AB401C1C8D0B130014AE95 /* Map */,
-				24249B3019CB4FE800D2D01C /* Projects (Fieldtrip) */,
-				24249B3119CB500000D2D01C /* Project */,
+				24249B3019CB4FE800D2D01C /* Fieldtrips */,
+				24249B3119CB500000D2D01C /* Fieldtrip */,
 				24AB401D1C8D0B410014AE95 /* Specimen */,
 				24AB3FC91C83248D0014AE95 /* Settings */,
 				24AB401E1C8D0B510014AE95 /* Navigation */,
@@ -767,7 +767,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24249AC519CB2F8800D2D01C /* ProjectDetailsViewController.m in Sources */,
+				24249AC519CB2F8800D2D01C /* FieldtripDetailsController.m in Sources */,
 				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
 				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
 				24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */,
