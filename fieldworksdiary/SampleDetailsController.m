@@ -549,6 +549,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if (indexPath.section == 0) {
 
         // specimen identifier text field (exc. number)
+        // @todo: Refactor
         if (indexPath.row == 0) {
         
             FieldtripDetailsSpecimenIdentifierCell *cell;
@@ -560,6 +561,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // location identifier text field (location number)
+        // @todo: Refactor
         if (indexPath.row == 1) {
 
             FieldtripDetailsLocalityIdentifierCell *cell;
@@ -571,6 +573,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
         
         // locationName text field
+        // @todo: Refactor
         if (indexPath.row == 2) {
 
             FieldtripDetailsLocationNameCell *cell;
@@ -582,6 +585,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
         
         // spceimenNotes text view
+        // @todo: Refactor
         if (indexPath.row == 3) {
             
             FieldtripDetailsSpecimenNotesCell *cell;
@@ -593,6 +597,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // location view
+        // @todo: Refactor
         if (indexPath.row == 4) {
             
             FieldtripDetailsLocationCell *cell;
@@ -605,6 +610,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
         
         // placemark view
+        // @todo: Refactor
         if (indexPath.row == 5) {
             
             FieldtripDetailsPlacemarkCell *cell;
@@ -617,6 +623,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // date view
+        // @todo: Refactor
         if (indexPath.row == 6) {
             
             FieldtripDetailsDateCell *cell;
@@ -628,7 +635,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             return cell;
         }
 
-        // project view
+        // project view.
         if (indexPath.row == 7) {
             
             SampleDetailsFieldtripCell *cell;
@@ -640,6 +647,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
         
         // Image Map
+        // @todo: Refactor
         if (indexPath.row == 8) {
 
             FieldtripDetailsMapViewCell *cell;

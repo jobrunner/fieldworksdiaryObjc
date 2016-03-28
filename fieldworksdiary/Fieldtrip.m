@@ -224,6 +224,7 @@
     self.horizontalAccuracy = [NSNumber numberWithDouble:location.horizontalAccuracy];
 }
 
+// more defaults will be added in the feature
 - (void)defaultsWithLocalityName:(NSString *)localityName {
     
     Project *fieldtrip = [ActiveFieldtrip activeFieldtrip];
@@ -243,6 +244,7 @@
         self.beginDate = [NSDate date];
     }
     else {
+        // Only for testing purposes
         int x = (arc4random() % (365 * 2)) - 365;
         self.beginDate = [[NSDate date] dateByAddingTimeInterval:60.0 * 60.0 * 24.0 * (double)x];
     }
