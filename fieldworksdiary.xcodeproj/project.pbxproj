@@ -40,9 +40,9 @@
 		24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0419CB312C00D2D01C /* HomeTableViewCell.m */; };
 		24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* SampleDetailsController.m */; };
 		24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */; };
-		24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */; };
+		24249B2019CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */; };
 		24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */; };
-		24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */; };
+		24249B2219CB314C00D2D01C /* SampleDetailsPlacemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1319CB314C00D2D01C /* SampleDetailsPlacemarkCell.m */; };
 		24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */; };
 		24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */; };
 		24249B2619CB314C00D2D01C /* SampleDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */; };
@@ -167,12 +167,12 @@
 		24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsCellProtocol.h; sourceTree = "<group>"; };
 		24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationNameCell.h; sourceTree = "<group>"; };
 		24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationNameCell.m; sourceTree = "<group>"; };
-		24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSpecimenIdentifierCell.h; sourceTree = "<group>"; };
-		24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSpecimenIdentifierCell.m; sourceTree = "<group>"; };
+		24249B0E19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsSpecimenIdentifierCell.h; sourceTree = "<group>"; };
+		24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsSpecimenIdentifierCell.m; sourceTree = "<group>"; };
 		24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationCell.h; sourceTree = "<group>"; };
 		24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationCell.m; sourceTree = "<group>"; };
-		24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsPlacemarkCell.h; sourceTree = "<group>"; };
-		24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsPlacemarkCell.m; sourceTree = "<group>"; };
+		24249B1219CB314C00D2D01C /* SampleDetailsPlacemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsPlacemarkCell.h; sourceTree = "<group>"; };
+		24249B1319CB314C00D2D01C /* SampleDetailsPlacemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsPlacemarkCell.m; sourceTree = "<group>"; };
 		24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsMapViewCell.h; sourceTree = "<group>"; };
 		24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsMapViewCell.m; sourceTree = "<group>"; };
 		24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSunriseSunsetCell.h; sourceTree = "<group>"; };
@@ -306,16 +306,16 @@
 				24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */,
 				243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */,
 				243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */,
-				24249B0E19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.h */,
-				24249B0F19CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m */,
+				24249B0E19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.h */,
+				24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */,
 				24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */,
 				24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */,
 				24249B3D19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.h */,
 				24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */,
 				24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */,
 				24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */,
-				24249B1219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.h */,
-				24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */,
+				24249B1219CB314C00D2D01C /* SampleDetailsPlacemarkCell.h */,
+				24249B1319CB314C00D2D01C /* SampleDetailsPlacemarkCell.m */,
 				24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */,
 				24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */,
 				24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */,
@@ -814,7 +814,7 @@
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
 				24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */,
 				24249AC319CB2F8800D2D01C /* AboutController.m in Sources */,
-				24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */,
+				24249B2219CB314C00D2D01C /* SampleDetailsPlacemarkCell.m in Sources */,
 				24C389FC18F455AE00CC7105 /* TestDummyViewController.m in Sources */,
 				24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */,
 				24AB3FD01C8350350014AE95 /* FieldtripCell.m in Sources */,
@@ -835,7 +835,7 @@
 				24249B3419CB608D00D2D01C /* MapController.m in Sources */,
 				24249AAC19CB2F2900D2D01C /* NavigationController.m in Sources */,
 				24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */,
-				24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */,
+				24249B2019CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m in Sources */,
 				24249AEE19CB30B800D2D01C /* Project.m in Sources */,
 				2433605B1CA8A50C00295FFA /* TimeZonePickerCell.m in Sources */,
 				24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */,

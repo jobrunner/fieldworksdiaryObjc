@@ -1,7 +1,7 @@
-#import "FieldtripDetailsSpecimenIdentifierCell.h"
+#import "SampleDetailsSpecimenIdentifierCell.h"
 #import "Fieldtrip.h"
 
-@implementation FieldtripDetailsSpecimenIdentifierCell
+@implementation SampleDetailsSpecimenIdentifierCell
 
 @synthesize fieldtrip = _fieldtrip;
 
@@ -47,18 +47,18 @@
 }
 
 
-- (NSString *)reuseIdentifier
-{
-    return [FieldtripDetailsSpecimenIdentifierCell reuseIdentifier];
-}
+//- (NSString *)reuseIdentifier
+//{
+//    return [FieldtripDetailsSpecimenIdentifierCell reuseIdentifier];
+//}
 
 
-+ (NSString *)reuseIdentifier
-{
-    static NSString *identifier = @"FieldtripDetailsSpecimenIdentifierCell";
-    
-    return identifier;
-}
+//+ (NSString *)reuseIdentifier
+//{
+//    static NSString *identifier = @"FieldtripDetailsSpecimenIdentifierCell";
+//    
+//    return identifier;
+//}
 
 
 #pragma mark - IBActions -

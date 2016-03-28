@@ -1,16 +1,13 @@
-#import "FieldtripDetailsCellProtocol.h"
-
 
 @class Fieldtrip;
 @class MKNetworkOperation;
 
-@interface FieldtripDetailsPlacemarkCell : UITableViewCell <FieldtripDetailsCellProtocol>
+@interface SampleDetailsPlacemarkCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *countryAndAdministrativeAreaLabel;
 
 @property (strong, nonatomic) MKNetworkOperation *geocoderOperation;
 
-+ (NSString *)reuseIdentifier;
 - (void)setFieldtrip:(Fieldtrip *)fieldtrip;
 - (Fieldtrip *)fieldtrip;
 

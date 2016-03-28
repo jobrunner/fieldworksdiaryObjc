@@ -1,8 +1,6 @@
-#import "FieldtripDetailsCellProtocol.h"
-
 @class Fieldtrip;
 
-@interface FieldtripDetailsSpecimenIdentifierCell : UITableViewCell <FieldtripDetailsCellProtocol, UITextFieldDelegate>
+@interface SampleDetailsSpecimenIdentifierCell : UITableViewCell <UITextFieldDelegate>
 
 @property (strong, nonatomic) Fieldtrip *fieldtrip;
 
@@ -10,7 +8,7 @@
 
 - (IBAction)specimenIdentifierTextFieldEditingDidEnd:(UITextField *)sender;
 
-+ (NSString *)reuseIdentifier;
+// + (NSString *)reuseIdentifier;
 //- (void)setFieldtrip:(Fieldtrip *)fieldtrip;
 //- (Fieldtrip *)fieldtrip;
 

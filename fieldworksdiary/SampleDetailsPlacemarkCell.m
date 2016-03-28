@@ -1,26 +1,30 @@
 @import CoreLocation;
 
-#import "FieldtripDetailsPlacemarkCell.h"
+#import "SampleDetailsPlacemarkCell.h"
 #import "Fieldtrip.h"
 #import "Placemark.h"
 #import "AppDelegate.h"
 #import "GoogleGeocoder.h"
 
+@interface SampleDetailsPlacemarkCell()
 
+@property (nonatomic, strong) Fieldtrip *fieldtrip;
 
-@implementation FieldtripDetailsPlacemarkCell
+@end
+
+@implementation SampleDetailsPlacemarkCell
 
 @synthesize fieldtrip = _fieldtrip;
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+//{
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if (self) {
+//        // Initialization code
+//    }
+//    return self;
+//}
 
 - (void)awakeFromNib
 {
@@ -35,18 +39,29 @@
                                                object:nil];
 }
 
+//- (void)configureWithModel:(NSManagedObject *)managedObject
+//               atIndexPath:(NSIndexPath *)indexPath {
+//    
+//    _indexPath = indexPath;
+//    
+//    Fieldtrip *sample = (Fieldtrip *)[managedObject valueForKey:@"Fieldtrip"];
+//
+//    _countryAndAdministrativeAreaLabel.text = [Placemark stringFromPlacemark:fieldtrip.placemark];
+//}
+
+
 #pragma mark - FieldtripDetailsCellProtocol -
 
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip
-{
+- (void)setFieldtrip:(Fieldtrip *)fieldtrip {
+    
     _fieldtrip = fieldtrip;
     
     [self updateUserInterface];
 }
 
 
-- (Fieldtrip *)fieldtrip
-{
+- (Fieldtrip *)fieldtrip {
+    
     return _fieldtrip;
 }
 
@@ -56,24 +71,24 @@
     _countryAndAdministrativeAreaLabel.text = [Placemark stringFromPlacemark:[self.fieldtrip placemark]];
 }
 
-- (NSString *)reuseIdentifier
-{
-    return [FieldtripDetailsPlacemarkCell reuseIdentifier];
-}
+//- (NSString *)reuseIdentifier
+//{
+//    return [FieldtripDetailsPlacemarkCell reuseIdentifier];
+//}
 
 
-+ (NSString *)reuseIdentifier
-{
-    static NSString *identifier = @"FieldtripDetailsPlacemarkCell";
-    
-    return identifier;
-}
+//+ (NSString *)reuseIdentifier
+//{
+//    static NSString *identifier = @"FieldtripDetailsPlacemarkCell";
+//    
+//    return identifier;
+//}
 
 #pragma mark - Geocoding -
 
 
-- (NSDictionary *)locationDictFromResponseJSON:(NSDictionary *)responseJSON
-{
+- (NSDictionary *)locationDictFromResponseJSON:(NSDictionary *)responseJSON {
+    
     //    NSDate *responseDate  = [NSDate date];
     //    NSNumber *timestamp   = [NSNumber numberWithLong:[responseDate timeIntervalSince1970]];
     NSDictionary* results = [responseJSON objectForKey:@"results"];
@@ -118,8 +133,8 @@
 
 
 // will be called when location update notification raised
-- (void)reverseGeocodeLocationGoogle
-{
+- (void)reverseGeocodeLocationGoogle {
+    
     NSLog(@"reverseGeocodeLocation in Placemark Cell");
     NSLog(@"location: %@", _fieldtrip.location);
     
@@ -203,33 +218,32 @@
      }];
 }
 
-- (void)reverseGeocodeLocation
-{
+- (void)reverseGeocodeLocation {
+    
     // CoreLocation Geocoding
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
     [geocoder reverseGeocodeLocation:[self.fieldtrip location]
-                   completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         if (placemarks.count) {
-             NSLog(@"Locality reverse coded and found. %@", self);
+                   completionHandler:^(NSArray *placemarks, NSError *error) {
+                       
+                       if (placemarks.count) {
+//                           NSLog(@"Locality reverse coded and found. %@", self);
              
-             CLPlacemark * placemark = [placemarks lastObject];
+                           CLPlacemark * placemark = [placemarks lastObject];
              
-             self.fieldtrip.placemark = [[Placemark alloc] initWithPlacemark:placemark];
+                           self.fieldtrip.placemark = [[Placemark alloc] initWithPlacemark:placemark];
              
-             //             [self.fieldtrip setPlacemark:[[Placemark alloc] initWithPlacemark:placemark]];
-             
-             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkUpdate
+                           [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkUpdate
                                                                  object:self];
-         } else {
-             [self.fieldtrip setPlacemark:nil];
+                       }
+                       else {
+                           self.fieldtrip.placemark = nil;
              
-             // we will post a 'Not Found' notification to NotificationCenter if an address wasn't found
-             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkFailure
+                           // we will post a 'Not Found' notification to NotificationCenter if an address wasn't found
+                           [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkFailure
                                                                  object:self];
-         }
-     }];
+                       }
+                   }];
 }
 
 @end

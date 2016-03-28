@@ -32,11 +32,11 @@
 
 // cell classes
 #import "FieldtripDetailsLocalityIdentifierCell.h"
-#import "FieldtripDetailsSpecimenIdentifierCell.h"
+#import "SampleDetailsSpecimenIdentifierCell.h"
 #import "FieldtripDetailsSpecimenNotesCell.h"
 #import "FieldtripDetailsLocationNameCell.h"
 #import "FieldtripDetailsLocationCell.h"
-#import "FieldtripDetailsPlacemarkCell.h"
+#import "SampleDetailsPlacemarkCell.h"
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 
@@ -553,8 +553,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // @todo: Refactor
         if (indexPath.row == 0) {
         
-            FieldtripDetailsSpecimenIdentifierCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenIdentifierCell reuseIdentifier]
+            SampleDetailsSpecimenIdentifierCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsSpecimenIdentifierCell"
                                                    forIndexPath:indexPath];
             cell.fieldtrip = _sample;
             
@@ -614,11 +614,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // @todo: Refactor
         if (indexPath.row == 5) {
             
-            FieldtripDetailsPlacemarkCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsPlacemarkCell reuseIdentifier]
+            SampleDetailsPlacemarkCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsPlacemarkCell"
                                                    forIndexPath:indexPath];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
             cell.fieldtrip = _sample;
+//            [cell configureWithModel:_sample
+//                         atIndexPath:indexPath];
             
             return cell;
         }
@@ -636,9 +638,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
             [cell configureWithModel:_sample
                          atIndexPath:indexPath];
-   
-
-            
             return cell;
         }
 
@@ -683,6 +682,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     return dummyCell;
 }
+
 
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section {
