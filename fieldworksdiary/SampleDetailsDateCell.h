@@ -1,8 +1,8 @@
-#import "FieldtripDetailsCellProtocol.h"
+// #import "SampleDetailsCellProtocol.h"
 
-@class Fieldtrip;
+// @class Fieldtrip;
 
-@interface FieldtripDetailsDateCell : UITableViewCell <FieldtripDetailsCellProtocol>
+@interface SampleDetailsDateCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *dayNightStatusImageView;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateLabel;
@@ -12,10 +12,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sunriseImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *sunsetImageView;
 
-@property (nonatomic, strong) Fieldtrip * fieldtrip;
+@property (nonatomic, readonly) NSIndexPath *indexPath;
 
-+ (NSString *)reuseIdentifier;
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip;
-- (Fieldtrip *)fieldtrip;
+// @property (nonatomic, strong) Fieldtrip * fieldtrip;
 
+//+ (NSString *)reuseIdentifier;
+//- (void)setFieldtrip:(Fieldtrip *)fieldtrip;
+//- (Fieldtrip *)fieldtrip;
+
+- (void)configureWithModel:(NSManagedObject *)managedObject
+               atIndexPath:(NSIndexPath *)indexPath;
 @end

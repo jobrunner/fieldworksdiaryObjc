@@ -6,15 +6,18 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "Conversion.h"
-#import "Fieldtrip.h"
+@class Fieldtrip;
+
+#import "FieldtripsController.h"
 #import "StaticDataTableViewController.h"
+#import "TimeZonePickerController.h"
 
 // for subclassing of StaticDataTableViewController see https://github.com/xelvenone/StaticDataTableViewController
 
 @interface SampleEditController : StaticDataTableViewController <
-    UITextViewDelegate>
+    UITextViewDelegate,
+    FieldtripPickerDelegate,
+    TimeZonePickerDelegate>
 
 @property (strong, nonatomic) Fieldtrip * sample;
 

@@ -9,6 +9,7 @@
 #import "TimeZoneTransformer.h"
 #import "Placemark.h"
 #import "ActiveFieldtrip.h"
+#import "ActiveDateSetting.h"
 
 
 @implementation Fieldtrip
@@ -238,7 +239,9 @@
                        fieldtrip:(Project *)fieldtrip {
     
     self.localityName = localityName;
-    self.localityIdentifier = nil;
+    self.localityIdentifier = fieldtrip.locationPrefix;
+    
+    // self.localityIdentifier = nil;
     
     if (YES) {
         self.beginDate = [NSDate date];
@@ -253,9 +256,9 @@
     self.endDate = [self.beginDate dateByAddingTimeInterval:60.0 * 60.0];
     
     // Standard: Keine Zeitintervall (anzeigen).
-    self.isFullTime = @NO;
+    self.isFullTime = @([ActiveDateSetting isActiveAllday]);
     self.isMarked = @NO;
-    self.timeZone = [NSTimeZone systemTimeZone];
+    self.timeZone = nil; // [NSTimeZone systemTimeZone];
     self.latitude = nil;
     self.longitude = nil;
     self.horizontalAccuracy = nil;

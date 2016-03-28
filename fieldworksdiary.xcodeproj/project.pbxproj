@@ -45,7 +45,7 @@
 		24249B2219CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1319CB314C00D2D01C /* FieldtripDetailsPlacemarkCell.m */; };
 		24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */; };
 		24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */; };
-		24249B2619CB314C00D2D01C /* FieldtripDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */; };
+		24249B2619CB314C00D2D01C /* SampleDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */; };
 		24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */; };
 		24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2819CB32D900D2D01C /* FO-1.gpx */; };
 		24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2919CB32D900D2D01C /* FO-2.gpx */; };
@@ -55,6 +55,10 @@
 		24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
+		2433604C1CA7F52900295FFA /* ActiveDateSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433604B1CA7F52900295FFA /* ActiveDateSetting.m */; };
+		243360571CA8A03A00295FFA /* TimeZonePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360561CA8A03A00295FFA /* TimeZonePickerController.m */; };
+		2433605B1CA8A50C00295FFA /* TimeZonePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360591CA8A50C00295FFA /* TimeZonePickerCell.m */; };
+		2433605C1CA8A50C00295FFA /* TimeZonePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2433605A1CA8A50C00295FFA /* TimeZonePickerCell.xib */; };
 		243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */; };
 		24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */; };
 		24A05E651C728CE000DD6458 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A05E641C728CE000DD6458 /* libPods.a */; };
@@ -173,8 +177,8 @@
 		24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsMapViewCell.m; sourceTree = "<group>"; };
 		24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSunriseSunsetCell.h; sourceTree = "<group>"; };
 		24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSunriseSunsetCell.m; sourceTree = "<group>"; };
-		24249B1A19CB314C00D2D01C /* FieldtripDetailsDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsDateCell.h; sourceTree = "<group>"; };
-		24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsDateCell.m; sourceTree = "<group>"; };
+		24249B1A19CB314C00D2D01C /* SampleDetailsDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsDateCell.h; sourceTree = "<group>"; };
+		24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsDateCell.m; sourceTree = "<group>"; };
 		24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsFieldtripCell.h; sourceTree = "<group>"; };
 		24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsFieldtripCell.m; sourceTree = "<group>"; };
 		24249B2819CB32D900D2D01C /* FO-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FO-1.gpx"; sourceTree = "<group>"; };
@@ -188,9 +192,15 @@
 		24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		2433604A1CA7F52900295FFA /* ActiveDateSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveDateSetting.h; sourceTree = "<group>"; };
+		2433604B1CA7F52900295FFA /* ActiveDateSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveDateSetting.m; sourceTree = "<group>"; };
+		243360551CA8A03A00295FFA /* TimeZonePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZonePickerController.h; sourceTree = "<group>"; };
+		243360561CA8A03A00295FFA /* TimeZonePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZonePickerController.m; sourceTree = "<group>"; };
+		243360581CA8A50C00295FFA /* TimeZonePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZonePickerCell.h; sourceTree = "<group>"; };
+		243360591CA8A50C00295FFA /* TimeZonePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZonePickerCell.m; sourceTree = "<group>"; };
+		2433605A1CA8A50C00295FFA /* TimeZonePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeZonePickerCell.xib; sourceTree = "<group>"; };
 		243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocalityIdentifierCell.h; sourceTree = "<group>"; };
 		243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocalityIdentifierCell.m; sourceTree = "<group>"; };
-		243C53AB50E74777B0E1813B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitPlacemarkTests.m; sourceTree = "<group>"; };
 		24A05E621C728AB500DD6458 /* libPods-EDSunriseSet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EDSunriseSet.a"; path = "Pods/build/Debug-iphoneos/libPods-EDSunriseSet.a"; sourceTree = "<group>"; };
 		24A05E641C728CE000DD6458 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -235,6 +245,8 @@
 		24C38A0E18F455AF00CC7105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24C38A1A18F463DB00CC7105 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24C38A1C18F4642A00CC7105 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C21C81E668D2D8C7EDA71C54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EA878365A3B396BD59C26EC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,8 +320,8 @@
 				24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */,
 				24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */,
 				24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */,
-				24249B1A19CB314C00D2D01C /* FieldtripDetailsDateCell.h */,
-				24249B1B19CB314C00D2D01C /* FieldtripDetailsDateCell.m */,
+				24249B1A19CB314C00D2D01C /* SampleDetailsDateCell.h */,
+				24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */,
 				24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */,
 				24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */,
 			);
@@ -388,6 +400,18 @@
 			name = infra;
 			sourceTree = "<group>";
 		};
+		243360541CA8A01300295FFA /* TimeZones */ = {
+			isa = PBXGroup;
+			children = (
+				243360551CA8A03A00295FFA /* TimeZonePickerController.h */,
+				243360561CA8A03A00295FFA /* TimeZonePickerController.m */,
+				243360581CA8A50C00295FFA /* TimeZonePickerCell.h */,
+				243360591CA8A50C00295FFA /* TimeZonePickerCell.m */,
+				2433605A1CA8A50C00295FFA /* TimeZonePickerCell.xib */,
+			);
+			name = TimeZones;
+			sourceTree = "<group>";
+		};
 		24A7608618F488AF00DA9695 /* MockClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,7 +468,7 @@
 				24C38A0A18F455AF00CC7105 /* Tests */,
 				24C389E418F455AE00CC7105 /* Frameworks */,
 				24C389E318F455AE00CC7105 /* Products */,
-				243C53AB50E74777B0E1813B /* Pods.xcconfig */,
+				34B84882D9891308EC3FC525 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -542,6 +566,7 @@
 		24C38A1F18F46AFD00CC7105 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				243360541CA8A01300295FFA /* TimeZones */,
 				24249B2F19CB4FAE00D2D01C /* Home */,
 				24249B2C19CB4F3B00D2D01C /* Samples */,
 				24249B0819CB313700D2D01C /* SampleDetails */,
@@ -605,6 +630,8 @@
 				24AB3FDE1C8670E00014AE95 /* RecordStatistics.m */,
 				24AB3FE01C8B82C80014AE95 /* Formatter.h */,
 				24AB3FE11C8B82C80014AE95 /* Formatter.m */,
+				2433604A1CA7F52900295FFA /* ActiveDateSetting.h */,
+				2433604B1CA7F52900295FFA /* ActiveDateSetting.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -615,6 +642,15 @@
 				24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */,
 			);
 			name = ControllerTests;
+			sourceTree = "<group>";
+		};
+		34B84882D9891308EC3FC525 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA878365A3B396BD59C26EC6 /* Pods.debug.xcconfig */,
+				C21C81E668D2D8C7EDA71C54 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -713,6 +749,7 @@
 				24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */,
 				24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */,
 				24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */,
+				2433605C1CA8A50C00295FFA /* TimeZonePickerCell.xib in Resources */,
 				24AB3FD11C8350350014AE95 /* FieldtripCell.xib in Resources */,
 				24249B3619CC543700D2D01C /* README.md in Resources */,
 				24249AA519CADD8500D2D01C /* script.sh in Resources */,
@@ -757,7 +794,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -769,6 +806,7 @@
 			files = (
 				24249AC519CB2F8800D2D01C /* FieldtripDetailsController.m in Sources */,
 				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
+				243360571CA8A03A00295FFA /* TimeZonePickerController.m in Sources */,
 				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
 				24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */,
 				24AB401A1C8CF9250014AE95 /* SampleCell.m in Sources */,
@@ -784,6 +822,7 @@
 				24AB3FC41C7EF08B0014AE95 /* SettingsController.m in Sources */,
 				243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */,
 				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
+				2433604C1CA7F52900295FFA /* ActiveDateSetting.m in Sources */,
 				24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */,
 				24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */,
 				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,
@@ -798,6 +837,7 @@
 				24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */,
 				24249B2019CB314C00D2D01C /* FieldtripDetailsSpecimenIdentifierCell.m in Sources */,
 				24249AEE19CB30B800D2D01C /* Project.m in Sources */,
+				2433605B1CA8A50C00295FFA /* TimeZonePickerCell.m in Sources */,
 				24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */,
 				24249AF019CB30B800D2D01C /* CollectingMethod.m in Sources */,
 				24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */,
@@ -805,7 +845,7 @@
 				24249ABF19CB2F8800D2D01C /* HomeController.m in Sources */,
 				24249AF219CB30B800D2D01C /* Finding.m in Sources */,
 				24249ACB19CB307000D2D01C /* AppDelegate.m in Sources */,
-				24249B2619CB314C00D2D01C /* FieldtripDetailsDateCell.m in Sources */,
+				24249B2619CB314C00D2D01C /* SampleDetailsDateCell.m in Sources */,
 				24249AF319CB30B800D2D01C /* Collection.m in Sources */,
 				24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */,
 				24249AF419CB30B800D2D01C /* Placemark.m in Sources */,
@@ -936,7 +976,7 @@
 		};
 		24C38A1518F455AF00CC7105 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243C53AB50E74777B0E1813B /* Pods.xcconfig */;
+			baseConfigurationReference = EA878365A3B396BD59C26EC6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -956,7 +996,7 @@
 		};
 		24C38A1618F455AF00CC7105 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243C53AB50E74777B0E1813B /* Pods.xcconfig */;
+			baseConfigurationReference = C21C81E668D2D8C7EDA71C54 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -976,7 +1016,6 @@
 		};
 		24C38A1818F455AF00CC7105 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243C53AB50E74777B0E1813B /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				ENABLE_TESTABILITY = YES;

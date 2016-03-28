@@ -6,13 +6,26 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
+#import "Conversion.h"
+#import "Fieldtrip.h"
+#import "Project.h"
+#import "AppDelegate.h"
 #import "SampleEditController.h"
+#import "ActiveDateSetting.h"
+#import "DateUtility.h"
+#import "FieldtripsController.h"
+#import "TimeZonePickerController.h"
 
 @interface SampleEditController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *sampleIdentifierTextField;
+@property (weak, nonatomic) IBOutlet UITextField *localityIdentifierTextField;
 @property (weak, nonatomic) IBOutlet UITextField *localityNameTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *coordinateSystemLabel;
 @property (weak, nonatomic) IBOutlet UITextField *latituteTextField;
 @property (weak, nonatomic) IBOutlet UITextField *longituteTextField;
+
 @property (weak, nonatomic) IBOutlet UITextField *altitudeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
 @property (weak, nonatomic) IBOutlet UITextField *administrativeAreaTextField;
@@ -21,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *administrativeSubLocalityTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *alldayDateLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *alldayDateSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *alldaySwitch;
 @property (weak, nonatomic) IBOutlet UITableViewCell *beginDateCell;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beginDateLabel;
@@ -32,30 +45,72 @@
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 @property (weak, nonatomic) IBOutlet UITableViewCell *endDatePickerCell;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
+@property (weak, nonatomic) IBOutlet UITableViewCell *timeZoneCell;
+@property (weak, nonatomic) IBOutlet UILabel *timeZoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fieldtripLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *markSampleSwitch;
 
-- (IBAction)alldayDateChanges:(UISwitch *)sender;
-- (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender;
-- (IBAction)endDateGestureRecognize:(UITapGestureRecognizer *)sender;
+
+@property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
+
+- (IBAction)alldaySwitchValueChanged:(UISwitch *)sender;
 - (IBAction)beginDatePickerDidChange:(UIDatePicker *)sender;
 - (IBAction)endDatePickerDidChange:(UIDatePicker *)sender;
 
+- (IBAction)saveButton:(UIBarButtonItem *)sender;
+- (IBAction)cancelButton:(UIBarButtonItem *)sender;
+
+- (IBAction)sampleIndifierTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)sampleIdendifierTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)localityIdentifierTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)localityIdentifierTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)localityNameTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)localityNameTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)countryTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)countryTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)administrativeAreaTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)administrativeAreaTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)subAdministrativeAreaTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)subAdministrativeAreaTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)localityTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)localityTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)sublocalityTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)sublocalityTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)latitudeTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)latitudeTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)longitudeTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)longitudeTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)altitudeTextFieldEditingChanged:(UITextField *)sender;
+- (IBAction)altitudeTextFieldEditingDidEnd:(UITextField *)sender;
+
+- (IBAction)markSampleSwitchValueChanged:(UISwitch *)sender;
 
 @end
 
 @implementation SampleEditController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    // self.notesTextView.delegate = self;
+    
+    [self showExistingModelForEditing];
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,37 +118,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
-    // read behavouir whether user preferes fulltime date ranges or not
-    BOOL isFulltime = [self isAlldayDefaultForDateRange];
-    
-    // init date picker cells
-    self.hideSectionsWithHiddenRows = YES;
-    [self cell:self.beginDatePickerCell setHidden:YES];
-    [self cell:self.endDatePickerCell setHidden:YES];
-    [self reloadDataAnimated:NO];
-    
-    // setup fulltime switch
-    self.alldayDateSwitch.on = isFulltime;
-    
-//    [self drawDateRangeSelector];
-    
-    [self drawBeginDateCaption:_sample.beginDate
-                      isAllday:isFulltime
-                  isInEditMode:NO];
-    
-    [self drawEndDateCaption:_sample.endDate
-                    isAllday:isFulltime
-                isInEditMode:NO
-                   beginDate:_sample.beginDate];
-    
-    [self drawBeginDatePicker:_sample.beginDate
-                     isAllday:isFulltime
-                 isInEditMode:NO];
-    
-    [self drawEndDatePicker:_sample.endDate
-                   isAllday:isFulltime
-               isInEditMode:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,106 +126,107 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 0;
-//}
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//#warning Incomplete method implementation.
-//    // Return the number of rows in the section.
-//    return 0;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (void)showExistingModelForEditing {
     
-    // Configure the cell...
+//    self.isNewObject = NO;
+    self.navigationItem.title = @"";
+    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Save", @"Save");
+    self.navigationItem.rightBarButtonItem.enabled = false;
     
-    return cell;
+    [self loadFormData];
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - Form Data handling
+
+- (void)loadFormData {
+
+    _sampleIdentifierTextField.text = _sample.specimenIdentifier;
+    _localityIdentifierTextField.text = _sample.localityIdentifier;
+    _localityNameTextField.text = _sample.localityName;
+    
+    _coordinateSystemLabel.text = @"Geodetic decimal (WGS84)";
+
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setAlwaysShowsDecimalSeparator:NO];
+    [formatter setUsesGroupingSeparator:NO];
+
+    _latituteTextField.text = [formatter stringFromNumber:_sample.latitude];
+                                 
+//    _latituteTextField.text = _sample.latitude.stringValue;
+
+    
+    
+    _longituteTextField.text = _sample.longitude.stringValue;
+    _altitudeTextField.text = _sample.altitude.stringValue;
+    
+    _countryTextField.text = _sample.country;
+    _administrativeAreaTextField.text = _sample.administrativeArea;
+    _subAdministrativeAreaTextField.text = _sample.subAdministrativeArea;
+    _administrativeLocalityTextField.text = _sample.administrativeLocality;
+    _administrativeSubLocalityTextField.text = _sample.administrativeSubLocality;
+    
+    _timeZoneLabel.text = _sample.timeZone.name;
+    _fieldtripLabel.text = _sample.project.name;
+    _markSampleSwitch.on = _sample.isMarked.boolValue;
+    
+    // init date picker cells
+    self.hideSectionsWithHiddenRows = YES;
+    
+    // init date picker hidden
+    [self cell:self.beginDatePickerCell setHidden:YES];
+    [self cell:self.endDatePickerCell setHidden:YES];
+    
+    [self drawDateRangeSelector];
+    
+    [self reloadDataAnimated:NO];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)saveFormToModel {
+    
+    // set model data
+    _sample.specimenIdentifier = _sampleIdentifierTextField.text;
+    _sample.localityIdentifier = _localityIdentifierTextField.text;
+    _sample.localityName = _localityNameTextField.text;
+    
+    
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+//
+//    [formatter setLocale:[NSLocale currentLocale]];
+//    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+//    [formatter setAlwaysShowsDecimalSeparator:NO];
+//    [formatter setUsesGroupingSeparator:NO];
+//    
+//    _sample.latitude = [formatter numberFromString:_latituteTextField.text];
+    
+//    _sample.latitude = [NSNumber numberWithDouble:_latituteTextField.text.doubleValue];
+
+    
+    
+    _sample.longitude = [NSNumber numberWithDouble:_longituteTextField.text.doubleValue];
+    _sample.altitude =  [NSNumber numberWithInteger:_altitudeTextField.text.integerValue];
+    
+    _sample.country = _countryTextField.text;
+//    _sample.countryCodeISO = @"DE";
+    
+    _sample.administrativeArea = _administrativeAreaTextField.text;
+    _sample.subAdministrativeArea = _subAdministrativeAreaTextField.text;
+    _sample.administrativeLocality = _administrativeLocalityTextField.text;
+    _sample.administrativeSubLocality = _administrativeSubLocalityTextField.text;
+    
+//    _sample.timeZone = [NSTimeZone timeZoneWithName:_timeZoneLabel.text];
+    
+    NSError *error = nil;
+    
+    [self.managedObjectContext save:&error];
+    
+    if (error) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 #pragma mark - Date Range Stuff -
-
-
-- (void)drawDateRangeSelector {
-    
-    [self drawBeginDateCaption:_sample.beginDate
-                      isAllday:[self isAlldayMode]
-                  isInEditMode:[self isBeginDateInEditMode]];
-    
-    [self drawEndDateCaption:_sample.endDate
-                    isAllday:[self isAlldayMode]
-                isInEditMode:[self isEndDateInEditMode]
-                   beginDate:_sample.beginDate];
-    
-    
-    [self drawBeginDatePicker:_sample.beginDate
-                     isAllday:[self isAlldayMode]
-                 isInEditMode:[self isBeginDateInEditMode]];
-    
-    [self drawEndDatePicker:_sample.endDate
-                   isAllday:[self isAlldayMode]
-               isInEditMode:[self isEndDateInEditMode]];
-}
 
 - (void)toogleEditingBeginDate {
     
@@ -264,19 +289,6 @@
     [self drawDateRangeSelector];
 }
 
-// assumeed the preference is set in settings bundle
-- (BOOL)isAlldayDefaultForDateRange {
-    
-    // Read and use the default behaviour for presenting date ranges
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    
-    if (nil == [preferences objectForKey:@"locationDateFulltime"]) {
-        [preferences setBool:NO forKey:@"locationDateFulltime"];
-    }
-    
-    return [preferences boolForKey:@"locationDateFulltime"];
-}
-
 - (BOOL)isBeginDateInEditMode {
     
     return ([self cellIsHidden:self.beginDatePickerCell] == NO);
@@ -287,6 +299,36 @@
     return ([self cellIsHidden:self.endDatePickerCell] == NO);
 }
 
+- (void)drawDateRangeSelector {
+    
+    // draw allday switch
+    self.alldaySwitch.on = _sample.isFullTime.boolValue;
+
+    // draw time zone cell
+    [self cell:self.timeZoneCell setHidden:_sample.isFullTime.boolValue];
+    [self reloadDataAnimated:YES];
+
+    [self drawBeginDateCaption:_sample.beginDate
+                      isAllday:_sample.isFullTime.boolValue
+                  isInEditMode:[self isBeginDateInEditMode]];
+    
+    [self drawEndDateCaption:_sample.endDate
+                    isAllday:_sample.isFullTime.boolValue
+                isInEditMode:[self isEndDateInEditMode]
+                   beginDate:_sample.beginDate];
+    
+    [self drawBeginDatePicker:_sample.beginDate
+                     isAllday:_sample.isFullTime.boolValue
+                 isInEditMode:[self isBeginDateInEditMode]];
+    
+    [self drawEndDatePicker:_sample.endDate
+                   isAllday:_sample.isFullTime.boolValue
+               isInEditMode:[self isEndDateInEditMode]];
+}
+
+/**
+ * Configures and updates begin date picker
+ */
 - (void)drawBeginDatePicker:(NSDate *)beginDate
                    isAllday:(BOOL)isAllday
                isInEditMode:(BOOL)isInEditMode {
@@ -297,22 +339,29 @@
         self.beginDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
     }
     
-    [self.beginDatePicker setDate:beginDate];
+    self.beginDatePicker.date = beginDate;
 }
 
+/**
+ * Configures and updates end date picker
+ */
 - (void)drawEndDatePicker:(NSDate *)endDate
                  isAllday:(BOOL)isAllday
              isInEditMode:(BOOL)isInEditMode {
     
     if (isAllday == YES) {
         self.endDatePicker.datePickerMode = UIDatePickerModeDate;
-    } else {
+    }
+    else {
         self.endDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
     }
     
-    [self.endDatePicker setDate:endDate];
+    self.endDatePicker.date = endDate;
 }
 
+/**
+ * Updates begin date caption
+ */
 - (void)drawBeginDateCaption:(NSDate *)beginDate
                     isAllday:(BOOL)isAllday
                 isInEditMode:(BOOL)isInEditMode {
@@ -327,22 +376,18 @@
                                            isAllday:isAllday
                                        isInEditMode:isInEditMode];
     
-    NSDateFormatter *dateFormatter;
-    dateFormatter= [self dateFormatterWithAllday:isAllday
-                              isEqualDayOmitting:NO];
+    NSDateFormatter *dateFormatter = [DateUtility dateFormatterWithAllday:isAllday
+                                                       isEqualDayOmitting:NO];
     
-    NSDateFormatter *timeFormatter;
-    timeFormatter = [self timeFormatterWithAllday:isAllday];
+    NSDateFormatter *timeFormatter = [DateUtility timeFormatterWithAllday:isAllday];
     
     // build the string together and render it
-    NSString *beginDateString;
-    beginDateString = [NSString stringWithFormat:@"\t%@\t%@",
-                       [dateFormatter stringFromDate:beginDate],
-                       [timeFormatter stringFromDate:beginDate]];
+    NSString *beginDateString = [NSString stringWithFormat:@"\t%@\t%@",
+                                 [dateFormatter stringFromDate:beginDate],
+                                 [timeFormatter stringFromDate:beginDate]];
     
-    NSAttributedString *attributetString;
-    attributetString = [[NSAttributedString alloc] initWithString:beginDateString
-                                                       attributes:attributes];
+    NSAttributedString *attributetString = [[NSAttributedString alloc] initWithString:beginDateString
+                                                                           attributes:attributes];
     
     self.beginDateLabel.attributedText = attributetString;
 }
@@ -362,68 +407,27 @@
                                            isAllday:isAllday
                                        isInEditMode:isInEditMode];
     
-    NSDateFormatter *dateFormatter;
-    dateFormatter= [self dateFormatterWithAllday:isAllday
-                              isEqualDayOmitting:[self isDateSameDay:beginDate
-                                                              asDate:endDate]];
-    
-    NSDateFormatter *timeFormatter;
-    timeFormatter = [self timeFormatterWithAllday:isAllday];
+    NSDateFormatter *dateFormatter = [DateUtility dateFormatterWithAllday:isAllday
+                                                       isEqualDayOmitting:[DateUtility isDateSameDay:beginDate
+                                                                                              asDate:endDate]];
+    NSDateFormatter *timeFormatter = [DateUtility timeFormatterWithAllday:isAllday];
     
     // build the string together and render it
-    NSString *endDateString;
-    endDateString = [NSString stringWithFormat:@"\t%@\t%@",
-                     [dateFormatter stringFromDate:endDate],
-                     [timeFormatter stringFromDate:endDate]];
+    NSString *endDateString = [NSString stringWithFormat:@"\t%@\t%@",
+                               [dateFormatter stringFromDate:endDate],
+                               [timeFormatter stringFromDate:endDate]];
     
-    NSAttributedString *attributetString;
-    attributetString = [[NSAttributedString alloc] initWithString:endDateString
-                                                       attributes:attributes];
+    NSAttributedString *attributetString = [[NSAttributedString alloc] initWithString:endDateString
+                                                                           attributes:attributes];
     
     self.endDateLabel.attributedText = attributetString;
 }
 
 #pragma mark - generic DateRangePicker
 
-- (BOOL)isAlldayMode {
-
-    if ([_sample.isFullTime isEqual:@YES]) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
-- (NSDateFormatter *)dateFormatterWithAllday:(BOOL)isAllday
-                          isEqualDayOmitting:(BOOL)isEqualDayOmitting {
-
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+- (void)setAllday:(BOOL)allday {
     
-    if (isAllday == YES) {
-        dateFormatter.dateFormat = @"E, dd. MMMM Y";
-    } else {
-        // Ausnahme für endDate:
-        if (isEqualDayOmitting == YES) {
-            dateFormatter.dateFormat = @"";
-        } else {
-            dateFormatter.dateFormat = @"dd. MMMM Y";
-        }
-    }
-    
-    return dateFormatter;
-}
-
-- (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday {
-    
-    NSDateFormatter *timeFormatter = [NSDateFormatter new];
-    
-    if (isAllday == YES) {
-        timeFormatter.dateFormat = @"";
-    } else {
-        timeFormatter.dateFormat = @"HH:mm";
-    }
-    
-    return timeFormatter;
+    _sample.isFullTime = @(allday);
 }
 
 - (NSParagraphStyle *)paragraphStyleWithAllday:(BOOL)isAllday {
@@ -440,7 +444,8 @@
                                                           options:[NSDictionary dictionary]];
     if (isAllday == YES) {
         paragraphStyle.tabStops = @[timeTab];
-    } else {
+    }
+    else {
         paragraphStyle.tabStops = @[dateTab, timeTab];
     }
     
@@ -460,82 +465,55 @@
     // tint caption when edditing
     if (isInEditMode == YES) {
         attributes[NSForegroundColorAttributeName] = color;;
-    } else {
+    }
+    else {
         attributes[NSForegroundColorAttributeName] = UIColor.blackColor;
     }
     
     if (strikethrough){
         attributes[NSStrikethroughStyleAttributeName] = [NSNumber numberWithInteger:NSUnderlineStyleSingle];
-    } else {
+    }
+    else {
         attributes[NSStrikethroughStyleAttributeName] = [NSNumber numberWithInteger:NSUnderlineStyleNone];
     }
     
     return (NSDictionary *)attributes;
 }
 
-#pragma mark - Date Utils -
-
-- (BOOL)isDateSameDay:(NSDate *)firstDate
-               asDate:(NSDate *)secondDate {
-
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    
-    NSDateComponents *firstDateComponent = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
-                                                       fromDate:firstDate];
-    
-    NSDateComponents *secondDateComponent = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
-                                                        fromDate:secondDate];
-    
-    return ([firstDateComponent isEqual:secondDateComponent]);
-}
-
-- (NSDate *)dateWithZeroSeconds:(NSDate *)date {
-    
-    NSTimeInterval time = floor([date timeIntervalSinceReferenceDate] / 60.0) * 60.0;
-    
-    return  [NSDate dateWithTimeIntervalSinceReferenceDate:time];
-}
-
-#pragma mark - Date Picker IBActions
-
-- (IBAction)beginDateGestureRecognize:(UITapGestureRecognizer *)sender {
-
-    [self toogleEditingBeginDate];
-}
-
-- (IBAction)endDateGestureRecognize:(UITapGestureRecognizer *)sender {
-
-    [self toogleEditingEndDate];
-}
+#pragma mark - Table view delegates
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSIndexPath * beginIndexPath = [self.tableView indexPathForCell:self.beginDateCell];
-
-    NSIndexPath * endIndexPath = [self.tableView indexPathForCell:self.endDateCell];
+    NSIndexPath * endIndexPath   = [self.tableView indexPathForCell:self.endDateCell];
     
-    if (indexPath == beginIndexPath) {
+    if ([indexPath isEqual:beginIndexPath]) {
         [self toogleEditingBeginDate];
     }
-    if (indexPath == endIndexPath) {
+    
+    if ([indexPath isEqual:endIndexPath]) {
         [self toogleEditingEndDate];
     }
 }
 
-- (IBAction)alldayDateChanges:(UISwitch *)sender {
+#pragma mark - Navigation helper
+
+- (void)goToPreviousViewController {
     
-//    self.fieldtrip.isFullTime = sender.on;
+    UINavigationController *navigationController = self.navigationController;
     
-    if (sender.on == YES) {
-        _sample.isFullTime = @YES;
-    } else {
-        _sample.isFullTime = @NO;
-    }
+    [navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)alldaySwitchValueChanged:(UISwitch *)sender {
     
-//    _isAllday = sender.on;
+    _sample.isFullTime = @(sender.on);
     
     [self drawDateRangeSelector];
+    [self formDidChanged:sender];
 }
 
 - (IBAction)beginDatePickerDidChange:(UIDatePicker *)picker {
@@ -544,6 +522,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _sample.endDate = [_sample.beginDate dateByAddingTimeInterval:60.0 * 60.0]; // adding 1 hour to beginDate
     
     [self drawDateRangeSelector];
+    [self formDidChanged:picker];
 }
 
 - (IBAction)endDatePickerDidChange:(UIDatePicker *)picker {
@@ -551,6 +530,141 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _sample.endDate = picker.date;
     
     [self drawDateRangeSelector];
+    [self formDidChanged:picker];
+}
+
+- (IBAction)saveButton:(UIBarButtonItem *)sender {
+
+    [self saveFormToModel];
+    [self goToPreviousViewController];
+}
+
+- (IBAction)cancelButton:(id)sender {
+
+    [self goToPreviousViewController];
+}
+
+- (IBAction)sampleIndifierTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)sampleIdendifierTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)localityIdentifierTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)localityIdentifierTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)localityNameTextFieldEditingChanged:(UITextField *)sender {
+
+    [self formDidChanged:sender];
+}
+
+- (IBAction)localityNameTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)countryTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)countryTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)administrativeAreaTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)administrativeAreaTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)subAdministrativeAreaTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)subAdministrativeAreaTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)localityTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)localityTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)sublocalityTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)sublocalityTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)latitudeTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)latitudeTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)longitudeTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)longitudeTextFieldEditingDidEnd:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)altitudeTextFieldEditingChanged:(UITextField *)sender {
+    
+    [self formDidChanged:sender];
+}
+
+- (IBAction)altitudeTextFieldEditingDidEnd:(UITextField *)sender {
+
+    [self formDidChanged:sender];
+}
+
+- (IBAction)markSampleSwitchValueChanged:(UISwitch *)sender {
+    
+    _sample.isMarked = @(sender.on);
+    [self formDidChanged:sender];
+}
+
+#pragma form helper
+
+- (void)formDidChanged:(id)sender {
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 #pragma mark - UITextViewDelegate -
@@ -558,6 +672,47 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)textViewDidEndEditing:(UITextView *)textView {
 
     [textView resignFirstResponder];
+}
+
+#pragma mark - FieldtripPickerDelegate
+
+- (void)fieldtripPicker:(FieldtripsController *)picker
+     didSelectFieldtrip:(Project *)fieldtrip {
+    
+    _sample.project = fieldtrip;
+    _fieldtripLabel.text = _sample.project.name;
+
+    [self formDidChanged:picker];
+}
+
+#pragma mark - TimeZonePickerDelegate
+
+- (void)timeZonePicker:(TimeZonePickerController *)picker
+     didSelectTimeZone:(NSTimeZone *)timeZone {
+    
+    _sample.timeZone = timeZone;
+    _timeZoneLabel.text = timeZone.name;
+    
+    [self formDidChanged:picker];
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"FieldtripPickerSegue"]) {
+        
+        FieldtripsController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.fieldtripUsage = kFieldtripUsagePicker;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"TimeZonePickerSegue"]) {
+        
+        TimeZonePickerController *controller = segue.destinationViewController;
+        controller.delegate = self;
+    }
 }
 
 @end

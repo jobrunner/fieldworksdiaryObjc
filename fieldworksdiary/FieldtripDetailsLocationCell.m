@@ -73,7 +73,7 @@
         
         return;
     }
-    
+        
     // Formatieren der Location Properties nach Geodetic decimal:
     CoordinateFormat withCoordinateFormat = kCoordinateFormatGeodeticDecimal;
     MapDatum withMapDatum = kMapDatumWGS1984;
