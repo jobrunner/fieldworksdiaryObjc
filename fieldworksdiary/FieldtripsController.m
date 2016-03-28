@@ -235,19 +235,6 @@ canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//
-//    return 28;
-//}
-
-// configure cell hight for search bar and search display controller
-//-    (CGFloat)tableView:(UITableView *)tableView
-//heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//
-//    return 70;
-//}
-
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (NSFetchedResultsController *)fetchedResultsController {

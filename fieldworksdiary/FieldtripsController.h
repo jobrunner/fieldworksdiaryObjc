@@ -29,13 +29,6 @@
 // kFieldtripUsageSampleFilter: Shows all fieldtrips, selecting an fieldtrip links to corresponding samples
 @property FieldtripUsage fieldtripUsage;
 
-//
-//@property BOOL useAsOverview;
-//
-//@property BOOL useAsPicker;
-//
-//@property BOOL useAsSampleFilter;
-
 @property (nonatomic, weak) id<FieldtripPickerDelegate> delegate;
 
 @end

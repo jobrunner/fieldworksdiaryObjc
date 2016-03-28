@@ -43,8 +43,10 @@
         if (responseJSON && [[responseJSON objectForKey:@"status"] isEqualToString:@"OK"]) {
             completionBlock(responseJSON);
         } else {
-            NSDictionary* errorDictionary = @{NSLocalizedDescriptionKey :@"Google geocode failed!"};
-            NSError *error = [NSError errorWithDomain:@"Failed response" code:100 userInfo:errorDictionary];
+            NSDictionary* errorDictionary = @{NSLocalizedDescriptionKey:@"Google geocode failed!"};
+            NSError *error = [NSError errorWithDomain:@"Failed response"
+                                                 code:100
+                                             userInfo:errorDictionary];
             errorBlock(error);
         }
     } errorHandler:^(MKNetworkOperation *errorOperation, NSError *error) {

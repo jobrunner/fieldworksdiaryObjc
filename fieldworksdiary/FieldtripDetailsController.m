@@ -108,11 +108,9 @@
     // init date picker cells
     self.hideSectionsWithHiddenRows = YES;
     
-    [self cell:self.beginDatePickerCell
-     setHidden:YES];
+    [self cell:self.beginDatePickerCell setHidden:YES];
     
-    [self cell:self.endDatePickerCell
-     setHidden:YES];
+    [self cell:self.endDatePickerCell setHidden:YES];
     
     [self reloadDataAnimated:NO];
     

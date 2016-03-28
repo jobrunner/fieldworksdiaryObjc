@@ -18,4 +18,5 @@
                  atIndexPath:(NSIndexPath *)indexPath
               withDelegate:(id)delegate
               selectorOnly:(BOOL)selectorOnly;
+
 @end
