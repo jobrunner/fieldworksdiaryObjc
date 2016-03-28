@@ -28,6 +28,7 @@
 #import "Enums.h"
 #import "LocationService.h"
 #import "Crypto.h"
+#import "APTimeZones.h"
 
 // cell classes
 #import "FieldtripDetailsLocalityIdentifierCell.h"
@@ -36,13 +37,13 @@
 #import "FieldtripDetailsLocationNameCell.h"
 #import "FieldtripDetailsLocationCell.h"
 #import "FieldtripDetailsPlacemarkCell.h"
-#import "FieldtripDetailsDateCell.h"
 #import "FieldtripDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
-#import "SampleEditController.h"
-#import "MapController.h"
 
 #import "SampleDetailsFieldtripCell.h"
+#import "SampleDetailsDateCell.h"
+#import "SampleEditController.h"
+#import "MapController.h"
 #import "Conversion.h"
 #import "EDSunriseSet.h"
 #import "Fieldtrip.h"
@@ -626,11 +627,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // @todo: Refactor
         if (indexPath.row == 6) {
             
-            FieldtripDetailsDateCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsDateCell reuseIdentifier]
+            static NSString *cellId = @"SampleDetailsDateCell";
+
+            SampleDetailsDateCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = _sample;
+//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+
+            [cell configureWithModel:_sample
+                         atIndexPath:indexPath];
+   
+
             
             return cell;
         }
@@ -823,8 +830,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     
-//    NSLog(@"LocationManger didFailWithError: %@", error);
-    
     [self stopLocationTracking];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationFailure
@@ -841,13 +846,10 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
     
-//    NSLog(@"LocationManager: didUpdateLocations!");
-    
     CLLocation * location = [locations lastObject];
 
     if (location == nil) {
-//        NSLog(@"Ignoring GPS failure (nil object).");
-        
+
         return;
     }
     
@@ -855,104 +857,35 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
     if (fabs(howRecent) > 15.0) {
-        // If the event is not recent, do nothing with it.
-//        NSLog(@"howRecent (must be >= 15.0): %f", fabs(howRecent));
+
         return ;
     }
 
     if (fabs(location.horizontalAccuracy) > 100) {
 
-        NSLog(@"horizontalAccuracy (bust be <= 100): %f", fabs(location.horizontalAccuracy));
         return;
     }
 
     if (fabs(location.verticalAccuracy) > 100) {
-        
-        NSLog(@"verticalAccuracy (bust be < 100): %f", fabs(location.verticalAccuracy));
+
         return;
     }
     
     [self stopLocationTracking];
+    [self setTimeZone:location];
     [_sample setLocation:location];
-//    NSLog(@"Notification LocationUpdate");
+
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationUpdate
                                                         object:self];
-
-    return;
-    
-    static CLLocation * cachedLocation = nil;
-//
-//    // grundsätzlich werden nur ca. 5 locationUpdates geholt, danach muss der User das manuell noch
-//    // einmal antriggern.
-    self.locationUpdateTries--;
-
-    if (self.locationUpdateTries < 0) {
-        [self stopLocationTracking];
-
-        return ;
-    }
-    
-    [_sample setLocation:location];
-    
-//    [self drawLocationFromModel];
-
-//    NSLog(@"Berechne Sonnenzeiten neu mit Location-Updates...");
-    
-
-    if (cachedLocation == nil) {
-        
-//        NSLog(@"Initialisiere Location-Cache.");
-
-        // location für ein Folge-Update merken
-        cachedLocation = location;
-    } else {
-        
-        // Ich weiß, ich habe bereits eine letzt Position im Cache.
-        // Wenn die horizontale Koordinate unverändert ist, benötige ich keinen weiteren Service-Call zu Reverse-Apis und zur Erstellung der Karte.
-        if (cachedLocation.coordinate.longitude == location.coordinate.longitude &&
-            cachedLocation.coordinate.latitude == location.coordinate.latitude &&
-            cachedLocation.horizontalAccuracy == location.horizontalAccuracy) {
-
-            self.locationUpdateTries = 0;
-
-            NSLog(@"Location-Update liefert die selbe horizontale Position ist die im Cache ist. Keine Actionen darauf!");
-//            NSLog(@"------------");
-
-            return;
-        }
-    }
-
-    cachedLocation = location;
-
-//    [self calculateSunriseSunsetTwilight];
-    
-    NSLog(@"Notification LocationUpdate");
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationUpdate
-                                                        object:self];
-    
-    return ;
-    
-    
-    
-//    NSLog(@"starte reverse geocoding.");
-//    [self reverseGeocodeLocation];
-    
-//    NSLog(@"starte neuzeichnen der Karte");
-//    [self makeMapSnaphotFromModel];
-    NSLog(@"neuzeichnen der statischen MapView müsste jetzt getriggert werden...");
-    
-    cachedLocation = location;
-    
-//    NSLog(@"Cached  Location: %@", cachedLocation);
-//    NSLog(@"Updated Location: %@", location);
-//    NSLog(@"Location Update and Action");
-
-    
-    // Reverse Geocoding (sollte asynchron gehen - keine Netzwerkprüfung hier!)
-
 }
 
 #pragma mark - Common Methods
+
+- (void)setTimeZone:(CLLocation *)location {
+    
+    NSTimeZone *timeZone = [[APTimeZones sharedInstance] timeZoneWithLocation:location];
+    _sample.timeZone = timeZone;
+}
 
 // -> FieldtripDetailsSummaryCell
 //- (void)reverseGeocodeLocation
@@ -1371,8 +1304,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
                                                            longitude:lon];
     // calculate the sun
     [sunriseset calculate:date];
-    
-//    [self setModelWithSunriseSetTwilight:sunriseset];
     
     // Write calculated data of sunrise, sunset and twilight back to model
     _sample.sunrise = sunriseset.sunrise;
