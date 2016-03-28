@@ -26,7 +26,7 @@
 + (Project *)activeFieldtrip {
     
     // getting the fieldtrip back from objectId url
-    NSURL *fieldtripUrl = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"activeFieldtrip"]];
+    NSURL *fieldtripUrl = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kActiveFieldtrip]];
     
     NSManagedObjectContext *managedObjectContext = [ApplicationDelegate managedObjectContext];
     NSPersistentStoreCoordinator *persistentStoreCoordinator = [managedObjectContext persistentStoreCoordinator];
@@ -46,7 +46,7 @@
 + (void)setActiveFieldtrip:(Project *)fieldtrip {
 
     [[NSUserDefaults standardUserDefaults] setObject:[[self URLFromFieldtrip:fieldtrip] absoluteString]
-                                              forKey:@"activeFieldtrip"];
+                                              forKey:kActiveFieldtrip];
 }
 
 + (BOOL)isActive:(Project *)fieldtrip {
@@ -59,7 +59,7 @@
 
 + (NSURL *)activeFieldtripUrl {
 
-    return [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"activeFieldtrip"]];
+    return [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kActiveFieldtrip]];
 }
 
 + (NSURL *)URLFromFieldtrip:(Project *)fieldtrip {

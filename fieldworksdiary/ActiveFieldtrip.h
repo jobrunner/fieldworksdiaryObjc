@@ -7,6 +7,8 @@
 //
 #import <Foundation/Foundation.h>
 
+#define kActiveFieldtrip @"activeFieldtrip"
+
 @class Project;
 
 @interface ActiveFieldtrip : NSObject
