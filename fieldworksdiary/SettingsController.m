@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "ActiveCollector.h"
 #import "ActiveFieldtrip.h"
+#import "ActiveDateSetting.h"
 #import "RecordStatistics.h"
 #import "Formatter.h"
 
@@ -19,8 +20,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *activeCollectorTextField;
 @property (weak, nonatomic) IBOutlet UILabel *fieldtripsCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activeFieldtripLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *alldayDefaultSwitch;
 
 - (IBAction)activeCollectorTextFieldEditingDidEnd:(UITextField *)sender;
+- (IBAction)alldayDefaultSwitchValueChanged:(UISwitch *)sender;
 
 @end
 
@@ -36,6 +39,7 @@
     _fieldtripsCountLabel.text = [formatter counter:fieldtripsCount];
     _activeFieldtripLabel.text = [ActiveFieldtrip name];
     _activeCollectorTextField.text = [ActiveCollector name];
+    _alldayDefaultSwitch.on = [ActiveDateSetting isActiveAllday];
 }
 
 - (void)viewDidLoad {
@@ -63,6 +67,11 @@
 - (IBAction)activeCollectorTextFieldEditingDidEnd:(UITextField *)sender {
     
     [ActiveCollector setActiveCollector:sender.text];
+}
+
+- (IBAction)alldayDefaultSwitchValueChanged:(UISwitch *)sender {
+
+    [ActiveDateSetting setActiveAllday:sender.on];
 }
 
 #pragma mark - Segues
