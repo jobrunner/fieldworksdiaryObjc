@@ -15,6 +15,7 @@
 #import "DateUtility.h"
 #import "FieldtripsController.h"
 #import "TimeZonePickerController.h"
+#import "Formatter.h"
 
 @interface SampleEditController ()
 
@@ -146,19 +147,13 @@
     
     _coordinateSystemLabel.text = @"Geodetic decimal (WGS84)";
 
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setAlwaysShowsDecimalSeparator:NO];
-    [formatter setUsesGroupingSeparator:NO];
+    // if coordSystem is geodetic decimal...
+    
+    NSNumberFormatter *formatter = [[Formatter new] geodeticDecimalFormatter];
 
     _latituteTextField.text = [formatter stringFromNumber:_sample.latitude];
-                                 
-//    _latituteTextField.text = _sample.latitude.stringValue;
+    _longituteTextField.text = [formatter stringFromNumber:_sample.longitude];
 
-    
-    
-    _longituteTextField.text = _sample.longitude.stringValue;
     _altitudeTextField.text = _sample.altitude.stringValue;
     
     _countryTextField.text = _sample.country;
@@ -191,20 +186,14 @@
     _sample.localityName = _localityNameTextField.text;
     
     
-//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-//
-//    [formatter setLocale:[NSLocale currentLocale]];
-//    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-//    [formatter setAlwaysShowsDecimalSeparator:NO];
-//    [formatter setUsesGroupingSeparator:NO];
-//    
-//    _sample.latitude = [formatter numberFromString:_latituteTextField.text];
-    
-//    _sample.latitude = [NSNumber numberWithDouble:_latituteTextField.text.doubleValue];
+    NSNumberFormatter *formatter = [[Formatter new] geodeticDecimalFormatter];
 
+    _sample.latitude = [formatter numberFromString:_latituteTextField.text];
+    _sample.longitude = [formatter numberFromString:_longituteTextField.text];
     
     
-    _sample.longitude = [NSNumber numberWithDouble:_longituteTextField.text.doubleValue];
+//    _sample.longitude = [NSNumber numberWithDouble:_longituteTextField.text.doubleValue];
+
     _sample.altitude =  [NSNumber numberWithInteger:_altitudeTextField.text.integerValue];
     
     _sample.country = _countryTextField.text;

@@ -22,4 +22,22 @@
     return [formatter stringFromNumber:[NSNumber numberWithInteger:count]];
 }
 
+- (NSNumberFormatter *)geodeticDecimalFormatter {
+    
+    static NSNumberFormatter *formatter;
+    
+    if (!formatter) {
+        formatter = [[NSNumberFormatter alloc] init];
+        formatter.locale = [NSLocale currentLocale];
+        formatter.numberStyle = NSNumberFormatterDecimalStyle;
+        formatter.alwaysShowsDecimalSeparator = NO;
+        formatter.usesGroupingSeparator = NO;
+        formatter.usesSignificantDigits = false;
+        formatter.minimumFractionDigits = 6;
+        formatter.maximumFractionDigits = 12;
+    }
+
+    return formatter;
+}
+
 @end

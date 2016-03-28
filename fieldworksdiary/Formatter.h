@@ -9,5 +9,6 @@
 @interface Formatter : NSObject
 
 - (NSString *)counter:(NSUInteger)count;
+- (NSNumberFormatter *)geodeticDecimalFormatter;
 
 @end
