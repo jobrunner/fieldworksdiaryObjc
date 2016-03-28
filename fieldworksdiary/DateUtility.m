@@ -12,7 +12,8 @@
 
 #pragma mark - Date Utility
 
-+ (BOOL)isDateSameDay:(NSDate *)firstDate asDate:(NSDate *)secondDate {
++ (BOOL)isDateSameDay:(NSDate *)firstDate
+               asDate:(NSDate *)secondDate {
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *firstDateComponent = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
@@ -29,6 +30,40 @@
     NSTimeInterval time = floor([date timeIntervalSinceReferenceDate] / 60.0) * 60.0;
     
     return  [NSDate dateWithTimeIntervalSinceReferenceDate:time];
+}
+
++ (NSDateFormatter *)dateFormatterWithAllday:(BOOL)isAllday
+                          isEqualDayOmitting:(BOOL)isEqualDayOmitting {
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    if (isAllday == YES) {
+        dateFormatter.dateFormat = @"E, dd. MMMM Y";
+    }
+    else {
+        // Ausnahme für endDate:
+        if (isEqualDayOmitting == YES) {
+            dateFormatter.dateFormat = @"";
+        } else {
+            dateFormatter.dateFormat = @"dd. MMMM Y";
+        }
+    }
+    
+    return dateFormatter;
+}
+
++ (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday {
+    
+    NSDateFormatter *timeFormatter = [NSDateFormatter new];
+    
+    if (isAllday == YES) {
+        timeFormatter.dateFormat = @"";
+    }
+    else {
+        timeFormatter.dateFormat = @"HH:mm";
+    }
+    
+    return timeFormatter;
 }
 
 @end

@@ -12,5 +12,8 @@
 
 + (BOOL)isDateSameDay:(NSDate *)firstDate asDate:(NSDate *)secondDate;
 + (NSDate *)dateWithZeroSeconds:(NSDate *)date;
++ (NSDateFormatter *)dateFormatterWithAllday:(BOOL)isAllday
+                          isEqualDayOmitting:(BOOL)isEqualDayOmitting;
++ (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday;
 
 @end
