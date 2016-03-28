@@ -67,27 +67,4 @@
     return [[fieldtrip objectID] URIRepresentation];
 }
 
-// Versteht kein Mensch: Angenommen, fieldtrip ist aktiv, soll aber abgeschaltet werden,
-// muss active:NO gesetzt werden.
-//- (void)toggleWith:(Project *)fieldtrip
-//            active:(BOOL)active {
-//    
-//    NSString *fieldtripUrl = [[self URLFromFieldtrip:fieldtrip] absoluteString];
-//    
-//    if (active) {
-//        [[NSUserDefaults standardUserDefaults] setObject:fieldtripUrl
-//                                                  forKey:@"activeFieldtrip"];
-//    }
-//    else {
-////        // wenn active true WAR, dann zurücksetzen
-//        NSURL *activeFieldtripUrl = [self activeFieldtripUrl];
-//
-//        if ([fieldtripUrl isEqual:activeFieldtripUrl]) {
-//            [[NSUserDefaults standardUserDefaults] setObject:nil
-//                                                      forKey:@"activeFieldtrip"];
-//        }
-//    }
-//}
-
-
 @end
