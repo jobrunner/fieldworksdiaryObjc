@@ -24,7 +24,7 @@
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sample reference" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="iBd-yP-X3s">
                                             <rect key="frame" x="20" y="8" width="280" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
                                                 <action selector="specimenIdentifierTextFieldEditingDidEnd:" destination="des-fD-TO3" eventType="editingDidEnd" id="4ze-rr-rQe"/>
@@ -45,7 +45,7 @@
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location reference" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Kbs-Nj-yj8">
                                             <rect key="frame" x="20" y="8" width="280" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
                                                 <action selector="localityIdentifierTextFieldEditingDidEnd:" destination="2mw-E9-Rvj" eventType="editingDidEnd" id="9sh-AW-2b2"/>
@@ -66,7 +66,7 @@
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of locality" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ha3-1o-R4v">
                                             <rect key="frame" x="20" y="8" width="280" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
                                                 <action selector="locationNameTextFieldEditingDidEnd:" destination="5RK-YY-UUJ" eventType="editingDidEnd" id="99c-cZ-Cyt"/>
@@ -209,9 +209,6 @@ Breña Alta</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="daylight-night" highlightedImage="daylight-day" translatesAutoresizingMaskIntoConstraints="NO" id="Q6n-Wy-Lpw">
-                                            <rect key="frame" x="14" y="0.0" width="44" height="44"/>
-                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunrise" translatesAutoresizingMaskIntoConstraints="NO" id="UF1-zE-862">
                                             <rect key="frame" x="61" y="43" width="23" height="12"/>
                                         </imageView>
@@ -236,6 +233,9 @@ Breña Alta</string>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="daylight-night" highlightedImage="daylight-day" translatesAutoresizingMaskIntoConstraints="NO" id="Q6n-Wy-Lpw">
+                                            <rect key="frame" x="14" y="0.0" width="44" height="44"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
