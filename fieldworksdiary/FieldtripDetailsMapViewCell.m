@@ -83,6 +83,14 @@
 
 - (void)drawMapFromModel {
     
+    // @todo: filename nicht aus dem Inhalt berechnen, sondern
+    //        aus den Koordinaten und der Kartenskalierung (sha1).
+    //        Filename dann nicht mehr speichern, sondern nur nachsehen, ob es gerendert wurde.
+    //        So gehen Updates der Karte, die mit Koordinatenkorrekturen einhergehen und
+    //        ein "Custom"-Kartenausschnitt ist ebenso möglich.
+    //        Die Webanwendung muss eine eigene Karten rendern, also ist das
+    //        persistente Property ohnehin Murks.
+    
 	NSString *imageMapPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/Maps/%@", self.fieldtrip.mapImageFilename]];
     
     NSLog(@"String to load: %@", imageMapPath);
@@ -106,12 +114,12 @@
         return;
     }
     
-    NSLog(@"makeMapSnapshot from %@", self.fieldtrip.location);
+    // NSLog(@"makeMapSnapshot from %@", self.fieldtrip.location);
     
     MKCoordinateRegion region;
     
-    region.center.latitude = [self.fieldtrip.latitude doubleValue]; // location.coordinate.latitude;
-    region.center.longitude = [self.fieldtrip.longitude doubleValue]; //  location.coordinate.longitude;
+    region.center.latitude = self.fieldtrip.latitude.doubleValue;
+    region.center.longitude = self.fieldtrip.longitude.doubleValue;
     
     region.span.longitudeDelta = 0.01; // ca. 111km / 0.001° => 100m
     region.span.latitudeDelta = 0.01;  // ca. 111km / 0.001° => 100m
