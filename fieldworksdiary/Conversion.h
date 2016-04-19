@@ -1,4 +1,5 @@
 @class CLLocation;
+@class CoordinateSystem;
 
 @interface Conversion : NSObject
 
@@ -12,8 +13,7 @@
                         withUnitOfLength:(UnitOfLength)unitOfLength;
 
 - (NSString *)locationToCoordinates:(CLLocation *)location
-                             format:(CoordinateFormat)format
-                           mapDatum:(MapDatum)mapDatum;
+                   coordinateSystem:(CoordinateSystem *)coordinateSystem;
 
 - (NSString *)signumString:(float)value;
 
