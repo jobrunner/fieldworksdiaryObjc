@@ -10,10 +10,27 @@
 
 @interface DateUtility : NSObject
 
-+ (BOOL)isDateSameDay:(NSDate *)firstDate asDate:(NSDate *)secondDate;
++ (BOOL)isDateSameDay:(NSDate *)firstDate
+               asDate:(NSDate *)secondDate;
+
++ (BOOL)isDateSameMonth:(NSDate *)firstDate
+                 asDate:(NSDate *)secondDate;
+
++ (BOOL)isDateSameYear:(NSDate *)firstDate
+                asDate:(NSDate *)secondDate;
+
++ (BOOL)isDateSameMinute:(NSDate *)firstDate
+                  asDate:(NSDate *)secondDate;
+
 + (NSDate *)dateWithZeroSeconds:(NSDate *)date;
+
 + (NSDateFormatter *)dateFormatterWithAllday:(BOOL)isAllday
                           isEqualDayOmitting:(BOOL)isEqualDayOmitting;
+
 + (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday;
+
++ (NSString *)formattedBeginDate:(NSDate *)beginDate
+                         endDate:(NSDate *)endDate
+                          allday:(BOOL)isAllday;
 
 @end

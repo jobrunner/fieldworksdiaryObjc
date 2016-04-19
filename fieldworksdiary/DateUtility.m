@@ -12,14 +12,97 @@
 
 #pragma mark - Date Utility
 
++ (NSString *)alldayFormattedBeginDate:(NSDate *)beginDate
+                         endDate:(NSDate *)endDate {
+
+    NSDateIntervalFormatter *intervallFormatter = [NSDateIntervalFormatter new];
+    intervallFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
+    intervallFormatter.timeStyle = NSDateIntervalFormatterNoStyle;
+    
+    return [intervallFormatter stringFromDate:beginDate
+                                       toDate:endDate];
+}
+
++ (NSString *)timeFormattedBeginDate:(NSDate *)beginDate
+                             endDate:(NSDate *)endDate {
+    
+    NSDateIntervalFormatter *intervallFormatter = [NSDateIntervalFormatter new];
+    intervallFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
+    intervallFormatter.timeStyle = NSDateIntervalFormatterShortStyle;
+
+    return [intervallFormatter stringFromDate:beginDate
+                                       toDate:endDate];
+}
+
++ (NSString *)formattedBeginDate:(NSDate *)beginDate
+                         endDate:(NSDate *)endDate
+                          allday:(BOOL)isAllday {
+
+    if (isAllday) {
+        return [DateUtility alldayFormattedBeginDate:beginDate
+                                             endDate:endDate];
+    }
+    else {
+        return [DateUtility timeFormattedBeginDate:beginDate
+                                           endDate:endDate];
+    }
+}
+
 + (BOOL)isDateSameDay:(NSDate *)firstDate
                asDate:(NSDate *)secondDate {
     
+    NSCalendarUnit compareFlags = NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
+
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *firstDateComponent = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
+    NSDateComponents *firstDateComponent = [calendar components:compareFlags
                                                        fromDate:firstDate];
     
-    NSDateComponents *secondDateComponent = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
+    NSDateComponents *secondDateComponent = [calendar components:compareFlags
+                                                        fromDate:secondDate];
+    
+    return ([firstDateComponent isEqual:secondDateComponent]);
+}
+
++ (BOOL)isDateSameMonth:(NSDate *)firstDate
+                 asDate:(NSDate *)secondDate {
+    
+    NSCalendarUnit compareFlags = NSMonthCalendarUnit|NSYearCalendarUnit;
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *firstDateComponent = [calendar components:compareFlags
+                                                       fromDate:firstDate];
+    
+    NSDateComponents *secondDateComponent = [calendar components:compareFlags
+                                                        fromDate:secondDate];
+    
+    return ([firstDateComponent isEqual:secondDateComponent]);
+}
+
++ (BOOL)isDateSameYear:(NSDate *)firstDate
+                asDate:(NSDate *)secondDate {
+    
+    NSCalendarUnit compareFlags = NSYearCalendarUnit;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *firstDateComponent = [calendar components:compareFlags
+                                                       fromDate:firstDate];
+    
+    NSDateComponents *secondDateComponent = [calendar components:compareFlags
+                                                        fromDate:secondDate];
+    
+    return ([firstDateComponent isEqual:secondDateComponent]);
+}
+
++ (BOOL)isDateSameMinute:(NSDate *)firstDate
+                asDate:(NSDate *)secondDate {
+ 
+    NSCalendarUnit compareFlags = NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *firstDateComponent = [calendar components:compareFlags
+                                                       fromDate:firstDate];
+    
+    NSDateComponents *secondDateComponent = [calendar components:compareFlags
                                                         fromDate:secondDate];
     
     return ([firstDateComponent isEqual:secondDateComponent]);
@@ -41,7 +124,7 @@
         dateFormatter.dateFormat = @"E, dd. MMMM Y";
     }
     else {
-        // Ausnahme für endDate:
+        // exception for endDate:
         if (isEqualDayOmitting == YES) {
             dateFormatter.dateFormat = @"";
         } else {
@@ -55,12 +138,12 @@
 + (NSDateFormatter *)timeFormatterWithAllday:(BOOL)isAllday {
     
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
-    
+
     if (isAllday == YES) {
-        timeFormatter.dateFormat = @"";
+        timeFormatter.timeStyle = NSDateFormatterNoStyle;
     }
     else {
-        timeFormatter.dateFormat = @"HH:mm";
+        timeFormatter.timeStyle = NSDateFormatterShortStyle;
     }
     
     return timeFormatter;
