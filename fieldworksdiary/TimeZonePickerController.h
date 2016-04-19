@@ -10,6 +10,7 @@
 
 @interface TimeZonePickerController : UITableViewController
 
+@property (nonatomic, copy) NSTimeZone *timeZone;
 @property (nonatomic, strong) NSArray *timezoneNames;
 @property (nonatomic, weak) id<TimeZonePickerDelegate> delegate;
 

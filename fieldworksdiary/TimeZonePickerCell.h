@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeZoneNameLabel;
 
 - (void)configureWithTimeZone:(NSTimeZone *)timeZone
-               atIndexPath:(NSIndexPath *)indexPath;
+                  atIndexPath:(NSIndexPath *)indexPath
+                     selected:(BOOL)selected;
 
 @end

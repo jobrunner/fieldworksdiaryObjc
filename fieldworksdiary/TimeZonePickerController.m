@@ -67,9 +67,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *timeZoneName = [_timezoneNames objectAtIndex:indexPath.item];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:timeZoneName];
+
+    // Die cell muss nun wissen, ob sie einen Eintrag bereits markiert...
+
+    BOOL selected = ([timeZoneName isEqualToString:self.timeZone.name]);
     
     [cell configureWithTimeZone:timeZone
-                    atIndexPath:indexPath];
+                    atIndexPath:indexPath
+                       selected:selected];
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -79,8 +84,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
         NSString *timeZoneName = [_timezoneNames objectAtIndex:indexPath.item];
         NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:timeZoneName];
-        
-        [self.delegate timeZonePicker:self didSelectTimeZone:timeZone];
+
+        // call delegate method to inform about the change
+        [self.delegate timeZonePicker:self
+                    didSelectTimeZone:timeZone];
     }
         
     [self.navigationController popViewControllerAnimated:YES];
