@@ -32,8 +32,7 @@
     [super viewDidLoad];
 
     // managed object context aus Pseudo Singleton holen:
-    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    managedObjectContext = appDelegate.managedObjectContext;
+    managedObjectContext = ApplicationDelegate.managedObjectContext;
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -429,7 +428,9 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption {
     if ([[segue identifier] isEqualToString:@"openFilteredSamplesSegue"]) {
         SamplesController *controller = segue.destinationViewController;
         FieldtripCell *cell = (FieldtripCell *)sender;
+        controller.sampleUsage = kSampleUsageFilteredByFieldtrip;
         controller.filterByFieldtrip = [fetchedResultsController objectAtIndexPath:cell.indexPath];
+
     }
 }
 

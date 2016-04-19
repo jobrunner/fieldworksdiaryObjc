@@ -12,8 +12,13 @@
 
 @class Fieldtrip;
 
-
-@interface SampleDetailsController : UITableViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UITextFieldDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SampleDetailsController : UITableViewController <
+    CLLocationManagerDelegate,
+    UIAlertViewDelegate,
+    UITextFieldDelegate,
+    MKMapViewDelegate,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate>
 
 /*!
  *  Holds a reference to the locality model

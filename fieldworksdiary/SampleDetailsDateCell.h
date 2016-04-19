@@ -1,6 +1,6 @@
 // #import "SampleDetailsCellProtocol.h"
 
-// @class Fieldtrip;
+@class Fieldtrip;
 
 @interface SampleDetailsDateCell : UITableViewCell
 
@@ -13,13 +13,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sunsetImageView;
 
 @property (nonatomic, readonly) NSIndexPath *indexPath;
-
-// @property (nonatomic, strong) Fieldtrip * fieldtrip;
+@property (nonatomic, strong) Fieldtrip * sample;
 
 //+ (NSString *)reuseIdentifier;
-//- (void)setFieldtrip:(Fieldtrip *)fieldtrip;
-//- (Fieldtrip *)fieldtrip;
+- (void)setSample:(Fieldtrip *)sample;
+- (Fieldtrip *)sample;
 
-- (void)configureWithModel:(NSManagedObject *)managedObject
-               atIndexPath:(NSIndexPath *)indexPath;
+//- (void)configureWithModel:(NSManagedObject *)managedObject
+//               atIndexPath:(NSIndexPath *)indexPath;
 @end

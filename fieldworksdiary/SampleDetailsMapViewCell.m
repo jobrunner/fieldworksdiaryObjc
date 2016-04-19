@@ -1,25 +1,25 @@
 @import MapKit;
 
-#import "FieldtripDetailsMapViewCell.h"
+#import "SampleDetailsMapViewCell.h"
 #import "Fieldtrip.h"
 #import "Crypto.h"
 
-@implementation FieldtripDetailsMapViewCell
+@implementation SampleDetailsMapViewCell
 
-@synthesize fieldtrip = _fieldtrip;
+@synthesize sample = _sample;
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style
-    reuseIdentifier:(NSString *)reuseIdentifier {
-    
-    self = [super initWithStyle:style
-                reuseIdentifier:reuseIdentifier];
-
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+//- (id)initWithStyle:(UITableViewCellStyle)style
+//    reuseIdentifier:(NSString *)reuseIdentifier {
+//    
+//    self = [super initWithStyle:style
+//                reuseIdentifier:reuseIdentifier];
+//
+//    if (self) {
+//        // Initialization code
+//    }
+//    return self;
+//}
 
 - (void)awakeFromNib {
     
@@ -34,15 +34,16 @@
 
 #pragma mark - FieldtripDetailsCellProtocol -
 
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip {
+- (void)setSample:(Fieldtrip *)sample {
     
-    _fieldtrip = fieldtrip;
+    _sample = sample;
+    
     [self updateUserInterface];
 }
 
-- (Fieldtrip *)fieldtrip {
+- (Fieldtrip *)sample {
     
-    return _fieldtrip;
+    return _sample;
 }
 
 - (void)updateUserInterface {
@@ -50,17 +51,17 @@
     [self drawMapFromModel];
 }
 
-- (NSString *)reuseIdentifier {
-    
-    return [FieldtripDetailsMapViewCell reuseIdentifier];
-}
-
-+ (NSString *)reuseIdentifier {
-    
-    static NSString *identifier = @"FieldtripDetailsMapViewCell";
-    
-    return identifier;
-}
+//- (NSString *)reuseIdentifier {
+//    
+//    return [FieldtripDetailsMapViewCell reuseIdentifier];
+//}
+//
+//+ (NSString *)reuseIdentifier {
+//    
+//    static NSString *identifier = @"FieldtripDetailsMapViewCell";
+//    
+//    return identifier;
+//}
 
 - (void)initMapView {
     
@@ -91,7 +92,7 @@
     //        Die Webanwendung muss eine eigene Karten rendern, also ist das
     //        persistente Property ohnehin Murks.
     
-	NSString *imageMapPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/Maps/%@", self.fieldtrip.mapImageFilename]];
+	NSString *imageMapPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/Maps/%@", self.sample.mapImageFilename]];
     
     NSLog(@"String to load: %@", imageMapPath);
     
@@ -107,7 +108,7 @@
 
 - (void)makeMapSnaphotFromModel {
     
-    if (self.fieldtrip.location == nil) {
+    if (self.sample.location == nil) {
         NSLog(@"MapView cannot be created yet because of no lat/lng is given");
 
         // show placeholder instead?
@@ -118,8 +119,8 @@
     
     MKCoordinateRegion region;
     
-    region.center.latitude = self.fieldtrip.latitude.doubleValue;
-    region.center.longitude = self.fieldtrip.longitude.doubleValue;
+    region.center.latitude = self.sample.latitude.doubleValue;
+    region.center.longitude = self.sample.longitude.doubleValue;
     
     region.span.longitudeDelta = 0.01; // ca. 111km / 0.001° => 100m
     region.span.latitudeDelta = 0.01;  // ca. 111km / 0.001° => 100m
@@ -176,12 +177,12 @@
         // store the png
         if ([pngImageData writeToFile:filePath
                            atomically:YES] == YES) {
-            self.fieldtrip.mapImageFilename = filename;
+            self.sample.mapImageFilename = filename;
             
         } else {
             NSLog(@"Failed to write map file to disc.");
             // alert the error
-            self.fieldtrip.mapImageFilename = nil;
+            self.sample.mapImageFilename = nil;
         }
     }];
 }

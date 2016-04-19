@@ -1,78 +1,61 @@
 #import "SampleDetailsDateCell.h"
 #import "Fieldtrip.h"
-
-
-@interface SampleDetailsDateCell()
-
-@property (nonatomic, strong) Fieldtrip *sample;
-
-@end
-
+#import "DateUtility.h"
 
 @implementation SampleDetailsDateCell
 
-// @synthesize fieldtrip = _fieldtrip;
+@synthesize sample = _sample;
 
+//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+//    
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if (self) {
+//        // Initialization code
+//    }
+//    return self;
+//}
 
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, self.bounds.size.width);
 
-    // MUSS noch!
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUserInterface)
                                                  name:kNotificationDateUpdate
                                                object:nil];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(updateUserInterface)
-//                                                 name:kNotificationLocationUpdate
-//                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUserInterface)
+                                                 name:kNotificationLocationUpdate
+                                               object:nil];
 
-    
-    
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(updateUserInterface)
-//                                                 name:kNotificationSunriseSunsetTwilightUpdate
-//                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUserInterface)
+                                                 name:kNotificationSunriseSunsetTwilightUpdate
+                                               object:nil];
+}
 
+- (void)setSample:(Fieldtrip *)sample {
+    
+    _sample = sample;
+    
+    [self updateUserInterface];
 }
 
 
-#pragma mark - FieldtripDetailsCellProtocol -
+- (Fieldtrip *)sample {
+    
+    return _sample;
+}
 
-//- (void)setFieldtrip:(Fieldtrip *)fieldtrip
-//{
-//    _fieldtrip = fieldtrip;
+//- (void)configureWithModel:(NSManagedObject *)managedObject
+//               atIndexPath:(NSIndexPath *)indexPath {
+//    
+//    _sample = (Fieldtrip *)managedObject;
+//    _indexPath = indexPath;
+//
 //    [self updateUserInterface];
-//}
-//
-//
-//- (Fieldtrip *)fieldtrip
-//{
-//    return _fieldtrip;
-//}
 
-- (void)configureWithModel:(NSManagedObject *)managedObject
-               atIndexPath:(NSIndexPath *)indexPath {
-    
-    _sample = (Fieldtrip *)managedObject;
-    _indexPath = indexPath;
-
-    [self updateUserInterface];
-    
 //    return;
 //    
 //    static NSDateFormatter *dateFormatter = nil;
@@ -115,47 +98,37 @@
 //        _sunriseLabel.text = [sunriseSunsetDateFormatter stringFromDate:sample.sunrise];
 //        _sunsetLabel.text  = [sunriseSunsetDateFormatter stringFromDate:sample.sunset];
 //    }
-}
+//}
 
 - (void)updateUserInterface {
 
-    static NSDateFormatter *dateFormatter = nil;
+    if (_sample == nil) {
+        
+        return;
+    }
+    
+//    NSLog(@"updateUserInterface in SampleDetailsDateCell");
 
     Fieldtrip *sample = _sample;
     
-    if (dateFormatter == nil) {
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.timeStyle = NSDateFormatterShortStyle;
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    }
-    
-    NSString * formatedDate = [dateFormatter stringFromDate:sample.beginDate];
-    
-    self.beginDateLabel.text = formatedDate;
+    NSString *dateRangeString = [DateUtility formattedBeginDate:_sample.beginDate
+                                                        endDate:_sample.endDate
+                                                         allday:_sample.isFullTime.boolValue];
+    self.beginDateLabel.text = dateRangeString;
 
-    
-    // allDay
-    if (sample.isFullTime) {
+    if (_sample.isFullTime.boolValue) {
         
-        // Freitag, 11. März 2016
-        // Fr., 11. bis Sa., 12. März 2016
-        // Fr., 11. März bis Sa., 10. April 2016
-        // Fr., 11. März 2016 bis Sa., 2. Januar 2017
+        self.timeZoneLabel.text = @"";
     }
     else {
-        // Freitag, 11. März 2016
-        // Von 17:00 bis 19:00
-        
-        // Fr., 11. März 2016
-        
+        NSString *timeZoneCaption = NSLocalizedString(@"Time zone", @"Time zone");
+        NSString *timeZoneString = [NSString stringWithFormat:@"%@: %@ (%@)", timeZoneCaption, sample.timeZone.name, _sample.timeZone.abbreviation];
+
+        self.timeZoneLabel.text = timeZoneString;
     }
     
-    
-    NSMutableString *timeZone;
-    [timeZone appendFormat:@"%@: %@", @"Time zone", sample.timeZone.name];
-    self.timeZoneLabel.text = timeZone;
 
-    if (sample.location == nil || sample.sunrise == nil || sample.sunset == nil) {
+    if (_sample.location == nil || _sample.sunrise == nil || _sample.sunset == nil) {
         _dayNightStatusImageView.hidden = YES;
         _sunriseLabel.text = nil;
         _sunsetLabel.text = nil;
@@ -166,9 +139,9 @@
     
         // day light/night icon
         _dayNightStatusImageView.hidden = NO;
-        _dayNightStatusImageView.highlighted = [self isDayLightWidthDate:sample.beginDate
-                                                             sunriseDate:sample.sunrise
-                                                              sunsetDate:sample.sunset];
+        _dayNightStatusImageView.highlighted = [self isDayLightWidthDate:_sample.beginDate
+                                                             sunriseDate:_sample.sunrise
+                                                              sunsetDate:_sample.sunset];
 
         // Update sunrise and sunset times
         NSDateFormatter *sunriseSunsetDateFormatter = nil;
@@ -180,23 +153,10 @@
     
         _sunriseImageView.hidden = NO;
         _sunsetImageView.hidden = NO;
-        _sunriseLabel.text = [sunriseSunsetDateFormatter stringFromDate:sample.sunrise];
-        _sunsetLabel.text  = [sunriseSunsetDateFormatter stringFromDate:sample.sunset];
+        _sunriseLabel.text = [sunriseSunsetDateFormatter stringFromDate:_sample.sunrise];
+        _sunsetLabel.text  = [sunriseSunsetDateFormatter stringFromDate:_sample.sunset];
     }
 }
-
-//- (NSString *)reuseIdentifier
-//{
-//    return [FieldtripDetailsDateCell reuseIdentifier];
-//}
-
-
-//+ (NSString *)reuseIdentifier
-//{
-//    static NSString *identifier = @"FieldtripDetailsDateCell";
-//    
-//    return identifier;
-//}
 
 - (BOOL)isDayLightWidthDate:(NSDate *)date
                 sunriseDate:(NSDate *)sunrise
@@ -205,35 +165,14 @@
     // compare sunrise and sunset time with current time
     if ([date compare:sunrise] == NSOrderedDescending &&
         [date compare:sunset] == NSOrderedAscending) {
+
         // It is light outside (day)
         return YES;
     } else {
+        
         // It is dark outside (night)
         return NO;
     }
 }
-
-/**
- * Calculates Sunrise, Sunset and Twilight for a given time zone and coordinates
- * and stores it in the model.
- */
-//- (void)calculateSunriseSunsetTwilight
-//{
-//    // Daten aus dem Model holen:
-//    NSDate * date = self.fieldtrip.beginDate;
-//    NSTimeZone * timeZone = self.fieldtrip.timeZone;
-//    float lat = [self.fieldtrip.latitude doubleValue];
-//    float lon = [self.fieldtrip.longitude doubleValue];
-//    
-//    // initializes the SunriseSet object with mett:
-//    EDSunriseSet *sunriseset  = [EDSunriseSet sunrisesetWithTimezone:timeZone
-//                                                            latitude:lat
-//                                                           longitude:lon];
-//    // calculate the sun
-//    [sunriseset calculate:date];
-//    
-//    // Write calculated data of sunrise, sunset and twilight back to model
-//    [self setModelWithSunriseSetTwilight:sunriseset];
-//}
 
 @end

@@ -8,13 +8,13 @@
 
 @interface SampleDetailsPlacemarkCell()
 
-@property (nonatomic, strong) Fieldtrip *fieldtrip;
+@property (nonatomic, strong) Fieldtrip *sample;
 
 @end
 
 @implementation SampleDetailsPlacemarkCell
 
-@synthesize fieldtrip = _fieldtrip;
+@synthesize sample = _sample;
 
 
 //- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -52,23 +52,23 @@
 
 #pragma mark - FieldtripDetailsCellProtocol -
 
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip {
+- (void)setSample:(Fieldtrip *)sample {
     
-    _fieldtrip = fieldtrip;
+    _sample = sample;
     
     [self updateUserInterface];
 }
 
 
-- (Fieldtrip *)fieldtrip {
+- (Fieldtrip *)sample {
     
-    return _fieldtrip;
+    return _sample;
 }
 
 
 - (void)updateUserInterface
 {
-    _countryAndAdministrativeAreaLabel.text = [Placemark stringFromPlacemark:[self.fieldtrip placemark]];
+    _countryAndAdministrativeAreaLabel.text = [Placemark stringFromPlacemark:[self.sample placemark]];
 }
 
 //- (NSString *)reuseIdentifier
@@ -136,16 +136,16 @@
 - (void)reverseGeocodeLocationGoogle {
     
     NSLog(@"reverseGeocodeLocation in Placemark Cell");
-    NSLog(@"location: %@", _fieldtrip.location);
+    NSLog(@"location: %@", _sample.location);
     
-    if (_fieldtrip.location == nil) {
+    if (_sample.location == nil) {
 
 //        return ;
     }
     
     self.geocoderOperation =
-    [ApplicationDelegate.geocoder geocodeWithLatitude:[_fieldtrip.latitude doubleValue]
-                                            longitude:[_fieldtrip.longitude doubleValue]
+    [ApplicationDelegate.geocoder geocodeWithLatitude:[_sample.latitude doubleValue]
+                                            longitude:[_sample.longitude doubleValue]
                                              language:@"de"
                                            completion:^(NSDictionary *responseJSON) {
                                                
@@ -158,7 +158,7 @@
                                                Placemark *placemark;
                                                placemark = [[Placemark alloc] initWithGoogleLocationDict:location];
                                                
-                                               _fieldtrip.placemark = placemark;
+                                               _sample.placemark = placemark;
                                                
                                                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkUpdate
                                                                                                    object:self];
@@ -175,7 +175,7 @@
                                                
                                                NSLog(@"Error-Code: %ld", (long)error.code);
 
-                                               _fieldtrip.placemark = nil;
+                                               _sample.placemark = nil;
                                                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkFailure
                                                                                                    object:self];
                                                
@@ -194,7 +194,7 @@
     // CoreLocation Geocoding
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
-    [geocoder reverseGeocodeLocation:[self.fieldtrip location]
+    [geocoder reverseGeocodeLocation:[self.sample location]
                    completionHandler:^(NSArray *placemarks, NSError *error)
      {
          if (placemarks.count) {
@@ -202,14 +202,14 @@
              
              CLPlacemark * placemark = [placemarks lastObject];
              
-             self.fieldtrip.placemark = [[Placemark alloc] initWithPlacemark:placemark];
+             self.sample.placemark = [[Placemark alloc] initWithPlacemark:placemark];
              
              //             [self.fieldtrip setPlacemark:[[Placemark alloc] initWithPlacemark:placemark]];
              
              [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkUpdate
                                                                  object:self];
          } else {
-             [self.fieldtrip setPlacemark:nil];
+             [self.sample setPlacemark:nil];
              
              // we will post a 'Not Found' notification to NotificationCenter if an address wasn't found
              [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkFailure
@@ -223,7 +223,7 @@
     // CoreLocation Geocoding
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
-    [geocoder reverseGeocodeLocation:[self.fieldtrip location]
+    [geocoder reverseGeocodeLocation:[self.sample location]
                    completionHandler:^(NSArray *placemarks, NSError *error) {
                        
                        if (placemarks.count) {
@@ -231,13 +231,13 @@
              
                            CLPlacemark * placemark = [placemarks lastObject];
              
-                           self.fieldtrip.placemark = [[Placemark alloc] initWithPlacemark:placemark];
+                           self.sample.placemark = [[Placemark alloc] initWithPlacemark:placemark];
              
                            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkUpdate
                                                                  object:self];
                        }
                        else {
-                           self.fieldtrip.placemark = nil;
+                           self.sample.placemark = nil;
              
                            // we will post a 'Not Found' notification to NotificationCenter if an address wasn't found
                            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPlacemarkFailure

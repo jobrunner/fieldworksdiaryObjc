@@ -39,12 +39,12 @@
 		24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFC19CB311F00D2D01C /* TextFieldCell.m */; };
 		24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0419CB312C00D2D01C /* HomeTableViewCell.m */; };
 		24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* SampleDetailsController.m */; };
-		24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */; };
+		24249B1F19CB314C00D2D01C /* SampleDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* SampleDetailsLocationNameCell.m */; };
 		24249B2019CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */; };
-		24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */; };
+		24249B2119CB314C00D2D01C /* SampleDetailsPositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1119CB314C00D2D01C /* SampleDetailsPositionCell.m */; };
 		24249B2219CB314C00D2D01C /* SampleDetailsPlacemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1319CB314C00D2D01C /* SampleDetailsPlacemarkCell.m */; };
-		24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */; };
-		24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */; };
+		24249B2419CB314C00D2D01C /* SampleDetailsMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1719CB314C00D2D01C /* SampleDetailsMapViewCell.m */; };
+		24249B2519CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1919CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.m */; };
 		24249B2619CB314C00D2D01C /* SampleDetailsDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */; };
 		24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B1D19CB314C00D2D01C /* SampleDetailsFieldtripCell.m */; };
 		24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 24249B2819CB32D900D2D01C /* FO-1.gpx */; };
@@ -52,14 +52,43 @@
 		24249B3419CB608D00D2D01C /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3319CB608D00D2D01C /* MapController.m */; };
 		24249B3619CC543700D2D01C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24249B3519CC543700D2D01C /* README.md */; };
 		24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3B19CC8BE400D2D01C /* Fieldtrip.m */; };
-		24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */; };
+		24249B3F19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
 		2433604C1CA7F52900295FFA /* ActiveDateSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433604B1CA7F52900295FFA /* ActiveDateSetting.m */; };
 		243360571CA8A03A00295FFA /* TimeZonePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360561CA8A03A00295FFA /* TimeZonePickerController.m */; };
 		2433605B1CA8A50C00295FFA /* TimeZonePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360591CA8A50C00295FFA /* TimeZonePickerCell.m */; };
 		2433605C1CA8A50C00295FFA /* TimeZonePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2433605A1CA8A50C00295FFA /* TimeZonePickerCell.xib */; };
-		243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */; };
+		2433605E1CA9909200295FFA /* DateUtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433605D1CA9909200295FFA /* DateUtilityTests.m */; };
+		243360651CB7425E00295FFA /* SampleDetailsPositionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243360641CB7425E00295FFA /* SampleDetailsPositionCell.xib */; };
+		243360681CB8FDE100295FFA /* ActiveCoordinateSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360671CB8FDE100295FFA /* ActiveCoordinateSystem.m */; };
+		2433606C1CB9455600295FFA /* CoordinateSystemPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433606B1CB9455600295FFA /* CoordinateSystemPickerController.m */; };
+		2433606F1CB947B900295FFA /* CoordinateSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433606E1CB947B900295FFA /* CoordinateSystem.m */; };
+		243360721CBA417900295FFA /* CoordinateSystemsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360711CBA417900295FFA /* CoordinateSystemsListController.m */; };
+		243360751CBA691B00295FFA /* GTWConversionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360741CBA691B00295FFA /* GTWConversionManager.m */; };
+		243360941CBA697F00295FFA /* abstract.doc in Resources */ = {isa = PBXBuildFile; fileRef = 243360781CBA697F00295FFA /* abstract.doc */; };
+		243360951CBA697F00295FFA /* reuse.doc in Resources */ = {isa = PBXBuildFile; fileRef = 243360791CBA697F00295FFA /* reuse.doc */; };
+		243360961CBA697F00295FFA /* mgrs.c in Sources */ = {isa = PBXBuildFile; fileRef = 2433607A1CBA697F00295FFA /* mgrs.c */; };
+		243360971CBA697F00295FFA /* abstract.doc in Resources */ = {isa = PBXBuildFile; fileRef = 2433607E1CBA697F00295FFA /* abstract.doc */; };
+		243360981CBA697F00295FFA /* reuse.doc in Resources */ = {isa = PBXBuildFile; fileRef = 2433607F1CBA697F00295FFA /* reuse.doc */; };
+		243360991CBA697F00295FFA /* utm.c in Sources */ = {isa = PBXBuildFile; fileRef = 243360801CBA697F00295FFA /* utm.c */; };
+		2433609A1CBA697F00295FFA /* abstract.doc in Resources */ = {isa = PBXBuildFile; fileRef = 243360841CBA697F00295FFA /* abstract.doc */; };
+		2433609B1CBA697F00295FFA /* reuse.doc in Resources */ = {isa = PBXBuildFile; fileRef = 243360851CBA697F00295FFA /* reuse.doc */; };
+		2433609C1CBA697F00295FFA /* polarst.c in Sources */ = {isa = PBXBuildFile; fileRef = 243360861CBA697F00295FFA /* polarst.c */; };
+		2433609D1CBA697F00295FFA /* abstract.doc in Resources */ = {isa = PBXBuildFile; fileRef = 2433608A1CBA697F00295FFA /* abstract.doc */; };
+		2433609E1CBA697F00295FFA /* reuse.doc in Resources */ = {isa = PBXBuildFile; fileRef = 2433608B1CBA697F00295FFA /* reuse.doc */; };
+		2433609F1CBA697F00295FFA /* tranmerc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2433608C1CBA697F00295FFA /* tranmerc.c */; };
+		243360A01CBA697F00295FFA /* abstract.doc in Resources */ = {isa = PBXBuildFile; fileRef = 243360901CBA697F00295FFA /* abstract.doc */; };
+		243360A11CBA697F00295FFA /* reuse.doc in Resources */ = {isa = PBXBuildFile; fileRef = 243360911CBA697F00295FFA /* reuse.doc */; };
+		243360A21CBA697F00295FFA /* ups.c in Sources */ = {isa = PBXBuildFile; fileRef = 243360921CBA697F00295FFA /* ups.c */; };
+		243360B01CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360AE1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m */; };
+		243360B11CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243360AF1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib */; };
+		243B6F3C1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B6F3B1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m */; };
+		2464C8491CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2464C8471CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m */; };
+		2464C84A1CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2464C8481CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib */; };
+		2464C84E1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2464C84C1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m */; };
+		2464C84F1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2464C84D1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.xib */; };
+		249C62711CC6AAB7005F77C1 /* TimeZonePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 249C62701CC6AAB7005F77C1 /* TimeZonePicker.m */; };
 		24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */; };
 		24A05E651C728CE000DD6458 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A05E641C728CE000DD6458 /* libPods.a */; };
 		24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A7608418F4884B00DA9695 /* TestDummyControllerViewTest.m */; };
@@ -89,6 +118,8 @@
 		24C38A0F18F455AF00CC7105 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24C38A0D18F455AF00CC7105 /* InfoPlist.strings */; };
 		24C38A1B18F463DB00CC7105 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1A18F463DB00CC7105 /* MapKit.framework */; };
 		24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1C18F4642A00CC7105 /* CoreData.framework */; };
+		24EBF7AA1CBD54C5008F0405 /* ConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EBF7A91CBD54C5008F0405 /* ConversionTests.m */; };
+		24EBF7AC1CC0F90D008F0405 /* GTWConversionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EBF7AB1CC0F90D008F0405 /* GTWConversionManagerTests.m */; };
 		A8704A317FA64636ACC3A92C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161C9F8E15094E668177432D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -165,18 +196,18 @@
 		24249B0919CB314C00D2D01C /* SampleDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsController.h; sourceTree = "<group>"; };
 		24249B0A19CB314C00D2D01C /* SampleDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsController.m; sourceTree = "<group>"; };
 		24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsCellProtocol.h; sourceTree = "<group>"; };
-		24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationNameCell.h; sourceTree = "<group>"; };
-		24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationNameCell.m; sourceTree = "<group>"; };
+		24249B0C19CB314C00D2D01C /* SampleDetailsLocationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsLocationNameCell.h; sourceTree = "<group>"; };
+		24249B0D19CB314C00D2D01C /* SampleDetailsLocationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsLocationNameCell.m; sourceTree = "<group>"; };
 		24249B0E19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsSpecimenIdentifierCell.h; sourceTree = "<group>"; };
 		24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsSpecimenIdentifierCell.m; sourceTree = "<group>"; };
-		24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocationCell.h; sourceTree = "<group>"; };
-		24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocationCell.m; sourceTree = "<group>"; };
+		24249B1019CB314C00D2D01C /* SampleDetailsPositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsPositionCell.h; sourceTree = "<group>"; };
+		24249B1119CB314C00D2D01C /* SampleDetailsPositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsPositionCell.m; sourceTree = "<group>"; };
 		24249B1219CB314C00D2D01C /* SampleDetailsPlacemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsPlacemarkCell.h; sourceTree = "<group>"; };
 		24249B1319CB314C00D2D01C /* SampleDetailsPlacemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsPlacemarkCell.m; sourceTree = "<group>"; };
-		24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsMapViewCell.h; sourceTree = "<group>"; };
-		24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsMapViewCell.m; sourceTree = "<group>"; };
-		24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSunriseSunsetCell.h; sourceTree = "<group>"; };
-		24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSunriseSunsetCell.m; sourceTree = "<group>"; };
+		24249B1619CB314C00D2D01C /* SampleDetailsMapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsMapViewCell.h; sourceTree = "<group>"; };
+		24249B1719CB314C00D2D01C /* SampleDetailsMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsMapViewCell.m; sourceTree = "<group>"; };
+		24249B1819CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsSunriseSunsetCell.h; sourceTree = "<group>"; };
+		24249B1919CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsSunriseSunsetCell.m; sourceTree = "<group>"; };
 		24249B1A19CB314C00D2D01C /* SampleDetailsDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsDateCell.h; sourceTree = "<group>"; };
 		24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsDateCell.m; sourceTree = "<group>"; };
 		24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsFieldtripCell.h; sourceTree = "<group>"; };
@@ -188,8 +219,8 @@
 		24249B3519CC543700D2D01C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		24249B3A19CC8BE400D2D01C /* Fieldtrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fieldtrip.h; sourceTree = "<group>"; };
 		24249B3B19CC8BE400D2D01C /* Fieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fieldtrip.m; sourceTree = "<group>"; };
-		24249B3D19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsSpecimenNotesCell.h; sourceTree = "<group>"; };
-		24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
+		24249B3D19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsSpecimenNotesCell.h; sourceTree = "<group>"; };
+		24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		2433604A1CA7F52900295FFA /* ActiveDateSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveDateSetting.h; sourceTree = "<group>"; };
@@ -199,8 +230,51 @@
 		243360581CA8A50C00295FFA /* TimeZonePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZonePickerCell.h; sourceTree = "<group>"; };
 		243360591CA8A50C00295FFA /* TimeZonePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZonePickerCell.m; sourceTree = "<group>"; };
 		2433605A1CA8A50C00295FFA /* TimeZonePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeZonePickerCell.xib; sourceTree = "<group>"; };
-		243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsLocalityIdentifierCell.h; sourceTree = "<group>"; };
-		243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldtripDetailsLocalityIdentifierCell.m; sourceTree = "<group>"; };
+		2433605D1CA9909200295FFA /* DateUtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtilityTests.m; sourceTree = "<group>"; };
+		243360641CB7425E00295FFA /* SampleDetailsPositionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleDetailsPositionCell.xib; sourceTree = "<group>"; };
+		243360661CB8FDE100295FFA /* ActiveCoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveCoordinateSystem.h; sourceTree = "<group>"; };
+		243360671CB8FDE100295FFA /* ActiveCoordinateSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveCoordinateSystem.m; sourceTree = "<group>"; };
+		2433606A1CB9455600295FFA /* CoordinateSystemPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemPickerController.h; sourceTree = "<group>"; };
+		2433606B1CB9455600295FFA /* CoordinateSystemPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemPickerController.m; sourceTree = "<group>"; };
+		2433606D1CB947B900295FFA /* CoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystem.h; sourceTree = "<group>"; };
+		2433606E1CB947B900295FFA /* CoordinateSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystem.m; sourceTree = "<group>"; };
+		243360701CBA417900295FFA /* CoordinateSystemsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemsListController.h; sourceTree = "<group>"; };
+		243360711CBA417900295FFA /* CoordinateSystemsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemsListController.m; sourceTree = "<group>"; };
+		243360731CBA691B00295FFA /* GTWConversionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWConversionManager.h; sourceTree = "<group>"; };
+		243360741CBA691B00295FFA /* GTWConversionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWConversionManager.m; sourceTree = "<group>"; };
+		243360781CBA697F00295FFA /* abstract.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = abstract.doc; sourceTree = "<group>"; };
+		243360791CBA697F00295FFA /* reuse.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = reuse.doc; sourceTree = "<group>"; };
+		2433607A1CBA697F00295FFA /* mgrs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mgrs.c; sourceTree = "<group>"; };
+		2433607B1CBA697F00295FFA /* mgrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgrs.h; sourceTree = "<group>"; };
+		2433607E1CBA697F00295FFA /* abstract.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = abstract.doc; sourceTree = "<group>"; };
+		2433607F1CBA697F00295FFA /* reuse.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = reuse.doc; sourceTree = "<group>"; };
+		243360801CBA697F00295FFA /* utm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utm.c; sourceTree = "<group>"; };
+		243360811CBA697F00295FFA /* utm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utm.h; sourceTree = "<group>"; };
+		243360841CBA697F00295FFA /* abstract.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = abstract.doc; sourceTree = "<group>"; };
+		243360851CBA697F00295FFA /* reuse.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = reuse.doc; sourceTree = "<group>"; };
+		243360861CBA697F00295FFA /* polarst.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = polarst.c; sourceTree = "<group>"; };
+		243360871CBA697F00295FFA /* polarst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polarst.h; sourceTree = "<group>"; };
+		2433608A1CBA697F00295FFA /* abstract.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = abstract.doc; sourceTree = "<group>"; };
+		2433608B1CBA697F00295FFA /* reuse.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = reuse.doc; sourceTree = "<group>"; };
+		2433608C1CBA697F00295FFA /* tranmerc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tranmerc.c; sourceTree = "<group>"; };
+		2433608D1CBA697F00295FFA /* tranmerc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tranmerc.h; sourceTree = "<group>"; };
+		243360901CBA697F00295FFA /* abstract.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = abstract.doc; sourceTree = "<group>"; };
+		243360911CBA697F00295FFA /* reuse.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = reuse.doc; sourceTree = "<group>"; };
+		243360921CBA697F00295FFA /* ups.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ups.c; sourceTree = "<group>"; };
+		243360931CBA697F00295FFA /* ups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ups.h; sourceTree = "<group>"; };
+		243360AD1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemPickerDatumCell.h; sourceTree = "<group>"; };
+		243360AE1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemPickerDatumCell.m; sourceTree = "<group>"; };
+		243360AF1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordinateSystemPickerDatumCell.xib; sourceTree = "<group>"; };
+		243B6F3A1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsLocalityIdentifierCell.h; sourceTree = "<group>"; };
+		243B6F3B1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsLocalityIdentifierCell.m; sourceTree = "<group>"; };
+		2464C8461CBAC84A00821731 /* CoordinateSystemPickerSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemPickerSystemCell.h; sourceTree = "<group>"; };
+		2464C8471CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemPickerSystemCell.m; sourceTree = "<group>"; };
+		2464C8481CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordinateSystemPickerSystemCell.xib; sourceTree = "<group>"; };
+		2464C84B1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemPickerFormatCell.h; sourceTree = "<group>"; };
+		2464C84C1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemPickerFormatCell.m; sourceTree = "<group>"; };
+		2464C84D1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordinateSystemPickerFormatCell.xib; sourceTree = "<group>"; };
+		249C626F1CC6AAB7005F77C1 /* TimeZonePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZonePicker.h; sourceTree = "<group>"; };
+		249C62701CC6AAB7005F77C1 /* TimeZonePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZonePicker.m; sourceTree = "<group>"; };
 		24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitPlacemarkTests.m; sourceTree = "<group>"; };
 		24A05E621C728AB500DD6458 /* libPods-EDSunriseSet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EDSunriseSet.a"; path = "Pods/build/Debug-iphoneos/libPods-EDSunriseSet.a"; sourceTree = "<group>"; };
 		24A05E641C728CE000DD6458 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -245,6 +319,9 @@
 		24C38A0E18F455AF00CC7105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24C38A1A18F463DB00CC7105 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24C38A1C18F4642A00CC7105 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		24EBF7A91CBD54C5008F0405 /* ConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversionTests.m; sourceTree = "<group>"; };
+		24EBF7AB1CC0F90D008F0405 /* GTWConversionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWConversionManagerTests.m; sourceTree = "<group>"; };
+		24EBF7AD1CC255A8008F0405 /* mgrsext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgrsext.h; sourceTree = "<group>"; };
 		C21C81E668D2D8C7EDA71C54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA878365A3B396BD59C26EC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -304,22 +381,23 @@
 				24249AB319CB2F8700D2D01C /* SampleEditController.h */,
 				24249AB419CB2F8700D2D01C /* SampleEditController.m */,
 				24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */,
-				243B6F3A1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.h */,
-				243B6F3B1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m */,
+				243B6F3A1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.h */,
+				243B6F3B1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m */,
 				24249B0E19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.h */,
 				24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */,
-				24249B0C19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.h */,
-				24249B0D19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m */,
-				24249B3D19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.h */,
-				24249B3E19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m */,
-				24249B1019CB314C00D2D01C /* FieldtripDetailsLocationCell.h */,
-				24249B1119CB314C00D2D01C /* FieldtripDetailsLocationCell.m */,
+				24249B0C19CB314C00D2D01C /* SampleDetailsLocationNameCell.h */,
+				24249B0D19CB314C00D2D01C /* SampleDetailsLocationNameCell.m */,
+				24249B3D19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.h */,
+				24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */,
+				24249B1019CB314C00D2D01C /* SampleDetailsPositionCell.h */,
+				24249B1119CB314C00D2D01C /* SampleDetailsPositionCell.m */,
+				243360641CB7425E00295FFA /* SampleDetailsPositionCell.xib */,
 				24249B1219CB314C00D2D01C /* SampleDetailsPlacemarkCell.h */,
 				24249B1319CB314C00D2D01C /* SampleDetailsPlacemarkCell.m */,
-				24249B1619CB314C00D2D01C /* FieldtripDetailsMapViewCell.h */,
-				24249B1719CB314C00D2D01C /* FieldtripDetailsMapViewCell.m */,
-				24249B1819CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.h */,
-				24249B1919CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m */,
+				24249B1619CB314C00D2D01C /* SampleDetailsMapViewCell.h */,
+				24249B1719CB314C00D2D01C /* SampleDetailsMapViewCell.m */,
+				24249B1819CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.h */,
+				24249B1919CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.m */,
 				24249B1A19CB314C00D2D01C /* SampleDetailsDateCell.h */,
 				24249B1B19CB314C00D2D01C /* SampleDetailsDateCell.m */,
 				24249B1C19CB314C00D2D01C /* SampleDetailsFieldtripCell.h */,
@@ -408,8 +486,127 @@
 				243360581CA8A50C00295FFA /* TimeZonePickerCell.h */,
 				243360591CA8A50C00295FFA /* TimeZonePickerCell.m */,
 				2433605A1CA8A50C00295FFA /* TimeZonePickerCell.xib */,
+				249C626F1CC6AAB7005F77C1 /* TimeZonePicker.h */,
+				249C62701CC6AAB7005F77C1 /* TimeZonePicker.m */,
 			);
 			name = TimeZones;
+			sourceTree = "<group>";
+		};
+		243360691CB9451500295FFA /* CoordinateSelector */ = {
+			isa = PBXGroup;
+			children = (
+				2433606D1CB947B900295FFA /* CoordinateSystem.h */,
+				2433606E1CB947B900295FFA /* CoordinateSystem.m */,
+				2433606A1CB9455600295FFA /* CoordinateSystemPickerController.h */,
+				2433606B1CB9455600295FFA /* CoordinateSystemPickerController.m */,
+				243360701CBA417900295FFA /* CoordinateSystemsListController.h */,
+				243360711CBA417900295FFA /* CoordinateSystemsListController.m */,
+				243360AD1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.h */,
+				243360AE1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m */,
+				243360AF1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib */,
+				2464C8461CBAC84A00821731 /* CoordinateSystemPickerSystemCell.h */,
+				2464C8471CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m */,
+				2464C8481CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib */,
+				2464C84B1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.h */,
+				2464C84C1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m */,
+				2464C84D1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.xib */,
+			);
+			name = CoordinateSelector;
+			sourceTree = "<group>";
+		};
+		243360761CBA697E00295FFA /* mgrs */ = {
+			isa = PBXGroup;
+			children = (
+				243360771CBA697F00295FFA /* docs */,
+				2433607A1CBA697F00295FFA /* mgrs.c */,
+				2433607B1CBA697F00295FFA /* mgrs.h */,
+			);
+			path = mgrs;
+			sourceTree = "<group>";
+		};
+		243360771CBA697F00295FFA /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				243360781CBA697F00295FFA /* abstract.doc */,
+				243360791CBA697F00295FFA /* reuse.doc */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		2433607C1CBA697F00295FFA /* utm */ = {
+			isa = PBXGroup;
+			children = (
+				2433607D1CBA697F00295FFA /* docs */,
+				243360801CBA697F00295FFA /* utm.c */,
+				243360811CBA697F00295FFA /* utm.h */,
+			);
+			path = utm;
+			sourceTree = "<group>";
+		};
+		2433607D1CBA697F00295FFA /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				2433607E1CBA697F00295FFA /* abstract.doc */,
+				2433607F1CBA697F00295FFA /* reuse.doc */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		243360821CBA697F00295FFA /* polarst */ = {
+			isa = PBXGroup;
+			children = (
+				243360831CBA697F00295FFA /* docs */,
+				243360861CBA697F00295FFA /* polarst.c */,
+				243360871CBA697F00295FFA /* polarst.h */,
+			);
+			path = polarst;
+			sourceTree = "<group>";
+		};
+		243360831CBA697F00295FFA /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				243360841CBA697F00295FFA /* abstract.doc */,
+				243360851CBA697F00295FFA /* reuse.doc */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		243360881CBA697F00295FFA /* tranmerc */ = {
+			isa = PBXGroup;
+			children = (
+				243360891CBA697F00295FFA /* docs */,
+				2433608C1CBA697F00295FFA /* tranmerc.c */,
+				2433608D1CBA697F00295FFA /* tranmerc.h */,
+			);
+			path = tranmerc;
+			sourceTree = "<group>";
+		};
+		243360891CBA697F00295FFA /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				2433608A1CBA697F00295FFA /* abstract.doc */,
+				2433608B1CBA697F00295FFA /* reuse.doc */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		2433608E1CBA697F00295FFA /* ups */ = {
+			isa = PBXGroup;
+			children = (
+				2433608F1CBA697F00295FFA /* docs */,
+				243360921CBA697F00295FFA /* ups.c */,
+				243360931CBA697F00295FFA /* ups.h */,
+			);
+			path = ups;
+			sourceTree = "<group>";
+		};
+		2433608F1CBA697F00295FFA /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				243360901CBA697F00295FFA /* abstract.doc */,
+				243360911CBA697F00295FFA /* reuse.doc */,
+			);
+			path = docs;
 			sourceTree = "<group>";
 		};
 		24A7608618F488AF00DA9695 /* MockClasses */ = {
@@ -536,6 +733,9 @@
 				24C38A0B18F455AF00CC7105 /* Supporting Files */,
 				24A05E601C72705A00DD6458 /* UnitPlacemarkTests.m */,
 				24AB3FD81C8629100014AE95 /* ActiveCollectorTests.m */,
+				2433605D1CA9909200295FFA /* DateUtilityTests.m */,
+				24EBF7A91CBD54C5008F0405 /* ConversionTests.m */,
+				24EBF7AB1CC0F90D008F0405 /* GTWConversionManagerTests.m */,
 			);
 			name = Tests;
 			path = fieldworksdiaryTests;
@@ -566,6 +766,7 @@
 		24C38A1F18F46AFD00CC7105 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				243360691CB9451500295FFA /* CoordinateSelector */,
 				243360541CA8A01300295FFA /* TimeZones */,
 				24249B2F19CB4FAE00D2D01C /* Home */,
 				24249B2C19CB4F3B00D2D01C /* Samples */,
@@ -612,6 +813,14 @@
 		24C38A2118F46C2700CC7105 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				243360761CBA697E00295FFA /* mgrs */,
+				2433607C1CBA697F00295FFA /* utm */,
+				243360821CBA697F00295FFA /* polarst */,
+				243360881CBA697F00295FFA /* tranmerc */,
+				2433608E1CBA697F00295FFA /* ups */,
+				24EBF7AD1CC255A8008F0405 /* mgrsext.h */,
+				243360731CBA691B00295FFA /* GTWConversionManager.h */,
+				243360741CBA691B00295FFA /* GTWConversionManager.m */,
 				24249ACC19CB30A000D2D01C /* GoogleGeocoder.h */,
 				24249ACD19CB30A000D2D01C /* GoogleGeocoder.m */,
 				24249ACE19CB30A000D2D01C /* Conversion.h */,
@@ -632,6 +841,8 @@
 				24AB3FE11C8B82C80014AE95 /* Formatter.m */,
 				2433604A1CA7F52900295FFA /* ActiveDateSetting.h */,
 				2433604B1CA7F52900295FFA /* ActiveDateSetting.m */,
+				243360661CB8FDE100295FFA /* ActiveCoordinateSystem.h */,
+				243360671CB8FDE100295FFA /* ActiveCoordinateSystem.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -739,17 +950,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2433609A1CBA697F00295FFA /* abstract.doc in Resources */,
+				2464C84F1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.xib in Resources */,
+				243360A11CBA697F00295FFA /* reuse.doc in Resources */,
 				24249B2A19CB32D900D2D01C /* FO-1.gpx in Resources */,
 				24290E0919013BD8007BD8AF /* .travis.yml in Resources */,
+				2433609E1CBA697F00295FFA /* reuse.doc in Resources */,
 				24290E07190138CA007BD8AF /* .gitignore in Resources */,
+				2433609D1CBA697F00295FFA /* abstract.doc in Resources */,
 				24249AA719CAF83B00D2D01C /* Podfile in Resources */,
+				243360941CBA697F00295FFA /* abstract.doc in Resources */,
 				24249AA919CB266700D2D01C /* Main.storyboard in Resources */,
 				24249AA419CADD8500D2D01C /* before_script.sh in Resources */,
+				243360981CBA697F00295FFA /* reuse.doc in Resources */,
 				24AB401B1C8CF9250014AE95 /* SampleCell.xib in Resources */,
+				2433609B1CBA697F00295FFA /* reuse.doc in Resources */,
+				243360971CBA697F00295FFA /* abstract.doc in Resources */,
+				243360951CBA697F00295FFA /* reuse.doc in Resources */,
 				24C389FE18F455AE00CC7105 /* Images.xcassets in Resources */,
+				243360B11CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib in Resources */,
+				243360651CB7425E00295FFA /* SampleDetailsPositionCell.xib in Resources */,
 				24249B2B19CB32D900D2D01C /* FO-2.gpx in Resources */,
 				24C389F018F455AE00CC7105 /* InfoPlist.strings in Resources */,
 				2433605C1CA8A50C00295FFA /* TimeZonePickerCell.xib in Resources */,
+				2464C84A1CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib in Resources */,
+				243360A01CBA697F00295FFA /* abstract.doc in Resources */,
 				24AB3FD11C8350350014AE95 /* FieldtripCell.xib in Resources */,
 				24249B3619CC543700D2D01C /* README.md in Resources */,
 				24249AA519CADD8500D2D01C /* script.sh in Resources */,
@@ -805,13 +1030,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				24249AC519CB2F8800D2D01C /* FieldtripDetailsController.m in Sources */,
+				2433609F1CBA697F00295FFA /* tranmerc.c in Sources */,
+				243360961CBA697F00295FFA /* mgrs.c in Sources */,
 				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
+				2433606F1CB947B900295FFA /* CoordinateSystem.m in Sources */,
+				2433609C1CBA697F00295FFA /* polarst.c in Sources */,
+				243360681CB8FDE100295FFA /* ActiveCoordinateSystem.m in Sources */,
+				2464C84E1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m in Sources */,
 				243360571CA8A03A00295FFA /* TimeZonePickerController.m in Sources */,
 				24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */,
 				24AB3FDC1C8655CB0014AE95 /* DateUtility.m in Sources */,
 				24AB401A1C8CF9250014AE95 /* SampleCell.m in Sources */,
 				24249AC719CB2F8800D2D01C /* SpecimenDetailsTableViewController.m in Sources */,
 				24249AD419CB30A000D2D01C /* GoogleGeocoder.m in Sources */,
+				243360751CBA691B00295FFA /* GTWConversionManager.m in Sources */,
 				24249B2719CB314C00D2D01C /* SampleDetailsFieldtripCell.m in Sources */,
 				24249AC319CB2F8800D2D01C /* AboutController.m in Sources */,
 				24249B2219CB314C00D2D01C /* SampleDetailsPlacemarkCell.m in Sources */,
@@ -819,43 +1051,50 @@
 				24249AC619CB2F8800D2D01C /* SpecimenTableViewController.m in Sources */,
 				24AB3FD01C8350350014AE95 /* FieldtripCell.m in Sources */,
 				24249AD619CB30A000D2D01C /* LocationService.m in Sources */,
+				243360A21CBA697F00295FFA /* ups.c in Sources */,
 				24AB3FC41C7EF08B0014AE95 /* SettingsController.m in Sources */,
-				243B6F3C1C7156C100C9164E /* FieldtripDetailsLocalityIdentifierCell.m in Sources */,
+				243B6F3C1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m in Sources */,
 				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
 				2433604C1CA7F52900295FFA /* ActiveDateSetting.m in Sources */,
 				24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */,
-				24249B2119CB314C00D2D01C /* FieldtripDetailsLocationCell.m in Sources */,
+				24249B2119CB314C00D2D01C /* SampleDetailsPositionCell.m in Sources */,
 				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,
 				24AB3FD71C8624920014AE95 /* ActiveCollector.m in Sources */,
 				24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */,
 				24249AED19CB30B800D2D01C /* Image.m in Sources */,
 				24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */,
-				24249B1F19CB314C00D2D01C /* FieldtripDetailsLocationNameCell.m in Sources */,
+				24249B1F19CB314C00D2D01C /* SampleDetailsLocationNameCell.m in Sources */,
 				24249AD519CB30A000D2D01C /* Conversion.m in Sources */,
 				24249B3419CB608D00D2D01C /* MapController.m in Sources */,
+				243360721CBA417900295FFA /* CoordinateSystemsListController.m in Sources */,
+				2464C8491CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m in Sources */,
 				24249AAC19CB2F2900D2D01C /* NavigationController.m in Sources */,
 				24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */,
+				243360991CBA697F00295FFA /* utm.c in Sources */,
 				24249B2019CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m in Sources */,
 				24249AEE19CB30B800D2D01C /* Project.m in Sources */,
 				2433605B1CA8A50C00295FFA /* TimeZonePickerCell.m in Sources */,
 				24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */,
 				24249AF019CB30B800D2D01C /* CollectingMethod.m in Sources */,
-				24249B2419CB314C00D2D01C /* FieldtripDetailsMapViewCell.m in Sources */,
+				24249B2419CB314C00D2D01C /* SampleDetailsMapViewCell.m in Sources */,
 				24AB3FE21C8B82C80014AE95 /* Formatter.m in Sources */,
 				24249ABF19CB2F8800D2D01C /* HomeController.m in Sources */,
 				24249AF219CB30B800D2D01C /* Finding.m in Sources */,
 				24249ACB19CB307000D2D01C /* AppDelegate.m in Sources */,
+				249C62711CC6AAB7005F77C1 /* TimeZonePicker.m in Sources */,
 				24249B2619CB314C00D2D01C /* SampleDetailsDateCell.m in Sources */,
 				24249AF319CB30B800D2D01C /* Collection.m in Sources */,
-				24249B2519CB314C00D2D01C /* FieldtripDetailsSunriseSunsetCell.m in Sources */,
+				24249B2519CB314C00D2D01C /* SampleDetailsSunriseSunsetCell.m in Sources */,
 				24249AF419CB30B800D2D01C /* Placemark.m in Sources */,
 				24C389F218F455AE00CC7105 /* main.m in Sources */,
 				24AB3FD41C8514880014AE95 /* ActiveFieldtrip.m in Sources */,
 				24249AC219CB2F8800D2D01C /* SampleEditController.m in Sources */,
-				24249B3F19CDA72400D2D01C /* FieldtripDetailsSpecimenNotesCell.m in Sources */,
+				24249B3F19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m in Sources */,
+				243360B01CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m in Sources */,
 				24249AF119CB30B800D2D01C /* Person.m in Sources */,
 				24249AEF19CB30B800D2D01C /* Specimen.m in Sources */,
 				24249AC419CB2F8800D2D01C /* FieldtripsController.m in Sources */,
+				2433606C1CB9455600295FFA /* CoordinateSystemPickerController.m in Sources */,
 				24249AC019CB2F8800D2D01C /* SamplesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -865,9 +1104,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A7608918F488DF00DA9695 /* MockTextField.m in Sources */,
+				24EBF7AA1CBD54C5008F0405 /* ConversionTests.m in Sources */,
+				24EBF7AC1CC0F90D008F0405 /* GTWConversionManagerTests.m in Sources */,
 				24A05E611C72705A00DD6458 /* UnitPlacemarkTests.m in Sources */,
 				24A7608518F4884B00DA9695 /* TestDummyControllerViewTest.m in Sources */,
 				24AB3FD91C8629100014AE95 /* ActiveCollectorTests.m in Sources */,
+				2433605E1CA9909200295FFA /* DateUtilityTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

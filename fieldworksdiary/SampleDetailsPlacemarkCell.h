@@ -8,7 +8,7 @@
 
 @property (strong, nonatomic) MKNetworkOperation *geocoderOperation;
 
-- (void)setFieldtrip:(Fieldtrip *)fieldtrip;
-- (Fieldtrip *)fieldtrip;
+- (void)setSample:(Fieldtrip *)sample;
+- (Fieldtrip *)sample;
 
 @end

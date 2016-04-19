@@ -1,7 +1,7 @@
 //
 //  ProjectDetailsViewController.m
 //
-
+#import "AppDelegate.h"
 #import "FieldtripDetailsController.h"
 #import "ActiveFieldtrip.h"
 #import "DateUtility.h"
@@ -49,9 +49,8 @@
 
     [super viewDidLoad];
     
-    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
-
+    self.managedObjectContext = ApplicationDelegate.managedObjectContext;
+    
     self.notesTextView.delegate = self;
     
     if (self.fieldtrip == nil) {

@@ -31,13 +31,13 @@
 #import "APTimeZones.h"
 
 // cell classes
-#import "FieldtripDetailsLocalityIdentifierCell.h"
+#import "SampleDetailsLocalityIdentifierCell.h"
 #import "SampleDetailsSpecimenIdentifierCell.h"
-#import "FieldtripDetailsSpecimenNotesCell.h"
-#import "FieldtripDetailsLocationNameCell.h"
-#import "FieldtripDetailsLocationCell.h"
+#import "SampleDetailsSpecimenNotesCell.h"
+#import "SampleDetailsLocationNameCell.h"
+#import "SampleDetailsPositionCell.h"
 #import "SampleDetailsPlacemarkCell.h"
-#import "FieldtripDetailsMapViewCell.h"
+#import "SampleDetailsMapViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 
 #import "SampleDetailsFieldtripCell.h"
@@ -317,6 +317,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 //    [self drawMapFromModel];
     
     // ...
+    
+    
 }
 
 - (void)createNewModelForEditing {
@@ -347,12 +349,24 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 //    return self;
 //}
 
+- (void)managedObjectContextDidChange {
+
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
 
     // get core data stack
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(managedObjectContextDidChange)
+                                                 name:NSManagedObjectContextDidSaveNotification
+                                               object:self.managedObjectContext];
+    
+    
     
     // Because we want the Keybord return button working:
 //    self.localityNameTextField.delegate = self;
@@ -550,11 +564,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if (indexPath.section == 0) {
 
         // specimen identifier text field (exc. number)
-        // @todo: Refactor
         if (indexPath.row == 0) {
         
+            static NSString *cellId = @"SampleDetailsSpecimenIdentifierCell";
+
             SampleDetailsSpecimenIdentifierCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsSpecimenIdentifierCell"
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
             cell.fieldtrip = _sample;
             
@@ -562,72 +577,99 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // location identifier text field (location number)
-        // @todo: Refactor
         if (indexPath.row == 1) {
 
-            FieldtripDetailsLocalityIdentifierCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocalityIdentifierCell reuseIdentifier]
+            static NSString *cellId = @"SampleDetailsLocalityIdentifierCell";
+
+            SampleDetailsLocalityIdentifierCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = _sample;
+            cell.sample = _sample;
             
             return cell;
         }
         
         // locationName text field
-        // @todo: Refactor
         if (indexPath.row == 2) {
 
-            FieldtripDetailsLocationNameCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:@"FieldtripDetailsLocationNameCell"
+            static NSString *cellId = @"SampleDetailsLocationNameCell";
+
+            SampleDetailsLocationNameCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = _sample;
+            cell.sample = _sample;
         
             return cell;
         }
         
         // spceimenNotes text view
-        // @todo: Refactor
         if (indexPath.row == 3) {
             
-            FieldtripDetailsSpecimenNotesCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsSpecimenNotesCell reuseIdentifier]
+            static NSString *cellId = @"SampleDetailsSpecimenNotesCell";
+
+            SampleDetailsSpecimenNotesCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = _sample;
+            cell.sample = _sample;
             
             return cell;
         }
 
-        // location view
-        // @todo: Refactor
+        // position view
         if (indexPath.row == 4) {
             
-            FieldtripDetailsLocationCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsLocationCell reuseIdentifier]
-                                                   forIndexPath:indexPath];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = _sample;
+            // je nach Koordinatenformat die entsprechende Cell auswählen!
+            // Die Höhe und der Inhalt unterscheiden sich ebenfall.
+            
+            static NSString *cellId = @"SampleDetailsPositionCell";
+//            static NSString *cellId = @"SampleDetailsPositionCellGeodeticDecimal";
+
+            SampleDetailsPositionCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+
+            if (!cell) {
+                [tableView registerNib:[UINib nibWithNibName:@"SampleDetailsPositionCell"
+                                                      bundle:nil]
+                forCellReuseIdentifier:cellId];
+                
+                cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+            }
+//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+            cell.sample = _sample;
             
             return cell;
         }
         
         // placemark view
-        // @todo: Refactor
         if (indexPath.row == 5) {
             
+            static NSString *cellId = @"SampleDetailsPlacemarkCell";
+
             SampleDetailsPlacemarkCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsPlacemarkCell"
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.fieldtrip = _sample;
-//            [cell configureWithModel:_sample
-//                         atIndexPath:indexPath];
+            cell.sample = _sample;
             
             return cell;
         }
 
-        // date view
-        // @todo: Refactor
+        // fieldtrip view (war 7)
         if (indexPath.row == 6) {
+            
+            static NSString *cellId = @"SampleDetailsFieldtripCell";
+
+            SampleDetailsFieldtripCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:cellId
+                                                   forIndexPath:indexPath];
+            [cell configureWithModel:_sample
+                         atIndexPath:indexPath];
+            return cell;
+        }
+        
+        // date view
+        // @todo: Refactor (war 6)
+        if (indexPath.row == 7) {
             
             static NSString *cellId = @"SampleDetailsDateCell";
 
@@ -636,30 +678,21 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                    forIndexPath:indexPath];
 //            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
 
-            [cell configureWithModel:_sample
-                         atIndexPath:indexPath];
+            cell.sample = _sample;
+            
+//            [cell configureWithModel:_sample
+//                         atIndexPath:indexPath];
             return cell;
         }
 
-        // project view.
-        if (indexPath.row == 7) {
-            
-            SampleDetailsFieldtripCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsFieldtripCell"
-                                                   forIndexPath:indexPath];
-            [cell configureWithModel:_sample
-                         atIndexPath:indexPath];
-            return cell;
-        }
-        
         // Image Map
-        // @todo: Refactor
+        // @todo: Refactor (war 8)
         if (indexPath.row == 8) {
 
-            FieldtripDetailsMapViewCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:[FieldtripDetailsMapViewCell reuseIdentifier]
+            SampleDetailsMapViewCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsMapViewCell"
                                                    forIndexPath:indexPath];
-            cell.fieldtrip = _sample;
+            cell.sample = _sample;
 
             return cell;
         }
@@ -709,27 +742,38 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // SpecimenNotes
     if (indexPath.section == 0 && (indexPath.row == 3)) {
+        
         return 97;
     }
     
-    // Location
+    // Geographic Position
     if (indexPath.section == 0 && indexPath.row == 4) {
+        
+        
+        // Wenn Geodetic Decimal mit Accuracy:
         return 71;
     }
     
     // Placemark
     if (indexPath.section == 0 && indexPath.row == 5) {
-        return 54;
+
+        return UITableViewAutomaticDimension;
+//        return 54;
 //        return 72;
     }
     
-    // Date
-    if (indexPath.section == 0 && indexPath.row == 6) {
-        return 65;
-    }
-    // Project
+    // Date (war 6)
+    // Muss in Abhängigkeit vom Datum sein:
+    // Zeiträume verbrauchen zwei Zeilen, Einzeldatum eine.
     if (indexPath.section == 0 && indexPath.row == 7) {
-        return 44;
+
+        return 60;
+//        return 65;
+    }
+    // Fieldtrip (war 7)
+    if (indexPath.section == 0 && indexPath.row == 6) {
+        return 22;
+//        return 44;
     }
 
     // MapView
