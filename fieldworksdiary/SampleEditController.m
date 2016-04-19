@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Jo Brunner. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "Conversion.h"
 #import "Fieldtrip.h"
 #import "Project.h"
-#import "AppDelegate.h"
 #import "SampleEditController.h"
 #import "ActiveDateSetting.h"
 #import "DateUtility.h"
@@ -100,12 +100,24 @@
 
 @implementation SampleEditController
 
+
+- (void)managedObjectContextDidChange {
+
+    [self showExistingModelForEditing];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
+    self.managedObjectContext = ApplicationDelegate.managedObjectContext;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(managedObjectContextDidChange)
+                                                 name:NSManagedObjectContextDidSaveNotification
+                                               object:self.managedObjectContext];
+
+    
     
     // self.notesTextView.delegate = self;
     
@@ -700,6 +712,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[segue identifier] isEqualToString:@"TimeZonePickerSegue"]) {
         
         TimeZonePickerController *controller = segue.destinationViewController;
+        controller.timeZone = _sample.timeZone;
         controller.delegate = self;
     }
 }
