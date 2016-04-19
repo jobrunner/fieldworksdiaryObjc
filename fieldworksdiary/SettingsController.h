@@ -7,7 +7,10 @@
 //
 
 #import "FieldtripsController.h"
+#import "CoordinateSystemPickerController.h"
 
-@interface SettingsController : UITableViewController <FieldtripPickerDelegate>
+@interface SettingsController : UITableViewController <
+    FieldtripPickerDelegate,
+    CoordinateSystemPickerDelegate>
 
 @end
