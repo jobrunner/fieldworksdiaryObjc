@@ -1,15 +1,11 @@
-//
-//  TimeZonePicker.m
-//  fieldworksdiary
-//
-//  Created by Jo Brunner on 28.03.16.
-//  Copyright © 2016 Jo Brunner. All rights reserved.
-//
-
 #import "TimeZonePickerController.h"
-#import "TimeZonePickerCell.h"
+#import "TimeZonesController.h"
+#import "RegionCell.h"
 
 @interface TimeZonePickerController ()
+
+@property (nonatomic, strong) NSString *timeZoneRegion;
+@property (nonatomic, strong) NSArray *regionNames;
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
 
@@ -23,8 +19,27 @@
     
     [super viewDidLoad];
     
-    _timezoneNames = [[NSTimeZone knownTimeZoneNames] sortedArrayUsingSelector:@selector(compare:)];
+    _timeZoneRegion = [[_timeZone.name componentsSeparatedByString:@"/"] firstObject];
+    _regionNames = self.timeZoneRegions;
 }
+
+- (NSArray *)timeZoneRegions {
+
+    NSMutableArray *timeZoneRegions = NSMutableArray.new;
+    NSArray *timeZoneNames = [NSTimeZone knownTimeZoneNames];
+    for (NSString *name in timeZoneNames) {
+        
+        NSArray *parts = [name componentsSeparatedByString:@"/"];
+        if (![timeZoneRegions containsObject:[parts firstObject]]) {
+            if (![[parts firstObject] isEqualToString:@"GMT"]) {
+                [timeZoneRegions addObject:[parts firstObject]];
+            }
+        }
+    }
+    
+    return timeZoneRegions.copy;
+}
+
 
 #pragma mark - UITableViewController delegates
 
@@ -37,7 +52,7 @@
  numberOfRowsInSection:(NSInteger)section {
 
     if (section == 0) {
-        return [_timezoneNames count];
+        return [_regionNames count];
     }
     
     return 0;
@@ -46,7 +61,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellId = @"TimeZonePickerCell";
+    static NSString *cellId = @"RegionCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
@@ -62,35 +77,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView
-  willDisplayCell:(TimeZonePickerCell *)cell
+  willDisplayCell:(RegionCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *timeZoneName = [_timezoneNames objectAtIndex:indexPath.item];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:timeZoneName];
-
-    // Die cell muss nun wissen, ob sie einen Eintrag bereits markiert...
-
-    BOOL selected = ([timeZoneName isEqualToString:self.timeZone.name]);
+    NSString *regionName = [_regionNames objectAtIndex:indexPath.item];
     
-    [cell configureWithTimeZone:timeZone
-                    atIndexPath:indexPath
-                       selected:selected];
+    BOOL selected = ([regionName isEqualToString:_timeZoneRegion]);
+
+    [cell configureWithRegion:regionName
+                  atIndexPath:indexPath
+                     selected:selected];
 }
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if ([self.delegate respondsToSelector:@selector(timeZonePicker:didSelectTimeZone:)]) {
+    NSString *regionName = [_regionNames objectAtIndex:indexPath.item];
     
-        NSString *timeZoneName = [_timezoneNames objectAtIndex:indexPath.item];
-        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:timeZoneName];
-
-        // call delegate method to inform about the change
-        [self.delegate timeZonePicker:self
-                    didSelectTimeZone:timeZone];
-    }
-        
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"TimeZonesSelectorSeque"
+                              sender:regionName];
 }
 
 // Dosn't support native editing of table view cells.
@@ -114,4 +119,35 @@ canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - TimeZonesControllerDelegate
+
+- (void)timeZonesController:(TimeZonesController *)controller
+          didSelectTimeZone:(NSTimeZone *)timeZone {
+    
+    if ([self.delegate respondsToSelector:@selector(timeZonePicker:didSelectTimeZone:)]) {
+        
+        // call delegate method to inform about the change
+        [self.delegate timeZonePicker:self
+                    didSelectTimeZone:timeZone];
+    }
+    
+    
+    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+
+    if ([[segue identifier] isEqualToString:@"TimeZonesSelectorSeque"]) {
+        
+        TimeZonesController *controller = segue.destinationViewController;
+        controller.regionNameFilter = (NSString *)sender;
+        controller.timeZone = _timeZone;
+        controller.delegate = self;
+    }
+}
 @end

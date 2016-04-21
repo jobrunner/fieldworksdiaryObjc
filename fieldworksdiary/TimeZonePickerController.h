@@ -1,17 +1,11 @@
-//
-//  TimeZonePicker.h
-//  fieldworksdiary
-//
-//  Created by Jo Brunner on 28.03.16.
-//  Copyright © 2016 Jo Brunner. All rights reserved.
-//
+#include "TimeZonesController.h"
 
 @protocol TimeZonePickerDelegate;
 
-@interface TimeZonePickerController : UITableViewController
+@interface TimeZonePickerController : UITableViewController <
+    TimeZonesControllerDelegate>
 
 @property (nonatomic, copy) NSTimeZone *timeZone;
-@property (nonatomic, strong) NSArray *timezoneNames;
 @property (nonatomic, weak) id<TimeZonePickerDelegate> delegate;
 
 @end

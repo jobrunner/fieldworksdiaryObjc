@@ -1,24 +1,15 @@
-//
-//  TimeZonePickerCell.m
-//  fieldworksdiary
-//
-//  Created by Jo Brunner on 28.03.16.
-//  Copyright © 2016 Jo Brunner. All rights reserved.
-//
+#import "RegionCell.h"
 
-#import "TimeZonePickerCell.h"
+@implementation RegionCell
 
-@implementation TimeZonePickerCell
-
-- (void)configureWithTimeZone:(NSTimeZone *)timeZone
-                  atIndexPath:(NSIndexPath *)indexPath
-                     selected:(BOOL)selected {
+- (void)configureWithRegion:(NSString *)region
+                atIndexPath:(NSIndexPath *)indexPath
+                   selected:(BOOL)selected {
     
     self.indexPath = indexPath;
-
-    NSString *label = [NSString stringWithFormat:@"%@ (%@)", [timeZone name], [timeZone abbreviation]];
-    self.timeZoneNameLabel.text = label;
-
+    
+    self.regionLabel.text = region;
+    
     
     // Tint selected item or check it or...
     static UIColor *tintColor;
@@ -40,10 +31,10 @@
     }
     
     if (selected) {
-        self.timeZoneNameLabel.textColor = tintColor;
+        self.regionLabel.textColor = tintColor;
     }
     else {
-        self.timeZoneNameLabel.textColor = textColor;
+        self.regionLabel.textColor = textColor;
     }
 }
 

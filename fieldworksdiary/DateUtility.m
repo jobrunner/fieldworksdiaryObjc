@@ -13,7 +13,7 @@
 #pragma mark - Date Utility
 
 + (NSString *)alldayFormattedBeginDate:(NSDate *)beginDate
-                         endDate:(NSDate *)endDate {
+                               endDate:(NSDate *)endDate {
 
     NSDateIntervalFormatter *intervallFormatter = [NSDateIntervalFormatter new];
     intervallFormatter.dateStyle = NSDateIntervalFormatterFullStyle;

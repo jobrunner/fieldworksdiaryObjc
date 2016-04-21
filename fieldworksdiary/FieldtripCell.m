@@ -8,12 +8,12 @@
 
 #import "FieldtripCell.h"
 #import "ActiveFieldtrip.h"
+#import "DateUtility.h"
 
 @interface FieldtripCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beginEndLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *isActiveImageView;
 
 @end
 
@@ -38,44 +38,56 @@
               withDelegate:(id)delegate
               selectorOnly:(BOOL)selectorOnly {
     
+    // Tint selected item or check it or...
+    static UIColor *tintColor;
+    
+    // read tintColor. This is a hack...
+    if (tintColor == nil) {
+        tintColor = [UIColor colorWithRed:(4.0/255.0)
+                                    green:(102.0/255.0)
+                                     blue:(0.0/255.0)
+                                    alpha:1.0];
+    }
+    
+    static UIColor *textColor;
+    if (textColor == nil) {
+        textColor = [UIColor colorWithRed:(0.0/255.0)
+                                    green:(00./255.0)
+                                     blue:(0.0/255.0)
+                                    alpha:1.0];
+    }
+    
     self.indexPath = indexPath;
     self.nameLabel.text = [managedObject valueForKey:@"name"];
     self.delegate = delegate;
     BOOL isActive = [ActiveFieldtrip isActive:(Project *)managedObject];
-    self.isActiveImageView.hidden = !isActive;
     
     if (selectorOnly) {
         self.accessoryType = UITableViewCellAccessoryNone;
+        if (isActive) {
+            self.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+        else {
+            self.accessoryType = UITableViewCellAccessoryNone;
+        }
+        self.nameLabel.textColor = textColor;
     }
     else {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if (isActive) {
+            self.nameLabel.textColor = tintColor;
+        }
+        else {
+            self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            self.nameLabel.textColor = textColor;
+        }
     }
-    
-    static NSDateFormatter *dateFormatter = nil;
-    
-    if (dateFormatter == nil) {
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.timeStyle = NSDateFormatterNoStyle;
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    }
-
-    // @todo
-    // 1) equal: Show only beginDate
-    // 2) different days:  <beginDate.Day>. - <endDate.Day>.<Month>.<Year>
-    // 3) different month: <beginDate.Day>.<beginDate.Month>. - <endDate.Day>.<endDate.Month>.<endDate.Year>
-    // 4) different year:  <beginDate> - <endDate>
     
     NSDate *beginDate = [managedObject valueForKey:@"beginDate"];
-    NSString * beginDateFormatted = [dateFormatter stringFromDate:beginDate];
-
     NSDate *endDate = [managedObject valueForKey:@"endDate"];
-    NSString *endDateFormatted = [dateFormatter stringFromDate:endDate];
     
-    NSMutableString *beginEnd = [[NSMutableString alloc] init];
-
-    [beginEnd appendFormat:@"Vom %@ bis %@", beginDateFormatted, endDateFormatted];
-    
-    self.beginEndLabel.text = beginEnd;
+    self.beginEndLabel.text = [DateUtility formattedBeginDate:beginDate
+                                                      endDate:endDate
+                                                       allday:YES];
 }
 
 @end
