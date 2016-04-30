@@ -51,18 +51,6 @@
     [self drawMapFromModel];
 }
 
-//- (NSString *)reuseIdentifier {
-//    
-//    return [FieldtripDetailsMapViewCell reuseIdentifier];
-//}
-//
-//+ (NSString *)reuseIdentifier {
-//    
-//    static NSString *identifier = @"FieldtripDetailsMapViewCell";
-//    
-//    return identifier;
-//}
-
 - (void)initMapView {
     
     // create an hidden mapView object
