@@ -10,8 +10,16 @@
 
 @implementation Crypto
 
-+ (NSString *)sha1WithBinary:(NSData *)data
-{
++ (NSString *)sha1WithString:(NSString *)string {
+
+    const char *s = [string cStringUsingEncoding:NSASCIIStringEncoding];
+    NSData *keyData = [NSData dataWithBytes:s length:strlen(s)];
+
+    return [Crypto sha1WithBinary:keyData];
+}
+
++ (NSString *)sha1WithBinary:(NSData *)data {
+
     // create filename from sha1 hash
     // This is the destination
     uint8_t digest[CC_SHA1_DIGEST_LENGTH] = {0};

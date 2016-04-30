@@ -96,6 +96,8 @@
 
 - (void)makeMapSnaphotFromModel {
     
+    NSUInteger snapshotVersion = 1;
+    
     if (self.sample.location == nil) {
         NSLog(@"MapView cannot be created yet because of no lat/lng is given");
 
@@ -138,10 +140,16 @@
         // convert image to PNG file format
         NSData *pngImageData = UIImagePNGRepresentation(imageWithCircle);
         
-        // create a filename based on sha1
-        NSString *sha1Hash = [Crypto sha1WithBinary:pngImageData];
-        NSString *filename = [NSString stringWithFormat:@"%@.png", sha1Hash];
+        // create filename based on sha1 of map range
+        NSString *sha1Hash = [Crypto sha1WithString:[NSString stringWithFormat:@"%f%f%f%f%lu",
+                                                     region.center.latitude,
+                                                     region.center.longitude,
+                                                     region.span.longitudeDelta,
+                                                     region.span.latitudeDelta,
+                                                     (unsigned long)snapshotVersion]];
         
+        NSString *filename = [NSString stringWithFormat:@"%@.png", sha1Hash];
+
         // Create Pictures in users Documents directory if it doesn't exist
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
         NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Maps"];

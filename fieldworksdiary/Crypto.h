@@ -12,5 +12,6 @@
 @interface Crypto : NSObject
 
 + (NSString *)sha1WithBinary:(NSData *)data;
++ (NSString *)sha1WithString:(NSString *)string;
 
 @end
