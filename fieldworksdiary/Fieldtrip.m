@@ -59,7 +59,7 @@
 + (void)initialize {
     
 	if (self == [Fieldtrip class]) {
-		TimeZoneTransformer *transformer = [[TimeZoneTransformer alloc] init];
+		TimeZoneTransformer *transformer = TimeZoneTransformer.new;
 		[NSValueTransformer setValueTransformer:transformer
                                         forName:@"TimeZoneTransformer"];
 	}
@@ -69,7 +69,7 @@
 
     [super awakeFromInsert];
 
-    NSDate *date = [NSDate date];
+    NSDate *date = NSDate.date;
     [self setPrimitiveValue:date forKey:@"creationTime"];
     [self setPrimitiveValue:date forKey:@"updateTime"];
 }
@@ -83,7 +83,7 @@
         return;
     }
     
-    NSDate *date = [NSDate date];
+    NSDate *date = NSDate.date;
     
     [self setPrimitiveValue:date
                      forKey:@"updateTime"];
@@ -270,7 +270,8 @@
     // Important precaution here:
     // Prefixes must complain to the real world, not to the beginning date. That means
     // that in a night excursion from 2200 to 0500 o'clock the prefix should be equal.
-    // In Settings, the user should be abled to change and overwrite behaviour here
+    // In Settings, the user should be abled to change and overwrite behaviour here.
+    // There is still a todo for the settings.
     
     // use hard coded here specimenIdentifier template <YYMMDD>#<Lf#>
     self.specimenIdentifier = [self specimenIdentifierByDate:self.beginDate];
