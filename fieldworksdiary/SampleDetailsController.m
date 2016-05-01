@@ -727,7 +727,7 @@ titleForHeaderInSection:(NSInteger)section {
 //
     // Specimens-Section
     if (section == 0) {
-        return @"Specimen";
+        return NSLocalizedString(@"Sample", nil);
     }
     
     return @"";
