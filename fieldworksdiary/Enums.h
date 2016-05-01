@@ -92,6 +92,8 @@ typedef enum SwipeIconPadding : NSInteger {
 #define kNotificationSunriseSunsetTwilightUpdate @"update@SunriseSunsetTwilight"
 #define kNotificationFieldtripUpdate             @"update@fieldtrip"
 
+#define kErrorDomainFieldworksDiary              @"ErrorDomainFieldworksDiary"
+
 typedef NSString*                       kNotification;
 
 #endif
