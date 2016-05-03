@@ -73,8 +73,17 @@
     [self.mapView addAnnotation:annotation];
 }
 
--(MKAnnotationView *) mapView:(MKMapView *)mapView
-            viewForAnnotation:(id<MKAnnotation>)annotation {
+#pragma mark MapView Delegates
+
+- (void)mapView:(MKMapView *)mapView
+regionDidChangeAnimated:(BOOL)animated {
+
+    NSLog(@"New region:\n%f\n%f", mapView.region.span.latitudeDelta, mapView.region.span.longitudeDelta);
+}
+
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView
+           viewForAnnotation:(id<MKAnnotation>)annotation {
     
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                                reuseIdentifier:@"current"];
