@@ -5,6 +5,7 @@
 @interface SampleDetailsPlacemarkCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *countryAndAdministrativeAreaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fieldtripCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fieldtripLabel;
 
 @property (strong, nonatomic) MKNetworkOperation *geocoderOperation;

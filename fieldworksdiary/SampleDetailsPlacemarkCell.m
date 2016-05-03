@@ -70,9 +70,12 @@
     
     _countryAndAdministrativeAreaLabel.text = [Placemark stringFromPlacemark:[self.sample placemark]];
     if (_sample.project == nil) {
-        _fieldtripLabel.text = NSLocalizedString(@"-", nil);
+        _fieldtripCaptionLabel.text = NSLocalizedString(@"No Fieldtrip selected", nil);
+        _fieldtripLabel.text = nil; // NSLocalizedString(@"-", nil);
+        
     }
     else {
+        _fieldtripCaptionLabel.text = NSLocalizedString(@"Fieldtrip:", nil);
         _fieldtripLabel.text = _sample.project.name;
     }
 }

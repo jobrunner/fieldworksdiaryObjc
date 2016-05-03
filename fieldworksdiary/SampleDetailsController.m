@@ -353,6 +353,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     [super viewDidLoad];
     
+    // fallback to standard hight for unreachable autolayout constrains
     self.tableView.estimatedRowHeight = 44.0;
 
     // get core data stack
@@ -619,7 +620,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             // Die Höhe und der Inhalt unterscheiden sich ebenfall.
             
             static NSString *cellId = @"SampleDetailsPositionCell";
-//            static NSString *cellId = @"SampleDetailsPositionCellGeodeticDecimal";
 
             SampleDetailsPositionCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -631,7 +631,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 
                 cell = [tableView dequeueReusableCellWithIdentifier:cellId];
             }
-//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
             cell.sample = _sample;
             
             return cell;
@@ -645,7 +644,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             SampleDetailsPlacemarkCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
             cell.sample = _sample;
             
             return cell;
@@ -673,6 +672,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             SampleDetailsDateCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
+
+            // supress separator
 //            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
 
             cell.sample = _sample;
@@ -746,7 +747,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Geographic Position
     if (indexPath.section == 0 && indexPath.row == 4) {
         
-        
         // Wenn Geodetic Decimal mit Accuracy:
         return 71;
     }
@@ -754,27 +754,18 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Placemark
     if (indexPath.section == 0 && indexPath.row == 5) {
 
-        return 78;
         return UITableViewAutomaticDimension;
-//        return 54;
-//        return 72;
     }
 
-    // Fieldtrip
-//    if (indexPath.section == 0 && indexPath.row == 6) {
-//        return 22;
-//    }
-    
-    // Date (war 7)
-    // Muss in Abhängigkeit vom Datum sein:
-    // Zeiträume verbrauchen zwei Zeilen, Einzeldatum eine.
+    // Date
     if (indexPath.section == 0 && indexPath.row == 6) {
 
-        return 74;
+        return UITableViewAutomaticDimension;
     }
 
-    // MapView (war 8
+    // MapView
     if (indexPath.section == 0 && indexPath.row == 7) {
+
         return 140;
     }
     

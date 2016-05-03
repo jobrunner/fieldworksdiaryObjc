@@ -17,7 +17,7 @@
 
 - (void)awakeFromNib {
     
-    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, self.bounds.size.width);
+//    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, self.bounds.size.width);
 
     // das muss sehr spät aufgerufen werden, damit das geht...
     [_beginDateLabel sizeToFit];
