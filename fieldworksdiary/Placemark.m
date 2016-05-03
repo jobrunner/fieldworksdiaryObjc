@@ -51,39 +51,48 @@
 + (NSString *)stringFromPlacemark:(Placemark *)placemark {
 
     if (placemark == nil) {
-        return nil;
+        
+        return @"";
     }
     
-    NSMutableString *placemarkFirstLine = [NSMutableString new];
-    NSMutableString *placemarkSecondLine = [NSMutableString new];
-    
-    if (placemark.country != nil) {
-        [placemarkFirstLine appendFormat:@"%@", placemark.country];
+    NSMutableArray *lineQueue = NSMutableArray.new;
+
+    NSArray *firstLineFields = @[placemark.country,
+                                 placemark.administrativeArea];
+
+    for (NSString *value in firstLineFields) {
+        if (value == nil || [value isEqualToString:@""]) {
+
+            continue;
+        }
+        
+        if (![lineQueue containsObject:value]) {
+            [lineQueue addObject:value];
+        }
     }
     
-    if (placemark.administrativeArea != nil) {
-        [placemarkFirstLine appendFormat:@", %@", placemark.administrativeArea];
+    NSString *resultingFirstLine = [lineQueue componentsJoinedByString:@", "];
+
+    [lineQueue removeAllObjects];
+    
+    NSArray *secondLineFields = @[placemark.subAdministrativeArea,
+                                  placemark.locality,
+                                  placemark.subLocality];
+
+    for (NSString *value in secondLineFields) {
+        if (value == nil || [value isEqualToString:@""]) {
+            
+            continue;
+        }
+
+        if (![lineQueue containsObject:value]) {
+            [lineQueue addObject:value];
+        }
     }
+
+    NSString *resultingSecondLine = [lineQueue componentsJoinedByString:@", "];
     
-    [placemarkFirstLine appendString:@"\n"];
-    
-    NSString * resultFirstLine = [placemarkFirstLine stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
-    
-    if (placemark.subAdministrativeArea != nil) {
-        [placemarkSecondLine appendFormat:@"%@", placemark.subAdministrativeArea];
-    }
-    
-    if (placemark.locality != nil) {
-        [placemarkSecondLine appendFormat:@", %@", placemark.locality];
-    }
-    
-    if (placemark.subLocality != nil) {
-        [placemarkSecondLine appendFormat:@", %@", placemark.subLocality];
-    }
-    
-    NSString *resultSecondLine = [[placemarkSecondLine stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    return [NSString stringWithFormat:@"%@%@", resultFirstLine, resultSecondLine];
+    return [@[resultingFirstLine, resultingSecondLine] componentsJoinedByString:@"\n"];
 }
 
 @end
