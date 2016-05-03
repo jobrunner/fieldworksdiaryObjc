@@ -233,11 +233,11 @@ Breña Alta</string>
                                     <outlet property="fieldtripLabel" destination="aPU-0s-eCb" id="75M-l4-gTd"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleAspectFit" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="SampleDetailsDateCell" rowHeight="83" id="R8x-yx-BEE" customClass="SampleDetailsDateCell">
-                                <rect key="frame" x="0.0" y="435.5" width="320" height="83"/>
+                            <tableViewCell contentMode="scaleAspectFit" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="SampleDetailsDateCell" rowHeight="86" id="R8x-yx-BEE" customClass="SampleDetailsDateCell">
+                                <rect key="frame" x="0.0" y="435.5" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="R8x-yx-BEE" id="2Mb-5Z-U4P">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daylight-night" highlightedImage="daylight-day" translatesAutoresizingMaskIntoConstraints="NO" id="Q6n-Wy-Lpw">
@@ -297,7 +297,7 @@ bis Montag den xten November</string>
                                         <constraint firstItem="EqC-Ee-Pwc" firstAttribute="leading" secondItem="Q6n-Wy-Lpw" secondAttribute="trailing" constant="3" id="FHo-nv-Teb"/>
                                         <constraint firstItem="94y-bu-XaX" firstAttribute="trailing" secondItem="EqC-Ee-Pwc" secondAttribute="trailing" id="FaP-sO-KA3"/>
                                         <constraint firstItem="UF1-zE-862" firstAttribute="leading" secondItem="Q6n-Wy-Lpw" secondAttribute="trailing" constant="3" id="H20-fq-1Ry"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="UF1-zE-862" secondAttribute="bottom" constant="-3.5" id="MH8-Sg-Z67"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UF1-zE-862" secondAttribute="bottom" constant="-0.5" id="MH8-Sg-Z67"/>
                                         <constraint firstItem="Q6n-Wy-Lpw" firstAttribute="leading" secondItem="2Mb-5Z-U4P" secondAttribute="leadingMargin" constant="6" id="Nb9-gx-n2i"/>
                                         <constraint firstItem="U3k-JA-9xK" firstAttribute="leading" secondItem="UF1-zE-862" secondAttribute="trailing" constant="3" id="SaA-ka-mjL"/>
                                         <constraint firstItem="Q6n-Wy-Lpw" firstAttribute="top" secondItem="2Mb-5Z-U4P" secondAttribute="top" constant="-1" id="Ypd-xy-9jU"/>
@@ -323,7 +323,7 @@ bis Montag den xten November</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleAspectFit" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="SampleDetailsMapViewCell" rowHeight="140" id="Z5o-Zs-Ea7" customClass="SampleDetailsMapViewCell">
-                                <rect key="frame" x="0.0" y="518.5" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="521.5" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z5o-Zs-Ea7" id="458-NO-lYj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
@@ -349,7 +349,7 @@ bis Montag den xten November</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleDetailsImageScrollViewCell" id="9Yo-tz-dTH" customClass="SampleDetailViewTableCell">
-                                <rect key="frame" x="0.0" y="658.5" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="661.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Yo-tz-dTH" id="qkT-MZ-hxy">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
