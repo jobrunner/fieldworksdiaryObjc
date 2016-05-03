@@ -16,15 +16,15 @@
 
 @implementation MapController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
+//
 - (void)viewDidLoad {
 
     [super viewDidLoad];
@@ -34,6 +34,7 @@
     region.center.latitude = [self.sample.latitude doubleValue]; // location.coordinate.latitude;
     region.center.longitude = [self.sample.longitude doubleValue]; //  location.coordinate.longitude;
     
+    // aus dem Datensatz nehmen...
     region.span.longitudeDelta = 0.01; // ca. 111km / 0.001° => 100m
     region.span.latitudeDelta = 0.01;  // ca. 111km / 0.001° => 100m
     
@@ -44,11 +45,11 @@
     // - MKMapTypeSatellite
     // - MKMapTypeHybrid
 
-    // must be configred be user in settings:
+    // Standard must be configred be user in settings:
     self.mapView.mapType = MKMapTypeStandard;
     self.mapView.zoomEnabled = YES;
     self.mapView.scrollEnabled = YES;
-    self.mapView.contentScaleFactor = 2.0;
+    // self.mapView.contentScaleFactor = 2.0;
     
     [self.mapView setRegion:region
                    animated:NO];
