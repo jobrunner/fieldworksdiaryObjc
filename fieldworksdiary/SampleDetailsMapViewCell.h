@@ -6,8 +6,7 @@
 @property (nonatomic, retain) MKMapView *mapView;
 
 @property (nonatomic, weak) IBOutlet UIImageView *staticMapImage;
-
-+ (NSString *)reuseIdentifier;
+@property (weak, nonatomic) IBOutlet UILabel *noMapAvailableLabel;
 
 - (void)setSample:(Fieldtrip *)sample;
 - (Fieldtrip *)sample;

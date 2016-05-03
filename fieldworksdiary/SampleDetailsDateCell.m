@@ -19,6 +19,10 @@
     
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, self.bounds.size.width);
 
+    // das muss sehr spät aufgerufen werden, damit das geht...
+    [_beginDateLabel sizeToFit];
+    [_beginDateLabel setNumberOfLines:0];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUserInterface)
                                                  name:kNotificationDateUpdate
@@ -47,6 +51,8 @@
     
     return _sample;
 }
+
+
 
 //- (void)configureWithModel:(NSManagedObject *)managedObject
 //               atIndexPath:(NSIndexPath *)indexPath {

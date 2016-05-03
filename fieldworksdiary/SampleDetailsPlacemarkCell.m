@@ -2,6 +2,7 @@
 
 #import "SampleDetailsPlacemarkCell.h"
 #import "Fieldtrip.h"
+#import "Project.h"
 #import "Placemark.h"
 #import "AppDelegate.h"
 #import "GoogleGeocoder.h"
@@ -65,27 +66,18 @@
     return _sample;
 }
 
-
-- (void)updateUserInterface
-{
+- (void)updateUserInterface {
+    
     _countryAndAdministrativeAreaLabel.text = [Placemark stringFromPlacemark:[self.sample placemark]];
+    if (_sample.project == nil) {
+        _fieldtripLabel.text = NSLocalizedString(@"-", nil);
+    }
+    else {
+        _fieldtripLabel.text = _sample.project.name;
+    }
 }
 
-//- (NSString *)reuseIdentifier
-//{
-//    return [FieldtripDetailsPlacemarkCell reuseIdentifier];
-//}
-
-
-//+ (NSString *)reuseIdentifier
-//{
-//    static NSString *identifier = @"FieldtripDetailsPlacemarkCell";
-//    
-//    return identifier;
-//}
-
 #pragma mark - Geocoding -
-
 
 - (NSDictionary *)locationDictFromResponseJSON:(NSDictionary *)responseJSON {
     
@@ -93,18 +85,18 @@
     //    NSNumber *timestamp   = [NSNumber numberWithLong:[responseDate timeIntervalSince1970]];
     NSDictionary* results = [responseJSON objectForKey:@"results"];
     
-    NSMutableDictionary* location = [NSMutableDictionary dictionaryWithDictionary:@{@"country":@"",
-                                                                                    @"countryCodeIso":@"",
-                                                                                    @"administrative_area_level_1":@"",
-                                                                                    @"administrative_area_level_2":@"",
-                                                                                    @"administrative_area_level_3":@"",
-                                                                                    @"administrative_area_level_4":@"",
-                                                                                    @"locality":@"",
-                                                                                    @"sublocality":@""
-                                                                                    //                                                                                    ,
-                                                                                    //                                                                                    @"language":language,
-                                                                                    //                                                                                    @"timestamp":timestamp
-                                                                                    }];
+    NSMutableDictionary* location =
+    [NSMutableDictionary dictionaryWithDictionary:@{@"country":@"",
+                                                    @"countryCodeIso":@"",
+                                                    @"administrative_area_level_1":@"",
+                                                    @"administrative_area_level_2":@"",
+                                                    @"administrative_area_level_3":@"",
+                                                    @"administrative_area_level_4":@"",
+                                                    @"locality":@"",
+                                                    @"sublocality":@""
+                                                    // @"language":language,
+                                                    // @"timestamp":timestamp
+                                                    }];
     NSArray* fields = [location allKeys];
     
     for (NSDictionary* components in results) {

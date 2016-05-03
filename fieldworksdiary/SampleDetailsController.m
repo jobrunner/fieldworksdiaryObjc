@@ -147,44 +147,41 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
+    // Wenn das Foto vorliegt, müssen die Binärdaten unter einem eindeutigen Namen
+    // auf der Platte, der Name und die Metadaten des Bildes aber in der Entity Image
+    // gespeichert werden. Binär- und Metadaten müssen später in der iCloud gespeichert
+    // werden, wenn der User das erlaubt. Vorsicht: Die originalen Bilddaten können
+    // nur aus der iCloud wieder hergestellt werden, während die zum jeweiligen Screen
+    // notwenigen Representationen natürlich davon immer nur abgeleitet werden müssen,
+    // wenn sie auch benötigt werden (Ressourcenverbrauch).
+    
+    // Refectoring mit einem sharedManager:
+    // Der sharedManager kann zu den Binärdaten hier einmal die Speicherung durchführen und
+    // den den Namen dazu berechnen.
+    // Zunächst werden die Entites hier behandelt - später vielleicht auch in einen sharedManager
+    // verpackt, um den Code wiederverwenden zu können und die Struktur klarer zu machen.
+    // Ziel des sharedManager muss gleichzeit sein, die Leseseite ebenfalls wiederverwendbarer zu machen.
+    // Fotos müssen später in verschiedenen UI contexten dargestellt werden.
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
   
-//    self.staticMapImage.image = chosenImage;
-    
-    
-//    CGSize thumbSize;
-//    thumbSize.height = 40;
-//    thumbSize.width  = 40;
-//    UIGraphicsBeginImageContext(thumbSize);
-//    [chosenImage drawInRect:CGRectMake(0, 0, thumbSize.width, thumbSize.height)];
-//    UIImage* thumbImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-    
     // convert images to PNG file format
     NSData *pngImageData = UIImagePNGRepresentation(chosenImage);
-//    NSData *thumbImageData = UIImagePNGRepresentation(thumbImage);
-
-//    chosenImage = nil;
     
     // create a filename based on sha1
     NSString *sha1Hash = [Crypto sha1WithBinary:pngImageData];
+    
+    // filename without path
     NSString *filename = [NSString stringWithFormat:@"%@.png", sha1Hash];
 
+    // create an Image entity and add it to the sample entity.
     Image * image = [NSEntityDescription insertNewObjectForEntityForName:@"Image"
                                                   inManagedObjectContext:self.managedObjectContext];
-    
     image.filename = filename;
     image.created = [NSDate date];
     image.type = @0;
 
-    // representations could be stored in representations property
-    
-    
-    
-//    [photo setPictureData:pngImageData];
-  
-  
     [_sample addImagesObject:image];
     
     NSError *error = nil;
@@ -199,6 +196,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     }
     
     // Create Pictures in users Documents directory if it doesn't exist
+    // User Documents Directory is important for original picture!
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Pictures"];
     
@@ -234,9 +232,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             NSLog(@"Error: %@", [error localizedDescription]);
         }
     }
-    
-//    UIImageView * imageView = [[UIImageView alloc] initWithImage:thumbImage];
-//    [self.imageScrollView addSubview:imageView];
     
     [picker dismissViewControllerAnimated:YES
                                completion:NULL];
@@ -357,6 +352,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.tableView.estimatedRowHeight = 44.0;
 
     // get core data stack
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
@@ -542,7 +539,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // #7 ImageMap (FieldtripDetailsStaticMapViewCell)
         // #8 Images scroll view (FieldtripDetailsImagesScrollViewCell)
 
-        return 9;
+        return 8;
     }
 
     // Specimens-Section
@@ -654,22 +651,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             return cell;
         }
 
-        // fieldtrip view (war 7)
-        if (indexPath.row == 6) {
-            
-            static NSString *cellId = @"SampleDetailsFieldtripCell";
-
-            SampleDetailsFieldtripCell *cell;
-            cell = [tableView dequeueReusableCellWithIdentifier:cellId
-                                                   forIndexPath:indexPath];
-            [cell configureWithModel:_sample
-                         atIndexPath:indexPath];
-            return cell;
-        }
+        // fieldtrip view
+//        if (indexPath.row == 6) {
+//            
+//            static NSString *cellId = @"SampleDetailsFieldtripCell";
+//
+//            SampleDetailsFieldtripCell *cell;
+//            cell = [tableView dequeueReusableCellWithIdentifier:cellId
+//                                                   forIndexPath:indexPath];
+//            [cell configureWithModel:_sample
+//                         atIndexPath:indexPath];
+//            return cell;
+//        }
         
         // date view
-        // @todo: Refactor (war 6)
-        if (indexPath.row == 7) {
+        // @todo: Refactor (war 7)
+        if (indexPath.row == 6) {
             
             static NSString *cellId = @"SampleDetailsDateCell";
 
@@ -686,8 +683,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // Image Map
-        // @todo: Refactor (war 8)
-        if (indexPath.row == 8) {
+        // @todo: Refactor (war 7)
+        if (indexPath.row == 7) {
 
             SampleDetailsMapViewCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsMapViewCell"
@@ -698,7 +695,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // Images scroll view
-        if (indexPath.row == 9) {
+        if (indexPath.row == 8) {
 //            FieldtripDetailsImagesScrollViewCell
         }
     }
@@ -757,27 +754,27 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Placemark
     if (indexPath.section == 0 && indexPath.row == 5) {
 
+        return 78;
         return UITableViewAutomaticDimension;
 //        return 54;
 //        return 72;
     }
+
+    // Fieldtrip
+//    if (indexPath.section == 0 && indexPath.row == 6) {
+//        return 22;
+//    }
     
-    // Date (war 6)
+    // Date (war 7)
     // Muss in Abhängigkeit vom Datum sein:
     // Zeiträume verbrauchen zwei Zeilen, Einzeldatum eine.
-    if (indexPath.section == 0 && indexPath.row == 7) {
-
-        return 60;
-//        return 65;
-    }
-    // Fieldtrip (war 7)
     if (indexPath.section == 0 && indexPath.row == 6) {
-        return 22;
-//        return 44;
+
+        return 74;
     }
 
-    // MapView
-    if (indexPath.section == 0 && indexPath.row == 8) {
+    // MapView (war 8
+    if (indexPath.section == 0 && indexPath.row == 7) {
         return 140;
     }
     

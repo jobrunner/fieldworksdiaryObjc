@@ -15,7 +15,6 @@
 @property (nonatomic, readonly) NSIndexPath *indexPath;
 @property (nonatomic, strong) Fieldtrip * sample;
 
-//+ (NSString *)reuseIdentifier;
 - (void)setSample:(Fieldtrip *)sample;
 - (Fieldtrip *)sample;
 
