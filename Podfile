@@ -1,8 +1,7 @@
-
 pod 'EDSunriseSet'
 pod 'StaticDataTableViewController'
 pod 'MKNetworkKit'
-pod 'MGSwipeTableCell'
+pod 'AFNetworking', '~> 3.0'
 pod 'APTimeZones', '~> 1.1'
+pod 'MGSwipeTableCell', '~>1.5'
 pod 'DateTools'
-pod 'ReactiveCocoa', '2.5'

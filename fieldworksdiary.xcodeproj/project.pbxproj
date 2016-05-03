@@ -122,7 +122,7 @@
 		24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1C18F4642A00CC7105 /* CoreData.framework */; };
 		24EBF7AA1CBD54C5008F0405 /* ConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EBF7A91CBD54C5008F0405 /* ConversionTests.m */; };
 		24EBF7AC1CC0F90D008F0405 /* GTWConversionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EBF7AB1CC0F90D008F0405 /* GTWConversionManagerTests.m */; };
-		A8704A317FA64636ACC3A92C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161C9F8E15094E668177432D /* libPods.a */; };
+		ADC187B4FA2D02DF5AB58E95 /* libPods-fieldworksdiaryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F27777561BB161F62A4F83B /* libPods-fieldworksdiaryTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		161C9F8E15094E668177432D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BEDABD483925AA83DC6A263 /* Pods-fieldworksdiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fieldworksdiaryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fieldworksdiaryTests/Pods-fieldworksdiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		24249AA219CADD8500D2D01C /* before_script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = before_script.sh; sourceTree = "<group>"; };
 		24249AA319CADD8500D2D01C /* script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = script.sh; sourceTree = "<group>"; };
 		24249AA619CAF83B00D2D01C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -327,7 +328,10 @@
 		24EBF7A91CBD54C5008F0405 /* ConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversionTests.m; sourceTree = "<group>"; };
 		24EBF7AB1CC0F90D008F0405 /* GTWConversionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWConversionManagerTests.m; sourceTree = "<group>"; };
 		24EBF7AD1CC255A8008F0405 /* mgrsext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgrsext.h; sourceTree = "<group>"; };
+		7F27777561BB161F62A4F83B /* libPods-fieldworksdiaryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fieldworksdiaryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B78CB4D71870C4DCAF7B7BDF /* Pods-fieldworksdiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fieldworksdiaryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fieldworksdiaryTests/Pods-fieldworksdiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		C21C81E668D2D8C7EDA71C54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D086A4DCC7742A87F301708C /* libPods-fieldworksdiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fieldworksdiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA878365A3B396BD59C26EC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -336,7 +340,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8704A317FA64636ACC3A92C /* libPods.a in Frameworks */,
 				24AB3FC81C80B11F0014AE95 /* MessageUI.framework in Frameworks */,
 				24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */,
 				24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */,
@@ -354,6 +357,7 @@
 				24C38A0518F455AF00CC7105 /* XCTest.framework in Frameworks */,
 				24C38A0718F455AF00CC7105 /* UIKit.framework in Frameworks */,
 				24C38A0618F455AF00CC7105 /* Foundation.framework in Frameworks */,
+				ADC187B4FA2D02DF5AB58E95 /* libPods-fieldworksdiaryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +704,8 @@
 				24C389E918F455AE00CC7105 /* UIKit.framework */,
 				24C38A0418F455AF00CC7105 /* XCTest.framework */,
 				161C9F8E15094E668177432D /* libPods.a */,
+				D086A4DCC7742A87F301708C /* libPods-fieldworksdiary.a */,
+				7F27777561BB161F62A4F83B /* libPods-fieldworksdiaryTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -868,6 +874,8 @@
 			children = (
 				EA878365A3B396BD59C26EC6 /* Pods.debug.xcconfig */,
 				C21C81E668D2D8C7EDA71C54 /* Pods.release.xcconfig */,
+				1BEDABD483925AA83DC6A263 /* Pods-fieldworksdiaryTests.debug.xcconfig */,
+				B78CB4D71870C4DCAF7B7BDF /* Pods-fieldworksdiaryTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -898,9 +906,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24C38A1718F455AF00CC7105 /* Build configuration list for PBXNativeTarget "fieldworksdiaryTests" */;
 			buildPhases = (
+				40AE586541A58FB8BB7BCF60 /* Check Pods Manifest.lock */,
 				24C389FF18F455AF00CC7105 /* Sources */,
 				24C38A0018F455AF00CC7105 /* Frameworks */,
 				24C38A0118F455AF00CC7105 /* Resources */,
+				F1DE1851AF634D86D9236382 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1016,6 +1026,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		40AE586541A58FB8BB7BCF60 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		698A916793334B8888401627 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1029,6 +1054,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1DE1851AF634D86D9236382 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fieldworksdiaryTests/Pods-fieldworksdiaryTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1171,6 +1211,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1186,7 +1227,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
@@ -1212,6 +1253,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1219,7 +1261,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1236,6 +1279,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
@@ -1256,6 +1300,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
@@ -1268,6 +1313,7 @@
 		};
 		24C38A1818F455AF00CC7105 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BEDABD483925AA83DC6A263 /* Pods-fieldworksdiaryTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				ENABLE_TESTABILITY = YES;
@@ -1297,6 +1343,7 @@
 		};
 		24C38A1918F455AF00CC7105 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B78CB4D71870C4DCAF7B7BDF /* Pods-fieldworksdiaryTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				ENABLE_TESTABILITY = YES;
