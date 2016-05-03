@@ -122,6 +122,7 @@
 		24C38A1D18F4642A00CC7105 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C38A1C18F4642A00CC7105 /* CoreData.framework */; };
 		24EBF7AA1CBD54C5008F0405 /* ConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EBF7A91CBD54C5008F0405 /* ConversionTests.m */; };
 		24EBF7AC1CC0F90D008F0405 /* GTWConversionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EBF7AB1CC0F90D008F0405 /* GTWConversionManagerTests.m */; };
+		3866192BF50D8A6659BD7430 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161C9F8E15094E668177432D /* libPods.a */; };
 		ADC187B4FA2D02DF5AB58E95 /* libPods-fieldworksdiaryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F27777561BB161F62A4F83B /* libPods-fieldworksdiaryTests.a */; };
 /* End PBXBuildFile section */
 
@@ -346,6 +347,7 @@
 				24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */,
 				24C38A1B18F463DB00CC7105 /* MapKit.framework in Frameworks */,
 				24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */,
+				3866192BF50D8A6659BD7430 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

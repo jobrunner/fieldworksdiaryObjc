@@ -52,47 +52,47 @@
 
     if (placemark == nil) {
         
-        return @"";
+        return nil;
     }
+    
+    NSArray *firstLineFields = @[@"country",
+                                 @"administrativeArea"];
+    
+    NSString *resultingFirstLine = [Placemark placemark:placemark
+                                                 fields:firstLineFields];
+        
+    NSArray *secondLineFields = @[@"subAdministrativeArea",
+                                  @"locality",
+                                  @"subLocality"];
+
+    NSString *resultingSecondLine = [Placemark placemark:placemark
+                                                  fields:secondLineFields];
+        
+    return [@[resultingFirstLine,
+              resultingSecondLine] componentsJoinedByString:@"\n"];
+}
+
++ (NSString *)placemark:(Placemark *)placemark fields:(NSArray *)fields {
     
     NSMutableArray *lineQueue = NSMutableArray.new;
-
-    NSArray *firstLineFields = @[placemark.country,
-                                 placemark.administrativeArea];
-
-    for (NSString *value in firstLineFields) {
-        if (value == nil || [value isEqualToString:@""]) {
-
-            continue;
-        }
+    
+    
+    for (NSString *field in fields) {
         
-        if (![lineQueue containsObject:value]) {
-            [lineQueue addObject:value];
+        NSString *value = (NSString *)[placemark valueForKey:field];
+        
+        if (value != nil) {
+            if (![value isEqualToString:@""]) {
+                if (![lineQueue containsObject:value]) {
+                    [lineQueue addObject:value];
+                }
+            }
         }
     }
     
-    NSString *resultingFirstLine = [lineQueue componentsJoinedByString:@", "];
-
-    [lineQueue removeAllObjects];
+    NSString *result = [lineQueue componentsJoinedByString:@", "];
     
-    NSArray *secondLineFields = @[placemark.subAdministrativeArea,
-                                  placemark.locality,
-                                  placemark.subLocality];
-
-    for (NSString *value in secondLineFields) {
-        if (value == nil || [value isEqualToString:@""]) {
-            
-            continue;
-        }
-
-        if (![lineQueue containsObject:value]) {
-            [lineQueue addObject:value];
-        }
-    }
-
-    NSString *resultingSecondLine = [lineQueue componentsJoinedByString:@", "];
-    
-    return [@[resultingFirstLine, resultingSecondLine] componentsJoinedByString:@"\n"];
+    return result;
 }
 
 @end
