@@ -285,8 +285,9 @@
                  ellipsoidCode:(NSString *)code
                          error:(NSError **)error {
 
-    char *c = [code UTF8String];
-    long err = Set_MGRS_Parameters(a, f, c);
+    const char *c = [code UTF8String];
+    
+    long err = Set_MGRS_Parameters(a, f, strdup(c));
     
     if (!err) {
         *error = nil;
