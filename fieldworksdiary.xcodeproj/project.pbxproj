@@ -53,6 +53,8 @@
 		24249B3619CC543700D2D01C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24249B3519CC543700D2D01C /* README.md */; };
 		24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3B19CC8BE400D2D01C /* Fieldtrip.m */; };
 		24249B3F19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */; };
+		24270E3F1CD9312C0024F2D5 /* ImageScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24270E3D1CD9312C0024F2D5 /* ImageScrollViewCell.m */; };
+		24270E401CD9312C0024F2D5 /* ImageScrollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24270E3E1CD9312C0024F2D5 /* ImageScrollViewCell.xib */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
 		24290E0919013BD8007BD8AF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 24290E0819013BD8007BD8AF /* .travis.yml */; };
 		2433604C1CA7F52900295FFA /* ActiveDateSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2433604B1CA7F52900295FFA /* ActiveDateSetting.m */; };
@@ -225,6 +227,9 @@
 		24249B3B19CC8BE400D2D01C /* Fieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fieldtrip.m; sourceTree = "<group>"; };
 		24249B3D19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsSpecimenNotesCell.h; sourceTree = "<group>"; };
 		24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
+		24270E3C1CD9312C0024F2D5 /* ImageScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewCell.h; sourceTree = "<group>"; };
+		24270E3D1CD9312C0024F2D5 /* ImageScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewCell.m; sourceTree = "<group>"; };
+		24270E3E1CD9312C0024F2D5 /* ImageScrollViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageScrollViewCell.xib; sourceTree = "<group>"; };
 		24290E06190138CA007BD8AF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		24290E0819013BD8007BD8AF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		2433604A1CA7F52900295FFA /* ActiveDateSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveDateSetting.h; sourceTree = "<group>"; };
@@ -387,6 +392,7 @@
 		24249B0819CB313700D2D01C /* SampleDetails */ = {
 			isa = PBXGroup;
 			children = (
+				24270E3B1CD930AE0024F2D5 /* ImageScrollViewCell */,
 				24249B0919CB314C00D2D01C /* SampleDetailsController.h */,
 				24249B0A19CB314C00D2D01C /* SampleDetailsController.m */,
 				24249AB319CB2F8700D2D01C /* SampleEditController.h */,
@@ -475,6 +481,16 @@
 				24249ABA19CB2F8800D2D01C /* FieldtripDetailsController.m */,
 			);
 			name = Fieldtrip;
+			sourceTree = "<group>";
+		};
+		24270E3B1CD930AE0024F2D5 /* ImageScrollViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				24270E3C1CD9312C0024F2D5 /* ImageScrollViewCell.h */,
+				24270E3D1CD9312C0024F2D5 /* ImageScrollViewCell.m */,
+				24270E3E1CD9312C0024F2D5 /* ImageScrollViewCell.xib */,
+			);
+			name = ImageScrollViewCell;
 			sourceTree = "<group>";
 		};
 		24290E0A19013BFF007BD8AF /* infra */ = {
@@ -977,6 +993,7 @@
 				24290E0919013BD8007BD8AF /* .travis.yml in Resources */,
 				249C627B1CC7E2AD005F77C1 /* RegionCell.xib in Resources */,
 				2433609E1CBA697F00295FFA /* reuse.doc in Resources */,
+				24270E401CD9312C0024F2D5 /* ImageScrollViewCell.xib in Resources */,
 				24290E07190138CA007BD8AF /* .gitignore in Resources */,
 				2433609D1CBA697F00295FFA /* abstract.doc in Resources */,
 				24249AA719CAF83B00D2D01C /* Podfile in Resources */,
@@ -1107,6 +1124,7 @@
 				243B6F3C1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m in Sources */,
 				24249AEB19CB30B800D2D01C /* fieldworksdiary.xcdatamodel in Sources */,
 				2433604C1CA7F52900295FFA /* ActiveDateSetting.m in Sources */,
+				24270E3F1CD9312C0024F2D5 /* ImageScrollViewCell.m in Sources */,
 				24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */,
 				24249B2119CB314C00D2D01C /* SampleDetailsPositionCell.m in Sources */,
 				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,

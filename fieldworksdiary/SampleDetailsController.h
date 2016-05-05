@@ -10,6 +10,8 @@
 @import CoreLocation;
 @import MapKit;
 
+#import "ImageScrollViewCell.h"
+
 @class Fieldtrip;
 
 @interface SampleDetailsController : UITableViewController <
@@ -18,7 +20,8 @@
     UITextFieldDelegate,
     MKMapViewDelegate,
     UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate>
+    UINavigationControllerDelegate,
+    ImageScrollViewCellDelegate>
 
 /*!
  *  Holds a reference to the locality model

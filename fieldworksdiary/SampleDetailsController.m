@@ -38,6 +38,7 @@
 #import "SampleDetailsPositionCell.h"
 #import "SampleDetailsPlacemarkCell.h"
 #import "SampleDetailsMapViewCell.h"
+#import "ImageScrollViewCell.h"
 #import "SpecimenDetailsTableViewController.h"
 
 #import "SampleDetailsFieldtripCell.h"
@@ -49,11 +50,9 @@
 #import "Fieldtrip.h"
 #import "Image.h"
 
-
-
 @interface SampleDetailsController ()
 
-
+@property (strong, nonatomic) ImageScrollViewCell *imageScrollViewCell;
 @property (strong, nonatomic) NSManagedObjectContext * managedObjectContext;
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (strong, nonatomic) CLLocation * location;
@@ -127,13 +126,14 @@
 
 - (void)takePhoto {
     
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    UIImagePickerController *picker = UIImagePickerController.new;
     
     picker.delegate = self;
-    picker.allowsEditing = NO;
-
+    
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.allowsEditing = YES;
+        picker.showsCameraControls = YES;
     } else {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
@@ -214,7 +214,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", filename]];
     
     NSLog(@"Full path to store picture: %@", filePath);
-
+    
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
@@ -323,13 +323,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.navigationItem.title = NSLocalizedString(@"New", @"Navigation-Titel Neuer Sample");
     
     // Create a default model
-    [_sample defaultsWithLocalityName:NSLocalizedString(@"Mein Fundort", nil)];
+    [_sample defaultsWithLocalityName:NSLocalizedString(@"My Locality", @"Mein Fundort")];
 
-
-//    [self drawLocalityFromModel];
-//    [self drawBeginDateFromModel];
-//    [self drawTimeZoneFromModel];
-    
     [self startLocationTracking];
 }
 
@@ -387,7 +382,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if (_sample == nil) {
         
         // create a new locality model
-            [self createNewModelForEditing];
+        [self createNewModelForEditing];
     } else {
 
         // show or edit a locality model
@@ -484,7 +479,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     // #0 Fundort ("Static")
     // #1 Specimens (dynamic)
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -492,24 +487,27 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     // Fieldtrip-Section
     if (section == 0) {
+        return 1;
+    }
+    
+    if (section == 1) {
         // #0 localityIdentifier (FieldtripDetailsLocalityIdentifierCell)
         // #1 specimenIdentifier (FieldtripDetailsSpecimenIdentifierCell)
         // #2 localityName (FieldtripDetailsLocationNameCell) -> must be FieldtripDetailsLocalityNameCell?!
         // #3 location details summary (FieldtripDetailsLocationCell)
         // #4 placemark (FieldtripDetailsPlacemarkCell)
         // #5 date details summary (FieldtripDetailsDateCell)
-        // #6 project (FieldtripDetailsProjectCell)
-        // #7 ImageMap (FieldtripDetailsStaticMapViewCell)
-        // #8 Images scroll view (FieldtripDetailsImagesScrollViewCell)
+        // #6 ImageMap (FieldtripDetailsStaticMapViewCell)
+        // #7 Images scroll view (FieldtripDetailsImagesScrollViewCell)
 
         return 8;
     }
 
-    // Specimens-Section
-    if (section == 1) {
-        // count of specimens - use data core here
-        return 0;
-    }
+//    // Specimens-Section
+//    if (section == 1) {
+//        // count of specimens - use data core here
+//        return 0;
+//    }
     
     // default
     return 0;
@@ -520,8 +518,73 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Fieldtrip section
     if (indexPath.section == 0) {
+        
+        // Images scroll view
+        if (indexPath.row == 0) {
+            static NSString *cellId = @"ImageScrollViewCell";
+            
+            ImageScrollViewCell *cell =
+            [tableView dequeueReusableCellWithIdentifier:cellId];
+            
+            if (!cell) {
+                [tableView registerNib:[UINib nibWithNibName:cellId
+                                                      bundle:nil]
+                forCellReuseIdentifier:cellId];
+                
+                cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+            }
+            
+            // cell.sample = _sample;
+            cell.delegate = self;
+            //            self.imageScrollViewCell = cell;
+            
+            
+            // das muss natürlich mit gecacheten Bilder laufen...
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            //                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Pictures"];
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            
+            // Does directory maps in users cache directory already exist? If not, try to create it.
+            if (![fileManager fileExistsAtPath:path]) {
+                
+                if (![fileManager createDirectoryAtPath:path
+                            withIntermediateDirectories:NO
+                                             attributes:nil
+                                                  error:nil]) {
+                    NSLog(@"could not create pictures cache directory");
+                    // return nil;
+                }
+            }
+            
+            
+            NSMutableArray *imageQueue = NSMutableArray.new;
+            
+            for (Image *image in _sample.images) {
+                
+                // create the full file path
+                NSString *filePath =
+                [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", image.filename]];
+                
+                NSData *imageMapData = [NSData dataWithContentsOfFile:filePath];
+                
+                if (imageMapData.length > 0) {
+                    [imageQueue addObject:[UIImage imageWithData:imageMapData]];
+                }
+            }
+            
+            [cell setImages:[imageQueue copy]];
+            
+            return cell;
+            
+        }
+    }
+
+    
+    // Fieldtrip section
+    if (indexPath.section == 1) {
 
         // specimen identifier text field (exc. number)
         if (indexPath.row == 0) {
@@ -606,27 +669,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             SampleDetailsPlacemarkCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
             cell.sample = _sample;
             
             return cell;
         }
 
-        // fieldtrip view
-//        if (indexPath.row == 6) {
-//            
-//            static NSString *cellId = @"SampleDetailsFieldtripCell";
-//
-//            SampleDetailsFieldtripCell *cell;
-//            cell = [tableView dequeueReusableCellWithIdentifier:cellId
-//                                                   forIndexPath:indexPath];
-//            [cell configureWithModel:_sample
-//                         atIndexPath:indexPath];
-//            return cell;
-//        }
-        
         // date view
-        // @todo: Refactor (war 7)
         if (indexPath.row == 6) {
             
             static NSString *cellId = @"SampleDetailsDateCell";
@@ -634,19 +682,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             SampleDetailsDateCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
-
-            // supress separator
-//            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-
             cell.sample = _sample;
-            
 //            [cell configureWithModel:_sample
 //                         atIndexPath:indexPath];
             return cell;
         }
 
         // Image Map
-        // @todo: Refactor (war 7)
         if (indexPath.row == 7) {
 
             SampleDetailsMapViewCell *cell;
@@ -657,16 +699,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             return cell;
         }
 
-        // Images scroll view
-        if (indexPath.row == 8) {
-//            FieldtripDetailsImagesScrollViewCell
-        }
     }
     
     // Specimens section
-    if (indexPath.section == 1) {
-        // Use here a predefined cell with cellStyle "label"
-    }
+//    if (indexPath.section == 1) {
+//        // Use here a predefined cell with cellStyle "label"
+//    }
     
     UITableViewCell * dummyCell;
     dummyCell = [tableView dequeueReusableCellWithIdentifier:@"DummyCell"
@@ -685,8 +723,12 @@ titleForHeaderInSection:(NSInteger)section {
 //        return @"Locality";
 //    }
 //
-    // Specimens-Section
     if (section == 0) {
+        return NSLocalizedString(@"Medien", nil);
+    }
+
+    // Specimens-Section
+    if (section == 1) {
         return NSLocalizedString(@"Sample", nil);
     }
     
@@ -701,32 +743,32 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // LocalityIdentifier (1)
     
     // SpecimenNotes
-    if (indexPath.section == 0 && (indexPath.row == 3)) {
+    if (indexPath.section == 1 && (indexPath.row == 3)) {
         
         return 97;
     }
     
     // Geographic Position
-    if (indexPath.section == 0 && indexPath.row == 4) {
+    if (indexPath.section == 1 && indexPath.row == 4) {
         
         // Wenn Geodetic Decimal mit Accuracy:
         return 71;
     }
     
     // Placemark
-    if (indexPath.section == 0 && indexPath.row == 5) {
+    if (indexPath.section == 1 && indexPath.row == 5) {
 
         return UITableViewAutomaticDimension;
     }
 
     // Date
-    if (indexPath.section == 0 && indexPath.row == 6) {
+    if (indexPath.section == 1 && indexPath.row == 6) {
 
         return UITableViewAutomaticDimension;
     }
 
     // MapView
-    if (indexPath.section == 0 && indexPath.row == 7) {
+    if (indexPath.section == 1 && indexPath.row == 7) {
 
         return 140;
     }
@@ -738,19 +780,19 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 willDisplayHeaderView:(UIView *)view
        forSection:(NSInteger)section {
     
-    if (section == 1) {
-        CGRect frame = tableView.frame;
-        
-        UIButton *addSpecimenButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-
-        addSpecimenButton.frame = CGRectMake(frame.size.width - 60, 0, 50, 30);
-
-        [addSpecimenButton addTarget:self
-                              action:@selector(addSpecimenToucheUpInside)
-                    forControlEvents:UIControlEventTouchUpInside];
-        
-        [view addSubview:addSpecimenButton];
-    }
+//    if (section == 1) {
+//        CGRect frame = tableView.frame;
+//        
+//        UIButton *addSpecimenButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//
+//        addSpecimenButton.frame = CGRectMake(frame.size.width - 60, 0, 50, 30);
+//
+//        [addSpecimenButton addTarget:self
+//                              action:@selector(addSpecimenToucheUpInside)
+//                    forControlEvents:UIControlEventTouchUpInside];
+//        
+//        [view addSubview:addSpecimenButton];
+//    }
 }
 
 - (void)addSpecimenToucheUpInside {
@@ -758,6 +800,15 @@ willDisplayHeaderView:(UIView *)view
     [self performSegueWithIdentifier:@"addSpecimenSegue"
                               sender:self];
 }
+
+- (void)imageScrollViewCell:(ImageScrollViewCell *)cell
+             didSelectImage:(id)item {
+    
+    NSLog(@"Nachricht von %@", cell);
+    NSLog(@"Der User hat auf die ImageScrollCell getappted. %@", item);
+    NSLog(@"Gallery öffnen...");
+}
+
 
 //-  (UIView *)tableView:(UITableView *)tableView
 //viewForHeaderInSection:(NSInteger)section

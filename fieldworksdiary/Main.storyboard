@@ -348,15 +348,15 @@ bis Montag den xten November</string>
                                     <segue destination="cHz-om-fJX" kind="push" identifier="openMapSegue" id="fRA-Ah-AeX"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleDetailsImageScrollViewCell" id="9Yo-tz-dTH" customClass="SampleDetailViewTableCell">
-                                <rect key="frame" x="0.0" y="661.5" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SampleDetailsImageScrollViewCell" rowHeight="60" id="9Yo-tz-dTH" customClass="SampleDetailViewTableCell">
+                                <rect key="frame" x="0.0" y="661.5" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Yo-tz-dTH" id="qkT-MZ-hxy">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEl-mb-bfy">
-                                            <rect key="frame" x="0.0" y="1" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="1" width="320" height="58.5"/>
                                         </scrollView>
                                     </subviews>
                                 </tableViewCellContentView>
