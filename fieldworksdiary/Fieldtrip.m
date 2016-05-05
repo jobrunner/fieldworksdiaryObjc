@@ -132,7 +132,8 @@
     NSDateComponents * dateComponents;
     
     // Sections on year/month basis:
-    dateComponents = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit
+    
+    dateComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth
                                  fromDate:date];
     
     // 20140000 <= 2014
