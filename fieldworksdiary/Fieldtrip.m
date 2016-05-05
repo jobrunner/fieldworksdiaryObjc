@@ -55,6 +55,7 @@
 @dynamic updateTime;
 @dynamic version;
 @dynamic isMarked;
+@dynamic isAutoPlacemark;
 
 + (void)initialize {
     

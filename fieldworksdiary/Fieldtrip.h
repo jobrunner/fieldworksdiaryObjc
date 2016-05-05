@@ -52,6 +52,7 @@
 @property (nonatomic, retain) NSDate * updateTime;
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSNumber * isMarked;
+@property (nonatomic, retain) NSNumber * isAutoPlacemark;
 
 @end
 
