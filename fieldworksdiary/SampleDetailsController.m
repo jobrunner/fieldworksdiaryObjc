@@ -105,7 +105,7 @@
     [self.managedObjectContext save:&error];
     
     if (error) {
-        NSLog(@"Error: %@", [error localizedDescription]);
+        NSLog(@"Error: %@", error.localizedDescription);
     }
     
     // go back to previous view in the navigation stack
@@ -320,7 +320,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     _sample = [NSEntityDescription insertNewObjectForEntityForName:@"Fieldtrip"
                                             inManagedObjectContext:self.managedObjectContext];
-    [self.navigationItem setTitle:@"New"];
+    self.navigationItem.title = NSLocalizedString(@"New", @"Navigation-Titel Neuer Sample");
     
     // Create a default model
     [_sample defaultsWithLocalityName:NSLocalizedString(@"Mein Fundort", nil)];
@@ -334,15 +334,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 }
 
 #pragma mark - ViewController Delegates
-
-//- (id)initWithStyle:(UITableViewStyle)style
-//{
-//    self = [super initWithStyle:style];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)managedObjectContextDidChange {
 
@@ -364,21 +355,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                  name:NSManagedObjectContextDidSaveNotification
                                                object:self.managedObjectContext];
     
-    
-    
-    // Because we want the Keybord return button working:
-//    self.localityNameTextField.delegate = self;
-
-    // Configure refresh controll
+//    // Configure refresh controll
 //    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
 //    refresh.tintColor = [UIColor grayColor];
-//    
 //    [refresh addTarget:self
 //                action:@selector(refreshTableView)
 //      forControlEvents:UIControlEventValueChanged];
-//    
 //    self.refreshControl = refresh;
-    
     
 	// We will observe "Placemark found" and "Placemark not found" notifications in
     // the method receivedNotification if they arrived in NotificationCenter
@@ -398,8 +381,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIBarButtonItem *btnCamera = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
                                                                                target:self
                                                                                action:@selector(takePhoto)];
-    
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnCurrent, btnCamera, nil]];
+    self.navigationItem.rightBarButtonItems = @[btnCurrent,
+                                                btnCamera];
     
     if (_sample == nil) {
         
@@ -410,18 +393,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // show or edit a locality model
         [self showExistingModelForEditing];
     }
-
-    // register custom cell "TextFieldCell" for queueing
-//    [self.tableView registerNib:[UINib nibWithNibName:[TextFieldCell reuseIdentifier]
-//                                               bundle:[NSBundle mainBundle]]
-//         forCellReuseIdentifier:[TextFieldCell reuseIdentifier]];
-    
-    //
-    
-    
-//    [self.tableView registerNib:[UINib nibWithNibName:[ImageViewCell reuseIdentifier]
-//                                               bundle:[NSBundle mainBundle]]
-//         forCellReuseIdentifier:[ImageViewCell reuseIdentifier]];
 }
 
 
