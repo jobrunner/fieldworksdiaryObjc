@@ -259,7 +259,7 @@
     // Standard: Keine Zeitintervall (anzeigen).
     self.isFullTime = @([ActiveDateSetting isActiveAllday]);
     self.isMarked = @NO;
-    self.timeZone = nil; // [NSTimeZone systemTimeZone];
+    self.timeZone = [NSTimeZone systemTimeZone];
     self.latitude = nil;
     self.longitude = nil;
     self.horizontalAccuracy = nil;
