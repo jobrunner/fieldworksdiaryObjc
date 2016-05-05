@@ -403,19 +403,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     if (_sample == nil) {
         
-        NSLog(@"create a new locality model");
         // create a new locality model
-        if (_startWithTakePicture == YES) {
-            
-            // 1) bool ist hier doof.
-            // 2) das Neuerstellen des Fieldtrips muss in einem Hintergrund-Thread gemacht und muss noch keine Map oder korrekte Placemarks enthalten. Wichtig ist aber, dass die images gespeichert worden sind
-            // 3) Doofe Frage: Das Foto-Feature macht ganz anders Sinn: Wenn es einen Recent Fieldtrip gibt, der kurzlich erstellt worden ist - d.h., in der "letzten" Sammelzeit (z.B. von Sonnenaufgang bis zum nächsten Sonnenaufgang und in einem Umkreis von vielleicht 1Km) wird das Bild autom. zum letzten Fieldtrip hinzugefügt. Ansonsten wird ein neuer Fieldtrip erstellt und das Bild dann hinzugefügt. DAs klingt etwas kompliziert - wenn der User nichts davon merkt, ist das gut. Sonst scheiße.
             [self createNewModelForEditing];
-        } else {
-            [self createNewModelForEditing];
-        }
     } else {
-        NSLog(@"show or edit a locality model");
+
         // show or edit a locality model
         [self showExistingModelForEditing];
     }

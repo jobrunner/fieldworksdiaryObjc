@@ -27,6 +27,6 @@
  */
 @property (strong, nonatomic) Fieldtrip *sample;
 
-@property BOOL startWithTakePicture;
+// @property BOOL startWithTakePicture;
 
 @end
