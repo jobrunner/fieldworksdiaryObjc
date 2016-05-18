@@ -115,8 +115,6 @@
     
 //    NSLog(@"updateUserInterface in SampleDetailsDateCell");
 
-    Fieldtrip *sample = _sample;
-    
     NSString *dateRangeString = [DateUtility formattedBeginDate:_sample.beginDate
                                                         endDate:_sample.endDate
                                                          allday:_sample.isFullTime.boolValue];
