@@ -122,13 +122,18 @@
                                                          allday:_sample.isFullTime.boolValue];
     self.beginDateLabel.text = dateRangeString;
 
-    if (_sample.isFullTime.boolValue) {
+    if (_sample.isFullTime.boolValue == YES) {
         
         self.timeZoneLabel.text = @"";
     }
     else {
-        NSString *timeZoneCaption = NSLocalizedString(@"Time zone", @"Time zone");
-        NSString *timeZoneString = [NSString stringWithFormat:@"%@: %@ (%@)", timeZoneCaption, sample.timeZone.name, _sample.timeZone.abbreviation];
+        NSString *timeZoneCaption = NSLocalizedString(@"Time zone",
+                                                      @"Time zone");
+        
+        NSString *timeZoneString = [NSString stringWithFormat:@"%@: %@ (%@)",
+                                    timeZoneCaption,
+                                    _sample.timeZone.name,
+                                    _sample.timeZone.abbreviation];
 
         self.timeZoneLabel.text = timeZoneString;
     }
@@ -152,7 +157,7 @@
         // Update sunrise and sunset times
         NSDateFormatter *sunriseSunsetDateFormatter = nil;
         if (sunriseSunsetDateFormatter == nil) {
-            sunriseSunsetDateFormatter = [[NSDateFormatter alloc] init];
+            sunriseSunsetDateFormatter = NSDateFormatter.new;
             sunriseSunsetDateFormatter.dateStyle = NSDateFormatterNoStyle;
             sunriseSunsetDateFormatter.timeStyle = NSDateFormatterShortStyle;
         }
