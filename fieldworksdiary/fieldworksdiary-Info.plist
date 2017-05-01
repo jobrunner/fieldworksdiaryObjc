@@ -28,6 +28,10 @@
 	<string>Location is required to find out where you are</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is required to find out where you are.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Camera is used to add pictures on fieldtrips</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Photo Library is used to add custom photos of fieldtrips</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
