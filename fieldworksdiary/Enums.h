@@ -84,10 +84,16 @@ typedef enum SwipeIconPadding : NSInteger {
     kSwipeIconPadding = 28
 } SwipeIconPadding;
 
+// for use in NSLocalizedString()
+#define kLocalizedTextSampleDetails              @"Sample Details"
+
+
 #define kNotificationDateUpdate                  @"update@date"
 #define kNotificationPlacemarkUpdate             @"update@placemark"
 #define kNotificationPlacemarkFailure            @"failure@placemark"
 #define kNotificationLocationUpdate              @"update@location"
+#define kNotificationLocationTrackingStart       @"start@location"
+#define kNotificationLocationTrackingStop        @"stop@location"
 #define kNotificationLocationFailure             @"failure@location"
 #define kNotificationSunriseSunsetTwilightUpdate @"update@SunriseSunsetTwilight"
 #define kNotificationFieldtripUpdate             @"update@fieldtrip"

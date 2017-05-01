@@ -33,10 +33,36 @@
                                                  name:kNotificationLocationUpdate
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(switchTrackerImageOn)
+                                                 name:kNotificationLocationTrackingStart
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(switchTrackerImageOff)
+                                                 name:kNotificationLocationTrackingStop
+                                               object:nil];
+    
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(updateLocationFailure)
 //                                                 name:kNotificationLocationFailure
 //                                               object:nil];
+}
+
+- (void)switchTrackerImageOn {
+    
+    // grün animieren:
+    _locationTrackerImage.animationImages = @[[UIImage imageNamed:@"satelite-on-1"],
+                                              [UIImage imageNamed:@"satelite-on-2"],
+                                              [UIImage imageNamed:@"satelite-on-3"],
+                                              [UIImage imageNamed:@"satelite-on-4"]];
+    _locationTrackerImage.animationDuration = 0.6f;
+    [_locationTrackerImage startAnimating];
+}
+
+- (void)switchTrackerImageOff {
+
+    [_locationTrackerImage stopAnimating];
 }
 
 - (void)setSample:(Fieldtrip *)sample
@@ -53,12 +79,16 @@
 
 - (void)updateUserInterface {
     
-    CLLocation * location = [self.sample location];
+    CLLocation * location = self.sample.location;
     
     if (location == nil) {
 
-        self.coordinatesLabel.text = @"No coordinates available";
-        self.coordinatesLabel.textColor = UIColor.redColor;
+        self.coordinatesTypeLabel.text = nil;
+        self.coordinatesTypeLabel.hidden = YES;
+        
+        self.coordinatesLabel.text = NSLocalizedString(@"No coordinates available",
+                                                       @"Sample Details");
+        // self.coordinatesLabel.textColor = UIColor.redColor;
 
         self.accuracyCaptionLabel.hidden = YES;
         self.altitudeCaptionLabel.hidden = YES;
@@ -78,7 +108,6 @@
     Conversion *conversion = Conversion.new;
 
     self.coordinatesTypeLabel.text = coordinateSystem.localizedSystemName;
-    
     self.coordinatesLabel.textColor = UIColor.darkGrayColor;
     self.coordinatesLabel.text = [conversion locationToCoordinates:location
                                                   coordinateSystem:coordinateSystem];

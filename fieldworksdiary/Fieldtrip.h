@@ -53,6 +53,9 @@
 @property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSNumber * isMarked;
 @property (nonatomic, retain) NSNumber * isAutoPlacemark;
+@property (nonatomic, retain) NSString * internalLocationId;
+
+
 
 @end
 

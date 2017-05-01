@@ -2,6 +2,8 @@
 
 @interface SampleDetailsPositionCell : UITableViewCell
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *locationTrackerImage;
 @property (weak, nonatomic) IBOutlet UILabel *coordinatesTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *coordinatesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *altitudeCaptionLabel;

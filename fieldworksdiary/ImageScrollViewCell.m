@@ -58,28 +58,25 @@
     }
 }
 
-
-//
-- (void)setImages:(NSArray *)images
-{
-    // _images = nil;
-    
-    [self addImages:images];
-}
-
 // Die Methode fügt UIImages hinzu.
 // D.h. sowohl ins Model, als auch Runterrechnen und anzeigen etc.
-- (void)addImages:(NSArray *)images {
+- (void)setImages:(NSArray *)images {
     
     if (!images) {
         
         return;
     }
     
-    // images ist ein NSArray von UIImage objecten
+    for (UIView *v in self.scrollView.subviews) {
+        if ([v isKindOfClass:[UIImageView class]] && v.tag > 0) {
+            [v removeFromSuperview];
+        }
+    }
     
-    // [_images addObjectsFromArray:images];
+    _lastWidth = 0.0;
     
+    NSInteger i = 0;
+
     for (UIImage *image in images) {
         
         // filenamen zu den originaldaten erzeugen
@@ -111,6 +108,7 @@
         
         imageView.userInteractionEnabled = YES;
         imageView.backgroundColor = _backgroundColor;
+        imageView.tag = ++i;
         
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]
                                                         initWithTarget:self

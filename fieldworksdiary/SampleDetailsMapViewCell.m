@@ -65,7 +65,8 @@
     self.mapView.mapType = MKMapTypeStandard;
     self.mapView.zoomEnabled = NO;
     self.mapView.scrollEnabled = NO;
-    self.mapView.contentScaleFactor = 2.0;
+    
+//    self.mapView.contentScaleFactor = 2.0;
     
     [self.contentView addSubview:self.mapView];
 }
@@ -171,9 +172,8 @@
 
     // Testwerte:
     // 1° ~ 111km / 0.01° ~ 1000m / 0.001° => 100m
-    double latitudeDelta = 0.1;        // 1000m
-    double longitudeDelta = 0.1;        // 1000m
-    
+    double latitudeDelta = 0.1;     // 1000m
+    double longitudeDelta = 0.1;    // 1000m
     double tolerance = 10.0/100.0;  // 10%
 
     region->center.latitude = [self round:sample.latitude.doubleValue
@@ -214,6 +214,7 @@
     }
     
     MKCoordinateRegion region;
+    
     [self region:&region
       fromSample:sample];
     
@@ -221,11 +222,27 @@
     
     [self.mapView setRegion:region
                    animated:NO];
+
+    // --------------
     
+    // kommt das mit in den SnapShot?! NEIN!
+    // Add an annotation
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    
+    point.coordinate = region.center;
+    point.title = @"160512/3";
+    // point.subtitle = @"I'm here!!!";
+    
+    [self.mapView addAnnotation:point];
+    
+    // ----------------
+
     MKMapSnapshotOptions *options = MKMapSnapshotOptions.new;
-    
     options.region = region;
     options.scale = UIScreen.mainScreen.scale;
+    
+    
+    [self.mapView layoutIfNeeded];
     options.size = self.mapView.frame.size;
     
     MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];

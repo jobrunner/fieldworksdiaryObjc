@@ -17,18 +17,8 @@
 
 @synthesize sample = _sample;
 
-
-//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-//{
-//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    if (self) {
-//        // Initialization code
-//    }
-//    return self;
-//}
-
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reverseGeocodeLocation)
                                                  name:kNotificationLocationUpdate
@@ -110,14 +100,16 @@
             [fieldset intersectSet: types];
             
             if ([fieldset count] > 0) {
-                NSString* key = [fieldset firstObject];
+                NSString* key = fieldset.firstObject;
                 NSString* longValue = [class objectForKey:@"long_name"];
                 
-                [location setValue:longValue forKey:key];
+                [location setValue:longValue
+                            forKey:key];
                 
                 if ([key isEqual:@"country"]) {
                     NSString* shortValue = [class objectForKey:@"short_name"];
-                    [location setValue:shortValue forKey:@"countryCodeIso"];
+                    [location setValue:shortValue
+                                forKey:@"countryCodeIso"];
                 }
             }
         }
@@ -141,7 +133,7 @@
     self.geocoderOperation =
     [ApplicationDelegate.geocoder geocodeWithLatitude:[_sample.latitude doubleValue]
                                             longitude:[_sample.longitude doubleValue]
-                                             language:@"de"
+                                             language:@"en"
                                            completion:^(NSDictionary *responseJSON) {
                                                
                                                NSLog(@"Geocode succeeded: %@", responseJSON);
@@ -216,7 +208,7 @@
 - (void)reverseGeocodeLocation {
     
     // CoreLocation Geocoding
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    CLGeocoder *geocoder = CLGeocoder.new;
     
     [geocoder reverseGeocodeLocation:[self.sample location]
                    completionHandler:^(NSArray *placemarks, NSError *error) {

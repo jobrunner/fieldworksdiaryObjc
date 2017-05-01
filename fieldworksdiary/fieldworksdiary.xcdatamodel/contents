@@ -16,6 +16,7 @@
         <attribute name="horizontalAccuracy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="inlandWater" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="internalLocationId" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAutoPlacemark" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isFullTime" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isInDaylight" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -136,7 +137,7 @@
     </entity>
     <elements>
         <element name="CollectingMethod" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="675"/>
+        <element name="Fieldtrip" positionX="0" positionY="0" width="128" height="690"/>
         <element name="Finding" positionX="0" positionY="0" width="128" height="180"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Media" positionX="9" positionY="153" width="128" height="45"/>

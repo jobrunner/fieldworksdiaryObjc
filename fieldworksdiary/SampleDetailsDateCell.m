@@ -1,6 +1,8 @@
 #import "SampleDetailsDateCell.h"
 #import "Fieldtrip.h"
 #import "DateUtility.h"
+#import "APTimeZones+FwdTimeZones.h"
+
 
 @implementation SampleDetailsDateCell
 
@@ -136,7 +138,19 @@
         self.timeZoneLabel.text = timeZoneString;
     }
     
+    
+    // testing an hack
+    // If this is cool, then move this to a Method calles
+    // - (CLLocation *)approximateLocation in Sample model
+    // which returns location or if nil, the timeZone hacked location.
+    if (_sample.location == nil) {
 
+        CLLocation *approximateLocation =
+        [[APTimeZones sharedInstance] approximateLocationFromeTimeZone:_sample.timeZone];
+
+        NSLog(@"info: %@", approximateLocation);
+    }
+    
     if (_sample.location == nil || _sample.sunrise == nil || _sample.sunset == nil) {
         _dayNightStatusImageView.hidden = YES;
         _sunriseLabel.text = nil;

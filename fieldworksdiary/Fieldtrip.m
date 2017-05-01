@@ -56,6 +56,8 @@
 @dynamic version;
 @dynamic isMarked;
 @dynamic isAutoPlacemark;
+@dynamic internalLocationId;
+
 
 + (void)initialize {
     

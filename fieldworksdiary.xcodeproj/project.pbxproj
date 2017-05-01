@@ -35,9 +35,6 @@
 		24249AF319CB30B800D2D01C /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AE819CB30B800D2D01C /* Collection.m */; };
 		24249AF419CB30B800D2D01C /* Placemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AEA19CB30B800D2D01C /* Placemark.m */; };
 		24249AF719CB30DF00D2D01C /* TimeZoneTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AF619CB30DF00D2D01C /* TimeZoneTransformer.m */; };
-		24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFA19CB311F00D2D01C /* ImageViewCell.m */; };
-		24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249AFC19CB311F00D2D01C /* TextFieldCell.m */; };
-		24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0419CB312C00D2D01C /* HomeTableViewCell.m */; };
 		24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0A19CB314C00D2D01C /* SampleDetailsController.m */; };
 		24249B1F19CB314C00D2D01C /* SampleDetailsLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0D19CB314C00D2D01C /* SampleDetailsLocationNameCell.m */; };
 		24249B2019CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B0F19CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m */; };
@@ -53,6 +50,7 @@
 		24249B3619CC543700D2D01C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 24249B3519CC543700D2D01C /* README.md */; };
 		24249B3C19CC8BE400D2D01C /* Fieldtrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3B19CC8BE400D2D01C /* Fieldtrip.m */; };
 		24249B3F19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */; };
+		2425E12E1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425E12D1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.m */; };
 		24270E3F1CD9312C0024F2D5 /* ImageScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24270E3D1CD9312C0024F2D5 /* ImageScrollViewCell.m */; };
 		24270E401CD9312C0024F2D5 /* ImageScrollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24270E3E1CD9312C0024F2D5 /* ImageScrollViewCell.xib */; };
 		24290E07190138CA007BD8AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 24290E06190138CA007BD8AF /* .gitignore */; };
@@ -194,12 +192,6 @@
 		24249AEA19CB30B800D2D01C /* Placemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Placemark.m; sourceTree = "<group>"; };
 		24249AF519CB30DF00D2D01C /* TimeZoneTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZoneTransformer.h; sourceTree = "<group>"; };
 		24249AF619CB30DF00D2D01C /* TimeZoneTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZoneTransformer.m; sourceTree = "<group>"; };
-		24249AF919CB311F00D2D01C /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
-		24249AFA19CB311F00D2D01C /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
-		24249AFB19CB311F00D2D01C /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
-		24249AFC19CB311F00D2D01C /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
-		24249B0319CB312C00D2D01C /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
-		24249B0419CB312C00D2D01C /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		24249B0919CB314C00D2D01C /* SampleDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsController.h; sourceTree = "<group>"; };
 		24249B0A19CB314C00D2D01C /* SampleDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsController.m; sourceTree = "<group>"; };
 		24249B0B19CB314C00D2D01C /* FieldtripDetailsCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldtripDetailsCellProtocol.h; sourceTree = "<group>"; };
@@ -228,6 +220,8 @@
 		24249B3B19CC8BE400D2D01C /* Fieldtrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fieldtrip.m; sourceTree = "<group>"; };
 		24249B3D19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsSpecimenNotesCell.h; sourceTree = "<group>"; };
 		24249B3E19CDA72400D2D01C /* SampleDetailsSpecimenNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsSpecimenNotesCell.m; sourceTree = "<group>"; };
+		2425E12C1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APTimeZones+FwdTimeZones.h"; sourceTree = "<group>"; };
+		2425E12D1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APTimeZones+FwdTimeZones.m"; sourceTree = "<group>"; };
 		24270E3C1CD9312C0024F2D5 /* ImageScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewCell.h; sourceTree = "<group>"; };
 		24270E3D1CD9312C0024F2D5 /* ImageScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewCell.m; sourceTree = "<group>"; };
 		24270E3E1CD9312C0024F2D5 /* ImageScrollViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageScrollViewCell.xib; sourceTree = "<group>"; };
@@ -279,6 +273,7 @@
 		243B6F3B1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsLocalityIdentifierCell.m; sourceTree = "<group>"; };
 		2441897F1EB774F800627A1F /* Diary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Diary.entitlements; sourceTree = "<group>"; };
 		244189801EB774FD00627A1F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		244189821EB79C0C00627A1F /* Travancianha.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Travancianha.gpx; sourceTree = "<group>"; };
 		2464C8461CBAC84A00821731 /* CoordinateSystemPickerSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemPickerSystemCell.h; sourceTree = "<group>"; };
 		2464C8471CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemPickerSystemCell.m; sourceTree = "<group>"; };
 		2464C8481CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordinateSystemPickerSystemCell.xib; sourceTree = "<group>"; };
@@ -354,6 +349,7 @@
 				24C389E818F455AE00CC7105 /* CoreGraphics.framework in Frameworks */,
 				24C389EA18F455AE00CC7105 /* UIKit.framework in Frameworks */,
 				24C38A1B18F463DB00CC7105 /* MapKit.framework in Frameworks */,
+				244189811EB774FD00627A1F /* CloudKit.framework in Frameworks */,
 				24C389E618F455AE00CC7105 /* Foundation.framework in Frameworks */,
 				3866192BF50D8A6659BD7430 /* libPods.a in Frameworks */,
 			);
@@ -491,6 +487,7 @@
 			children = (
 				24270E3C1CD9312C0024F2D5 /* ImageScrollViewCell.h */,
 				24270E3D1CD9312C0024F2D5 /* ImageScrollViewCell.m */,
+				244189821EB79C0C00627A1F /* Travancianha.gpx */,
 				24270E3E1CD9312C0024F2D5 /* ImageScrollViewCell.xib */,
 			);
 			name = ImageScrollViewCell;
@@ -786,19 +783,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24C38A1E18F46AE900CC7105 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				24249B0319CB312C00D2D01C /* HomeTableViewCell.h */,
-				24249B0419CB312C00D2D01C /* HomeTableViewCell.m */,
-				24249AF919CB311F00D2D01C /* ImageViewCell.h */,
-				24249AFA19CB311F00D2D01C /* ImageViewCell.m */,
-				24249AFB19CB311F00D2D01C /* TextFieldCell.h */,
-				24249AFC19CB311F00D2D01C /* TextFieldCell.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		24C38A1F18F46AFD00CC7105 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -879,6 +863,8 @@
 				2433604B1CA7F52900295FFA /* ActiveDateSetting.m */,
 				243360661CB8FDE100295FFA /* ActiveCoordinateSystem.h */,
 				243360671CB8FDE100295FFA /* ActiveCoordinateSystem.m */,
+				2425E12C1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.h */,
+				2425E12D1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -1110,6 +1096,7 @@
 			files = (
 				24249AC519CB2F8800D2D01C /* FieldtripDetailsController.m in Sources */,
 				2433609F1CBA697F00295FFA /* tranmerc.c in Sources */,
+				2425E12E1CDBC0E300EEECB7 /* APTimeZones+FwdTimeZones.m in Sources */,
 				243360961CBA697F00295FFA /* mgrs.c in Sources */,
 				24249AD719CB30A000D2D01C /* Crypto.m in Sources */,
 				2433606F1CB947B900295FFA /* CoordinateSystem.m in Sources */,
@@ -1138,11 +1125,9 @@
 				24270E3F1CD9312C0024F2D5 /* ImageScrollViewCell.m in Sources */,
 				24249B1E19CB314C00D2D01C /* SampleDetailsController.m in Sources */,
 				24249B2119CB314C00D2D01C /* SampleDetailsPositionCell.m in Sources */,
-				24249AFD19CB311F00D2D01C /* ImageViewCell.m in Sources */,
 				24AB3FD71C8624920014AE95 /* ActiveCollector.m in Sources */,
 				24AB3FDF1C8670E00014AE95 /* RecordStatistics.m in Sources */,
 				24249AED19CB30B800D2D01C /* Image.m in Sources */,
-				24249B0719CB312C00D2D01C /* HomeTableViewCell.m in Sources */,
 				24249B1F19CB314C00D2D01C /* SampleDetailsLocationNameCell.m in Sources */,
 				24249AD519CB30A000D2D01C /* Conversion.m in Sources */,
 				24249B3419CB608D00D2D01C /* MapController.m in Sources */,
@@ -1155,7 +1140,6 @@
 				24249B2019CB314C00D2D01C /* SampleDetailsSpecimenIdentifierCell.m in Sources */,
 				24249AEE19CB30B800D2D01C /* Project.m in Sources */,
 				2433605B1CA8A50C00295FFA /* TimeZoneCell.m in Sources */,
-				24249AFE19CB311F00D2D01C /* TextFieldCell.m in Sources */,
 				24249AF019CB30B800D2D01C /* CollectingMethod.m in Sources */,
 				24249B2419CB314C00D2D01C /* SampleDetailsMapViewCell.m in Sources */,
 				24AB3FE21C8B82C80014AE95 /* Formatter.m in Sources */,

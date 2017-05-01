@@ -57,7 +57,7 @@
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (strong, nonatomic) CLLocation * location;
 // @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) UIToolbar *toolbar;
+// @property (strong, nonatomic) UIToolbar *toolbar;
 
 // testing:
 //@property (weak, nonatomic) IBOutlet UIButton *locationUpdateButton;
@@ -67,6 +67,7 @@
 @property int locationUpdateTries;
 
 - (IBAction)editButtonTouched:(UIBarButtonItem *)sender;
+// - (IBAction)viewTapped:(UITapGestureRecognizer *)sender;
 
 //- (IBAction)localityNameTextFieldDidEndOnExit:(UITextField *)sender;
 //- (IBAction)saveButtonTouched:(UIBarButtonItem *)sender;
@@ -120,6 +121,11 @@
 - (IBAction)addSpecimen:(UIButton *)sender {
     
     [self performSegueWithIdentifier:@"addSpecimenSegue" sender:self];
+}
+
+- (IBAction)viewTapped:(UITapGestureRecognizer *)sender {
+    
+    NSLog(@"Tabbed: %@", sender);
 }
 
 #pragma mark - Take Pictures
@@ -298,7 +304,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 - (void)showExistingModelForEditing {
     
-    self.navigationItem.title = _sample.localityName;
+    self.navigationItem.title = @""; // _sample.localityName;
 
     // Prevent activating automatic location updates
 //    [self.locationUpdateButton setEnabled:NO];
@@ -320,10 +326,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     _sample = [NSEntityDescription insertNewObjectForEntityForName:@"Fieldtrip"
                                             inManagedObjectContext:self.managedObjectContext];
-    self.navigationItem.title = NSLocalizedString(@"New", @"Navigation-Titel Neuer Sample");
+    
+    self.navigationItem.title = @""; // NSLocalizedString(@"New", @"Navigation-Titel Neuer Sample");
     
     // Create a default model
-    [_sample defaultsWithLocalityName:NSLocalizedString(@"My Locality", @"Mein Fundort")];
+    [_sample defaultsWithLocalityName:NSLocalizedString(@"My Locality", kLocalizedTextSampleDetails)];
 
     [self startLocationTracking];
 }
@@ -371,63 +378,58 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 //                                               object:nil];
     
 
-    // add photo buttom in navigation bar
+    // {{{ add photo buttom in navigation bar
     UIBarButtonItem *btnCurrent = self.navigationItem.rightBarButtonItem;
     UIBarButtonItem *btnCamera = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
                                                                                target:self
                                                                                action:@selector(takePhoto)];
     self.navigationItem.rightBarButtonItems = @[btnCurrent,
                                                 btnCamera];
+    // }}}
+
+    
+        UIBarButtonItem *leftSpace =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                      target:nil
+                                                      action:nil];
+    
+//        UIBarButtonItem *rightSpace =
+//        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+//                                                      target:nil
+//                                                      action:nil];
+    
+    UIBarButtonItem *editBarItem =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                  target:self
+                                                  action:@selector(editButtonTouched:)];
+    [self setToolbarItems:@[leftSpace, editBarItem]
+                 animated:YES];
     
     if (_sample == nil) {
-        
-        // create a new locality model
         [self createNewModelForEditing];
     } else {
-
-        // show or edit a locality model
         [self showExistingModelForEditing];
     }
 }
 
-
 - (void)viewDidAppear:(BOOL)animated {
     
-    return;
+    [self.navigationController setToolbarHidden:YES
+                                       animated:NO];
+}
 
-    _toolbar = [[UIToolbar alloc] init];
-    _toolbar.barStyle = UIBarStyleDefault;
+- (void)viewWillDisappear:(BOOL)animated {
     
-    //Set the toolbar to fit the width of the app.
-    [_toolbar sizeToFit];
-    
-    //Caclulate the height of the toolbar
-    CGFloat toolbarHeight = [_toolbar frame].size.height;
-    
-    //Get the bounds of the parent view
-    CGRect viewBounds = self.parentViewController.view.bounds;
-    
-    //Get the height of the parent view.
-    CGFloat rootViewHeight = CGRectGetHeight(viewBounds);
-    
-    //Get the width of the parent view,
-    CGFloat rootViewWidth = CGRectGetWidth(viewBounds);
-    
-    //Create a rectangle for the toolbar
-    CGRect rectArea = CGRectMake(0, rootViewHeight - toolbarHeight, rootViewWidth, toolbarHeight);
-    
-    //Reposition and resize the receiver
-    [_toolbar setFrame:rectArea];
-    
-    //Add the toolbar as a subview to the navigation controller.
-    [self.navigationController.view addSubview:_toolbar];
+    [super viewWillDisappear:animated];
+
+    [self.navigationController setToolbarHidden:YES
+                                       animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
     
-    [_toolbar removeFromSuperview];
     [self stopLocationTracking];
 }
 
@@ -477,9 +479,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 // in the section header which triggers an segue to specimen controller
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    // #0 Fundort ("Static")
-    // #1 Specimens (dynamic)
-    return 2;
+    // #0 Medien (erst offen, wenn Medien verfügbar sind - test)
+    // #1 Sample
+    // #2 Location and Time
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -487,7 +490,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     // Fieldtrip-Section
     if (section == 0) {
-        return 1;
+        
+        // wenn Medien da sind, öffnen
+        return ([_sample.images count] > 0) ? 1 : 0;
     }
     
     if (section == 1) {
@@ -500,16 +505,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         // #6 ImageMap (FieldtripDetailsStaticMapViewCell)
         // #7 Images scroll view (FieldtripDetailsImagesScrollViewCell)
 
-        return 8;
+        return 4; // (SampleIdentifier, LocalityIdentifier, localityName, notes)
     }
 
-//    // Specimens-Section
-//    if (section == 1) {
-//        // count of specimens - use data core here
-//        return 0;
-//    }
+    if (section == 2) {
+        return 4; // (position, placemark, date, map)
+    }
     
-    // default
     return 0;
 }
 
@@ -637,9 +639,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             
             return cell;
         }
+    }
 
+    if (indexPath.section == 2) {
+        
         // position view
-        if (indexPath.row == 4) {
+//        if (indexPath.row == 4) {
+        if (indexPath.row == 0) {
             
             // je nach Koordinatenformat die entsprechende Cell auswählen!
             // Die Höhe und der Inhalt unterscheiden sich ebenfall.
@@ -662,7 +668,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
         
         // placemark view
-        if (indexPath.row == 5) {
+//        if (indexPath.row == 5) {
+        if (indexPath.row == 1) {
             
             static NSString *cellId = @"SampleDetailsPlacemarkCell";
 
@@ -675,7 +682,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // date view
-        if (indexPath.row == 6) {
+//        if (indexPath.row == 6) {
+        if (indexPath.row == 2) {
             
             static NSString *cellId = @"SampleDetailsDateCell";
 
@@ -689,7 +697,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
 
         // Image Map
-        if (indexPath.row == 7) {
+//        if (indexPath.row == 7) {
+        if (indexPath.row == 3) {
 
             SampleDetailsMapViewCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:@"SampleDetailsMapViewCell"
@@ -714,22 +723,39 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     return dummyCell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView
+heightForHeaderInSection:(NSInteger)section {
+
+    if (section == 0) {
+        
+        return _sample.images.count > 0 ? 44.0 : 0.01;
+    }
+    
+    return 44.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForFooterInSection:(NSInteger)section {
+
+    return 0.01;
+}
+
 
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section {
     
-    // Locality-Section
-//    if (section == 0) {
-//        return @"Locality";
-//    }
-//
     if (section == 0) {
-        return NSLocalizedString(@"Medien", nil);
+        return _sample.images.count > 0 ? NSLocalizedString(@"Medien", kLocalizedTextSampleDetails) : nil;
     }
 
     // Specimens-Section
     if (section == 1) {
-        return NSLocalizedString(@"Sample", nil);
+        return NSLocalizedString(@"Sample", kLocalizedTextSampleDetails);
+    }
+
+    // Specimens-Section
+    if (section == 2) {
+        return NSLocalizedString(@"Location and Time", kLocalizedTextSampleDetails);
     }
     
     return @"";
@@ -738,42 +764,7 @@ titleForHeaderInSection:(NSInteger)section {
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // SpecimenIdentifier (0)
-    // LocalityName (2)
-    // LocalityIdentifier (1)
-    
-    // SpecimenNotes
-    if (indexPath.section == 1 && (indexPath.row == 3)) {
-        
-        return 97;
-    }
-    
-    // Geographic Position
-    if (indexPath.section == 1 && indexPath.row == 4) {
-        
-        // Wenn Geodetic Decimal mit Accuracy:
-        return 71;
-    }
-    
-    // Placemark
-    if (indexPath.section == 1 && indexPath.row == 5) {
-
-        return UITableViewAutomaticDimension;
-    }
-
-    // Date
-    if (indexPath.section == 1 && indexPath.row == 6) {
-
-        return UITableViewAutomaticDimension;
-    }
-
-    // MapView
-    if (indexPath.section == 1 && indexPath.row == 7) {
-
-        return 140;
-    }
-    
-    return 44;
+    return UITableViewAutomaticDimension;
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -837,14 +828,6 @@ willDisplayHeaderView:(UIView *)view
 //    return nil;
 //}
 
-//#pragma mark - UIAlertViewDelegate
-//
-//??? kommt noch von der Switch-Implementierung, die jetzt über den Toggle-Button wieder verwendet werden müsste...
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    [self resetGpsStatusControl];
-//}
-
 #pragma mark - CLLocationManager
 
 // initializes and configures the location manager
@@ -871,7 +854,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     // NSLog(@"locationMager:didChangeAuthorizationStatus: status: %u", status);
 }
 
-
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     
@@ -879,6 +861,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationFailure
                                                         object:self];
+
+    // @depricate change it!
     UIAlertView *errorAlert;
     errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                             message:NSLocalizedString(@"Failed to get your Location", nil)
@@ -890,6 +874,9 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationTrackingStart
+                                                        object:self];
     
     CLLocation * location = [locations lastObject];
 
@@ -1290,7 +1277,10 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
 
 - (void)startLocationTracking {
     
-    self.locationManager = [[CLLocationManager alloc] init];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationTrackingStart
+                                                        object:self];
+    
+    self.locationManager = CLLocationManager.new;
     self.locationManager.delegate = self;
   
     // for iOS 8+
@@ -1327,6 +1317,11 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     
 //    [self.refreshControl endRefreshing];
     [self destroyLocationManager];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLocationTrackingStop
+                                                        object:self];
+    
 }
 
 #pragma mark - Calculation - 
