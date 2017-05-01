@@ -20,7 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-- (void)addImages:(NSArray *)images;
+- (void)setImages:(NSArray *)images;
 
 @end
 

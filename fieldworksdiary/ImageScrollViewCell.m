@@ -49,8 +49,8 @@
 }
 
 
-- (void)setDelegate:(id <ImageScrollViewCellDelegate>)delegate
-{
+- (void)setDelegate:(id <ImageScrollViewCellDelegate>)delegate {
+    
     if (_delegate != delegate) {
         _delegate = delegate;
         
@@ -120,15 +120,11 @@
         self.scrollView.contentSize = CGSizeMake(_lastWidth, 44);
         [self.scrollView addSubview:imageView];
     }
-    
-    
 }
 
 
-
-
-- (IBAction)handleTouch:(UITapGestureRecognizer *)sender
-{
+- (IBAction)handleTouch:(UITapGestureRecognizer *)sender {
+    
     // muss nicht sender sein, kann jede Info sein, die benötigt wird, um dieses Bild
     // in voller Größe darzustellen
     [self.delegate imageScrollViewCell:self
