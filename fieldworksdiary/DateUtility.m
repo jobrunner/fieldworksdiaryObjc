@@ -51,7 +51,7 @@
 + (BOOL)isDateSameDay:(NSDate *)firstDate
                asDate:(NSDate *)secondDate {
     
-    NSCalendarUnit compareFlags = NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
+    NSCalendarUnit compareFlags = NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear;
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *firstDateComponent = [calendar components:compareFlags
@@ -66,7 +66,7 @@
 + (BOOL)isDateSameMonth:(NSDate *)firstDate
                  asDate:(NSDate *)secondDate {
     
-    NSCalendarUnit compareFlags = NSMonthCalendarUnit|NSYearCalendarUnit;
+    NSCalendarUnit compareFlags = NSCalendarUnitMonth|NSCalendarUnitYear;
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *firstDateComponent = [calendar components:compareFlags
@@ -81,7 +81,7 @@
 + (BOOL)isDateSameYear:(NSDate *)firstDate
                 asDate:(NSDate *)secondDate {
     
-    NSCalendarUnit compareFlags = NSYearCalendarUnit;
+    NSCalendarUnit compareFlags = NSCalendarUnitYear;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *firstDateComponent = [calendar components:compareFlags
@@ -96,7 +96,7 @@
 + (BOOL)isDateSameMinute:(NSDate *)firstDate
                 asDate:(NSDate *)secondDate {
  
-    NSCalendarUnit compareFlags = NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit;
+    NSCalendarUnit compareFlags = NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitHour|NSCalendarUnitMinute;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *firstDateComponent = [calendar components:compareFlags
