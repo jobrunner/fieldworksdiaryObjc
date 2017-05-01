@@ -86,6 +86,7 @@
 		243360B01CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243360AE1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.m */; };
 		243360B11CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243360AF1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib */; };
 		243B6F3C1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B6F3B1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m */; };
+		244189811EB774FD00627A1F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244189801EB774FD00627A1F /* CloudKit.framework */; };
 		2464C8491CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2464C8471CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m */; };
 		2464C84A1CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2464C8481CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib */; };
 		2464C84E1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2464C84C1CBACFEF00821731 /* CoordinateSystemPickerFormatCell.m */; };
@@ -276,6 +277,8 @@
 		243360AF1CBABF1700295FFA /* CoordinateSystemPickerDatumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordinateSystemPickerDatumCell.xib; sourceTree = "<group>"; };
 		243B6F3A1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDetailsLocalityIdentifierCell.h; sourceTree = "<group>"; };
 		243B6F3B1C7156C100C9164E /* SampleDetailsLocalityIdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDetailsLocalityIdentifierCell.m; sourceTree = "<group>"; };
+		2441897F1EB774F800627A1F /* Diary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Diary.entitlements; sourceTree = "<group>"; };
+		244189801EB774FD00627A1F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2464C8461CBAC84A00821731 /* CoordinateSystemPickerSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemPickerSystemCell.h; sourceTree = "<group>"; };
 		2464C8471CBAC84A00821731 /* CoordinateSystemPickerSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateSystemPickerSystemCell.m; sourceTree = "<group>"; };
 		2464C8481CBAC84A00821731 /* CoordinateSystemPickerSystemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordinateSystemPickerSystemCell.xib; sourceTree = "<group>"; };
@@ -711,6 +714,7 @@
 		24C389E418F455AE00CC7105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				244189801EB774FD00627A1F /* CloudKit.framework */,
 				24AB3FC71C80B11F0014AE95 /* MessageUI.framework */,
 				24AB3FC51C7FC2C10014AE95 /* libPods-MGSwipeTableCell.a */,
 				24A05E641C728CE000DD6458 /* libPods.a */,
@@ -731,11 +735,11 @@
 		24C389EB18F455AE00CC7105 /* fieldworksdiary */ = {
 			isa = PBXGroup;
 			children = (
+				2441897F1EB774F800627A1F /* Diary.entitlements */,
 				24249AC919CB307000D2D01C /* AppDelegate.h */,
 				24249ACA19CB307000D2D01C /* AppDelegate.m */,
 				24249AC819CB303B00D2D01C /* Enums.h */,
 				24C38A2018F46B0400CC7105 /* Models */,
-				24C38A1E18F46AE900CC7105 /* View */,
 				24C38A1F18F46AFD00CC7105 /* Controller */,
 				24C38A2118F46C2700CC7105 /* Library */,
 				24C389FD18F455AE00CC7105 /* Images.xcassets */,
@@ -951,7 +955,14 @@
 				TargetAttributes = {
 					24C389E118F455AE00CC7105 = {
 						DevelopmentTeam = L79BTFY6FV;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
 							com.apple.iOS = {
 								enabled = 1;
 							};
@@ -1295,7 +1306,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = fieldworksdiary/Diary.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = L79BTFY6FV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
@@ -1304,8 +1317,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = de.mayflower.jo.fieldworksdiary;
 				PRODUCT_NAME = Diary;
+				PROVISIONING_PROFILE = "ec2fcc66-b448-4f0f-a505-b948c5d490cb";
+				PROVISIONING_PROFILE_SPECIFIER = "Fieldworks Diary Dev";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1316,7 +1331,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = fieldworksdiary/Diary.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = L79BTFY6FV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fieldworksdiary/fieldworksdiary-Prefix.pch";
 				INFOPLIST_FILE = "fieldworksdiary/fieldworksdiary-Info.plist";
@@ -1325,8 +1342,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.mayflower.jo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = de.mayflower.jo.fieldworksdiary;
 				PRODUCT_NAME = Diary;
+				PROVISIONING_PROFILE = "ec2fcc66-b448-4f0f-a505-b948c5d490cb";
+				PROVISIONING_PROFILE_SPECIFIER = "Fieldworks Diary Dev";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
