@@ -14,18 +14,9 @@
 
 @synthesize sample = _sample;
 
-
-//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-//{
-//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    if (self) {
-//        // Initialization code
-//    }
-//    return self;
-//}
-
-
 - (void)awakeFromNib {
+    
+    [super awakeFromNib];
     
     _locationNameTextField.delegate = self;
 }
@@ -50,20 +41,6 @@
 }
 
 
-//- (NSString *)reuseIdentifier
-//{
-//    return [FieldtripDetailsLocationNameCell reuseIdentifier];
-//}
-
-
-//+ (NSString *)reuseIdentifier
-//{
-//    static NSString *identifier = @"FieldtripDetailsLocationNameCell";
-//    
-//    return identifier;
-//}
-
-
 #pragma mark - IBActions -
 
 
@@ -72,7 +49,9 @@
     _sample.localityName = _locationNameTextField.text;
 }
 
+
 #pragma mark - UITextFieldDelegate -
+
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {
     

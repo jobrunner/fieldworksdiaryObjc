@@ -5,17 +5,9 @@
 
 @synthesize sample = _sample;
 
-
-//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-//{
-//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    if (self) {
-//        // Initialization code
-//    }
-//    return self;
-//}
-
 - (void)awakeFromNib {
+    
+    [super awakeFromNib];
     
     _specimenNotesTextView.delegate = self;
 }
@@ -27,29 +19,15 @@
     [self updateUserInterface];
 }
 
-
 - (Fieldtrip *)sample {
     
     return _sample;
 }
 
-
 - (void)updateUserInterface {
     
     _specimenNotesTextView.text = _sample.specimenNotes;
 }
-
-//- (NSString *)reuseIdentifier {
-//    
-//    return [FieldtripDetailsSpecimenNotesCell reuseIdentifier];
-//}
-
-//+ (NSString *)reuseIdentifier {
-//    
-//    static NSString *identifier = @"FieldtripDetailsSpecimenNotesCell";
-//    
-//    return identifier;
-//}
 
 #pragma mark - IBActions -
 

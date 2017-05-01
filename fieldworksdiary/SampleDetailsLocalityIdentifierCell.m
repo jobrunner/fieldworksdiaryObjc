@@ -26,6 +26,8 @@
 
 - (void)awakeFromNib {
     
+    [super awakeFromNib];
+    
     _localityIdentifierTextField.delegate = self;
 }
 

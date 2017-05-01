@@ -27,8 +27,10 @@
     
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
+    [super awakeFromNib];
+    
     //    [[NSNotificationCenter defaultCenter] addObserver:self
     //                                             selector:@selector(addImage:)
     //                                                 name:@"kNotificationPictureAdded"
