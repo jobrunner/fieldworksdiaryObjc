@@ -12,13 +12,10 @@
  */
 @property (nonatomic, weak) id<ImageScrollViewCellDelegate> delegate;
 
-/**
- * Dictionary with image paths
- */
-@property (nonatomic, strong) NSMutableSet *images;
 @property (nonatomic, strong) UIColor *backgroundColor;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 
 - (void)setImages:(NSArray *)images;
 

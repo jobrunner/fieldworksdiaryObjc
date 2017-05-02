@@ -12,6 +12,7 @@
     _specimenNotesTextView.delegate = self;
 }
 
+
 - (void)setSample:(Fieldtrip *)sample {
     
     _sample = sample;
@@ -38,6 +39,21 @@
 
 
 #pragma mark - UITextViewDelegate -
+
+/**
+ * Makes it possible to expand text view during input.
+ * It's a hack that stabilizes autolayout animations during text changes.
+ */
+- (void)textViewDidChange:(UITextView *)textView {
+    
+    CGPoint currentOffset = [self.tableView contentOffset];
+    [UIView setAnimationsEnabled:NO];
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [UIView setAnimationsEnabled:YES];
+    [self.tableView setContentOffset:currentOffset
+                            animated:NO];
+}
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     

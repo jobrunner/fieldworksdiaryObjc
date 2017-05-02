@@ -7,15 +7,11 @@
 //
 
 #import "ImageScrollViewCell.h"
-// #import "Crypto.h"
 
 @interface ImageScrollViewCell()
 
-//@property (nonatomic, strong) UIScrollView *scrollView;
-
 @property NSMutableArray * imageWidths;
 @property CGFloat lastContentOffset;
-@property CGFloat lastWidth;
 
 @end
 
@@ -31,11 +27,6 @@
     
     [super awakeFromNib];
     
-    //    [[NSNotificationCenter defaultCenter] addObserver:self
-    //                                             selector:@selector(addImage:)
-    //                                                 name:@"kNotificationPictureAdded"
-    //                                               object:nil];
-    
     _scrollView.autoresizingMask = UIViewAutoresizingNone;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
@@ -43,9 +34,6 @@
     _scrollView.pagingEnabled = NO;
     _scrollView.bounces = YES;
     _scrollView.delegate = self;
-    
-    // muss anhand der eingefügten Bilder neu berechnet werden
-    _lastWidth = 0.0;
 }
 
 
@@ -55,10 +43,9 @@
         _delegate = delegate;
         
         delegateRespondsTo.didSelectImage = [_delegate respondsToSelector:@selector(imageScrollViewCell:didSelectImage:)];
-        //        delegateRespondsTo.didSelectImage = [_delegate respondsToSelector:@selector(imageScrollCell:willUpdateImage:)];
-        //        delegateRespondsTo.didSelectImage = [_delegate respondsToSelector:@selector(imageScrollCell:didFinishAddImage:)];
     }
 }
+
 
 // Die Methode fügt UIImages hinzu.
 // D.h. sowohl ins Model, als auch Runterrechnen und anzeigen etc.
@@ -75,8 +62,7 @@
         }
     }
     
-    _lastWidth = 0.0;
-    
+    CGFloat lastWidth = 0.0;
     NSInteger i = 0;
 
     for (UIImage *image in images) {
@@ -104,9 +90,9 @@
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:thumbnail];
         
-        imageView.frame = CGRectMake(_lastWidth, 0, size.width, size.height);
+        imageView.frame = CGRectMake(lastWidth, 0, size.width, size.height);
         
-        _lastWidth = _lastWidth + size.width;
+        lastWidth = lastWidth + size.width;
         
         imageView.userInteractionEnabled = YES;
         imageView.backgroundColor = _backgroundColor;
@@ -117,7 +103,7 @@
                                                         action:@selector(handleTouch:)];
         [imageView addGestureRecognizer:tapGestureRecognizer];
         
-        self.scrollView.contentSize = CGSizeMake(_lastWidth, 44);
+        self.scrollView.contentSize = CGSizeMake(lastWidth, 44);
         [self.scrollView addSubview:imageView];
     }
 }
@@ -125,10 +111,10 @@
 
 - (IBAction)handleTouch:(UITapGestureRecognizer *)sender {
     
-    // muss nicht sender sein, kann jede Info sein, die benötigt wird, um dieses Bild
-    // in voller Größe darzustellen
+    UIImageView *imageView = (UIImageView *)sender.view;
+    
     [self.delegate imageScrollViewCell:self
-                    didSelectImage:sender];
+                    didSelectImage:imageView.image];
 }
 
 

@@ -347,11 +347,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [super viewDidLoad];
     
     // fallback to standard hight for unreachable autolayout constrains
-    self.tableView.estimatedRowHeight = 44.0;
+
+    self.tableView.rowHeight = 58.0;
+    self.tableView.estimatedRowHeight = 58.0;
 
     // get core data stack
     self.managedObjectContext = ApplicationDelegate.managedObjectContext;
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(managedObjectContextDidChange)
                                                  name:NSManagedObjectContextDidSaveNotification
@@ -635,6 +637,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             SampleDetailsSpecimenNotesCell *cell;
             cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                    forIndexPath:indexPath];
+            cell.tableView = self.tableView;
             cell.sample = _sample;
             
             return cell;
@@ -728,7 +731,13 @@ heightForHeaderInSection:(NSInteger)section {
 
     if (section == 0) {
         
-        return _sample.images.count > 0 ? 44.0 : 0.01;
+        return 0.01;
+//         return _sample.images.count > 0 ? 44.0 : 0.01;
+    }
+    
+    // "Sample" ausblenden
+    if (section == 1) {
+        return 0.01;
     }
     
     return 44.0;
@@ -745,12 +754,14 @@ heightForFooterInSection:(NSInteger)section {
 titleForHeaderInSection:(NSInteger)section {
     
     if (section == 0) {
-        return _sample.images.count > 0 ? NSLocalizedString(@"Medien", kLocalizedTextSampleDetails) : nil;
+        return nil;
+        // return _sample.images.count > 0 ? NSLocalizedString(@"Medien", kLocalizedTextSampleDetails) : nil;
     }
 
     // Specimens-Section
     if (section == 1) {
-        return NSLocalizedString(@"Sample", kLocalizedTextSampleDetails);
+        return nil;
+        // return NSLocalizedString(@"Sample", kLocalizedTextSampleDetails);
     }
 
     // Specimens-Section
@@ -792,8 +803,14 @@ willDisplayHeaderView:(UIView *)view
                               sender:self];
 }
 
+
+#pragma mark ImageScrollViewCell delegate
+
+
 - (void)imageScrollViewCell:(ImageScrollViewCell *)cell
              didSelectImage:(id)item {
+
+    // Triggers an ImageViewer
     
     NSLog(@"Nachricht von %@", cell);
     NSLog(@"Der User hat auf die ImageScrollCell getappted. %@", item);
