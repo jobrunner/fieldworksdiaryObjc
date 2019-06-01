@@ -67,13 +67,25 @@
 
     NSString *resultingSecondLine = [Placemark placemark:placemark
                                                   fields:secondLineFields];
+
+    NSMutableArray *lineQueue = NSMutableArray.new;
+
+    if (resultingFirstLine != nil) {
+        [lineQueue addObject:resultingFirstLine];
+    }
+    if (resultingSecondLine != nil) {
+        [lineQueue addObject:resultingSecondLine];
+    }
+
     if ((resultingFirstLine == nil) && (resultingSecondLine == nil)) {
-        
         return NSLocalizedString(@"No statement of place", @"Sample Details");
     }
-    
-    return [@[resultingFirstLine,
-              resultingSecondLine] componentsJoinedByString:@"\n"];
+
+    if (lineQueue.count == 0) {
+        return NSLocalizedString(@"No statement of place", @"Sample Details");
+    }
+
+    return [lineQueue componentsJoinedByString:@"\n"];
 }
 
 + (NSString *)placemark:(Placemark *)placemark fields:(NSArray *)fields {

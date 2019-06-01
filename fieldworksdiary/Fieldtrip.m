@@ -247,7 +247,7 @@
     
     // self.localityIdentifier = nil;
     
-    if (YES) {
+    if (/* DISABLES CODE */ (YES)) {
         self.beginDate = [NSDate date];
     }
     else {
