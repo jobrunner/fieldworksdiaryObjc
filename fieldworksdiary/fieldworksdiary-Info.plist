@@ -24,14 +24,14 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used to add pictures on fieldtrips</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Location is required to find out where you are</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is required to find out where you are.</string>
-    <key>NSCameraUsageDescription</key>
-    <string>Camera is used to add pictures on fieldtrips</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Photo Library is used to add custom photos of fieldtrips</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library is used to add custom photos of fieldtrips</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
@@ -40,6 +40,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
